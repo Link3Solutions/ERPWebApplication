@@ -205,6 +205,7 @@
     <Content Include="Images\orderedList7.png" />
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
+    <Content Include="ModuleName\Inventory\TransactionPage\frm_item.aspx" />
     <Content Include="ModuleName\Inventory\TransactionPage\frm_item_issue.aspx" />
     <Content Include="ModuleName\Inventory\TransactionPage\frm_item_requisition.aspx" />
     <Content Include="ModuleName\Inventory\TransactionPage\WebFormFormat.aspx" />
@@ -307,6 +308,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleName\Inventory\TransactionPage\frm_item.aspx.cs">
+      <DependentUpon>frm_item.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuleName\Inventory\TransactionPage\frm_item.aspx.designer.cs">
+      <DependentUpon>frm_item.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModuleName\Inventory\TransactionPage\frm_item_issue.aspx.cs">
       <DependentUpon>frm_item_issue.aspx</DependentUpon>

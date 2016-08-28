@@ -10,7 +10,7 @@
 namespace ERPWebApplication.ModuleName.Inventory.TransactionPage {
     
     
-    public partial class frm_item_issue {
+    public partial class frm_item {
         
         /// <summary>
         /// uppnl1 control.
@@ -22,13 +22,22 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage {
         protected global::System.Web.UI.UpdatePanel uppnl1;
         
         /// <summary>
-        /// lblwhere control.
+        /// tblmas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblwhere;
+        protected global::System.Web.UI.HtmlControls.HtmlTable tblmas;
+        
+        /// <summary>
+        /// tblsearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTable tblsearch;
         
         /// <summary>
         /// pnlsearch control.
@@ -49,6 +58,15 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage {
         protected global::System.Web.UI.WebControls.ImageButton header_ToggleImage1;
         
         /// <summary>
+        /// Label11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label11;
+        
+        /// <summary>
         /// pnlsearchrequisition control.
         /// </summary>
         /// <remarks>
@@ -58,13 +76,13 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage {
         protected global::System.Web.UI.WebControls.Panel pnlsearchrequisition;
         
         /// <summary>
-        /// txtsearchreq0 control.
+        /// TextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtsearchreq0;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
         
         /// <summary>
         /// btnsearch control.
@@ -94,6 +112,15 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage {
         protected global::AjaxControlToolkit.CollapsiblePanelExtender CollapsiblePanelExtender5;
         
         /// <summary>
+        /// searchbottom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl searchbottom;
+        
+        /// <summary>
         /// tbladvsearch control.
         /// </summary>
         /// <remarks>
@@ -101,6 +128,15 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTable tbladvsearch;
+        
+        /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
         /// txtrequisitionid control.
@@ -112,40 +148,85 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage {
         protected global::System.Web.UI.WebControls.TextBox txtrequisitionid;
         
         /// <summary>
-        /// txtfrmdate control.
+        /// Label5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtfrmdate;
+        protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// ImageButton4 control.
+        /// txtrequisitionid1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton4;
+        protected global::System.Web.UI.WebControls.TextBox txtrequisitionid1;
         
         /// <summary>
-        /// txtitmcode control.
+        /// imgbtnadsearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtitmcode;
+        protected global::System.Web.UI.WebControls.ImageButton imgbtnadsearch;
         
         /// <summary>
-        /// txttodate control.
+        /// Label3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txttodate;
+        protected global::System.Web.UI.WebControls.Label Label3;
+        
+        /// <summary>
+        /// txtrequisitionid0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtrequisitionid0;
+        
+        /// <summary>
+        /// Label6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label6;
+        
+        /// <summary>
+        /// txtrequisitionid2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtrequisitionid2;
+        
+        /// <summary>
+        /// Label4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label4;
+        
+        /// <summary>
+        /// DropDownList1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
         
         /// <summary>
         /// btnshow control.
@@ -157,22 +238,22 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage {
         protected global::System.Web.UI.WebControls.Button btnshow;
         
         /// <summary>
-        /// btnclear control.
+        /// btnclearadsearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnclear;
+        protected global::System.Web.UI.WebControls.Button btnclearadsearch;
         
         /// <summary>
-        /// hradvsearch control.
+        /// advsearchbottom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl hradvsearch;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl advsearchbottom;
         
         /// <summary>
         /// tbladvsearchresult control.
@@ -202,31 +283,31 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage {
         protected global::System.Web.UI.WebControls.GridView GridView2;
         
         /// <summary>
-        /// lnkbtn control.
+        /// headertop control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkbtn;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl headertop;
         
         /// <summary>
-        /// hradvsearchresult control.
+        /// btnnewReq control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl hradvsearchresult;
+        protected global::System.Web.UI.WebControls.Button btnnewReq;
         
         /// <summary>
-        /// tblhdr control.
+        /// btnprintrequisition control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable tblhdr;
+        protected global::System.Web.UI.WebControls.Button btnprintrequisition;
         
         /// <summary>
         /// lblreqstatus control.
@@ -247,24 +328,6 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage {
         protected global::System.Web.UI.WebControls.Label lblstatus1;
         
         /// <summary>
-        /// btnprint control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnprint;
-        
-        /// <summary>
-        /// TextBox1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
-        
-        /// <summary>
         /// TextBox4 control.
         /// </summary>
         /// <remarks>
@@ -274,40 +337,13 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage {
         protected global::System.Web.UI.WebControls.TextBox TextBox4;
         
         /// <summary>
-        /// TextBox25 control.
+        /// lblreqstatus0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox25;
-        
-        /// <summary>
-        /// TextBox5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox5;
-        
-        /// <summary>
-        /// TextBox26 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox26;
-        
-        /// <summary>
-        /// TextBox22 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox22;
+        protected global::System.Web.UI.WebControls.Label lblreqstatus0;
         
         /// <summary>
         /// TextBox2 control.
@@ -319,40 +355,130 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage {
         protected global::System.Web.UI.WebControls.TextBox TextBox2;
         
         /// <summary>
-        /// TextBox23 control.
+        /// TextBox5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox23;
+        protected global::System.Web.UI.WebControls.TextBox TextBox5;
         
         /// <summary>
-        /// TextBox27 control.
+        /// lblreqstatus1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox27;
+        protected global::System.Web.UI.WebControls.Label lblreqstatus1;
         
         /// <summary>
-        /// TextBox24 control.
+        /// DropDownList2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox24;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
         
         /// <summary>
-        /// TextBox15 control.
+        /// DropDownList5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox15;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList5;
+        
+        /// <summary>
+        /// lblreqstatus2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblreqstatus2;
+        
+        /// <summary>
+        /// DropDownList3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList3;
+        
+        /// <summary>
+        /// DropDownList6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList6;
+        
+        /// <summary>
+        /// lblreqstatus3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblreqstatus3;
+        
+        /// <summary>
+        /// TextBox3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        
+        /// <summary>
+        /// Label7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label7;
+        
+        /// <summary>
+        /// DropDownList7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList7;
+        
+        /// <summary>
+        /// lblreqstatus4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblreqstatus4;
+        
+        /// <summary>
+        /// DropDownList4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList4;
+        
+        /// <summary>
+        /// Label8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label8;
         
         /// <summary>
         /// TextBox6 control.
@@ -364,6 +490,33 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage {
         protected global::System.Web.UI.WebControls.TextBox TextBox6;
         
         /// <summary>
+        /// lblreqstatus5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblreqstatus5;
+        
+        /// <summary>
+        /// TextBox15 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox15;
+        
+        /// <summary>
+        /// Label9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label9;
+        
+        /// <summary>
         /// chk1 control.
         /// </summary>
         /// <remarks>
@@ -371,15 +524,6 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chk1;
-        
-        /// <summary>
-        /// TextBox21 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox21;
         
         /// <summary>
         /// lbl1 control.
@@ -391,49 +535,49 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage {
         protected global::System.Web.UI.WebControls.Label lbl1;
         
         /// <summary>
-        /// Label1 control.
+        /// DropDownList8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList8;
         
         /// <summary>
-        /// TextBox28 control.
+        /// Label10 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox28;
+        protected global::System.Web.UI.WebControls.Label Label10;
         
         /// <summary>
-        /// TextBox29 control.
+        /// FileUpload1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox29;
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
         
         /// <summary>
-        /// hr2 control.
+        /// TextBox16 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl hr2;
+        protected global::System.Web.UI.WebControls.TextBox TextBox16;
         
         /// <summary>
-        /// tbldet control.
+        /// headerbottom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable tbldet;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl headerbottom;
         
         /// <summary>
         /// tblauthorization control.
@@ -445,22 +589,58 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage {
         protected global::System.Web.UI.HtmlControls.HtmlTable tblauthorization;
         
         /// <summary>
-        /// btissue control.
+        /// lblreqstatus12 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btissue;
+        protected global::System.Web.UI.WebControls.Label lblreqstatus12;
         
         /// <summary>
-        /// TextBox30 control.
+        /// ddlforwardto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox30;
+        protected global::System.Web.UI.WebControls.DropDownList ddlforwardto;
+        
+        /// <summary>
+        /// btnedit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnedit;
+        
+        /// <summary>
+        /// lblreqstatus13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblreqstatus13;
+        
+        /// <summary>
+        /// btnsubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnsubmit;
+        
+        /// <summary>
+        /// tblitemdet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTable tblitemdet;
         
         /// <summary>
         /// pnl control.
@@ -472,40 +652,58 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage {
         protected global::System.Web.UI.WebControls.Panel pnl;
         
         /// <summary>
-        /// GridView1 control.
+        /// GridView3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView GridView3;
         
         /// <summary>
-        /// Pnlcon control.
+        /// header_HeaderPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Pnlcon;
+        protected global::System.Web.UI.WebControls.Panel header_HeaderPanel;
         
         /// <summary>
-        /// header_ToggleImage2 control.
+        /// header_ToggleImage3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton header_ToggleImage2;
+        protected global::System.Web.UI.WebControls.ImageButton header_ToggleImage3;
         
         /// <summary>
-        /// pnldett control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnldett;
+        protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// header_ContentPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel header_ContentPanel;
+        
+        /// <summary>
+        /// lblreqstatus6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblreqstatus6;
         
         /// <summary>
         /// txtItem control.
@@ -517,6 +715,15 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage {
         protected global::System.Web.UI.WebControls.TextBox txtItem;
         
         /// <summary>
+        /// lblreqstatus9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblreqstatus9;
+        
+        /// <summary>
         /// txtSpec control.
         /// </summary>
         /// <remarks>
@@ -524,6 +731,15 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSpec;
+        
+        /// <summary>
+        /// lblreqstatus7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblreqstatus7;
         
         /// <summary>
         /// txtQunt control.
@@ -535,6 +751,15 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage {
         protected global::System.Web.UI.WebControls.TextBox txtQunt;
         
         /// <summary>
+        /// lblreqstatus10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblreqstatus10;
+        
+        /// <summary>
         /// txtBrand control.
         /// </summary>
         /// <remarks>
@@ -542,6 +767,15 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBrand;
+        
+        /// <summary>
+        /// lblreqstatus8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblreqstatus8;
         
         /// <summary>
         /// txtLoc control.
@@ -553,6 +787,15 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage {
         protected global::System.Web.UI.WebControls.TextBox txtLoc;
         
         /// <summary>
+        /// lblreqstatus11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblreqstatus11;
+        
+        /// <summary>
         /// txtOrigin control.
         /// </summary>
         /// <remarks>
@@ -562,84 +805,30 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage {
         protected global::System.Web.UI.WebControls.TextBox txtOrigin;
         
         /// <summary>
-        /// txtLoc0 control.
+        /// btnadd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLoc0;
+        protected global::System.Web.UI.WebControls.Button btnadd;
         
         /// <summary>
-        /// txtOrigin0 control.
+        /// btnclear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOrigin0;
+        protected global::System.Web.UI.WebControls.Button btnclear;
         
         /// <summary>
-        /// txtLoc1 control.
+        /// cpeheader control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLoc1;
-        
-        /// <summary>
-        /// txtOrigin1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOrigin1;
-        
-        /// <summary>
-        /// txtLoc2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLoc2;
-        
-        /// <summary>
-        /// txtissue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtissue;
-        
-        /// <summary>
-        /// txtLoc3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLoc3;
-        
-        /// <summary>
-        /// btnupdate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnupdate;
-        
-        /// <summary>
-        /// CollapsiblePanelExtender6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CollapsiblePanelExtender CollapsiblePanelExtender6;
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender cpeheader;
     }
 }
