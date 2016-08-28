@@ -4,7 +4,7 @@
 <html lang="en">
 <head runat="server">
     <meta charset="utf-8" />
-    <title><%: Page.Title %> - ERP Web Application</title>
+    <title><%: Page.Title %>- ERP Web Application</title>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
@@ -37,78 +37,80 @@
 
         </asp:ScriptManager>
         <header>
-            <div >
+            <asp:Panel ID="PanelForFixedPosition" runat="server">
                 <div>
-                    <div style="float: left">
-                        <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/logo_120_100.png" />
-                    </div>
-                    <div style="float: right">
-                        <div class="content-wrapper">
-                            <%--<div class="float-left">
+                    <div>
+                        <div style="float: left">
+                            <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/logo_120_100.png" />
+                        </div>
+                        <div style="float: right">
+                            <div class="content-wrapper">
+                                <%--<div class="float-left">
                             <p class="site-title">
                                 <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/logo_120_100.png"  />
                             </p>
                         </div>--%>
-                            <div class="float-right">
-                                <section id="login">
-                                    <asp:LoginView runat="server" ViewStateMode="Disabled">
-                                        <AnonymousTemplate>
-                                            <ul>
-                                                <%--<li><a id="registerLink" runat="server" href="~/Account/Register.aspx">Register</a></li>--%>
-                                                <li><a id="loginLink" runat="server" href="~/Account/Login.aspx">Log in</a></li>
-                                            </ul>
-                                        </AnonymousTemplate>
-                                        <LoggedInTemplate>
-                                            <p>
-                                                Hello, <a runat="server" class="username" href="~/Account/Manage.aspx" title="Manage your account">
-                                                    <asp:LoginName runat="server" CssClass="username" />
-                                                </a>!
+                                <div class="float-right">
+                                    <section id="login">
+                                        <asp:LoginView runat="server" ViewStateMode="Disabled">
+                                            <AnonymousTemplate>
+                                                <ul>
+                                                    <%--<li><a id="registerLink" runat="server" href="~/Account/Register.aspx">Register</a></li>--%>
+                                                    <li><a id="loginLink" runat="server" href="~/Account/Login.aspx">Log in</a></li>
+                                                </ul>
+                                            </AnonymousTemplate>
+                                            <LoggedInTemplate>
+                                                <p>
+                                                    Hello, <a runat="server" class="username" href="~/Account/Manage.aspx" title="Manage your account">
+                                                        <asp:LoginName runat="server" CssClass="username" />
+                                                    </a>!
                                 <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" />
-                                            </p>
-                                        </LoggedInTemplate>
-                                    </asp:LoginView>
-                                </section>
-                                <nav>
-                                    <ul id="menu">
-                                        <li><a runat="server" href="~/">Home</a></li>
-                                        <li><a runat="server" href="~/About.aspx">About</a></li>
-                                        <li><a runat="server" href="~/Contact.aspx">Contact</a></li>
-                                    </ul>
-                                </nav>
+                                                </p>
+                                            </LoggedInTemplate>
+                                        </asp:LoginView>
+                                    </section>
+                                    <nav>
+                                        <ul id="menu">
+                                            <li><a runat="server" href="~/">Home</a></li>
+                                            <li><a runat="server" href="~/About.aspx">About</a></li>
+                                            <li><a runat="server" href="~/Contact.aspx">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <br />
-                <br />
-                <br />
-                <br />
-                <div>
-                    <section class="featured">
-                        <div class="content-wrapperHeader">
-                            <hgroup class="title">
-                                <h2><%: Page.Title %>.</h2>
-                            </hgroup>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <div>
+                        <section class="featured">
+                            <div class="content-wrapperHeader">
+                                <hgroup class="title">
+                                    <h2><%: Page.Title %>.</h2>
+                                </hgroup>
 
-                        </div>
-                    </section>
+                            </div>
+                        </section>
+                    </div>
                 </div>
-            </div>
+            </asp:Panel>
         </header>
 
-        <div id="body" >
-            <section class="featured">
-            </section>
-            <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+        <div id="body">
+            <section style="margin-left:140px;max-width:960px " >
+                <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/heroAccent.png"/> </section>
+            <%--<asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />--%>
             <section class="content-wrapper main-content clear-fix">
                 <asp:ContentPlaceHolder runat="server" ID="MainContent" />
             </section>
         </div>
         <footer>
             <div class="content-wrapper">
-                <div class="float-left" >
-                    <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <div class="float-left">
+                    <p>&copy; <%--<li><a id="registerLink" runat="server" href="~/Account/Register.aspx">Register</a></li>--%>- My ASP.NET Application</p>
                 </div>
             </div>
         </footer>

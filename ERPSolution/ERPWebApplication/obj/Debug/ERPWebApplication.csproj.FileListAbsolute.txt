@@ -58,3 +58,4 @@ D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApp
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\bin\DotNetOpenAuth.AspNet.xml
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\obj\Debug\ERPWebApplication.dll
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\obj\Debug\ERPWebApplication.pdb
+D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\obj\Debug\ERPWebApplication.csprojResolveAssemblyReference.cache
