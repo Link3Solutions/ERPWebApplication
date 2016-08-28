@@ -39,7 +39,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:14</publishTime>
     </File>
     <File Include="bin/AspNet.ScriptManager.jQuery.dll">
-      <publishTime>08/21/2016 12:45:15</publishTime>
+      <publishTime>08/28/2016 12:52:09</publishTime>
     </File>
     <File Include="bin/AspNet.ScriptManager.jQuery.UI.Combined.dll">
       <publishTime>08/21/2016 12:45:15</publishTime>
@@ -66,7 +66,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:26</publishTime>
     </File>
     <File Include="bin/ERPWebApplication.dll">
-      <publishTime>08/28/2016 11:18:44</publishTime>
+      <publishTime>08/28/2016 13:14:31</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Membership.OpenAuth.dll">
       <publishTime>08/21/2016 12:45:27</publishTime>
@@ -75,10 +75,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:27</publishTime>
     </File>
     <File Include="bin/Microsoft.ScriptManager.MSAjax.dll">
-      <publishTime>08/21/2016 12:45:15</publishTime>
+      <publishTime>08/28/2016 12:51:52</publishTime>
     </File>
     <File Include="bin/Microsoft.ScriptManager.WebForms.dll">
-      <publishTime>08/21/2016 12:45:15</publishTime>
+      <publishTime>08/28/2016 12:51:42</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>08/21/2016 12:45:16</publishTime>
@@ -324,13 +324,31 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/22/2016 12:04:26</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>08/21/2016 13:25:52</publishTime>
+      <publishTime>08/28/2016 12:52:13</publishTime>
     </File>
     <File Include="Scripts/jquery-1.7.1.js">
       <publishTime>08/21/2016 12:45:10</publishTime>
     </File>
     <File Include="Scripts/jquery-1.7.1.min.js">
       <publishTime>08/21/2016 12:45:10</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.1.0.js">
+      <publishTime>08/28/2016 12:52:13</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.1.0.min.js">
+      <publishTime>08/28/2016 12:52:13</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.1.0.min.map">
+      <publishTime>08/28/2016 12:52:13</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.1.0.slim.js">
+      <publishTime>08/28/2016 12:52:13</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.1.0.slim.min.js">
+      <publishTime>08/28/2016 12:52:13</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.1.0.slim.min.map">
+      <publishTime>08/28/2016 12:52:13</publishTime>
     </File>
     <File Include="Scripts/jquery-ui-1.8.20.js">
       <publishTime>08/21/2016 12:45:14</publishTime>
@@ -342,76 +360,76 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:14</publishTime>
     </File>
     <File Include="Scripts/WebForms/DetailsView.js">
-      <publishTime>08/21/2016 12:45:15</publishTime>
+      <publishTime>08/28/2016 12:51:44</publishTime>
     </File>
     <File Include="Scripts/WebForms/Focus.js">
-      <publishTime>08/21/2016 12:45:15</publishTime>
+      <publishTime>08/28/2016 12:51:44</publishTime>
     </File>
     <File Include="Scripts/WebForms/GridView.js">
-      <publishTime>08/21/2016 12:45:15</publishTime>
+      <publishTime>08/28/2016 12:51:44</publishTime>
     </File>
     <File Include="Scripts/WebForms/Menu.js">
-      <publishTime>08/21/2016 12:45:15</publishTime>
+      <publishTime>08/28/2016 12:51:44</publishTime>
     </File>
     <File Include="Scripts/WebForms/MenuStandards.js">
-      <publishTime>08/21/2016 12:45:15</publishTime>
+      <publishTime>08/28/2016 12:51:44</publishTime>
     </File>
     <File Include="Scripts/WebForms/MSAjax/MicrosoftAjax.js">
-      <publishTime>08/21/2016 12:45:15</publishTime>
+      <publishTime>08/28/2016 12:51:53</publishTime>
     </File>
     <File Include="Scripts/WebForms/MSAjax/MicrosoftAjaxApplicationServices.js">
-      <publishTime>08/21/2016 12:45:15</publishTime>
+      <publishTime>08/28/2016 12:51:53</publishTime>
     </File>
     <File Include="Scripts/WebForms/MSAjax/MicrosoftAjaxComponentModel.js">
-      <publishTime>08/21/2016 12:45:15</publishTime>
+      <publishTime>08/28/2016 12:51:53</publishTime>
     </File>
     <File Include="Scripts/WebForms/MSAjax/MicrosoftAjaxCore.js">
-      <publishTime>08/21/2016 12:45:15</publishTime>
+      <publishTime>08/28/2016 12:51:53</publishTime>
     </File>
     <File Include="Scripts/WebForms/MSAjax/MicrosoftAjaxGlobalization.js">
-      <publishTime>08/21/2016 12:45:15</publishTime>
+      <publishTime>08/28/2016 12:51:53</publishTime>
     </File>
     <File Include="Scripts/WebForms/MSAjax/MicrosoftAjaxHistory.js">
-      <publishTime>08/21/2016 12:45:15</publishTime>
+      <publishTime>08/28/2016 12:51:53</publishTime>
     </File>
     <File Include="Scripts/WebForms/MSAjax/MicrosoftAjaxNetwork.js">
-      <publishTime>08/21/2016 12:45:15</publishTime>
+      <publishTime>08/28/2016 12:51:53</publishTime>
     </File>
     <File Include="Scripts/WebForms/MSAjax/MicrosoftAjaxSerialization.js">
-      <publishTime>08/21/2016 12:45:15</publishTime>
+      <publishTime>08/28/2016 12:51:53</publishTime>
     </File>
     <File Include="Scripts/WebForms/MSAjax/MicrosoftAjaxTimer.js">
-      <publishTime>08/21/2016 12:45:15</publishTime>
+      <publishTime>08/28/2016 12:51:53</publishTime>
     </File>
     <File Include="Scripts/WebForms/MSAjax/MicrosoftAjaxWebForms.js">
-      <publishTime>08/21/2016 12:45:15</publishTime>
+      <publishTime>08/28/2016 12:51:53</publishTime>
     </File>
     <File Include="Scripts/WebForms/MSAjax/MicrosoftAjaxWebServices.js">
-      <publishTime>08/21/2016 12:45:15</publishTime>
+      <publishTime>08/28/2016 12:51:53</publishTime>
     </File>
     <File Include="Scripts/WebForms/SmartNav.js">
-      <publishTime>08/21/2016 12:45:15</publishTime>
+      <publishTime>08/28/2016 12:51:44</publishTime>
     </File>
     <File Include="Scripts/WebForms/TreeView.js">
-      <publishTime>08/21/2016 12:45:15</publishTime>
+      <publishTime>08/28/2016 12:51:44</publishTime>
     </File>
     <File Include="Scripts/WebForms/WebForms.js">
-      <publishTime>08/21/2016 12:45:15</publishTime>
+      <publishTime>08/28/2016 12:51:44</publishTime>
     </File>
     <File Include="Scripts/WebForms/WebParts.js">
-      <publishTime>08/21/2016 12:45:15</publishTime>
+      <publishTime>08/28/2016 12:51:44</publishTime>
     </File>
     <File Include="Scripts/WebForms/WebUIValidation.js">
-      <publishTime>08/21/2016 12:45:15</publishTime>
+      <publishTime>08/28/2016 12:51:44</publishTime>
     </File>
     <File Include="Scripts/_references.js">
-      <publishTime>08/21/2016 12:45:13</publishTime>
+      <publishTime>08/28/2016 12:52:13</publishTime>
     </File>
     <File Include="Site.Master">
-      <publishTime>08/24/2016 16:28:04</publishTime>
+      <publishTime>08/28/2016 12:58:58</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/28/2016 11:18:45</publishTime>
+      <publishTime>08/28/2016 13:14:32</publishTime>
     </File>
   </ItemGroup>
 </Project>

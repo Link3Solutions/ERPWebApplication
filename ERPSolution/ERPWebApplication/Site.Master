@@ -100,7 +100,7 @@
         </header>
 
         <div id="body">
-            <section style="margin-left:140px;max-width:960px " >
+            <section style="margin-left:80px;max-width:960px " >
                 <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/heroAccent.png"/> </section>
             <%--<asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />--%>
             <section class="content-wrapper main-content clear-fix">
