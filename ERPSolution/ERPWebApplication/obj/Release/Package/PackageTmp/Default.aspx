@@ -2,12 +2,9 @@
 
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <p>Content Page Here............................</p>
     <nav >
         <ul id="menu"  >
-             <li><a id="A1" runat="server" href="~/ModuleName/Inventory/TransactionPage/frm_item_issue.aspx">ITEM ISSUE</a></li> 
-            <li><a id="A2" runat="server" href="~/ModuleName/Inventory/TransactionPage/frm_item_requisition.aspx">ITEM REQUISITION</a></li>
-            <li><a id="A3" runat="server" href="~/ModuleName/Inventory/TransactionPage/frm_item.aspx">ITEM</a></li>
+             <li><a id="A1" runat="server" href="~/NodeList.aspx">Details</a></li>
         </ul>
     </nav>
 </asp:Content>

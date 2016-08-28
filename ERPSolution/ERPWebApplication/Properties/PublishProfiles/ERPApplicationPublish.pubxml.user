@@ -66,7 +66,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:26</publishTime>
     </File>
     <File Include="bin/ERPWebApplication.dll">
-      <publishTime>08/28/2016 16:19:20</publishTime>
+      <publishTime>08/28/2016 16:55:11</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Membership.OpenAuth.dll">
       <publishTime>08/21/2016 12:45:27</publishTime>
@@ -264,7 +264,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:14</publishTime>
     </File>
     <File Include="Default.aspx">
-      <publishTime>08/28/2016 16:16:11</publishTime>
+      <publishTime>08/28/2016 16:39:58</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>08/21/2016 12:45:08</publishTime>
@@ -315,7 +315,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:08</publishTime>
     </File>
     <File Include="ModuleName/Inventory/TransactionPage/frm_item.aspx">
-      <publishTime>08/28/2016 16:16:34</publishTime>
+      <publishTime>08/28/2016 16:35:11</publishTime>
     </File>
     <File Include="ModuleName/Inventory/TransactionPage/frm_item_issue.aspx">
       <publishTime>08/28/2016 15:52:19</publishTime>
@@ -325,6 +325,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="ModuleName/Inventory/TransactionPage/WebFormFormat.aspx">
       <publishTime>08/22/2016 12:04:26</publishTime>
+    </File>
+    <File Include="NodeList.aspx">
+      <publishTime>08/28/2016 16:54:50</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>08/28/2016 12:52:13</publishTime>
@@ -432,7 +435,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/28/2016 15:58:33</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/28/2016 16:19:20</publishTime>
+      <publishTime>08/28/2016 16:55:12</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -5,12 +5,8 @@
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
 
     <div id="wrapper" style="margin: 0 auto">
-
         <asp:UpdatePanel ID="uppnl1" runat="server">
-
             <ContentTemplate>
-
-
                 <table class="auto-style2" id="tblmas" style="margin-top:-0.25em" runat="server">
                     <tr>
                         <td class="auto-style5">&nbsp;</td>
@@ -593,12 +589,8 @@
                         <td>&nbsp;</td>
                     </tr>
                 </table>
-
-
             </ContentTemplate>
         </asp:UpdatePanel>
-
-
     </div>
 
 </asp:Content>
