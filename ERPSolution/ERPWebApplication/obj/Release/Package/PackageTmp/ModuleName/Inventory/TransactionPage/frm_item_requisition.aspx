@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="ITEM REQUISITION" Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="frm_item_requisition.aspx.cs" Inherits="ERPWebApplication.ModuleName.Inventory.TransactionPage.frm_item_requisition" %>
 
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <div id="wrapper" style="margin: 0 auto">
+    <%--<div id="wrapper" style="margin: 0 auto">--%>
         <asp:UpdatePanel ID="uppnl1" runat="server">
 
             <ContentTemplate>
@@ -569,7 +569,7 @@
             </ContentTemplate>
         </asp:UpdatePanel>
 
-    </div>
+    <%--</div>--%>
 </asp:Content>
 
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="HeadContent">

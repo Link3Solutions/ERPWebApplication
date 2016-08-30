@@ -15,7 +15,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:08</publishTime>
     </File>
     <File Include="Account/Login.aspx">
-      <publishTime>08/28/2016 15:25:18</publishTime>
+      <publishTime>08/30/2016 12:01:59</publishTime>
     </File>
     <File Include="Account/Manage.aspx">
       <publishTime>08/21/2016 12:45:08</publishTime>
@@ -33,7 +33,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:08</publishTime>
     </File>
     <File Include="bin/AjaxControlToolkit.dll">
-      <publishTime>08/21/2016 13:25:51</publishTime>
+      <publishTime>08/29/2016 16:02:05</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>08/21/2016 12:45:14</publishTime>
@@ -66,7 +66,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:26</publishTime>
     </File>
     <File Include="bin/ERPWebApplication.dll">
-      <publishTime>08/28/2016 16:55:11</publishTime>
+      <publishTime>08/30/2016 14:46:25</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Membership.OpenAuth.dll">
       <publishTime>08/21/2016 12:45:27</publishTime>
@@ -99,7 +99,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:08</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>08/28/2016 15:14:51</publishTime>
+      <publishTime>08/30/2016 14:22:57</publishTime>
     </File>
     <File Include="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png">
       <publishTime>08/21/2016 12:45:14</publishTime>
@@ -263,8 +263,299 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/themes/base/minified/jquery.ui.theme.min.css">
       <publishTime>08/21/2016 12:45:14</publishTime>
     </File>
+    <File Include="CSS/CSSstyleTheme/CommonCSS/Control.css">
+      <publishTime>08/30/2016 12:00:39</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/CommonCSS/default.css">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/CommonCSS/default.skin">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/CommonCSS/InnerPageCSS.css">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/CommonCSS/InnerPageOtherControlCSS.css">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/CommonCSS/normalize.css">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/CommonCSS/panel.css">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/CommonCSS/PopupControlCss.css">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/CommonCSS/Tree.css">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/CompanyLogo/1_Tulips.jpg">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/CompanyLogo/images.png">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Control/Calendar.css">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Control/CheckBox.css">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Control/CommandButton.css">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Control/DropDown.css">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Control/GridView.css">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Control/RadioButton.css">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Control/tabs.css">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Control/TextBox.css">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Fonts/glyphicons-halflings-regular.eot">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Fonts/glyphicons-halflings-regular.svg">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Fonts/glyphicons-halflings-regular.woff">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/accept-icon.png">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/accept.png">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/addnew.png">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/cancel.png">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/Cancel__Green.png">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/collapse.png">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/dialog_close.gif">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/error_bg.jpg">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/error_header.gif">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/expand.png">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/f-linkedin_256-16.png">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/facebook-16.png">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/glyphicons-halflings-white.png">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/glyphicons-halflings.png">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/imageAttachment.jpg">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/images.jpg">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/img01.gif">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/img02.gif">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/img03.gif">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/img04.gif">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/img05.gif">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/img06.gif">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/img07.gif">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/img08.gif">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/img09.gif">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/img10.gif">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/img11.gif">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/img12.jpg">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/img13.gif">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/img14.gif">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/img15.gif">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/img16.gif">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/img17.gif">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/img18.gif">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/img19.gif">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/img20.jpg">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/Link3Solutions1.jpg">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/Link3Solutions11.jpg">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/logopho.jpg">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/nav-icon.png">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/pencil.png">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/print.png">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/prompt_bg.jpg">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/prompt_header.gif">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/Remove.png">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/search.png">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/showall.png">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/ShowAllDet.png">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/ShowAllIcon.png">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/spacer.gif">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/success_bg.jpg">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/success_header.gif">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/tp2.png">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/twitter-16.png">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/Update.png">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/warning_bg.jpg">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/warning_header.gif">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/Images/youtube.png">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/MasterPageCSS/CssAddon.css">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/CSSstyleTheme/MasterPageCSS/Site.css">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/default.css">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/GridViewCSS.css">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/HomePage/bootstrap-theme.css">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/HomePage/bootstrap-theme.css.map">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/HomePage/bootstrap-theme.min.css">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/HomePage/bootstrap.css">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/HomePage/bootstrap.css.map">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/HomePage/bootstrap.min.css">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/HomePage/MasterPageAddOn.css">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/HomePage/MasterPageTabCSS.css">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/HomePage/MasterPGBar.css">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/MasterPageTabCSS.css">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
+    <File Include="CSS/MasterPGBar.css">
+      <publishTime>08/30/2016 11:59:30</publishTime>
+    </File>
     <File Include="Default.aspx">
-      <publishTime>08/28/2016 16:39:58</publishTime>
+      <publishTime>08/29/2016 16:06:11</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>08/21/2016 12:45:08</publishTime>
@@ -315,13 +606,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:08</publishTime>
     </File>
     <File Include="ModuleName/Inventory/TransactionPage/frm_item.aspx">
-      <publishTime>08/28/2016 16:35:11</publishTime>
+      <publishTime>08/29/2016 16:14:18</publishTime>
     </File>
     <File Include="ModuleName/Inventory/TransactionPage/frm_item_issue.aspx">
-      <publishTime>08/28/2016 15:52:19</publishTime>
+      <publishTime>08/29/2016 16:14:29</publishTime>
     </File>
     <File Include="ModuleName/Inventory/TransactionPage/frm_item_requisition.aspx">
-      <publishTime>08/28/2016 16:17:32</publishTime>
+      <publishTime>08/30/2016 14:45:37</publishTime>
     </File>
     <File Include="ModuleName/Inventory/TransactionPage/WebFormFormat.aspx">
       <publishTime>08/22/2016 12:04:26</publishTime>
@@ -330,7 +621,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/28/2016 16:54:50</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>08/28/2016 12:52:13</publishTime>
+      <publishTime>08/29/2016 16:02:05</publishTime>
     </File>
     <File Include="Scripts/jquery-1.7.1.js">
       <publishTime>08/21/2016 12:45:10</publishTime>
@@ -432,10 +723,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/28/2016 12:52:13</publishTime>
     </File>
     <File Include="Site.Master">
-      <publishTime>08/28/2016 15:58:33</publishTime>
+      <publishTime>08/30/2016 14:44:05</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/28/2016 16:55:12</publishTime>
+      <publishTime>08/30/2016 14:46:26</publishTime>
     </File>
   </ItemGroup>
 </Project>

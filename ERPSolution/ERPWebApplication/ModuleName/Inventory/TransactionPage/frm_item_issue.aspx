@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="ITEM ISSUE" Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="frm_item_issue.aspx.cs" Inherits="ERPWebApplication.ModuleName.Inventory.TransactionPage.frm_item_issue" %>
 
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <div id="wrapper" style="margin: 0 auto">

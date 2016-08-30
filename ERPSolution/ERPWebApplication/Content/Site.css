@@ -6,7 +6,7 @@
 
 body {
     background-color: #fff;
-    border-top: solid 10px #000;
+    /*border-top: solid 10px #000;*/
     color: #333;
     font-size: .85em;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
@@ -266,7 +266,7 @@ ul#menu {
         background-image: linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
         color: #3e5667;
         /*padding: 20px 40px 30px 40px;*/
-        padding: 5px 40px 3px 3px; /*edited*/
+        padding: 5px 40px 3px 165px; /*edited*/
     }
 
         .featured hgroup.title h1, .featured hgroup.title h2 {
