@@ -34,8 +34,11 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage
 
                 //hr 
 
-                searchbottom.Visible = false;
+                searchbottom.Visible = true;
+                
                 advsearchbottom.Visible = false;
+                headertop.Visible = false;
+             
 
 
                 //Collapsible
@@ -50,12 +53,23 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage
         {
             tbladvsearch.Visible = true ;
             searchbottom.Visible = true;
+            advsearchbottom.Visible = true;
+
+            searchbottom.Visible = true;
+
+            
+
+          
         }
 
         protected void imgbtnadsearch_Click(object sender, ImageClickEventArgs e)
         {
             tbladvsearch.Visible = false ;
-            searchbottom.Visible = false;
+            searchbottom.Visible = true ;
+
+            advsearchbottom.Visible = false ;
+
+       
         }
 
         protected void btnshow_Click(object sender, EventArgs e)

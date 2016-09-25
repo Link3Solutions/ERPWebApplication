@@ -14,10 +14,10 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
     <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
-
+    <link href="CSS/microsoftMenu.css" rel="stylesheet" />
 </head>
 <body>
-    <form runat="server" >
+    <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--Framework Scripts--%>
@@ -44,7 +44,21 @@
                     <div style="float: left">
                         <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/logo_120_100.png" />
                     </div>
-                    <div style="float: right">
+                    <div style="float: left">
+
+                        <asp:Menu ID="NavigationMenu" runat="server" CssClass="shell-header-dropdown-label" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                            <Items>
+                                <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Inventory" >
+                                    <asp:MenuItem NavigateUrl="~/Default.aspx" Text="TransactionPage">
+                                        <asp:MenuItem NavigateUrl="~/ModuleName/Inventory/TransactionPage/frm_item.aspx" Text="Item Requisition" Value="aaaaa"></asp:MenuItem>
+                                    </asp:MenuItem>
+                                </asp:MenuItem>
+                                <%--<asp:MenuItem NavigateUrl="~/Modules/SystemAdmin/frmRole.aspx" Text="About" />--%>
+                            </Items>
+                        </asp:Menu>
+
+                    </div>
+                    <div style="float: right; padding-right: 10px">
                         <div class="content-wrapper">
                             <%--<div class="float-left">
                             <p class="site-title">

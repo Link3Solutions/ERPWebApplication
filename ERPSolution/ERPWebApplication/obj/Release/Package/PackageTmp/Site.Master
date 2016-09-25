@@ -44,7 +44,7 @@
                     <div style="float: left">
                         <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/logo_120_100.png" />
                     </div>
-                    <div style="float: right">
+                    <div style="float: right;padding-right:10px">
                         <div class="content-wrapper">
                             <%--<div class="float-left">
                             <p class="site-title">

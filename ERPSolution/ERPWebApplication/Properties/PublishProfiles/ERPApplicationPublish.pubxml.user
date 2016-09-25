@@ -15,7 +15,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:08</publishTime>
     </File>
     <File Include="Account/Login.aspx">
-      <publishTime>08/30/2016 12:01:59</publishTime>
+      <publishTime>09/05/2016 13:20:45</publishTime>
     </File>
     <File Include="Account/Manage.aspx">
       <publishTime>08/21/2016 12:45:08</publishTime>
@@ -66,7 +66,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:26</publishTime>
     </File>
     <File Include="bin/ERPWebApplication.dll">
-      <publishTime>08/30/2016 14:46:25</publishTime>
+      <publishTime>09/20/2016 10:28:08</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Membership.OpenAuth.dll">
       <publishTime>08/21/2016 12:45:27</publishTime>
@@ -99,7 +99,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:08</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>08/30/2016 14:22:57</publishTime>
+      <publishTime>09/20/2016 11:16:19</publishTime>
     </File>
     <File Include="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png">
       <publishTime>08/21/2016 12:45:14</publishTime>
@@ -606,7 +606,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:08</publishTime>
     </File>
     <File Include="ModuleName/Inventory/TransactionPage/frm_item.aspx">
-      <publishTime>08/29/2016 16:14:18</publishTime>
+      <publishTime>09/20/2016 11:09:39</publishTime>
     </File>
     <File Include="ModuleName/Inventory/TransactionPage/frm_item_issue.aspx">
       <publishTime>08/29/2016 16:14:29</publishTime>
@@ -723,10 +723,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/28/2016 12:52:13</publishTime>
     </File>
     <File Include="Site.Master">
-      <publishTime>08/30/2016 14:44:05</publishTime>
+      <publishTime>09/20/2016 10:27:51</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/30/2016 14:46:26</publishTime>
+      <publishTime>09/20/2016 11:16:39</publishTime>
     </File>
   </ItemGroup>
 </Project>

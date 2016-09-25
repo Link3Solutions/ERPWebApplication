@@ -34,7 +34,7 @@
                             <asp:Label runat="server" AssociatedControlID="RememberMe" CssClass="checkbox">Remember me?</asp:Label>
                         </li>
                     </ol>
-                    <asp:Button runat="server" CommandName="Login" Text="Log in" CssClass="btnStyle1" />
+                    <asp:Button runat="server" CommandName="Login" Text="Log in" CssClass="btnStyle1" ID="btnLogin" OnClick="btnLogin_Click" />
                 </fieldset>
             </LayoutTemplate>
         </asp:Login>

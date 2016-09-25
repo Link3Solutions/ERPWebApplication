@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -20,5 +21,14 @@ namespace ERPWebApplication.Account
                 //RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
             }
         }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            //FormsAuthentication.RedirectFromLoginPage
+            //(UserEmail.Text, RememberMe.Checked);
+            //FormsAuthentication.RedirectFromLoginPage(Login1.UserName, Login1.RememberMeSet);
+        }
+
+       
     }
 }

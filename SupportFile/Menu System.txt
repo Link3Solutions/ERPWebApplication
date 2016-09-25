@@ -1,0 +1,16 @@
+ <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                                                <Items>
+                                                    <%--<asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home">
+                                                        <asp:MenuItem NavigateUrl="~/Modules/SystemAdmin/frmAccount.aspx" Text="aaaaa" 
+                                                            Value="aaaaa"></asp:MenuItem>
+                                                        <asp:MenuItem NavigateUrl="~/Modules/SystemAdmin/frmCertification.aspx" Text="Certification" Value="aaaaa"></asp:MenuItem>
+                                                        <asp:MenuItem NavigateUrl="~/Modules/SystemAdmin/frmBusinessType.aspx" Text="Business" Value="aaaaa"></asp:MenuItem>
+                                                        <asp:MenuItem NavigateUrl="~/Modules/SystemAdmin/frmDepartment.aspx" Text="Department" Value="aaaaa"></asp:MenuItem>
+                                                        <asp:MenuItem NavigateUrl="~/Modules/SystemAdmin/frmCompanySetup.aspx" Text="Company" Value="aaaaa"></asp:MenuItem>
+                                                         <asp:MenuItem NavigateUrl="~/Modules/SystemAdmin/frmOwnership.aspx" Text="Ownership" 
+                                                            Value="tttt"></asp:MenuItem>
+                                                    </asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Modules/SystemAdmin/frmRole.aspx" Text="About"/>
+                                                    <asp:MenuItem NavigateUrl="~/Modules/SystemAdmin/frmLocation.aspx" Text="Location"/>--%>
+                                                </Items>
+                                            </asp:Menu>
