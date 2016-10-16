@@ -258,7 +258,8 @@ ul#menu {
     background-image: linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
     color: #3e5667;
     /*padding: 20px 40px 30px 40px;*/
-    padding: 5px 40px 3px 165px; /*edited*/
+    /*padding: 5px 40px 3px 165px;*/ /*edited*/
+    padding: 4px 40px 4px 165px; 
 }
 
 .featured hgroup.title h1, .featured hgroup.title h2 {
@@ -271,7 +272,8 @@ ul#menu {
 
 /* page titles */
 hgroup.title {
-    margin-bottom: 10px;
+    /*margin-bottom: 10px;*/
+    margin-bottom: 5px; /*edited*/
 }
 
     hgroup.title h1, hgroup.title h2 {
@@ -441,7 +443,8 @@ label {
     }
 
 input, textarea {
-    border: 1px solid #e2e2e2;
+    /*border: 1px solid #e2e2e2;*/
+    border: 1px solid ;
     background: #fff;
     color: #333;
     font-size: 1.2em;

@@ -192,6 +192,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="CSS\CoreFrameworkTweaks.css" />
     <Content Include="CSS\CSSstyleTheme\CommonCSS\Control.css" />
     <Content Include="CSS\CSSstyleTheme\CommonCSS\default.css" />
     <Content Include="CSS\CSSstyleTheme\CommonCSS\InnerPageCSS.css" />
@@ -281,8 +282,12 @@
     <Content Include="CSS\HomePage\MasterPGBar.css" />
     <Content Include="CSS\MasterPageTabCSS.css" />
     <Content Include="CSS\MasterPGBar.css" />
+    <Content Include="CSS\menuStyle.css" />
     <Content Include="CSS\microsoftMenu.css" />
-    <Content Include="HtmlPage1.html" />
+    <Content Include="MicrosoftMenuHtmlPage.html" />
+    <Content Include="ModuleName\Inventory\MasterPage\ItemCategorySetupForm.aspx" />
+    <Content Include="ModuleName\Inventory\MasterPage\ItemSetupForm.aspx" />
+    <Content Include="ModuleName\Inventory\MasterPage\ItemSetupForm1.aspx" />
     <Content Include="NodeList.aspx" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
@@ -403,6 +408,27 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ModuleName\Inventory\MasterPage\ItemCategorySetupForm.aspx.cs">
+      <DependentUpon>ItemCategorySetupForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuleName\Inventory\MasterPage\ItemCategorySetupForm.aspx.designer.cs">
+      <DependentUpon>ItemCategorySetupForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleName\Inventory\MasterPage\ItemSetupForm.aspx.cs">
+      <DependentUpon>ItemSetupForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuleName\Inventory\MasterPage\ItemSetupForm.aspx.designer.cs">
+      <DependentUpon>ItemSetupForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleName\Inventory\MasterPage\ItemSetupForm1.aspx.cs">
+      <DependentUpon>ItemSetupForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuleName\Inventory\MasterPage\ItemSetupForm1.aspx.designer.cs">
+      <DependentUpon>ItemSetupForm1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="NodeList.aspx.cs">
       <DependentUpon>NodeList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -461,7 +487,6 @@
     <Folder Include="AppClass\" />
     <Folder Include="App_Data\" />
     <Folder Include="ModuleName\HRMS\MasterPage\" />
-    <Folder Include="ModuleName\Inventory\MasterPage\" />
     <Folder Include="ModuleName\Inventory\Report\" />
     <Folder Include="ModuleName\Organization\" />
   </ItemGroup>

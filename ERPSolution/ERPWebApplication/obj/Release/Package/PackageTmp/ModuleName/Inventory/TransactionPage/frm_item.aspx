@@ -128,7 +128,7 @@
                                         <asp:Label ID="Label3" runat="server" Text="Item Name: " CssClass="label"></asp:Label>
                                     </td>
                                     <td >
-                                        <asp:TextBox ID="txtrequisitionid0" runat="server" Width="220px"></asp:TextBox>
+                                        <asp:TextBox ID="txtrequisitionid0" runat="server" Height="12px" Width="220px"></asp:TextBox>
                                     </td>
                                     <td >
                                         <asp:Label ID="Label6" runat="server" Text="To Date:" CssClass="label"></asp:Label>

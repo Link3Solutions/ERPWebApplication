@@ -26,7 +26,11 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td>&nbsp;</td>
+            <td>
+                <ul>
+                    <li id="shellmenu_43"><a tabindex="20"  href="MicrosoftMenuHtmlPage.html"  >MICROSOFT MENU
+                        </a></li>
+                    </ul></td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
         </tr>

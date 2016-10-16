@@ -114,7 +114,7 @@ h5, h6 {
     background: url("../Images/accent.png") no-repeat;
     padding-left: 10px;
     /*padding-top: 30px;*/ /*edited*/
-    padding-top: 3px;
+    /*padding-top: 3px;*/
 }
 /*Edited*/
 .main-contentHeader {
@@ -133,7 +133,7 @@ h5, h6 {
 
 
 header .content-wrapper {
-    padding-top: 20px;
+    /*padding-top: 20px;*/
 }
 /*Edited*/
 header .content-wrapperHeader {
@@ -246,7 +246,7 @@ ul#menu {
     background-image: linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
     color: #3e5667;
     /*padding: 20px 40px 30px 40px;*/
-    padding: 5px 40px 3px 3px; /*edited*/
+    /*padding: 5px 40px 3px 3px;*/ /*edited*/
 }
 /*Edited*/
 .featured .content-wrapperHeader {
@@ -258,7 +258,8 @@ ul#menu {
     background-image: linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
     color: #3e5667;
     /*padding: 20px 40px 30px 40px;*/
-    padding: 5px 40px 3px 165px; /*edited*/
+    /*padding: 5px 40px 3px 165px;*/ /*edited*/
+    padding: 4px 40px 4px 165px; 
 }
 
 .featured hgroup.title h1, .featured hgroup.title h2 {
@@ -271,7 +272,8 @@ ul#menu {
 
 /* page titles */
 hgroup.title {
-    margin-bottom: 10px;
+    /*margin-bottom: 10px;*/
+    margin-bottom: 5px; /*edited*/
 }
 
     hgroup.title h1, hgroup.title h2 {
@@ -437,12 +439,14 @@ label {
 }
 
     label.checkbox {
-        display: inline;
+        display: inline ;
+       
+        
     }
 
 input, textarea {
+    /*border: 1px solid #e2e2e2;*/
     border: 1px solid ;
-    height:12px;
     background: #fff;
     color: #333;
     font-size: 1.2em;
@@ -462,8 +466,13 @@ textarea {
 
 input[type="checkbox"] {
     background: transparent;
+    /*background-color:red;*/ 
     border: inherit;
     width: auto;
+    /*margin-left: 3px;
+    font-size: 1.0em; 
+    display:inline ;*/
+    
 }
 
 input[type="submit"],
@@ -493,8 +502,8 @@ select {
     background: #fff;
     color: #333;
     font-size: 1.2em;
-    margin: 5px 0 6px 0;
-    padding: 5px;
+    /*margin: 5px 0 6px 0;
+    padding: 5px;*/
     width: 310px;
     font-family: inherit;
     
@@ -542,6 +551,7 @@ input.input-validation-error {
 
 input[type="checkbox"].input-validation-error {
     border: 0 none;
+   
 }
 
 .validation-summary-errors {
@@ -705,7 +715,7 @@ tr.pager td {
     }
 
     .featured .content-wrapper {
-        padding: 10px;
+        /*padding: 10px;*/
     }
     /*Edited*/
     .featuredHeader .content-wrapperHeader {

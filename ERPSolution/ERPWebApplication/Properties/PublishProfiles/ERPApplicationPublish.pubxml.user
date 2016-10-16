@@ -15,7 +15,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:08</publishTime>
     </File>
     <File Include="Account/Login.aspx">
-      <publishTime>09/05/2016 13:20:45</publishTime>
+      <publishTime>09/29/2016 10:37:14</publishTime>
     </File>
     <File Include="Account/Manage.aspx">
       <publishTime>08/21/2016 12:45:08</publishTime>
@@ -66,7 +66,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:26</publishTime>
     </File>
     <File Include="bin/ERPWebApplication.dll">
-      <publishTime>09/20/2016 10:28:08</publishTime>
+      <publishTime>10/03/2016 11:24:50</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Membership.OpenAuth.dll">
       <publishTime>08/21/2016 12:45:27</publishTime>
@@ -99,7 +99,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:08</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>09/20/2016 11:16:19</publishTime>
+      <publishTime>10/03/2016 10:53:37</publishTime>
     </File>
     <File Include="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png">
       <publishTime>08/21/2016 12:45:14</publishTime>
@@ -554,8 +554,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="CSS/MasterPGBar.css">
       <publishTime>08/30/2016 11:59:30</publishTime>
     </File>
+    <File Include="CSS/menuStyle.css">
+      <publishTime>10/03/2016 10:43:06</publishTime>
+    </File>
+    <File Include="CSS/microsoftMenu.css">
+      <publishTime>09/26/2016 15:16:31</publishTime>
+    </File>
     <File Include="Default.aspx">
-      <publishTime>08/29/2016 16:06:11</publishTime>
+      <publishTime>09/22/2016 15:46:55</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>08/21/2016 12:45:08</publishTime>
@@ -605,8 +611,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Images/orderedList9.png">
       <publishTime>08/21/2016 12:45:08</publishTime>
     </File>
+    <File Include="MicrosoftMenuHtmlPage.html">
+      <publishTime>09/26/2016 16:47:18</publishTime>
+    </File>
     <File Include="ModuleName/Inventory/TransactionPage/frm_item.aspx">
-      <publishTime>09/20/2016 11:09:39</publishTime>
+      <publishTime>09/28/2016 16:57:14</publishTime>
     </File>
     <File Include="ModuleName/Inventory/TransactionPage/frm_item_issue.aspx">
       <publishTime>08/29/2016 16:14:29</publishTime>
@@ -618,7 +627,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/22/2016 12:04:26</publishTime>
     </File>
     <File Include="NodeList.aspx">
-      <publishTime>08/28/2016 16:54:50</publishTime>
+      <publishTime>09/25/2016 12:59:16</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>08/29/2016 16:02:05</publishTime>
@@ -652,6 +661,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Scripts/jquery-ui-1.8.20.min.js">
       <publishTime>08/21/2016 12:45:14</publishTime>
+    </File>
+    <File Include="Scripts/microsoftJavaScript.js">
+      <publishTime>09/22/2016 11:34:21</publishTime>
     </File>
     <File Include="Scripts/modernizr-2.5.3.js">
       <publishTime>08/21/2016 12:45:14</publishTime>
@@ -723,10 +735,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/28/2016 12:52:13</publishTime>
     </File>
     <File Include="Site.Master">
-      <publishTime>09/20/2016 10:27:51</publishTime>
+      <publishTime>10/03/2016 11:22:39</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/20/2016 11:16:39</publishTime>
+      <publishTime>10/03/2016 11:24:51</publishTime>
     </File>
   </ItemGroup>
 </Project>
