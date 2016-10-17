@@ -192,7 +192,6 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
-    <Content Include="CSS\CoreFrameworkTweaks.css" />
     <Content Include="CSS\CSSstyleTheme\CommonCSS\Control.css" />
     <Content Include="CSS\CSSstyleTheme\CommonCSS\default.css" />
     <Content Include="CSS\CSSstyleTheme\CommonCSS\InnerPageCSS.css" />

@@ -11,7 +11,31 @@ namespace ERPWebApplication.ModuleName.Inventory.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                PanelItemSetup.Visible = false;
 
+            }
+
+        }
+
+        protected void CheckBoxAddItem_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (CheckBoxAddItem.Checked == true)
+            {
+                PanelItemSetup.Visible = true;
+                PanelLeft.Visible = false;
+                PanelRight.Visible = false;
+                
+            }
+            else
+            {
+                PanelLeft.Visible = true;
+                PanelRight.Visible = true;
+                PanelItemSetup.Visible = false;
+
+            }
         }
     }
 }

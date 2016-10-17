@@ -466,13 +466,9 @@ textarea {
 
 input[type="checkbox"] {
     background: transparent;
-    /*background-color:red;*/ 
     border: inherit;
     width: auto;
-    /*margin-left: 3px;
-    font-size: 1.0em; 
-    display:inline ;*/
-    
+       
 }
 
 input[type="submit"],
