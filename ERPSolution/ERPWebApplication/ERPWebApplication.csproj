@@ -356,6 +356,7 @@
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppClass\CommonClass\DataManipulation.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="About.aspx.cs">
@@ -483,7 +484,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AppClass\" />
     <Folder Include="App_Data\" />
     <Folder Include="ModuleName\HRMS\MasterPage\" />
     <Folder Include="ModuleName\Inventory\Report\" />

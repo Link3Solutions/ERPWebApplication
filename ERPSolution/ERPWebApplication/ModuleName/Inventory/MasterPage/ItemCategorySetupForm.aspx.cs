@@ -24,13 +24,15 @@ namespace ERPWebApplication.ModuleName.Inventory.MasterPage
 
             if (CheckBoxAddItem.Checked == true)
             {
+                PanelBody.Visible = false;
                 PanelItemSetup.Visible = true;
                 PanelLeft.Visible = false;
                 PanelRight.Visible = false;
-                
+                txtItemCode.Focus();
             }
             else
             {
+                PanelBody.Visible = true;
                 PanelLeft.Visible = true;
                 PanelRight.Visible = true;
                 PanelItemSetup.Visible = false;

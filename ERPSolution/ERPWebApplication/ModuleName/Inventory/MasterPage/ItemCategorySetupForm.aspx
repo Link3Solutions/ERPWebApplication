@@ -3,193 +3,217 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             <table style="width: 100%;">
                 <tr>
-                    <td colspan="4">
-                        <asp:Panel ID="PanelTop" runat="server" BackColor="#00817F">
-                            <table style="width: 100%;">
-                                <tr>
-                                    <td>&nbsp; 
+                    
+                        <td colspan="4">
+                            <div id="fixedDiv" style="width: 100%; position: fixed">
+                            <asp:Panel ID="PanelTop" runat="server" BackColor="#00817F" >
+                                
+                                <table style="width: 60%;">
+                                    <tr>
+                                        
+                                        <td>&nbsp; 
                                 <asp:CheckBox runat="server" ID="CheckBoxAddItem" CssClass="checkbox" ForeColor="White" AutoPostBack="True" OnCheckedChanged="CheckBoxAddItem_CheckedChanged" />
-                                        <asp:Label ID="Label3" runat="server" AssociatedControlID="CheckBoxAddItem" CssClass="checkbox" ForeColor="White">Add Item?</asp:Label>
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                </tr>
-                            </table>
-                        </asp:Panel>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <div style="height: 600px">
-                            <asp:Panel ID="PanelLeft" runat="server" Width="500px">
-                                <table style="width: 100%;">
-                                    <tr>
-                                        <td colspan="3">
-                                            <asp:TreeView ID="TreeViewCategory" runat="server">
-                                            </asp:TreeView>
+                                            <asp:Label ID="Label3" runat="server" AssociatedControlID="CheckBoxAddItem" CssClass="checkbox" ForeColor="White">Add Item?</asp:Label>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td>&nbsp;</td>
-                                        <td>&nbsp;</td>
-                                        <td>&nbsp;</td>
-                                    </tr>
-                                    <tr>
-                                        <td>&nbsp;</td>
-                                        <td>&nbsp;</td>
-                                        <td>&nbsp;</td>
+                                        <td style="text-align: right">
+                                            <asp:Button ID="btnSaveCategory" runat="server" Text="Save" Width="100px" />
+                                        </td>
+                                        <td style="text-align: center">
+                                            <asp:Button ID="Button2" runat="server" Text="Print Summery" />
+                                        </td>
+                                        <td style="text-align: left">
+                                            
+                                            <asp:Button ID="Button3" runat="server" Text="Print" Width="100px" />
+                                                
+                                        </td>
+                                        
                                     </tr>
                                 </table>
+                                    
                             </asp:Panel>
-                        </div>
-                    </td>
-                    <td colspan="2">
-                        <div style="height: 600px">
-                            <asp:Panel ID="PanelRight" runat="server" BackColor="#E0E0E0" Width="100%">
-                                <table style="width: 100%;">
-                                    <tr>
-                                        <td>
-                                            <asp:Label ID="Label1" runat="server" Text="Category Name"></asp:Label>
-                                        </td>
-                                        <td>:</td>
-                                        <td>
-                                            <asp:TextBox ID="txtCategoryName" runat="server"></asp:TextBox>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <asp:Label ID="Label2" runat="server" Text="Parent Category"></asp:Label>
-                                        </td>
-                                        <td>:</td>
-                                        <td>
-                                            <asp:DropDownList ID="ddlParentCategory" runat="server">
-                                            </asp:DropDownList>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>&nbsp;</td>
-                                        <td>&nbsp;</td>
-                                        <td>&nbsp;</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="3">
-                                            <asp:Panel ID="PanelProductType" BorderStyle="Solid" BorderWidth="1px" BorderColor="Gray" runat="server">
+                                </div>
+                        </td>
+                    
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td colspan="2">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
 
+                <tr>
+                    <td colspan="4">
+                        
+                        <asp:Panel ID="PanelBody" runat="server">
+
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>
+                                        <div style="height: 560px">
+                                            <asp:Panel ID="PanelLeft" runat="server" Width="500px">
                                                 <table style="width: 100%;">
                                                     <tr>
                                                         <td colspan="3">
-                                                            <asp:Label ID="Label4" runat="server" Text="Select Product Type"></asp:Label>
+                                                            <asp:TreeView ID="TreeViewCategory" runat="server">
+                                                            </asp:TreeView>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>
-                                                            <asp:RadioButtonList ID="RadioButtonListProductType" runat="server">
-                                                                <asp:ListItem Value="B">Barcode Item</asp:ListItem>
-                                                                <asp:ListItem Value="S">Scale Item</asp:ListItem>
-                                                            </asp:RadioButtonList>
-                                                        </td>
+                                                        <td>&nbsp;</td>
                                                         <td>&nbsp;</td>
                                                         <td>&nbsp;</td>
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp;</td>
                                                         <td>&nbsp;</td>
-                                                        <td>
-                                                            <asp:Button ID="btnChangeCategory" runat="server" Text="Change Category" />
-                                                        </td>
+                                                        <td>&nbsp;</td>
                                                     </tr>
                                                 </table>
-
                                             </asp:Panel>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>&nbsp;</td>
-                                        <td>&nbsp;</td>
-                                        <td>&nbsp;</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="3">
-                                            <asp:Panel ID="PanelSearch" runat="server">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div style="height: 560px">
+                                            <asp:Panel ID="PanelRight" runat="server" BackColor="#E0E0E0" Width="99%">
                                                 <table style="width: 100%;">
                                                     <tr>
                                                         <td>
-                                                            <asp:Label ID="Label5" runat="server" Text="Search" BackColor="#FF8081" ForeColor="White" Font-Bold="true" Width="75px"></asp:Label>
-                                                        </td>
-                                                        <td>&nbsp;</td>
-                                                        <td>&nbsp;</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <asp:Label ID="Label6" runat="server" Text="Item Category"></asp:Label>
+                                                            <asp:Label ID="Label1" runat="server" Text="Category Name"></asp:Label>
                                                         </td>
                                                         <td>:</td>
                                                         <td>
-                                                            <asp:DropDownList ID="DropDownList1" runat="server">
-                                                            </asp:DropDownList>
+                                                            <asp:TextBox ID="txtCategoryName" runat="server"></asp:TextBox>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <asp:Label ID="Label7" runat="server" Text="Item Name"></asp:Label>
+                                                            <asp:Label ID="Label2" runat="server" Text="Parent Category"></asp:Label>
                                                         </td>
                                                         <td>:</td>
                                                         <td>
-                                                            <asp:DropDownList ID="DropDownList2" runat="server">
-                                                            </asp:DropDownList>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <asp:Label ID="Label8" runat="server" Text="Item Code"></asp:Label>
-                                                        </td>
-                                                        <td>:</td>
-                                                        <td>
-                                                            <asp:DropDownList ID="DropDownList3" runat="server">
+                                                            <asp:DropDownList ID="ddlParentCategory" runat="server">
                                                             </asp:DropDownList>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp;</td>
                                                         <td>&nbsp;</td>
-                                                        <td>
-                                                            <asp:Button ID="Button1" runat="server" Text="Search Now" />
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <asp:Panel ID="PanelProductType" BorderStyle="Solid" BorderWidth="1px" BorderColor="Gray" runat="server">
+
+                                                                <table style="width: 100%;">
+                                                                    
+                                                                    <tr>
+                                                                        <td >
+                                                                            <asp:Label ID="Label4" runat="server" Text="Select Product Type" Width="120px"></asp:Label>
+                                                                        </td>
+                                                                        <td>:</td>
+                                                                        <td>
+                                                                            <asp:DropDownList ID="DropDownList10" runat="server">
+                                                                            </asp:DropDownList>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td >&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td style="text-align: right">
+                                                                            <asp:Button ID="btnChangeCategory" runat="server" Text="Change Category" />
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+
+                                                            </asp:Panel>
                                                         </td>
                                                     </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <asp:Panel ID="PanelSearch" runat="server">
+                                                                <table style="width: 100%;">
+                                                                    <tr>
+                                                                        <td>
+                                                                            <asp:Label ID="Label5" style="text-align:center" runat="server" Text="Search" BackColor="#FF8081" ForeColor="White" Font-Bold="true" Width="75px"></asp:Label>
+                                                                        </td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <asp:Label ID="Label6" runat="server" Text="Item Category"></asp:Label>
+                                                                        </td>
+                                                                        <td>:</td>
+                                                                        <td>
+                                                                            <asp:DropDownList ID="DropDownList1" runat="server">
+                                                                            </asp:DropDownList>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <asp:Label ID="Label7" runat="server" Text="Item Name"></asp:Label>
+                                                                        </td>
+                                                                        <td>:</td>
+                                                                        <td>
+                                                                            <asp:DropDownList ID="DropDownList2" runat="server">
+                                                                            </asp:DropDownList>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <asp:Label ID="Label8" runat="server" Text="Item Code"></asp:Label>
+                                                                        </td>
+                                                                        <td>:</td>
+                                                                        <td>
+                                                                            <asp:DropDownList ID="DropDownList3" runat="server">
+                                                                            </asp:DropDownList>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td style="text-align:right">
+                                                                            <asp:Button ID="Button1" runat="server" Text="Search Now" />
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </asp:Panel>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+
                                                 </table>
                                             </asp:Panel>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>&nbsp;</td>
-                                        <td>&nbsp;</td>
-                                        <td>&nbsp;</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <asp:Button ID="btnSaveCategory" runat="server" Text="Save" Width="100px" />
-                                        </td>
-                                        <td>&nbsp;</td>
-                                        <td>
-                                            <asp:Button ID="Button2" runat="server" Text="Print Summery" />
-                                            <asp:Button ID="Button3" runat="server" Text="Print" Width="100px" />
-                                        </td>
-                                    </tr>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
 
-                                </table>
-                            </asp:Panel>
-                        </div>
+                        </asp:Panel>
+                            
                     </td>
                 </tr>
+                
                 <tr>
                     <td colspan="4">
-                        <asp:Panel ID="PanelItemSetup" BackColor="#DDEFF9" runat="server">
+                        
+                        <asp:Panel ID="PanelItemSetup" BackColor="#DDEFF9" Width="100%" runat="server">
                             <table style="width: 100%;">
                                 <tr>
                                     <td colspan="4">
@@ -197,7 +221,7 @@
                                             <table style="width: 40%;">
                                                 <tr>
                                                     <td>
-                                                        <asp:Label ID="Label9" runat="server" Text="Category" BackColor="#FE817F" Width="65px" ForeColor="White" Font-Bold="True"></asp:Label>
+                                                        <asp:Label ID="Label9" style="text-align:center" runat="server" Text="Category" BackColor="#FE817F" Width="65px" ForeColor="White" Font-Bold="True"></asp:Label>
                                                     </td>
                                                     <td>:</td>
                                                     <td>
@@ -225,12 +249,12 @@
                                                     </td>
                                                     <td>:</td>
                                                     <td>
-                                                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                                                        <asp:TextBox ID="txtItemCode" runat="server"></asp:TextBox>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <asp:Label ID="Label11" runat="server" Text="Item Name" BackColor="#FE817F" Width="75px" ForeColor="White" Font-Bold="true"></asp:Label>
+                                                        <asp:Label ID="Label11" style="text-align:center" runat="server" Text="Item Name" BackColor="#FE817F" Width="75px" ForeColor="White" Font-Bold="true"></asp:Label>
                                                     </td>
                                                     <td>:</td>
                                                     <td>
@@ -414,7 +438,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="4">
-                                        <table style="width: 70%; text-align: left">
+                                        <table style="width: 75%; text-align: left">
                                             <tr>
                                                 <td colspan="4">
                                                     <asp:Label ID="Label27" runat="server" Text="Enter Account Information" ForeColor="#793F19" Width="500px"></asp:Label>
@@ -479,42 +503,10 @@
                                         </table>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td colspan="4">
-                                        <asp:Panel ID="PanelBottom" BackColor="#E0E0E0" BorderStyle="Solid" BorderWidth="3px" BorderColor="#E0E0E0" runat="server">
-                                            <table style="width: 100%;">
-                                                <tr>
-                                                    <td>&nbsp;</td>
-                                                    <td>
-                                                        <asp:Button ID="Button8" runat="server" Text="Clear All" Width="75px" />
-                                                    </td>
-                                                    <td>
-                                                        <asp:Button ID="Button9" runat="server" Text="Check Duplicate Barcode" Width="180px" />
-                                                    </td>
-                                                    <td>
-                                                        <asp:Button ID="Button10" runat="server" Text="Edit Barcode Types" Width="180px" />
-                                                    </td>
-                                                    <td>
-                                                        <asp:Button ID="Button11" runat="server" Text="Check Duplicate Name" Width="180px" />
-                                                    </td>
-                                                    <td>
-                                                        <asp:Button ID="Button12" runat="server" Text="Print" Width="75px" />
-                                                    </td>
-                                                    <td>
-                                                        <asp:Button ID="Button13" runat="server" Text="Save" Width="75px" />
-                                                    </td>
-                                                    <td>
-                                                        <asp:Button ID="Button14" runat="server" Text="Close" Width="75px" />
-                                                    </td>
-                                                    <td>&nbsp;</td>
-                                                </tr>
 
-                                            </table>
-                                        </asp:Panel>
-                                    </td>
-                                </tr>
                             </table>
                         </asp:Panel>
+                            
                     </td>
                 </tr>
 
