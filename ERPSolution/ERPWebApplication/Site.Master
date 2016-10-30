@@ -56,9 +56,8 @@
                                         <asp:MenuItem NavigateUrl="~/ModuleName/Inventory/MasterPage/ItemCategorySetupForm.aspx" Text="Item Category Setup" Value="22"></asp:MenuItem>
                                     </asp:MenuItem>
                                     <asp:MenuItem NavigateUrl="~/Default.aspx" Text="TransactionPage">
-                                        <asp:MenuItem NavigateUrl="~/ModuleName/Inventory/TransactionPage/frm_item.aspx" Text="Item Requisition" Value="aaaaa"></asp:MenuItem>
-                                        <asp:MenuItem NavigateUrl="~/ModuleName/Inventory/TransactionPage/frm_item.aspx" Text="Item Requisition Test css" Value="aaaaa"></asp:MenuItem>
-                                        <asp:MenuItem NavigateUrl="~/ModuleName/Inventory/TransactionPage/frm_item.aspx" Text="Item Requisition Test css" Value="aaaaa"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/ModuleName/Inventory/TransactionPage/frmItemRequisition.aspx" Text="Item Requisition" Value="aaaaa"></asp:MenuItem>
+
                                     </asp:MenuItem>
                                 </asp:MenuItem>
 
@@ -121,11 +120,12 @@
 
         </header>
 
-        <div id="body" style="padding-top: 122px;width:100%">
-            <div id="fixedImage" style="position: fixed;background-color: #fff">
+        <div id="body" style="padding-top: 122px; width: 100%">
+            <div id="fixedImage" style="position: fixed; background-color: #fff">
                 <section style="margin-left: 80px; max-width: 960px">
                     <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/heroAccent.png" />
                 </section>
+
             </div>
             <%--<asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />--%>
             <section class="content-wrapper main-content clear-fix">

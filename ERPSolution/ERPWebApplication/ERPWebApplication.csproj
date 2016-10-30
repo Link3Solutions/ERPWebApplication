@@ -46,6 +46,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\AspNet.ScriptManager.jQuery.3.1.0\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\CrystalDecisions.Web.1.0.1\lib\CrystalDecisions.Web.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.ScriptManager.MSAjax, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -136,6 +143,97 @@
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\CommonCSS\Control.css" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\CommonCSS\default.css" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\CommonCSS\InnerPageCSS.css" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\CommonCSS\InnerPageOtherControlCSS.css" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\CommonCSS\normalize.css" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\CommonCSS\panel.css" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\CommonCSS\PopupControlCss.css" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\CommonCSS\Tree.css" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\CompanyLogo\1_Tulips.jpg" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\CompanyLogo\images.png" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Control\Calendar.css" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Control\CheckBox.css" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Control\CommandButton.css" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Control\DropDown.css" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Control\GridView.css" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Control\RadioButton.css" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Control\tabs.css" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Control\TextBox.css" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\accept-icon.png" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\accept.png" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\addnew.png" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\cancel.png" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\Cancel__Green.png" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\collapse.png" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\dialog_close.gif" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\error_bg.jpg" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\error_header.gif" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\expand.png" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\f-linkedin_256-16.png" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\facebook-16.png" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\glyphicons-halflings-white.png" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\glyphicons-halflings.png" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\imageAttachment.jpg" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\images.jpg" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\img01.gif" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\img02.gif" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\img03.gif" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\img04.gif" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\img05.gif" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\img06.gif" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\img07.gif" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\img08.gif" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\img09.gif" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\img10.gif" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\img11.gif" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\img12.jpg" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\img13.gif" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\img14.gif" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\img15.gif" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\img16.gif" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\img17.gif" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\img18.gif" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\img19.gif" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\img20.jpg" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\Link3Solutions1.jpg" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\Link3Solutions11.jpg" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\logopho.jpg" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\nav-icon.png" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\pencil.png" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\print.png" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\prompt_bg.jpg" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\prompt_header.gif" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\Remove.png" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\search.png" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\showall.png" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\ShowAllDet.png" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\ShowAllIcon.png" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\spacer.gif" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\success_bg.jpg" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\success_header.gif" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\tp2.png" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\twitter-16.png" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\Update.png" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\warning_bg.jpg" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\warning_header.gif" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Images\youtube.png" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\MasterPageCSS\CssAddon.css" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\MasterPageCSS\Site.css" />
+    <Content Include="App_Themes\CSS\default.css" />
+    <Content Include="App_Themes\CSS\GridViewCSS.css" />
+    <Content Include="App_Themes\CSS\HomePage\bootstrap-theme.css" />
+    <Content Include="App_Themes\CSS\HomePage\bootstrap-theme.min.css" />
+    <Content Include="App_Themes\CSS\HomePage\bootstrap.css" />
+    <Content Include="App_Themes\CSS\HomePage\bootstrap.min.css" />
+    <Content Include="App_Themes\CSS\HomePage\MasterPageAddOn.css" />
+    <Content Include="App_Themes\CSS\HomePage\MasterPageTabCSS.css" />
+    <Content Include="App_Themes\CSS\HomePage\MasterPGBar.css" />
+    <Content Include="App_Themes\CSS\MasterPageTabCSS.css" />
+    <Content Include="App_Themes\CSS\MasterPGBar.css" />
+    <Content Include="App_Themes\CSS\menuStyle.css" />
+    <Content Include="App_Themes\CSS\microsoftMenu.css" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -287,6 +385,8 @@
     <Content Include="ModuleName\Inventory\MasterPage\ItemCategorySetupForm.aspx" />
     <Content Include="ModuleName\Inventory\MasterPage\ItemSetupForm.aspx" />
     <Content Include="ModuleName\Inventory\MasterPage\ItemSetupForm1.aspx" />
+    <Content Include="ModuleName\Inventory\Report\ReportForm\ReportViewer.aspx" />
+    <Content Include="ModuleName\Inventory\TransactionPage\frmItemRequisition.aspx" />
     <Content Include="NodeList.aspx" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
@@ -315,6 +415,15 @@
     <Content Include="CSS\CSSstyleTheme\Fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="CSS\HomePage\bootstrap-theme.css.map" />
     <Content Include="CSS\HomePage\bootstrap.css.map" />
+    <Content Include="WebService\ServiceSystem.asmx" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\CommonCSS\default.skin" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="App_Themes\CSS\CSSstyleTheme\Fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="App_Themes\CSS\HomePage\bootstrap-theme.css.map" />
+    <Content Include="App_Themes\CSS\HomePage\bootstrap.css.map" />
     <None Include="Properties\PublishProfiles\ERPApplicationPublish.pubxml" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.0.js" />
@@ -350,13 +459,40 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="UploadFile\Ayatul Kursi.jpg" />
+    <Content Include="UploadFile\Getdata function.txt" />
+    <Content Include="UploadFile\Health Tips.jpg" />
+    <Content Include="UploadFile\Health Tips.png" />
+    <Content Include="UploadFile\Item Requisition 2016-10-09 16-16-27.png" />
+    <Content Include="UploadFile\Item Requisition- ERP Web Application 2016-10-10 12-23-03.png" />
+    <Content Include="UploadFile\logo_120_100.png" />
+    <Content Include="UploadFile\New Text Document.txt" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppClass\CommonClass\ClsDropDownListController.cs" />
+    <Compile Include="AppClass\CommonClass\ClsGridViewLoad.cs" />
+    <Compile Include="AppClass\CommonClass\ClsReport.cs" />
+    <Compile Include="AppClass\CommonClass\ClsStatic.cs" />
     <Compile Include="AppClass\CommonClass\DataManipulation.cs" />
+    <Compile Include="AppClass\CommonClass\DataProcess.cs" />
+    <Compile Include="AppClass\CommonClass\SqlGenerateForItemRequisition.cs" />
+    <Compile Include="AppClass\CommonClass\sqlGenerationClientInformation.cs" />
+    <Compile Include="AppClass\CommonClass\SqlGenerationForEmployee.cs" />
+    <Compile Include="AppClass\CommonClass\SqlGenerationForItemDetail.cs" />
+    <Compile Include="AppClass\CommonClass\StoredProcedureExecutor.cs" />
+    <Compile Include="AppClass\DataAccess\ItemCategorySetupController.cs" />
+    <Compile Include="AppClass\DataAccess\ItemSetupController.cs" />
+    <Compile Include="AppClass\Model\ClsFileUploadDetail.cs" />
+    <Compile Include="AppClass\Model\ClsFileUploadHeader.cs" />
+    <Compile Include="AppClass\Model\clsMaterialSetup.cs" />
+    <Compile Include="AppClass\Model\ClsRequisitionDetail.cs" />
+    <Compile Include="AppClass\Model\clsRequisitionHeader.cs" />
+    <Compile Include="AppClass\Model\ItemCategorySetup.cs" />
+    <Compile Include="AppClass\Model\ItemSetup.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="About.aspx.cs">
@@ -429,6 +565,26 @@
     <Compile Include="ModuleName\Inventory\MasterPage\ItemSetupForm1.aspx.designer.cs">
       <DependentUpon>ItemSetupForm1.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ModuleName\Inventory\Report\ReportFile\ReportItemRequisition.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportItemRequisition.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ModuleName\Inventory\Report\ReportForm\ReportViewer.aspx.cs">
+      <DependentUpon>ReportViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuleName\Inventory\Report\ReportForm\ReportViewer.aspx.designer.cs">
+      <DependentUpon>ReportViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleName\Inventory\TransactionPage\frmItemRequisition.aspx.cs">
+      <DependentUpon>frmItemRequisition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuleName\Inventory\TransactionPage\frmItemRequisition.aspx.designer.cs">
+      <DependentUpon>frmItemRequisition.aspx</DependentUpon>
+    </Compile>
     <Compile Include="NodeList.aspx.cs">
       <DependentUpon>NodeList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -482,11 +638,14 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
+    <Compile Include="WebService\ServiceSystem.asmx.cs">
+      <DependentUpon>ServiceSystem.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="ModuleName\HRMS\MasterPage\" />
-    <Folder Include="ModuleName\Inventory\Report\" />
     <Folder Include="ModuleName\Organization\" />
   </ItemGroup>
   <ItemGroup>
@@ -496,12 +655,27 @@
   <ItemGroup>
     <Content Include="Scripts\jquery-3.1.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.0.min.map" />
+    <Content Include="UploadFile\Action Planning form.xlsx" />
+    <Content Include="UploadFile\Chart_of_acc.pdf" />
+    <Content Include="UploadFile\Client Requirement Form.doc" />
+    <Content Include="UploadFile\CRUD Function in MVC.docx" />
+    <Content Include="UploadFile\Form Template Link3 Inventory.docx" />
+    <Content Include="UploadFile\Inventory Form wise table.xlsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ModuleName\Inventory\Report\ReportFile\ReportItemRequisition.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportItemRequisition.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

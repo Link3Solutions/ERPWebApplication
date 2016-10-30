@@ -29,3 +29,4 @@ D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApp
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\obj\Release\ERPWebApplication.csprojResolveAssemblyReference.cache
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\obj\Release\ERPWebApplication.dll
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\obj\Release\ERPWebApplication.pdb
+D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\bin\CrystalDecisions.Web.dll
