@@ -13,6 +13,15 @@ namespace ERPWebApplication.ModuleName.Inventory.MasterPage {
     public partial class ItemSetupForm {
         
         /// <summary>
+        /// MessageBox1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ProudMonkey.Common.Controls.MessageBox MessageBox1;
+        
+        /// <summary>
         /// PanelCategory control.
         /// </summary>
         /// <remarks>
@@ -38,6 +47,15 @@ namespace ERPWebApplication.ModuleName.Inventory.MasterPage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCategory;
+        
+        /// <summary>
+        /// Button3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button3;
         
         /// <summary>
         /// Label2 control.

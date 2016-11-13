@@ -13,11 +13,13 @@ using CrystalDecisions.Shared;
 using CrystalDecisions.CrystalReports.Engine;
 using System.IO;
 using ERPWebApplication.CommonClass;
+using System.Configuration;
 
 namespace ERPWebApplication.ModuleName.Inventory.Report.ReportForm
 {
     public partial class ReportViewer : System.Web.UI.Page
     {
+        readonly string _connectionString = ConfigurationManager.ConnectionStrings["dbERPSolutionConnection"].ToString();
         ReportDocument rpt1 = new ReportDocument();
 
         protected void Page_Init(object sender, EventArgs e)
@@ -42,7 +44,7 @@ namespace ERPWebApplication.ModuleName.Inventory.Report.ReportForm
                 }
 
                 ConnectionInfo ConnInfo = new ConnectionInfo();
-                string SCBLconnStr = System.Configuration.ConfigurationManager.ConnectionStrings["ItemRequisitionConString"].ToString();
+                string SCBLconnStr = _connectionString;
 
                 string[] ff;
                 string[] ss;

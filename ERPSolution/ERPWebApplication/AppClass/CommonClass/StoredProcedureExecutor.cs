@@ -51,6 +51,10 @@ public class StoredProcedureExecutor
             resultantDataAdapter.Fill(resultantDataTable);
             return resultantDataTable;
         }
+        catch (SqlException msgException)
+        {
+            throw msgException;
+        }
         catch (Exception msgException)
         {
             throw msgException;

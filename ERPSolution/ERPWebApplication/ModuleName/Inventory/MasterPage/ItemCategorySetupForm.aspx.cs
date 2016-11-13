@@ -1,5 +1,6 @@
 ﻿using ERPWebApplication.AppClass.DataAccess;
 using ERPWebApplication.AppClass.Model;
+using ERPWebApplication.CommonClass;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -19,6 +20,8 @@ namespace ERPWebApplication.ModuleName.Inventory.MasterPage
         private ItemCategorySetupController _objItemCategorySetupController;
         private ItemSetup _objItemSetup;
         private ItemSetupController _objItemSetupController;
+        private CompanySetup _objCompanySetup;
+        private BranchSetup _objBranchSetup;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,9 +34,13 @@ namespace ERPWebApplication.ModuleName.Inventory.MasterPage
                 PopulateRootLevel();
                 LoadCategory(ddlCategory);
                 LoadCategory(ddlParentCategory);
+                CheckBoxAddItem.Enabled = false;
+                
 
             }
         }
+
+
 
         private void LoadCategory(DropDownList ddlCategory)
         {
@@ -66,7 +73,6 @@ namespace ERPWebApplication.ModuleName.Inventory.MasterPage
                 var dt = new DataTable();
                 da.Fill(dt);
                 PopulateNodes(dt, TreeViewCategory.Nodes);
-
             }
             catch (Exception msgException)
             {
@@ -99,7 +105,17 @@ namespace ERPWebApplication.ModuleName.Inventory.MasterPage
             try
             {
                 var myConnection = new SqlConnection(_connectionString);
-                var objCommand = new SqlCommand(@"select ItemCategoryID,CategoryName,(select count(*) FROM matCategoryList WHERE ParentCategoryID=e.ItemCategoryID) childnodecount FROM matCategoryList e where ParentCategoryID=@ParentCategoryID", myConnection);
+                var objCommand = new SqlCommand(@"select ItemCategoryID,CategoryName
+                                                    ,
+                                                    (select count(*) FROM matCategoryList
+                                                    WHERE ParentCategoryID=e.ItemCategoryID)+
+                                                    (select count(*) FROM matMaterialSetup
+                                                    WHERE matMaterialSetup.ItemCategoryID=e.ItemCategoryID) AS childnodecount 
+                                                    FROM matCategoryList e 
+                                                    where ParentCategoryID=@ParentCategoryID
+                                                    UNION
+                                                    select ItemID AS ItemCategoryID ,ModelNo AS CategoryName,0 AS childnodecount FROM matMaterialSetup D where D.ItemCategoryID=@ParentCategoryID", myConnection);
+
                 objCommand.Parameters.Add("@ParentCategoryID", SqlDbType.Int).Value = parentid;
                 var da = new SqlDataAdapter(objCommand);
                 var dt = new DataTable();
@@ -119,7 +135,7 @@ namespace ERPWebApplication.ModuleName.Inventory.MasterPage
         {
             string categoryID;
             int parentCategoryID = ddlParentCategory.SelectedValue == "-1" ? 1 : Convert.ToInt32(ddlParentCategory.SelectedValue);
-            categoryID = Session["company"].ToString() + Session["branch"].ToString() + GetSeqNo(parentCategoryID) + GetTierNo(parentCategoryID);
+            categoryID = Session["company"].ToString() + Session["branch"].ToString() + GetTierNo(parentCategoryID) + GetSeqNo(parentCategoryID);
             return Convert.ToInt32(categoryID);
 
         }
@@ -141,15 +157,16 @@ namespace ERPWebApplication.ModuleName.Inventory.MasterPage
             }
 
         }
-        private int GetSeqNo(int parentAccount)
+        private string GetSeqNo(int parentAccount)
         {
             try
             {
                 var storedProcedureComandTest = "exec [spGetNodeSeqNo] " + parentAccount + " ";
                 var dtSeqNo = StoredProcedureExecutor.StoredProcedureExecuteReader(_connectionString, storedProcedureComandTest);
-                int sequenceNumber = Convert.ToInt32(dtSeqNo.Rows[0][0].ToString());
+                var sequenceNumberFixedDigit = dtSeqNo.Rows[0][0].ToString();
+                int sequenceNumber = Convert.ToInt32(sequenceNumberFixedDigit);
                 Session["sequenceNumber"] = sequenceNumber;
-                return sequenceNumber;
+                return sequenceNumberFixedDigit;
 
             }
             catch (Exception msgException)
@@ -163,11 +180,31 @@ namespace ERPWebApplication.ModuleName.Inventory.MasterPage
 
             if (CheckBoxAddItem.Checked == true)
             {
-                PanelBody.Visible = false;
-                PanelItemSetup.Visible = true;
-                PanelLeft.Visible = false;
-                PanelRight.Visible = false;
-                txtItemCode.Focus();
+                try
+                {
+                    PanelBody.Visible = false;
+                    PanelItemSetup.Visible = true;
+                    PanelLeft.Visible = false;
+                    PanelRight.Visible = false;
+                    txtItemCode.Focus();
+                    ItemTypeSetupController objItemTypeSetupController = new ItemTypeSetupController();
+                    _objCompanySetup = new CompanySetup();
+                    _objCompanySetup.CompanyID = Convert.ToInt32(Session["company"].ToString());
+                    _objBranchSetup = new BranchSetup();
+                    _objBranchSetup.BranchID = Convert.ToInt32(Session["branch"].ToString());
+                    ClsDropDownListController.LoadDropDownList(_connectionString, objItemTypeSetupController.ItemTypeSql(_objCompanySetup, _objBranchSetup), ddlItemTypeID, "ItemType", "ItemTypeID");
+                    UnitSetupController objUnitSetupController = new UnitSetupController();
+                    ClsDropDownListController.LoadDropDownList(_connectionString, objUnitSetupController.UnitSql(_objCompanySetup, _objBranchSetup), ddlUnit, "Unit", "UnitID");
+                    ItemUsageSetupController objItemUsageSetupController = new ItemUsageSetupController();
+                    ClsDropDownListController.LoadDropDownList(_connectionString, objItemUsageSetupController.ItemUsageSql(_objCompanySetup, _objBranchSetup), ddlItemUsageID, "ItemUsage", "ItemUsageID");
+
+                }
+                catch (Exception msgException)
+                {
+
+                    throw msgException;
+                }
+
             }
             else
             {
@@ -198,7 +235,7 @@ namespace ERPWebApplication.ModuleName.Inventory.MasterPage
             catch (Exception msgException)
             {
 
-                throw msgException;
+                MessageBox1.ShowError(msgException.Message);
             }
 
         }
@@ -213,15 +250,40 @@ namespace ERPWebApplication.ModuleName.Inventory.MasterPage
                 _objItemSetup.HsCode = txtHSCode.Text == string.Empty ? null : txtHSCode.Text;
                 _objItemSetup.IsVATAbleItem = CheckBoxIsVATPayable.Checked == true ? true : false;
                 _objItemSetup.SupplierID = ddlRelatedSupplier.SelectedValue == "-1" ? null : ddlRelatedSupplier.SelectedValue;
-                _objItemSetup.OpenningBalance = txtOpeningBalance.Text == string.Empty ? -1 : Convert.ToInt32(txtOpeningBalance.Text);
-                _objItemSetup.CoaSalesAccNo = Convert.ToInt32(ddlSalesAccountNo.SelectedValue);
-                _objItemSetup.CoaStockAccNo = Convert.ToInt32(ddlStockAccountNo.SelectedValue);
-                _objItemSetup.CoacgsAccNo = Convert.ToInt32(ddlCOGSAccountNo.SelectedValue);
-                _objItemSetup.CoaSalesRetAccNo = Convert.ToInt32(ddlSalesReturnAccount.SelectedValue);
+                _objItemSetup.OpenningBalance = txtOpeningBalance.Text == string.Empty ? 0 : Convert.ToInt32(txtOpeningBalance.Text);
+                _objItemSetup.CoaSalesAccNo = 1;//Convert.ToInt32(ddlSalesAccountNo.SelectedValue);
+                _objItemSetup.CoaStockAccNo = 1;//Convert.ToInt32(ddlStockAccountNo.SelectedValue);
+                _objItemSetup.CoacgsAccNo = 1;//Convert.ToInt32(ddlCOGSAccountNo.SelectedValue);
+                _objItemSetup.CoaSalesRetAccNo = 1;//Convert.ToInt32(ddlSalesReturnAccount.SelectedValue);
                 _objItemSetup.EntryUserName = Session["entryUserCode"].ToString();
-
+                _objItemSetup.ItemID = Convert.ToInt32(Session["company"].ToString() + Session["branch"].ToString());
+                _objItemSetup.ModelNo = txtItemName.Text == string.Empty ? null : txtItemName.Text;
+                _objItemSetup.UnitID = Convert.ToInt32(ddlUnit.SelectedValue);
+                _objItemSetup.ItemCode = txtItemCode.Text == string.Empty ? null : txtItemCode.Text;
+                _objItemSetup.ItemTypeID = Convert.ToInt32(ddlItemTypeID.SelectedValue);
+                _objItemSetup.ItemPropertySetID = 1;
+                _objItemSetup.ItemUsageID = Convert.ToInt32(ddlItemUsageID.SelectedValue);
                 _objItemSetupController = new ItemSetupController();
-                _objItemSetupController.Save(_connectionString, _objItemSetup);
+
+                _objItemCategorySetup = new ItemCategorySetup();
+                _objItemCategorySetup.CompanyID = Convert.ToInt32(Session["company"].ToString());
+                _objItemCategorySetup.BranchID = Convert.ToInt32(Session["branch"].ToString());
+                _objItemCategorySetup.CategoryTypeID = Convert.ToInt32(ddlProductType.SelectedValue);
+                _objItemCategorySetup.ItemCategoryID = CreateCategoryID();
+                _objItemCategorySetup.CategoryName = _objItemSetup.ItemCode = txtItemCode.Text;
+                _objItemCategorySetup.ParentCategoryID = ddlParentCategory.SelectedValue == "-1" ? 1 : Convert.ToInt32(ddlParentCategory.SelectedValue);
+                _objItemCategorySetup.StartingItemCode = 0;
+                _objItemCategorySetup.EndingItemCode = 0;
+                _objItemCategorySetup.SeqNo = Convert.ToInt32(Session["sequenceNumber"].ToString());
+                _objItemCategorySetup.TierNo = Convert.ToInt32(Session["tierNumber"].ToString());
+                _objItemCategorySetup.CurrentBalance = 0;
+                _objItemCategorySetup.DataUsed = "A";
+                _objItemCategorySetup.EntryUserName = Session["entryUserCode"].ToString();
+
+                _objItemSetupController.Save(_connectionString, _objItemSetup, _objItemCategorySetup);
+                ClearItemInformation();
+                TreeViewCategory.Nodes.Clear();
+                PopulateRootLevel();
 
             }
             catch (Exception msgException)
@@ -229,6 +291,20 @@ namespace ERPWebApplication.ModuleName.Inventory.MasterPage
 
                 throw msgException;
             }
+        }
+
+        private void ClearItemInformation()
+        {
+            txtItemCode.Text = string.Empty;
+            txtItemName.Text = string.Empty;
+            ddlItemTypeID.SelectedValue = "-1";
+            ddlItemUsageID.SelectedValue = "-1";
+            ddlUnit.SelectedValue = "-1";
+            CheckBoxIsVATPayable.Checked = false;
+            txtDescription.Text = string.Empty;
+            txtHSCode.Text = string.Empty;
+            txtOpeningBalance.Text = string.Empty;
+            txtReOrderLevel.Text = string.Empty;
         }
 
         private void AddValuesToCategory()
@@ -277,13 +353,108 @@ namespace ERPWebApplication.ModuleName.Inventory.MasterPage
         protected void TreeViewCategory_TreeNodePopulate(object sender, TreeNodeEventArgs e)
         {
             PopulateSubLevel(Int32.Parse(e.Node.Value), e.Node);
+            TreeViewCategory.ExpandAll();
         }
 
         protected void TreeViewCategory_SelectedNodeChanged(object sender, EventArgs e)
         {
-            int itemCategoryID = Convert.ToInt32(TreeViewCategory.SelectedNode.Value);
-            txtCategoryName.Focus();
-            ddlParentCategory.SelectedValue = itemCategoryID.ToString(); ;
+            try
+            {
+                _objItemCategorySetup = new ItemCategorySetup();
+                _objItemCategorySetup.ItemCategoryID = Convert.ToInt32(TreeViewCategory.SelectedNode.Value);
+
+                var parentID = TreeViewCategory.SelectedNode.Parent == null ? _objItemCategorySetup.ItemCategoryID : Convert.ToInt32(TreeViewCategory.SelectedNode.Parent.Value);
+                var childID = 0;
+                if (TreeViewCategory.SelectedNode.ChildNodes.Count > 0)
+                {
+                    childID = Convert.ToInt32( TreeViewCategory.SelectedNode.ChildNodes[0].Value.ToString());
+
+                }
+
+
+
+
+                int countIDDigit = Convert.ToInt32(_objItemCategorySetup.ItemCategoryID.ToString().Length.ToString());
+                int countChildIDDigit = Convert.ToInt32(childID.ToString().Length.ToString());
+                if (countIDDigit == 9)
+                {
+                    ddlParentCategory.SelectedValue = _objItemCategorySetup.ItemCategoryID.ToString();
+                    ddlCategory.SelectedValue = _objItemCategorySetup.ItemCategoryID.ToString();
+                    CheckBoxAddItem.Enabled = true;
+                    txtCategoryName.Focus();
+                    txtCategoryName.Enabled = true;
+                    if (countChildIDDigit == 8)
+                    {
+                        txtCategoryName.Enabled = false;
+                    }
+                }
+                else
+                {
+                    ddlParentCategory.SelectedValue = parentID.ToString();
+                    ddlCategory.SelectedValue = parentID.ToString();
+                    txtCategoryName.Enabled = false;
+                    CheckBoxAddItem.Enabled = false;
+
+                }
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+        private void HighlightPath(TreeNode node)
+        {
+            //  node.["style"] = "color: orange";
+      
+            node.Text = "<div style='color:orange'>" + node.Text + "</div>";
+            if (node.Parent != null)
+                HighlightPath(node.Parent);
+
+        }
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string valueForSearch = txtSearch.Text == string.Empty ? null : txtSearch.Text;
+                TreeViewCategory.ExpandAll();
+                if (valueForSearch != null)
+                {
+                    foreach (TreeNode t in TreeViewCategory.Nodes)
+                    {
+                        if (t.Text.ToUpper() == valueForSearch.ToUpper())
+                        {
+                            t.Text = "<div style='color:orange;hight:20px'>" + t.Text + "</div>";
+                            
+
+                        }
+                        for (int iParent = 0; iParent < t.ChildNodes.Count; iParent++)
+                        {
+                            if (t.ChildNodes[iParent].Text.ToUpper() == valueForSearch.ToUpper())
+                            {
+                                t.ChildNodes[iParent].Text = "<div style='color:orange;hight:20px'>" + t.ChildNodes[iParent].Text + "</div>";
+
+
+                            }
+                            for (int iChild = 0; iChild < t.ChildNodes[iParent].ChildNodes.Count; iChild++)
+                            {
+                                if (t.ChildNodes[iParent].ChildNodes[iChild].Text.ToUpper() == valueForSearch.ToUpper())
+                                {
+                                    t.ChildNodes[iParent].ChildNodes[iChild].Text = "<div style='color:orange;hight:20px'>" + t.ChildNodes[iParent].ChildNodes[iChild].Text + "</div>";
+
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
         }
     }
 }

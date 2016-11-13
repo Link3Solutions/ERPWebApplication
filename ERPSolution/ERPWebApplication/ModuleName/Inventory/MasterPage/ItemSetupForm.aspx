@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="Item Setup" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ItemSetupForm.aspx.cs" Inherits="ERPWebApplication.ModuleName.Inventory.MasterPage.ItemSetupForm" %>
 
+<%@ Register Assembly="CustomizeMessage" Namespace="ProudMonkey.Common.Controls" TagPrefix="cc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
     .auto-style1 {
@@ -13,7 +15,9 @@
         }
     </style>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <cc1:MessageBox ID="MessageBox1" runat="server" />
     <table style="width: 99%; text-align: left">
         <%--<tr>
             <td></td>
@@ -32,6 +36,7 @@
                             <td>
                                 <asp:DropDownList ID="ddlCategory" runat="server">
                                 </asp:DropDownList>
+                                <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Test Message" />
                             </td>
                         </tr>
                     </table>

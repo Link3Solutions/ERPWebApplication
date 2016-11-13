@@ -243,7 +243,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="2">
-                                        <div style="padding-top: 0px">
+                                        <div style="padding-top: 0px;width:500px">
                                             <table style="width: 100%; text-align: left">
                                                 <tr>
                                                     <td>
@@ -265,6 +265,27 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
+                                                        <asp:Label ID="Label33" runat="server" Text="Item Type ID"></asp:Label>
+                                                    </td>
+                                                    <td>:</td>
+                                                    <td>
+                                                        <asp:DropDownList ID="ddlItemTypeID" runat="server">
+                                                        </asp:DropDownList>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <asp:Label ID="Label34" runat="server" Text="Item Usage ID"></asp:Label>
+                                                    </td>
+                                                    <td>:</td>
+                                                    <td>
+                                                        <asp:DropDownList ID="ddlItemUsageID" runat="server">
+                                                        </asp:DropDownList>
+                                                    </td>
+                                                </tr>
+                                                
+                                                <tr>
+                                                    <td>
                                                         <asp:Label ID="Label12" runat="server" Text="Unit"></asp:Label>
                                                     </td>
                                                     <td>:</td>
@@ -282,15 +303,7 @@
 
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td>
-                                                        <asp:Label ID="Label13" runat="server" Text="Barcode"></asp:Label>
-                                                    </td>
-                                                    <td>:</td>
-                                                    <td>
-                                                        <asp:TextBox ID="txtBarcode" runat="server"></asp:TextBox>
-                                                    </td>
-                                                </tr>
+                                                
                                                 <tr>
                                                     <td>
                                                         <asp:Label ID="Label14" runat="server" Text="Related Supplier"></asp:Label>
@@ -313,7 +326,7 @@
                                         </div>
                                     </td>
                                     <td colspan="2">
-                                        <div style="padding-top: 0px">
+                                        <div style="padding-top: 0px;width:500px">
                                             <table style="width: 100%;">
                                                 <tr>
                                                     <td>
@@ -339,7 +352,7 @@
                                                     </td>
                                                     <td>:</td>
                                                     <td>
-                                                        <asp:TextBox ID="txtOpeningBalance" runat="server"></asp:TextBox>
+                                                        <asp:TextBox ID="txtOpeningBalance" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
                                                     </td>
                                                 </tr>
                                                 <tr>

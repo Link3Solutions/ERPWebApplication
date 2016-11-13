@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Item Requisition" Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="frmItemRequisition.aspx.cs" Inherits="ERPWebApplication.ModuleName.Inventory.TransactionPage.frmItemRequisition" %>
+﻿<%@ Page Title="Item Requisition" Debug="true" Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master"  CodeBehind="frmItemRequisition.aspx.cs" Inherits="ERPWebApplication.ModuleName.Inventory.TransactionPage.frmItemRequisition" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <%--<%@ Register assembly="eWorld.UI, Version=2.0.6.2393, Culture=neutral, PublicKeyToken=24d65337282035f2" namespace="eWorld.UI" tagprefix="ew" %>--%>
@@ -43,12 +43,22 @@
                                                 <td>&nbsp;</td>
                                                 <td style="width: 109px">&nbsp;</td>
                                                 <td style="text-align:right; margin-left: 160px;">
-                                                    <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
-                                                    <ajaxToolkit:AutoCompleteExtender ID="AutoCompleteForReq" runat="server" BehaviorID="AutoCompleteReq" CompletionInterval="1000" CompletionListCssClass="autocomplete_completionListElement" CompletionListHighlightedItemCssClass="autocomplete_highlightedListItem" CompletionListItemCssClass="autocomplete_listItem" CompletionSetCount="20" DelimiterCharacters="," EnableCaching="false" MinimumPrefixLength="1" ServiceMethod="GetRequisitionList" ServicePath="~/WebService/ServiceSystem.asmx" ShowOnlyCurrentWordInCompletionListItem="true" TargetControlID="txtSearch">
+                                                    <asp:TextBox ID="txtSearch" runat="server" ></asp:TextBox>
+                                                    <ajaxToolkit:AutoCompleteExtender ID="AutoCompleteForReq" runat="server" 
+                                                        BehaviorID="AutoCompleteReq" CompletionInterval="1000"                                                         
+                                                        CompletionListCssClass="autocomplete_completionListElement" 
+                                                        CompletionListHighlightedItemCssClass="autocomplete_highlightedListItem" 
+                                                        CompletionListItemCssClass="autocomplete_listItem"
+                                                         CompletionSetCount="20" DelimiterCharacters="," 
+                                                        EnableCaching="false" MinimumPrefixLength="1" 
+                                                        ServiceMethod="GetRequisitionList" 
+                                                        ServicePath="~/WebService/ServiceSystem.asmx" 
+                                                        ShowOnlyCurrentWordInCompletionListItem="true" 
+                                                        TargetControlID="txtSearch">
                                                     </ajaxToolkit:AutoCompleteExtender>
                                                 </td>
                                                 <td>
-                                                    <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" />
+                                                    <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" CssClass="CssBtnSave"/>
                                                     <asp:Button ID="btnAdvSearch" runat="server" OnClick="btnAdvSearch_Click" Text="Advanced Search" Width="147px" />
                                                 </td>
                                                 <td></td>
@@ -96,7 +106,7 @@
                                                     </td>
                                                     <td style=" margin-top:0px">
                                                         <asp:TextBox ID="txtFrmDate" runat="server" ></asp:TextBox>
-                                                        <ajaxToolkit:CalendarExtender ID="CalendarExtender2" runat="server" BehaviorID="txtFrmDate" CssClass="ClassName" Format="dd MMM yyyy" TargetControlID="txtFrmDate" />
+                                                        <ajaxToolkit:CalendarExtender ID="CalendarExtender2" runat="server"  BehaviorID="txtFrmDate"  CssClass="Calendar" Format="dd/MM/yyyy" TargetControlID="txtFrmDate" />
                                                        
                                                         <asp:ImageButton ID="imgbtnadsearch" runat="server" Height="17px" ImageAlign="Top" ImageUrl="~/Images/collapse.jpg" OnClick="imgbtnadsearch_Click" Width="15px" />
                                                     </td>
@@ -115,7 +125,7 @@
                                                     </td>
                                                     <td>
                                                         <asp:TextBox ID="txtToDate" runat="server" ></asp:TextBox>
-                                                        <ajaxToolkit:CalendarExtender ID="CalendarExtTodate" runat="server" BehaviorID="txtFrmDate" CssClass="ClassName" Format="dd MMM yyyy" TargetControlID="txtToDate" />
+                                                        <ajaxToolkit:CalendarExtender ID="CalendarExtTodate" runat="server" BehaviorID="txtFrmDate"  CssClass="Calendar" Format="dd/MM/yyyy" TargetControlID="txtToDate" />
                                                         
                                                     </td>
                                                 </tr>
@@ -171,7 +181,7 @@
                                                 <td style="width: 8px">&nbsp;</td>
                                                 <td>
                                                     <asp:Panel ID="Panel1" runat="server" Height="105px" ScrollBars="Vertical" Style="overflow: auto; width: 95%; text-align: center;">
-                                                        <asp:GridView ID="gdvSearchResult" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" CssClass="myGridClass" OnSelectedIndexChanged="gdvSearchResult_SelectedIndexChanged" Style="text-align: left" Width="100%">
+                                                        <asp:GridView ID="gdvSearchResult" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" CssClass="gradient-light-radial" OnSelectedIndexChanged="gdvSearchResult_SelectedIndexChanged" Style="text-align: left" Width="100%">
                                                             <FooterStyle BackColor="White" ForeColor="#000066" />
                                                             <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
                                                             <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
@@ -204,11 +214,13 @@
                                             <tr>
                                                 <td style="width: 3%">&nbsp;</td>
                                                 <td style="width: 16%">
+                                                    <br />
                                                     <asp:Label ID="lblStatusforlabel" runat="server" Text="Status: "></asp:Label>
                                                 </td>
                                                 <td style="width: 32%">
+                                                    <asp:Label ID="lblMesg" runat="server" Font-Size="15px" ForeColor="#034EA2" style="font-size: medium" Text=""></asp:Label><br />
                                                     <asp:Label ID="lblstatus" runat="server" style="font-weight: 700" Text="Label"></asp:Label>
-                                                    &nbsp;<asp:Label ID="lblMesg" runat="server" Font-Size="15px" ForeColor="#034EA2" style="font-size: medium" Text=""></asp:Label>
+                                                   
                                                 </td>
                                                 <td style="width: 12%">&nbsp;</td>
                                                 <td style="width: 32%">
@@ -230,7 +242,7 @@
                                                 </td>
                                                 <td style="width: 32%">
                                                     <asp:TextBox ID="txtrequestedDate" runat="server" AutoPostBack="True" OnTextChanged="txtrequestedDate_TextChanged"></asp:TextBox>
-                                                    <ajaxToolkit:CalendarExtender ID="CalendarExtRequestedDate" runat="server" BehaviorID="txtRequested" CssClass="ClassName" Format="dd MMM yyyy" TargetControlID="txtrequestedDate" />
+                                                    <ajaxToolkit:CalendarExtender ID="CalendarExtRequestedDate"  runat="server" BehaviorID="txtRequested" CssClass="Calendar" Format="dd/MM/yyyy" TargetControlID="txtrequestedDate" />
                                                     
                                                 </td>
                                             </tr>
@@ -247,7 +259,7 @@
                                                 </td>
                                                 <td style="width: 32%">
                                                     <asp:TextBox ID="txtDateNeed" runat="server"></asp:TextBox>
-                                                     <ajaxToolkit:CalendarExtender ID="CalendarExDateNeed" runat="server" BehaviorID="txtRequested" CssClass="ClassName" Format="dd MMM yyyy" TargetControlID="txtDateNeed" />
+                                                     <ajaxToolkit:CalendarExtender ID="CalendarExDateNeed" runat="server" BehaviorID="txtRequested"  CssClass="Calendar" Format="dd/MM/yyyy" TargetControlID="txtDateNeed" />
                                                     
                                                 </td>
                                             </tr>
@@ -326,7 +338,7 @@
                                                     <asp:Label ID="Label34" runat="server" Text="Location Address: "></asp:Label>
                                                 </td>
                                                 <td colspan="3">
-                                                    <asp:TextBox ID="txtLocAddress" runat="server" TextMode="MultiLine" Width="783px"></asp:TextBox>
+                                                    <asp:TextBox ID="txtLocAddress" runat="server" TextMode="MultiLine" Width="780px"></asp:TextBox>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -335,7 +347,7 @@
                                                     <asp:Label ID="Label32" runat="server" Text="Comments: "></asp:Label>
                                                 </td>
                                                 <td colspan="3">
-                                                    <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" Width="783px"></asp:TextBox>
+                                                    <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" Width="780px"></asp:TextBox>
                                                 </td>
                                             </tr>
                                         </table>
@@ -360,20 +372,20 @@
                     <td colspan="2">
                         <table id="tblattach" runat="server" style="width: 98%; margin-top:0px">
                             <tr>
-                                <td style="width: 33px">&nbsp;</td>
+                                <td style="width: 9px">&nbsp;</td>
                                 <td colspan="2">
                                     <asp:Label ID="Label42" Font-Size="14px" runat="server" Text="To attach a file,Please Brows the file and click attach.You can attach more than one(1)file.Just Brows and click attach.After attaching a file, You can remove a file from the list by selecting and clicking remove button." style="color: #003399"></asp:Label>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblAttachMsg" runat="server" style="font-size: medium"></asp:Label>
                                 </td>
                             </tr>
                             <tr>
-                                <td style="width: 33px">&nbsp;</td>
-                                <td style="width: 122px">File Attachment</td>
+                                <td style="width: 9px">&nbsp;</td>
+                                <td style="width: 97px">File Attachment</td>
                                 <td>
                                     <asp:Panel ID="pnlBillAttachment" runat="server">
                                         <table>
                                             <tr>
-                                                <td style="width: 5px">&nbsp;</td>
+                                                <td>&nbsp;</td>
                                                 <td style="width: 363px">
                                                     <asp:FileUpload ID="flAttachmentInBill" runat="server" Width="375px" />
                                                 </td>
@@ -383,7 +395,7 @@
                                                 <td>&nbsp;</td>
                                             </tr>
                                             <tr>
-                                                <td style="width: 5px">&nbsp;</td>
+                                                <td>&nbsp;</td>
                                                 <td style="width: 363px">
                                                     <asp:ListBox ID="FileList" runat="server" AutoPostBack="True" Height="120px" OnSelectedIndexChanged="FileList_SelectedIndexChanged" Width="385px"></asp:ListBox>
                                                 </td>
@@ -391,7 +403,7 @@
                                                 <td>&nbsp;</td>
                                             </tr>
                                             <tr>
-                                                <td style="width: 5px">&nbsp;</td>
+                                                <td>&nbsp;</td>
                                                 <td style="width: 363px">
                                                     <asp:Button ID="btnRemoveFile" runat="server" Height="27px" OnClick="btnRemoveFile_Click" Text="Remove" />
                                                     <asp:Label ID="lblDownloadSelectedFile" runat="server" Visible="False"></asp:Label>
@@ -404,9 +416,9 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td style="width: 33px">&nbsp;</td>
+                                <td style="width: 9px">&nbsp;</td>
                                 <td colspan="2">
-                                    <table style="width: 100%">
+                                    <table id="tblitemdetautho" runat="server" style="width: 100%; margin-top:0px">
                                         <tr id="trtest" runat="server">
                                             <td  style="width: 179px">
                                                 <asp:Label ID="lblreqstatus16" runat="server" Text="This requisition will be forward to" Width="206px"></asp:Label>
@@ -426,7 +438,7 @@
                                         </tr>
                                         <tr>
                                             <td colspan="5">
-                                                <table id="tblitemdet" runat="server" style=" width:95%">
+                                                <table id="tblitemdet" runat="server" style=" width:95%; margin-top:0px">
                                                     <tr>
                                                         <td>
                                                             <asp:Panel ID="pnl" runat="server" Height="105px" ScrollBars="Vertical" Style="overflow: auto; width: 100%; text-align: center;">
@@ -456,7 +468,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td style="width: 33px">&nbsp;</td>
+                                <td style="width: 9px">&nbsp;</td>
                                 <td colspan="2">
                                     <asp:Panel ID="header_HeaderPanel" runat="server" Width="945px">
                                         <table style=" Width:100%; margin-top:0px">
@@ -476,21 +488,21 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td style="width: 33px">&nbsp;</td>
+                                <td style="width: 9px">&nbsp;</td>
                                 <td colspan="2">
                                     <asp:Panel ID="header_ContentPanel" runat="server" style="width:98%">
                                         <table style="width:100%; margin-top:0px">
                                             <tr>
-                                                <td style="width: 186px">&nbsp;</td>
+                                                <td style="width: 115px">&nbsp;</td>
                                                 <td style="width: 284px">
                                                     <asp:Label ID="lblMesgDet" runat="server" style="font-size: medium" Text=""></asp:Label>
                                                 </td>
                                                 <td>&nbsp;</td>
-                                                <td style="text-align:left; ">&nbsp;</td>
+                                                <td style="text-align:left; width: 76px;">&nbsp;</td>
                                                 <td>&nbsp;</td>
                                             </tr>
                                             <tr>
-                                                <td style="width: 186px">
+                                                <td style="width: 115px">
                                                     <asp:Label ID="lblreqstatus6" runat="server" Text="Item Name:" Width="80px"></asp:Label>
                                                 </td>
                                                 <td style="width: 284px">
@@ -500,7 +512,7 @@
                                                     </ajaxToolkit:AutoCompleteExtender>
                                                 </td>
                                                 <td>&nbsp;</td>
-                                                <td style="text-align:left; ">
+                                                <td style="text-align:left; width: 76px;">
                                                     <asp:Label ID="lblreqstatus9" runat="server" Text="Specification:"></asp:Label>
                                                 </td>
                                                 <td>
@@ -508,7 +520,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td style="width: 186px">
+                                                <td style="width: 115px">
                                                     <asp:Label ID="lblreqstatus7" runat="server" Text="Quantity:"></asp:Label>
                                                 </td>
                                                 <td style=" width: 284px;">
@@ -522,13 +534,13 @@
                                                                 <asp:Label ID="lblreqstatus14" runat="server" Text="Unit:"></asp:Label>
                                                             </td>
                                                             <td>
-                                                                <asp:TextBox ID="txtunit" runat="server" Enabled="false" Width="75px"></asp:TextBox>
+                                                                <asp:TextBox ID="txtunit" runat="server" Enabled="false" Width="80px"></asp:TextBox>
                                                             </td>
                                                         </tr>
                                                     </table>
                                                 </td>
                                                 <td>&nbsp;</td>
-                                                <td style="text-align:left; ">
+                                                <td style="text-align:left; width: 76px;">
                                                     <asp:Label ID="lblreqstatus10" runat="server" Text="Brand:"></asp:Label>
                                                 </td>
                                                 <td>
@@ -536,7 +548,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td style="width: 186px">
+                                                <td style="width: 115px">
                                                     <asp:Label ID="lblrate0" runat="server" Text="Rate:"></asp:Label>
                                                 </td>
                                                 <td style="width: 284px">
@@ -557,7 +569,7 @@
                                                     </table>
                                                 </td>
                                                 <td>&nbsp;</td>
-                                                <td style="text-align:left; ">
+                                                <td style="text-align:left; width: 76px;">
                                                     <asp:Label ID="lblreqstatus11" runat="server" Text="Origin:"></asp:Label>
                                                 </td>
                                                 <td>
@@ -565,10 +577,10 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td style="width: 186px">&nbsp;</td>
+                                                <td style="width: 115px">&nbsp;</td>
                                                 <td style="width: 284px">&nbsp;</td>
                                                 <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
+                                                <td style="width: 76px">&nbsp;</td>
                                                 <td>
                                                     <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" />
                                                     &nbsp;<asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear" />
@@ -624,9 +636,8 @@
               
 
                 <asp:PostBackTrigger ControlID="btnAttachFile" />
-
-                <asp:AsyncPostBackTrigger ControlID="btnPrintRequisition"  EventName="Click"/>
-
+                <asp:PostBackTrigger ControlID="btnPrintRequisition" />               
+                   <asp:AsyncPostBackTrigger ControlID="btnNewReq"  EventName="Click"/>
 
             </Triggers>
         </asp:UpdatePanel>
@@ -652,6 +663,45 @@
              opacity:0.4;
            
             }
+
+
+        .Calendar {
+            background-color:#808080;
+            color: white;
+            font-family: Courier New;
+            font-size: 20px;
+            font-weight:normal;
+        }
+     
+        .autocomplete_completionListElement {
+            visibility: hidden;
+            margin: 0px!important;
+            color: white ;
+            border: buttonshadow;
+            border-width: 2px;
+            border-style: solid;
+            cursor: default;
+            overflow: auto;
+            height: 270px;
+            width:300px;
+            text-align: left;
+            list-style-type:disc;
+            
+            background-color: white;
+        }
+
+        .autocomplete_highlightedListItem {
+            background-color:#808080;
+            color:white;
+            padding: 1px;
+            cursor: pointer;
+        }
+
+        .autocomplete_listItem {
+            background-color: window;
+            color: windowtext;
+            padding: 1px;
+        }
 
 
     </style>

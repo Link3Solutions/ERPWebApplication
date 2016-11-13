@@ -98,6 +98,47 @@ namespace ERPWebApplication.AppClass.Model
             get { return _entryUserName; }
             set { _entryUserName = value; }
         }
+        private int _itemTypeID;
+
+        public int ItemTypeID
+        {
+            get { return _itemTypeID; }
+            set { _itemTypeID = value; }
+        }
+        private int _itemPropertySetID;
+
+        public int ItemPropertySetID
+        {
+            get { return _itemPropertySetID; }
+            set { _itemPropertySetID = value; }
+        }
+        private int _itemUsageID;
+
+        public int ItemUsageID
+        {
+            get { return _itemUsageID; }
+            set { _itemUsageID = value; }
+        }
+        private string _modelNo;
+
+        public string ModelNo
+        {
+            get { return _modelNo; }
+            set {
+                if (value == null)
+                {
+                    throw new Exception(" Please type item name");
+                    
+                } _modelNo = value;
+            }
+        }
+        private string _itemCode;
+
+        public string ItemCode
+        {
+            get { return _itemCode; }
+            set { _itemCode = value; }
+        }
 
     }
 }

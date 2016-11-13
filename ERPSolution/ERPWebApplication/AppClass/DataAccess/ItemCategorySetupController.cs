@@ -2,6 +2,7 @@
 using ERPWebApplication.CommonClass;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -50,6 +51,27 @@ namespace ERPWebApplication.AppClass.DataAccess
             {
                 string sql = "SELECT DISTINCT CategoryName,ItemCategoryID FROM [matCategoryList] ORDER BY ItemCategoryID";
                 ClsDropDownListController.LoadDropDownList(connectionString, sql, ddlCategory, "CategoryName", "ItemCategoryID");
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal DataTable CheckItem(string connectionString, ItemCategorySetup objItemCategorySetup)
+        {
+            try
+            {
+                DataTable dtItem = null;
+                string sqlString = "SELECT * FROM matMaterialSetup WHERE ItemCategoryID = " + objItemCategorySetup.ItemCategoryID + " OR ItemID = " + objItemCategorySetup.ItemCategoryID + "";
+                dtItem = StoredProcedureExecutor.StoredProcedureExecuteReader(connectionString, sqlString);
+                return dtItem;
+
+            }
+            catch (SqlException msgException)
+            {
+                throw msgException;
             }
             catch (Exception msgException)
             {
