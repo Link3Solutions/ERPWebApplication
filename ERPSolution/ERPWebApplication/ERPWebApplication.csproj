@@ -186,6 +186,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -970,6 +971,12 @@
     <Content Include="CSS\MasterPGBar.css" />
     <Content Include="CSS\menuStyle.css" />
     <Content Include="CSS\microsoftMenu.css" />
+    <Content Include="CSS\StyleSheetGridView.css" />
+    <Content Include="Images\btnClose.jpg" />
+    <Content Include="Images\btnNo.jpg" />
+    <Content Include="Images\btnOK.jpg" />
+    <Content Include="Images\btnYes.jpg" />
+    <Content Include="Images\header.png" />
     <Content Include="MicrosoftMenuHtmlPage.html" />
     <Content Include="ModuleName\Inventory\MasterPage\ItemCategorySetupForm.aspx" />
     <Content Include="ModuleName\Inventory\MasterPage\ItemSetupForm.aspx" />
@@ -993,7 +1000,6 @@
     <Content Include="Images\orderedList9.png" />
     <Content Include="ModuleName\Inventory\TransactionPage\frm_item.aspx" />
     <Content Include="ModuleName\Inventory\TransactionPage\frm_item_issue.aspx" />
-    <Content Include="ModuleName\Inventory\TransactionPage\frm_item_requisition.aspx" />
     <Content Include="ModuleName\Inventory\TransactionPage\WebFormFormat.aspx" />
     <Content Include="packages.config" />
     <Content Include="CSS\CSSstyleTheme\CommonCSS\default.skin" />
@@ -1054,6 +1060,8 @@
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppClass\AccountType.cs" />
+    <Compile Include="AppClass\CommonClass\Class1.cs" />
     <Compile Include="AppClass\CommonClass\ClsDropDownListController.cs" />
     <Compile Include="AppClass\CommonClass\ClsGridViewLoad.cs" />
     <Compile Include="AppClass\CommonClass\ClsReport.cs" />
@@ -1065,10 +1073,12 @@
     <Compile Include="AppClass\CommonClass\SqlGenerationForEmployee.cs" />
     <Compile Include="AppClass\CommonClass\SqlGenerationForItemDetail.cs" />
     <Compile Include="AppClass\CommonClass\StoredProcedureExecutor.cs" />
+    <Compile Include="AppClass\CommonClass\TopMostMessageBox.cs" />
     <Compile Include="AppClass\DataAccess\ItemCategorySetupController.cs" />
     <Compile Include="AppClass\DataAccess\ItemSetupController.cs" />
     <Compile Include="AppClass\DataAccess\ItemTypeSetupController.cs" />
     <Compile Include="AppClass\DataAccess\ItemUsageSetupController.cs" />
+    <Compile Include="AppClass\DataAccess\SuppliersController.cs" />
     <Compile Include="AppClass\DataAccess\UnitSetupController.cs" />
     <Compile Include="AppClass\Model\BranchSetup.cs" />
     <Compile Include="AppClass\Model\ClsFileUploadDetail.cs" />
@@ -1202,13 +1212,6 @@
     <Compile Include="ModuleName\Inventory\TransactionPage\frm_item_issue.aspx.designer.cs">
       <DependentUpon>frm_item_issue.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ModuleName\Inventory\TransactionPage\frm_item_requisition.aspx.cs">
-      <DependentUpon>frm_item_requisition.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ModuleName\Inventory\TransactionPage\frm_item_requisition.aspx.designer.cs">
-      <DependentUpon>frm_item_requisition.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ModuleName\Inventory\TransactionPage\WebFormFormat.aspx.cs">
       <DependentUpon>WebFormFormat.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1264,9 +1267,9 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CustomizeMessage\CustomizeMessage.csproj">
-      <Project>{15438ece-2228-4f88-8caf-d2465e7e8dd1}</Project>
-      <Name>CustomizeMessage</Name>
+    <ProjectReference Include="..\ControlLibrary\ControlLibrary.csproj">
+      <Project>{15893837-bae5-4468-9e28-ffa2ed2900b6}</Project>
+      <Name>ControlLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

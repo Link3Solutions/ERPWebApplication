@@ -10,6 +10,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls.WebParts;
+using ERPWebApplication.AppClass.CommonClass;
+using ERPWebApplication.AppClass;
 
 namespace ERPWebApplication.ModuleName.Inventory.MasterPage
 {
@@ -25,18 +29,27 @@ namespace ERPWebApplication.ModuleName.Inventory.MasterPage
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            try
             {
-                Session["company"] = 1;
-                Session["branch"] = 1;
-                Session["entryUserCode"] = "ADM";
-                PanelItemSetup.Visible = false;
-                PopulateRootLevel();
-                LoadCategory(ddlCategory);
-                LoadCategory(ddlParentCategory);
-                CheckBoxAddItem.Enabled = false;
-                
+                if (!Page.IsPostBack)
+                {
+                    Session["company"] = 1;
+                    Session["branch"] = 1;
+                    Session["entryUserCode"] = "ADM";
+                    PanelItemSetup.Visible = false;
+                    PopulateRootLevel();
+                    LoadCategory(ddlCategory);
+                    LoadCategory(ddlParentCategory);
+                    CheckBoxAddItem.Enabled = false;
 
+
+                }
+
+            }
+            catch (Exception msgException)
+            {
+
+                TopMostMessageBox.Show(msgException.Message);
             }
         }
 
@@ -126,7 +139,6 @@ namespace ERPWebApplication.ModuleName.Inventory.MasterPage
             }
             catch (Exception msgException)
             {
-
                 throw msgException;
             }
         }
@@ -195,14 +207,29 @@ namespace ERPWebApplication.ModuleName.Inventory.MasterPage
                     ClsDropDownListController.LoadDropDownList(_connectionString, objItemTypeSetupController.ItemTypeSql(_objCompanySetup, _objBranchSetup), ddlItemTypeID, "ItemType", "ItemTypeID");
                     UnitSetupController objUnitSetupController = new UnitSetupController();
                     ClsDropDownListController.LoadDropDownList(_connectionString, objUnitSetupController.UnitSql(_objCompanySetup, _objBranchSetup), ddlUnit, "Unit", "UnitID");
+                    ClsDropDownListController.LoadDropDownList(_connectionString, objUnitSetupController.UnitSql(_objCompanySetup, _objBranchSetup), ddlBreakupUnit, "Unit", "UnitID");
                     ItemUsageSetupController objItemUsageSetupController = new ItemUsageSetupController();
                     ClsDropDownListController.LoadDropDownList(_connectionString, objItemUsageSetupController.ItemUsageSql(_objCompanySetup, _objBranchSetup), ddlItemUsageID, "ItemUsage", "ItemUsageID");
+                    SuppliersController objSuppliersController = new SuppliersController();
+                    ClsDropDownListController.LoadDropDownList(_connectionString, objSuppliersController.SQLGetAllSuppliers(_objCompanySetup, _objBranchSetup), ddlRelatedSupplier, "FullName", "ContactID");
+                    _objItemSetupController = new ItemSetupController();
+                    _objItemCategorySetup = new ItemCategorySetup();
+                    _objItemCategorySetup.CompanyID = _objCompanySetup.CompanyID;
+                    _objItemCategorySetup.BranchID = _objBranchSetup.BranchID;
+                    _objItemCategorySetup.KnownValueID = Convert.ToInt32( AccountType.AccountTypeID.Sale);
+                    ClsDropDownListController.LoadDropDownList(_connectionString, _objItemSetupController.SQLForAccountType(_objItemCategorySetup), ddlSalesAccountNo, "AccountName", "AccountNo");
+                    _objItemCategorySetup.KnownValueID = Convert.ToInt32( AccountType.AccountTypeID.Stock);
+                    ClsDropDownListController.LoadDropDownList(_connectionString, _objItemSetupController.SQLForAccountType(_objItemCategorySetup), ddlStockAccountNo, "AccountName", "AccountNo");
+                    _objItemCategorySetup.KnownValueID = Convert.ToInt32( AccountType.AccountTypeID.COGS);
+                    ClsDropDownListController.LoadDropDownList(_connectionString, _objItemSetupController.SQLForAccountType(_objItemCategorySetup), ddlCOGSAccountNo, "AccountName", "AccountNo");
+                    _objItemCategorySetup.KnownValueID = Convert.ToInt32( AccountType.AccountTypeID.SalesReturn);
+                    ClsDropDownListController.LoadDropDownList(_connectionString, _objItemSetupController.SQLForAccountType(_objItemCategorySetup), ddlSalesReturnAccount, "AccountName", "AccountNo");
 
                 }
                 catch (Exception msgException)
                 {
 
-                    throw msgException;
+                    TopMostMessageBox.Show(msgException.Message);
                 }
 
             }
@@ -218,24 +245,29 @@ namespace ERPWebApplication.ModuleName.Inventory.MasterPage
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            TopMostMessageBox.MsgConfirmBox(btnSave, "Are you sure ?");
             try
             {
                 if (CheckBoxAddItem.Checked == true)
                 {
                     SaveItem();
+                    TopMostMessageBox.Show("Data Saved Successfully ");
 
                 }
                 else
                 {
                     AddValuesToCategory();
+                    TopMostMessageBox.Show("Data Saved Successfully ");
 
                 }
 
             }
             catch (Exception msgException)
             {
-
-                MessageBox1.ShowError(msgException.Message);
+                TopMostMessageBox.Show(msgException.Message);
+                
+                
+                
             }
 
         }
@@ -251,10 +283,10 @@ namespace ERPWebApplication.ModuleName.Inventory.MasterPage
                 _objItemSetup.IsVATAbleItem = CheckBoxIsVATPayable.Checked == true ? true : false;
                 _objItemSetup.SupplierID = ddlRelatedSupplier.SelectedValue == "-1" ? null : ddlRelatedSupplier.SelectedValue;
                 _objItemSetup.OpenningBalance = txtOpeningBalance.Text == string.Empty ? 0 : Convert.ToInt32(txtOpeningBalance.Text);
-                _objItemSetup.CoaSalesAccNo = 1;//Convert.ToInt32(ddlSalesAccountNo.SelectedValue);
-                _objItemSetup.CoaStockAccNo = 1;//Convert.ToInt32(ddlStockAccountNo.SelectedValue);
-                _objItemSetup.CoacgsAccNo = 1;//Convert.ToInt32(ddlCOGSAccountNo.SelectedValue);
-                _objItemSetup.CoaSalesRetAccNo = 1;//Convert.ToInt32(ddlSalesReturnAccount.SelectedValue);
+                _objItemSetup.CoaSalesAccNo = Convert.ToInt32(ddlSalesAccountNo.SelectedValue);
+                _objItemSetup.CoaStockAccNo = Convert.ToInt32(ddlStockAccountNo.SelectedValue);
+                _objItemSetup.CoacgsAccNo = Convert.ToInt32(ddlCOGSAccountNo.SelectedValue);
+                _objItemSetup.CoaSalesRetAccNo = Convert.ToInt32(ddlSalesReturnAccount.SelectedValue);
                 _objItemSetup.EntryUserName = Session["entryUserCode"].ToString();
                 _objItemSetup.ItemID = Convert.ToInt32(Session["company"].ToString() + Session["branch"].ToString());
                 _objItemSetup.ModelNo = txtItemName.Text == string.Empty ? null : txtItemName.Text;
@@ -263,24 +295,12 @@ namespace ERPWebApplication.ModuleName.Inventory.MasterPage
                 _objItemSetup.ItemTypeID = Convert.ToInt32(ddlItemTypeID.SelectedValue);
                 _objItemSetup.ItemPropertySetID = 1;
                 _objItemSetup.ItemUsageID = Convert.ToInt32(ddlItemUsageID.SelectedValue);
+                _objItemSetup.BreakUpQuantity = txtBreakUpQuantity.Text == string.Empty ? 0 : Convert.ToInt32( txtBreakUpQuantity.Text);
+                _objItemSetup.ReOrderLevel = txtReOrderLevel.Text == string.Empty ? null : txtReOrderLevel.Text;
+                _objItemSetup.BreakUpUnitD = Convert.ToInt32( ddlBreakupUnit.SelectedValue) == -1 ? 0 : Convert.ToInt32( ddlBreakupUnit.SelectedValue);
+                _objItemSetup.MinimumQuantity = txtMinimumQuantity.Text == string.Empty ? 0 : Convert.ToInt32( txtMinimumQuantity.Text);
                 _objItemSetupController = new ItemSetupController();
-
-                _objItemCategorySetup = new ItemCategorySetup();
-                _objItemCategorySetup.CompanyID = Convert.ToInt32(Session["company"].ToString());
-                _objItemCategorySetup.BranchID = Convert.ToInt32(Session["branch"].ToString());
-                _objItemCategorySetup.CategoryTypeID = Convert.ToInt32(ddlProductType.SelectedValue);
-                _objItemCategorySetup.ItemCategoryID = CreateCategoryID();
-                _objItemCategorySetup.CategoryName = _objItemSetup.ItemCode = txtItemCode.Text;
-                _objItemCategorySetup.ParentCategoryID = ddlParentCategory.SelectedValue == "-1" ? 1 : Convert.ToInt32(ddlParentCategory.SelectedValue);
-                _objItemCategorySetup.StartingItemCode = 0;
-                _objItemCategorySetup.EndingItemCode = 0;
-                _objItemCategorySetup.SeqNo = Convert.ToInt32(Session["sequenceNumber"].ToString());
-                _objItemCategorySetup.TierNo = Convert.ToInt32(Session["tierNumber"].ToString());
-                _objItemCategorySetup.CurrentBalance = 0;
-                _objItemCategorySetup.DataUsed = "A";
-                _objItemCategorySetup.EntryUserName = Session["entryUserCode"].ToString();
-
-                _objItemSetupController.Save(_connectionString, _objItemSetup, _objItemCategorySetup);
+                _objItemSetupController.Save(_connectionString, _objItemSetup);
                 ClearItemInformation();
                 TreeViewCategory.Nodes.Clear();
                 PopulateRootLevel();
@@ -305,6 +325,25 @@ namespace ERPWebApplication.ModuleName.Inventory.MasterPage
             txtHSCode.Text = string.Empty;
             txtOpeningBalance.Text = string.Empty;
             txtReOrderLevel.Text = string.Empty;
+            txtBreakUpQuantity.Text = string.Empty;
+            ddlBreakupUnit.SelectedValue = "-1";
+            txtMinimumQuantity.Text = string.Empty;
+            
+            if (CheckBoxSameSupplier.Checked == false)
+            {
+                ddlRelatedSupplier.SelectedValue = "-1";
+                
+            }
+
+
+            if (CheckBoxSameAccount.Checked == false)
+            {
+                ddlSalesAccountNo.SelectedValue = "-1";
+                ddlStockAccountNo.SelectedValue = "-1";
+                ddlCOGSAccountNo.SelectedValue = "-1";
+                ddlSalesReturnAccount.SelectedValue = "-1";
+                
+            }
         }
 
         private void AddValuesToCategory()
@@ -401,18 +440,10 @@ namespace ERPWebApplication.ModuleName.Inventory.MasterPage
             catch (Exception msgException)
             {
 
-                throw msgException;
+                TopMostMessageBox.Show(msgException.Message);
             }
         }
-        private void HighlightPath(TreeNode node)
-        {
-            //  node.["style"] = "color: orange";
-      
-            node.Text = "<div style='color:orange'>" + node.Text + "</div>";
-            if (node.Parent != null)
-                HighlightPath(node.Parent);
-
-        }
+        
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             try
@@ -452,8 +483,8 @@ namespace ERPWebApplication.ModuleName.Inventory.MasterPage
             }
             catch (Exception msgException)
             {
-                
-                throw msgException;
+
+                TopMostMessageBox.Show(msgException.Message);
             }
         }
     }

@@ -64,6 +64,7 @@ D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApp
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\bin\Antlr3.Runtime.dll
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\bin\AspNet.ScriptManager.jQuery.dll
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\bin\AspNet.ScriptManager.jQuery.UI.Combined.dll
+D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\bin\ControlLibrary.dll
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\bin\CrystalDecisions.CrystalReports.Design.dll
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\bin\CrystalDecisions.CrystalReports.Engine.dll
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\bin\CrystalDecisions.Data.AdoDotNetInterop.dll
@@ -73,7 +74,6 @@ D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApp
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\bin\CrystalDecisions.VSDesigner.dll
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\bin\CrystalDecisions.Web.dll
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\bin\CrystalDecisions.Windows.Forms.dll
-D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\bin\CustomizeMessage.dll
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\bin\DotNetOpenAuth.AspNet.dll
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\bin\DotNetOpenAuth.Core.dll
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\bin\DotNetOpenAuth.OAuth.Consumer.dll
@@ -92,7 +92,7 @@ D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApp
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\bin\System.Web.Optimization.dll
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\bin\System.Web.Providers.dll
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\bin\WebGrease.dll
-D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\bin\CustomizeMessage.pdb
+D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\bin\ControlLibrary.pdb
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\bin\EntityFramework.xml
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\bin\DotNetOpenAuth.Core.xml
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\bin\DotNetOpenAuth.OAuth.xml
