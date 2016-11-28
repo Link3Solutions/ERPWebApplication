@@ -432,7 +432,7 @@
                                                                                 <tr>
                                                                                     <td>
                                                                                         <asp:Panel ID="pnl" runat="server" Height="105px" ScrollBars="Vertical" Style="overflow: auto; width: 100%; text-align: center;">
-                                                                                            <asp:GridView ID="gdvItemDetail" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" CssClass="myGridClass" OnRowDataBound="gdvItemDetail_RowDataBound" OnSelectedIndexChanged="gdvItemDetail_SelectedIndexChanged" Style="text-align: left">
+                                                                                            <asp:GridView ID="gdvItemDetail" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" CssClass="myGridClass" OnRowDataBound="gdvItemDetail_RowDataBound" OnSelectedIndexChanged="gdvItemDetail_SelectedIndexChanged" Style="text-align: left; width:100%;">
                                                                                                 <FooterStyle BackColor="White" ForeColor="#000066" />
                                                                                                 <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
                                                                                                 <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />

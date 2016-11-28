@@ -619,8 +619,6 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage
         }
 
 
-
-
         private void set_grid()
         {
 
@@ -1839,7 +1837,7 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage
         {
 
             DataTable dtunit= new DataTable ();
-            dtunit = DataProcess.GetData(_connectionString, ItemDetailController.GetItemUnit(txtItem.Text.Split(':')[0].ToString(), Convert.ToInt32(Session[ClsStatic.sessionCompanyID]), Convert.ToInt32(Session[ClsStatic.sessionBranchID])));
+            dtunit = DataProcess.GetData(_connectionString, ItemSetupController.GetItemUnit(txtItem.Text.Split(':')[0].ToString(), Convert.ToInt32(Session[ClsStatic.sessionCompanyID]), Convert.ToInt32(Session[ClsStatic.sessionBranchID])));
             if (dtunit.Rows.Count > 0)
             {
                 txtunit.Text = dtunit.Rows[0]["UnitID"].ToString() + ":" + dtunit.Rows[0]["Unit"].ToString();
