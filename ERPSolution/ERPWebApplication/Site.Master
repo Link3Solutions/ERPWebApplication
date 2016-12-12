@@ -66,6 +66,12 @@
 
                         <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
                             <Items>
+                                <asp:MenuItem NavigateUrl="~/Default.aspx" Text="HRMS">
+                                    <asp:MenuItem NavigateUrl="~/Default.aspx" Text="MasterPage">
+                                        <asp:MenuItem NavigateUrl="~/ModuleName/HRMS/MasterPage/CompanySetupForm.aspx" Text="Company Setup" Value="11"></asp:MenuItem>
+                                    </asp:MenuItem>
+                                </asp:MenuItem>
+
                                 <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Inventory">
                                     <asp:MenuItem NavigateUrl="~/Default.aspx" Text="MasterPage">
                                         <asp:MenuItem NavigateUrl="~/ModuleName/Inventory/MasterPage/ItemCategorySetupForm.aspx" Text="Item Category Setup" Value="22"></asp:MenuItem>
@@ -82,8 +88,6 @@
                                     </asp:MenuItem>
 
                                 </asp:MenuItem>
-
-
                             </Items>
                         </asp:Menu>
 

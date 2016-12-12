@@ -975,6 +975,7 @@
     <Content Include="Images\header.png" />
     <Content Include="MicrosoftMenuHtmlPage.html" />
     <Content Include="ModuleName\Accounts\CoaHeadSetup.aspx" />
+    <Content Include="ModuleName\HRMS\MasterPage\CompanySetupForm.aspx" />
     <Content Include="ModuleName\Inventory\MasterPage\ItemCategorySetupForm.aspx" />
     <Content Include="ModuleName\Inventory\MasterPage\TemplateForm.aspx" />
     <Content Include="ModuleName\Inventory\Report\ReportForm\ReportViewer.aspx" />
@@ -1121,6 +1122,13 @@
     <Compile Include="ModuleName\Accounts\CoaHeadSetup.aspx.designer.cs">
       <DependentUpon>CoaHeadSetup.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ModuleName\HRMS\MasterPage\CompanySetupForm.aspx.cs">
+      <DependentUpon>CompanySetupForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuleName\HRMS\MasterPage\CompanySetupForm.aspx.designer.cs">
+      <DependentUpon>CompanySetupForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ModuleName\Inventory\MasterPage\ItemCategorySetupForm.aspx.cs">
       <DependentUpon>ItemCategorySetupForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1180,7 +1188,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ModuleName\HRMS\MasterPage\" />
     <Folder Include="ModuleName\Organization\" />
   </ItemGroup>
   <ItemGroup>
