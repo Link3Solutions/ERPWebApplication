@@ -41,7 +41,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                                   ,[EntryMode]
                                   ,[RelatedTo]
                                   ,[RelatedUserRoleID]
-                              FROM [sysTwoColumnTables] ORDER BY [TableName],[RelatedUserRoleID]";
+                              FROM [sysTwoColumnTables] WHERE DataUsed = 'A' ORDER BY [TableName],[RelatedUserRoleID]";
                 dtItem = clsDataManipulation.GetData(connectionString, sqlString);
                 return dtItem;
 
@@ -58,7 +58,7 @@ namespace ERPWebApplication.AppClass.DataAccess
         {
             try
             {
-                string sqlString = "DELETE FROM sysTwoColumnTables WHERE TableID = " + objTwoColumnTables.TableID + "";
+                string sqlString = "UPDATE sysTwoColumnTables SET DataUsed	= 'I' WHERE TableID = " + objTwoColumnTables.TableID + "";
                 clsDataManipulation.StoredProcedureExecuteNonQuery(connectionString, sqlString);
 
             }
