@@ -19,7 +19,15 @@ namespace ERPWebApplication.AppClass.Model
         public string TableName
         {
             get { return _tableName; }
-            set { _tableName = value; }
+            set
+            {
+                if (value == null)
+                {
+                    throw new Exception(" Please type table name");
+
+                }
+                _tableName = value;
+            }
         }
         private string _entryMode;
 

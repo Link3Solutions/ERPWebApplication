@@ -53,5 +53,43 @@ namespace ERPWebApplication.AppClass.DataAccess
             }
 
         }
+
+        public void Delete(string connectionString, TwoColumnTables objTwoColumnTables)
+        {
+            try
+            {
+                string sqlString = "DELETE FROM sysTwoColumnTables WHERE TableID = " + objTwoColumnTables.TableID + "";
+                clsDataManipulation.StoredProcedureExecuteNonQuery(connectionString, sqlString);
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
+
+        }
+
+        public void Update(string connectionString, TwoColumnTables objTwoColumnTables)
+        {
+            try
+            {
+                var storedProcedureComandTest = "exec [ACT_sysTwoColumnTables] " +
+                                        objTwoColumnTables.TableID + ",'" +
+                                        objTwoColumnTables.TableName + "','" +
+                                        objTwoColumnTables.EntryMode + "','" +
+                                        objTwoColumnTables.RelatedTo + "'," +
+                                        objTwoColumnTables.RelatedUserRoleID + ",'" +
+                                        objTwoColumnTables.EntryUserName + "'";
+                clsDataManipulation.StoredProcedureExecuteNonQuery(connectionString, storedProcedureComandTest);
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
+ 
+        }
     }
 }
