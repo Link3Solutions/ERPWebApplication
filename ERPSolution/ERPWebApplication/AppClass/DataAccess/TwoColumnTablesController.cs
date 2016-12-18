@@ -54,6 +54,26 @@ namespace ERPWebApplication.AppClass.DataAccess
 
         }
 
+        public DataTable GetRecord(string connectionString, TwoColumnTables objTwoColumnTables)
+        {
+            try
+            {
+                DataTable dtItem = null;
+                string sqlString = @"SELECT [TableID]
+                                  ,[TableName]
+                                    FROM [sysTwoColumnTables] WHERE DataUsed = 'A' AND RelatedUserRoleID = " + objTwoColumnTables.RelatedUserRoleID + " ORDER BY [TableName],[RelatedUserRoleID]";
+                dtItem = clsDataManipulation.GetData(connectionString, sqlString);
+                return dtItem;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+
+        }
+
         public void Delete(string connectionString, TwoColumnTables objTwoColumnTables)
         {
             try
@@ -64,7 +84,7 @@ namespace ERPWebApplication.AppClass.DataAccess
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
 
@@ -86,10 +106,10 @@ namespace ERPWebApplication.AppClass.DataAccess
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
- 
+
         }
     }
 }

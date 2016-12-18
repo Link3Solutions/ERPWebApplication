@@ -162,6 +162,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
         protected void grdTwoColumnTables_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             e.Row.Cells[1].Visible = false;
+            e.Row.Cells[5].Visible = false;
         }
 
         protected void grdTwoColumnTables_RowDeleting(object sender, GridViewDeleteEventArgs e)
