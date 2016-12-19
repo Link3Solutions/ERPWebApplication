@@ -62,7 +62,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
 
@@ -76,6 +76,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 e.Row.Attributes["onmouseout"] = "this.style.textDecoration='none';this.style.color='black';";
                 e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.grdTableName, "Select$" + e.Row.RowIndex);
             }
+            e.Row.Cells[0].Visible = false;
             e.Row.Cells[1].Visible = false;
         }
 
@@ -89,6 +90,8 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 lblSelectedTableName.Text = lblTableName;
                 txtFieldOfName.Focus();
                 Session["tableID"] = lblTableID;
+                ShowTwoColumnsTableData();
+                btnSave.Text = "Save";
 
             }
             catch (Exception msgException)
@@ -98,17 +101,62 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             }
         }
 
+        private void ShowTwoColumnsTableData()
+        {
+            try
+            {
+                _objTwoColumnsTableData = new TwoColumnsTableData();
+                _objTwoColumnsTableData.CompanyID = Convert.ToInt32(Session["companyID"].ToString());
+                _objTwoColumnsTableData.BranchID = Convert.ToInt32(Session["branchID"].ToString());
+                _objTwoColumnsTableData.TableID = Convert.ToInt32(Session["tableID"].ToString());
+                _objTwoColumnsTableDataController = new TwoColumnsTableDataController();
+                DataTable dtTableData = _objTwoColumnsTableDataController.GetRecord(_connectionString, _objTwoColumnsTableData);
+                grdTableData.DataSource = null;
+                grdTableData.DataBind();
+                if (dtTableData.Rows.Count > 0)
+                {
+                    grdTableData.DataSource = dtTableData;
+                    grdTableData.DataBind();
+
+                }
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
         protected void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
                 AddValuesToTablesData();
+                ShowTwoColumnsTableData();
+                ClearControl();
 
             }
             catch (Exception msgException)
             {
 
                 clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        private void ClearControl()
+        {
+            try
+            {
+                txtFieldOfName.Text = string.Empty;
+                txtFieldDescription.Text = string.Empty;
+                btnSave.Text = "Save";
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
             }
         }
 
@@ -124,14 +172,95 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 _objTwoColumnsTableData.FieldDescription = txtFieldDescription.Text == string.Empty ? null : txtFieldDescription.Text;
                 _objTwoColumnsTableData.EntryUserName = Session["entryUserCode"].ToString();
                 _objTwoColumnsTableDataController = new TwoColumnsTableDataController();
-                _objTwoColumnsTableDataController.Save(_connectionString, _objTwoColumnsTableData);
+                if (btnSave.Text == "Save")
+                {
+                    _objTwoColumnsTableDataController.Save(_connectionString, _objTwoColumnsTableData);
+                }
+                else
+                {
+                    _objTwoColumnsTableData.FieldOfID = Session["selectedIndex"].ToString();
+                    _objTwoColumnsTableDataController.Update(_connectionString,_objTwoColumnsTableData);
+
+                }
+                
 
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
+        }
+
+        protected void grdTableData_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            e.Row.Cells[0].Visible = false;
+            e.Row.Cells[1].Visible = false;
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ClearControl();
+                lblSelectedTableName.Text = string.Empty;
+                grdTableData.DataSource = null;
+                grdTableData.DataBind();
+
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        protected void grdTableData_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int selectedIndex = Convert.ToInt32(e.CommandArgument.ToString());
+            string lblFieldOfID = ((Label)grdTableData.Rows[selectedIndex].FindControl("lblFieldOfID")).Text;
+            if (e.CommandName.Equals("Select"))
+            {
+                try
+                {
+                    string lblFieldOfName = ((Label)grdTableData.Rows[selectedIndex].FindControl("lblFieldOfName")).Text;
+                    string lblFieldDescription = ((Label)grdTableData.Rows[selectedIndex].FindControl("lblFieldDescription")).Text;
+                    txtFieldOfName.Text = lblFieldOfName;
+                    txtFieldDescription.Text = lblFieldDescription;                    
+                    btnSave.Text = "Update";
+                    Session["selectedIndex"] = lblFieldOfID;
+
+                }
+                catch (Exception msgException)
+                {
+
+                    clsTopMostMessageBox.Show(msgException.Message);
+                }
+            }
+            else if (e.CommandName.Equals("Delete"))
+            {
+                try
+                {
+                    _objTwoColumnsTableData = new TwoColumnsTableData();
+                    _objTwoColumnsTableData.FieldOfID = lblFieldOfID;
+                    _objTwoColumnsTableDataController = new TwoColumnsTableDataController();
+                    _objTwoColumnsTableDataController.Delete(_connectionString,_objTwoColumnsTableData);
+                    ShowTwoColumnsTableData();
+
+                }
+                catch (Exception msgException)
+                {
+
+                    clsTopMostMessageBox.Show(msgException.Message);
+                }
+
+
+            }
+        }
+
+        protected void grdTableData_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
         }
 
     }

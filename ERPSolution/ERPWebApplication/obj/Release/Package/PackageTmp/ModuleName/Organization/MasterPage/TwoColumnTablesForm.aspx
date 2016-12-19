@@ -166,8 +166,7 @@
             </table>
         </ContentTemplate>
         <Triggers>
-            <asp:PostBackTrigger ControlID="btnSave" />
-            <asp:PostBackTrigger ControlID="btnClear" />
+            
         </Triggers>
     </asp:UpdatePanel>
 </asp:Content>

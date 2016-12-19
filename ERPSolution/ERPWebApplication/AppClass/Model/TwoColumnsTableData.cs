@@ -40,7 +40,15 @@ namespace ERPWebApplication.AppClass.Model
         public string FieldOfName
         {
             get { return _fieldOfName; }
-            set { _fieldOfName = value; }
+            set
+            {
+                if (value == null)
+                {
+                    throw new Exception(" Please type field Of name");
+
+                }
+                _fieldOfName = value;
+            }
         }
         private string _fieldDescription;
 
