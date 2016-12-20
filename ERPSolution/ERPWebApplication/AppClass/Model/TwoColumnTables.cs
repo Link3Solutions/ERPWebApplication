@@ -57,5 +57,18 @@ namespace ERPWebApplication.AppClass.Model
             get { return _entryUserName; }
             set { _entryUserName = value; }
         }
+        private string _entrySystem;
+
+        public string EntrySystem
+        {
+            get { return _entrySystem; }
+            set {
+                if (value == null)
+                {
+                    throw new Exception(" Please select entry system");
+                    
+                }
+                _entrySystem = value; }
+        }
     }
 }

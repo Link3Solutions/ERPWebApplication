@@ -94,6 +94,24 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage {
         protected global::System.Web.UI.WebControls.DropDownList ddlRelatedUserRoleID;
         
         /// <summary>
+        /// Label5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label5;
+        
+        /// <summary>
+        /// ddlEntrySystem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlEntrySystem;
+        
+        /// <summary>
         /// btnSave control.
         /// </summary>
         /// <remarks>

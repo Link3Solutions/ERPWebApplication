@@ -19,6 +19,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                                         objTwoColumnTables.EntryMode + "','" +
                                         objTwoColumnTables.RelatedTo + "'," +
                                         objTwoColumnTables.RelatedUserRoleID + ",'" +
+                                        objTwoColumnTables.EntrySystem + "','" +
                                         objTwoColumnTables.EntryUserName + "'";
                 clsDataManipulation.StoredProcedureExecuteNonQuery(connectionString, storedProcedureComandTest);
 
@@ -41,7 +42,8 @@ namespace ERPWebApplication.AppClass.DataAccess
                                   ,[EntryMode]
                                   ,[RelatedTo]
                                   ,[RelatedUserRoleID]
-                              FROM [sysTwoColumnTables] WHERE DataUsed = 'A' ORDER BY [TableName],[RelatedUserRoleID]";
+                                  ,[EntrySystem]  
+                              FROM [sysTwoColumnTables] WHERE DataUsed = 'A' ORDER BY [EntrySystem],[TableName],[RelatedUserRoleID]";
                 dtItem = clsDataManipulation.GetData(connectionString, sqlString);
                 return dtItem;
 
@@ -100,6 +102,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                                         objTwoColumnTables.EntryMode + "','" +
                                         objTwoColumnTables.RelatedTo + "'," +
                                         objTwoColumnTables.RelatedUserRoleID + ",'" +
+                                        objTwoColumnTables.EntrySystem + "','" +
                                         objTwoColumnTables.EntryUserName + "'";
                 clsDataManipulation.StoredProcedureExecuteNonQuery(connectionString, storedProcedureComandTest);
 

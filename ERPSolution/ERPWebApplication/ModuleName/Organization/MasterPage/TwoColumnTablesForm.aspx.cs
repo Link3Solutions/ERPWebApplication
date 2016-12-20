@@ -52,6 +52,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 txtEntryMode.Text = string.Empty;
                 txtRelatedTo.Text = string.Empty;
                 btnSave.Text = "Save";
+                ddlEntrySystem.SelectedValue = "-1";
 
             }
             catch (Exception msgException)
@@ -92,6 +93,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 _objTwoColumnTables.EntryMode = txtEntryMode.Text == string.Empty ? null : txtEntryMode.Text;
                 _objTwoColumnTables.RelatedTo = txtRelatedTo.Text == string.Empty ? null : txtRelatedTo.Text;
                 _objTwoColumnTables.RelatedUserRoleID = ddlRelatedUserRoleID.SelectedValue == "-1" ? 0 : Convert.ToInt32(ddlRelatedUserRoleID.SelectedValue);
+                _objTwoColumnTables.EntrySystem = ddlEntrySystem.SelectedValue == "-1" ? null : ddlEntrySystem.SelectedValue;
                 _objTwoColumnTablesController = new TwoColumnTablesController();
                 if (btnSave.Text == "Save")
                 {
@@ -124,10 +126,12 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                     string lblTableName = ((Label)grdTwoColumnTables.Rows[selectedIndex].FindControl("lblTableName")).Text;
                     string lblEntryMode = ((Label)grdTwoColumnTables.Rows[selectedIndex].FindControl("lblEntryMode")).Text;
                     string lblRelatedTo = ((Label)grdTwoColumnTables.Rows[selectedIndex].FindControl("lblRelatedTo")).Text;
+                    string lblEntrySystem = ((Label)grdTwoColumnTables.Rows[selectedIndex].FindControl("lblEntrySystem")).Text;
                     txtTableName.Text = lblTableName;
                     txtEntryMode.Text = lblEntryMode;
                     txtRelatedTo.Text = lblRelatedTo;
                     ddlRelatedUserRoleID.SelectedValue = lblRelatedTo;
+                    ddlEntrySystem.SelectedValue = lblEntrySystem;
                     btnSave.Text = "Update";
                     Session["selectedIndex"] = lblTableID;
 
