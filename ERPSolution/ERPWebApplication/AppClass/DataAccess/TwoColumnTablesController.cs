@@ -63,7 +63,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                 DataTable dtItem = null;
                 string sqlString = @"SELECT [TableID]
                                   ,[TableName]
-                                    FROM [sysTwoColumnTables] WHERE DataUsed = 'A' AND RelatedUserRoleID = " + objTwoColumnTables.RelatedUserRoleID + " ORDER BY [TableName],[RelatedUserRoleID]";
+                                    FROM [sysTwoColumnTables] WHERE DataUsed = 'A' AND EntrySystem = '" + objTwoColumnTables.EntrySystem + "' AND RelatedUserRoleID = " + objTwoColumnTables.RelatedUserRoleID + " ORDER BY [TableName],[RelatedUserRoleID]";
                 dtItem = clsDataManipulation.GetData(connectionString, sqlString);
                 return dtItem;
 

@@ -48,6 +48,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             {
                 _objTwoColumnTables = new TwoColumnTables();
                 _objTwoColumnTables.RelatedUserRoleID = Convert.ToInt32(Session["relatedUserRoleID"].ToString());
+                _objTwoColumnTables.EntrySystem = "M";
                 _objTwoColumnTablesController = new TwoColumnTablesController();
                 DataTable dtTablesName = _objTwoColumnTablesController.GetRecord(_connectionString, _objTwoColumnTables);
                 grdTableName.DataSource = null;

@@ -994,6 +994,7 @@
     <Content Include="Images\orderedList7.png" />
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
+    <Content Include="ModuleName\Organization\MasterPage\TwoColumnsTableDataAutoForm.aspx" />
     <Content Include="ModuleName\Organization\MasterPage\TwoColumnsTableDataForm.aspx" />
     <Content Include="ModuleName\Organization\MasterPage\TwoColumnTablesForm.aspx" />
     <Content Include="packages.config" />
@@ -1086,6 +1087,7 @@
     <Compile Include="AppClass\DataAccess\ProritySetupController.cs" />
     <Compile Include="AppClass\DataAccess\PurposeSetupController.cs" />
     <Compile Include="AppClass\DataAccess\SuppliersController.cs" />
+    <Compile Include="AppClass\DataAccess\TwoColumnsTableDataAutoController.cs" />
     <Compile Include="AppClass\DataAccess\TwoColumnsTableDataController.cs" />
     <Compile Include="AppClass\DataAccess\TwoColumnTablesController.cs" />
     <Compile Include="AppClass\DataAccess\UnitSetupController.cs" />
@@ -1105,6 +1107,7 @@
     <Compile Include="AppClass\Model\RequisitionDetail.cs" />
     <Compile Include="AppClass\Model\RequisitionHeader.cs" />
     <Compile Include="AppClass\Model\TwoColumnsTableData.cs" />
+    <Compile Include="AppClass\Model\TwoColumnsTableDataAuto.cs" />
     <Compile Include="AppClass\Model\TwoColumnTables.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
@@ -1179,6 +1182,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleName\Organization\MasterPage\TwoColumnsTableDataAutoForm.aspx.cs">
+      <DependentUpon>TwoColumnsTableDataAutoForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuleName\Organization\MasterPage\TwoColumnsTableDataAutoForm.aspx.designer.cs">
+      <DependentUpon>TwoColumnsTableDataAutoForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModuleName\Organization\MasterPage\TwoColumnsTableDataForm.aspx.cs">
       <DependentUpon>TwoColumnsTableDataForm.aspx</DependentUpon>
