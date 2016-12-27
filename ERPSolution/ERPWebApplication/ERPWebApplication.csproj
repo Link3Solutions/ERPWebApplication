@@ -1057,6 +1057,7 @@
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppClass\CommonClass\AutoTableData.cs" />
     <Compile Include="AppClass\CommonClass\CGlobalMeaage.cs" />
     <Compile Include="AppClass\CommonClass\ClsDropDownListController.cs" />
     <Compile Include="AppClass\CommonClass\ClsGridViewLoad.cs" />

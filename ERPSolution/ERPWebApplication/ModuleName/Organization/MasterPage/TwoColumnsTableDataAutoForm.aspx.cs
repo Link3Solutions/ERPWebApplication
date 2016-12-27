@@ -73,6 +73,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 try
                 {
                     ApplyDefaultData(lblTableID);
+                    clsTopMostMessageBox.Show(clsMessages.GProcessSuccess);
 
                 }
                 catch (Exception msgException)

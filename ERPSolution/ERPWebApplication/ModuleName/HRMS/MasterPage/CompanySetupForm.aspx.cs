@@ -148,7 +148,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                     txtLinkedInID.Text = dt.Rows[0][20].ToString();
                     txtTwitterID.Text = dt.Rows[0][21].ToString();
                     txtYouTubeID.Text = dt.Rows[0][22].ToString();
-                    //txtAlphaSoftProduct.Text = dt.Rows[0][18].ToString();                
+                    //txtAlphaSoftProduct.Text = dtAutoData.Rows[0][18].ToString();                
                     txtContactPersonName.Text = dt.Rows[0][23].ToString();
                     txtContactPersonDesignation.Text = dt.Rows[0][24].ToString();
                     txtContactPersonContactNum.Text = dt.Rows[0][25].ToString();
