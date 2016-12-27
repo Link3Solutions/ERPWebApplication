@@ -72,7 +72,8 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             {
                 try
                 {
-                    ApplyDefaultData(lblTableID);
+                    string lblTableName = ((Label)grdTableName.Rows[selectedIndex].FindControl("lblTableName")).Text;
+                    ApplyDefaultData(lblTableID,lblTableName);
                     clsTopMostMessageBox.Show(clsMessages.GProcessSuccess);
 
                 }
@@ -84,12 +85,13 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             }
         }
 
-        private void ApplyDefaultData(string lblTableID)
+        private void ApplyDefaultData(string lblTableID, string lblTableName)
         {
             try
             {
                 _objTwoColumnsTableDataAuto = new TwoColumnsTableDataAuto();
                 _objTwoColumnsTableDataAuto.TableID = Convert.ToInt32(lblTableID);
+                _objTwoColumnsTableDataAuto.TableName = lblTableName;
                 _objTwoColumnsTableDataAutoController = new TwoColumnsTableDataAutoController();
                 _objTwoColumnsTableDataAutoController.Save(_connectionString, _objTwoColumnsTableDataAuto);
 

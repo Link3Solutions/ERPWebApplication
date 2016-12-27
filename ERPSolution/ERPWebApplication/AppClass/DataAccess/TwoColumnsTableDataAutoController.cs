@@ -16,6 +16,8 @@ namespace ERPWebApplication.AppClass.DataAccess
             {
                 DataTable dtDefaultData = new DataTable();
                 var storedProcedureComandTestTemp = "";
+                storedProcedureComandTestTemp = SqlCreateTable();
+                storedProcedureComandTestTemp += SqlDeleteGarbageData(objTwoColumnsTableDataAuto);
                 TwoColumnTables objTwoColumnTables = new TwoColumnTables();
                 objTwoColumnTables.TableID = objTwoColumnsTableDataAuto.TableID;
                 AutoTableData objAutoTableData = new AutoTableData(objTwoColumnTables);
@@ -35,6 +37,8 @@ namespace ERPWebApplication.AppClass.DataAccess
                     storedProcedureComandTestTemp += storedProcedureComandTest;
                 }
 
+                storedProcedureComandTestTemp += SqlCreateView(objTwoColumnsTableDataAuto);
+
                 clsDataManipulation.StoredProcedureExecuteNonQuery(connectionString, storedProcedureComandTestTemp);
 
             }
@@ -44,6 +48,79 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
 
+        }
+        private string SqlCreateTable()
+        {
+            try
+            {
+                string sqlForTable = null;
+                sqlForTable = @"if not exists (Select * from sysobjects where name = 'TwoColumnsTableAuto' and type = 'U' ) 
+                        begin 
+                        CREATE TABLE [dbo].[TwoColumnsTableAuto](
+	                        [TableID] [int] NOT NULL,
+	                        [FieldOfID] [varchar](35) NOT NULL,
+	                        [FieldOfName] [varchar](50) NULL,
+	                        [DataUsed] [varchar](1) NOT NULL,
+	                        [EntryUserID] [uniqueidentifier] NOT NULL,
+	                        [EntryDate] [datetime] NOT NULL,
+	                        [LastUpdateDate] [datetime] NULL,
+	                        [LastUpdateUserID] [uniqueidentifier] NULL,
+                         CONSTRAINT [PK_TwoColumnsTableAuto] PRIMARY KEY CLUSTERED 
+                        (
+	                        [TableID] ASC,
+	                        [FieldOfID] ASC
+                        )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+                        ) ON [PRIMARY]
+
+                        end;  ";
+                return sqlForTable;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+        private string SqlCreateView(TwoColumnsTableDataAuto objTwoColumnsTableDataAuto)
+        {
+            try
+            {
+                string sqlForView = null;
+                sqlForView = @" if exists(Select * from sysobjects where name = '" + objTwoColumnsTableDataAuto.TableName.Replace(" ", String.Empty) + "' and type = 'V' ) begin drop view " + objTwoColumnsTableDataAuto.TableName.Replace(" ", String.Empty) + " end;";
+                sqlForView += " exec('create view " + objTwoColumnsTableDataAuto.TableName.Replace(" ", string.Empty) +
+                             @" as SELECT [FieldOfID]
+                                  ,[FieldOfName]
+                                  ,[DataUsed]
+                                  ,[EntryUserID]
+                                  ,[EntryDate]
+                                  ,[LastUpdateDate]
+                                  ,[LastUpdateUserID]
+                              FROM [TwoColumnsTableAuto] WHERE [TableID] = " + objTwoColumnsTableDataAuto.TableID + "');";
+                return sqlForView;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+
+        }
+        private string SqlDeleteGarbageData(TwoColumnsTableDataAuto objTwoColumnsTableDataAuto)
+        {
+            try
+            {
+                string sqlForDelete = null;
+                sqlForDelete = @"  DELETE FROM [TwoColumnsTableAuto] WHERE [TableID] = " + objTwoColumnsTableDataAuto.TableID + "; ";
+                return sqlForDelete;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
         }
     }
 }

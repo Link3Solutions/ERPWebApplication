@@ -35,5 +35,12 @@ namespace ERPWebApplication.AppClass.Model
             get { return _entryUserName; }
             set { _entryUserName = value; }
         }
+        private string _tableName;
+
+        public string TableName
+        {
+            get { return _tableName; }
+            set { _tableName = value; }
+        }
     }
 }
