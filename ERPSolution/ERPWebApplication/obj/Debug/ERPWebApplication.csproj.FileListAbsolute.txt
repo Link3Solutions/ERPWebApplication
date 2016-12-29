@@ -148,3 +148,7 @@ D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApp
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\obj\Debug\ERPWebApplication.csprojResolveAssemblyReference.cache
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\obj\Debug\ERPWebApplication.dll
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\obj\Debug\ERPWebApplication.pdb
+D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\bin\AjaxControlToolkit.HtmlEditor.Sanitizer.dll
+D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\bin\HtmlAgilityPack.dll
+D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\bin\HtmlAgilityPack.pdb
+D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplication\bin\HtmlAgilityPack.xml
