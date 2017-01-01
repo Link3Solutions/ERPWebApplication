@@ -26,7 +26,13 @@ namespace ERPWebApplication.AppClass.Model
         public int ActivityID
         {
             get { return _activityID; }
-            set { _activityID = value; }
+            set {
+                if (value == -1)
+                {
+                    throw new Exception(" type is required ");
+                    
+                } _activityID = value;
+            }
         }
         private string _activityName;
 
@@ -74,7 +80,13 @@ namespace ERPWebApplication.AppClass.Model
         public string FormName
         {
             get { return _formName; }
-            set { _formName = value; }
+            set {
+                if (value == null && ActivityID == 4)
+                {
+                    throw new Exception(" form URL is required ");
+                    
+                } _formName = value;
+            }
         }
         private string _entryUserName;
 

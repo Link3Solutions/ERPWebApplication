@@ -8,7 +8,11 @@
             <table style="width: 100%; text-align: left">
                 <tr>
                     <td colspan="2" style="width: 600px; float: left">
-                        <asp:TreeView ID="treeNodeList" runat="server"></asp:TreeView>
+                        <asp:TreeView ID="treeNodeList" runat="server" ImageSet="Msdn" OnSelectedNodeChanged="treeNodeList_SelectedNodeChanged" OnTreeNodePopulate="treeNodeList_TreeNodePopulate">
+                            <Nodes>
+                                <asp:TreeNode Text="Node List" Value="111"></asp:TreeNode>
+                            </Nodes>
+                        </asp:TreeView>
                     </td>
                     <td colspan="2" style="text-align: left; float: left">
                         <table style="width: 100%;">
@@ -36,6 +40,12 @@
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <asp:Label ID="lblParentText" runat="server"></asp:Label>
+                                    <asp:Label ID="lblParentValue" runat="server" Visible="False"></asp:Label>
+                                </td>
                             </tr>
                             <tr>
                                 <td>
@@ -78,7 +88,8 @@
                                                 </td>
                                                 <td>:</td>
                                                 <td>
-                                                    <asp:TextBox ID="txtFormURL" runat="server"></asp:TextBox>
+                                                    <asp:DropDownList ID="ddlFormURL" runat="server">
+                                                    </asp:DropDownList>
                                                 </td>
                                             </tr>
                                             <tr>
