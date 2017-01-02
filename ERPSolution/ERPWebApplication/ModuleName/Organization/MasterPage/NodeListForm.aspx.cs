@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using ERPWebApplication.AppClass.CommonClass;
 using ERPWebApplication.AppClass.Model;
 using ERPWebApplication.AppClass.DataAccess;
+using System.Text.RegularExpressions;
 
 namespace ERPWebApplication.ModuleName.Organization.MasterPage
 {
@@ -73,13 +74,37 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 treeNodeList.Nodes.Clear();
                 _objNodeListController = new NodeListController();
                 _objNodeListController.PopulateRootLevel(_connectionString, treeNodeList);
+                ClearControl();
                 clsTopMostMessageBox.Show(clsMessages.GProcessSuccess);
+                treeNodeList.ExpandAll();
 
             }
             catch (Exception msgException)
             {
 
                 clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        private void ClearControl()
+        {
+            try
+            {
+                txtTitle.Text = string.Empty;
+                txtDescription.Text = string.Empty;
+                ddlType.SelectedValue = "-1";
+                ddlFormURL.SelectedValue = "-1";
+                PanelFormDetails.Visible = false;
+                lblParentText.Text = string.Empty;
+                lblParentText.Visible = false;
+                lblParentValue.Text = string.Empty;
+                txtTitle.Enabled = true;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
             }
         }
 
@@ -95,7 +120,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 _objNodeList.CompanyID = Convert.ToInt32(Session["companyID"].ToString());
                 _objNodeList.FormDescription = txtDescription.Text == string.Empty ? null : txtDescription.Text;
                 _objNodeList.FormName = ddlFormURL.SelectedValue == "-1" ? null : ddlFormURL.SelectedValue;
-                _objNodeList.ParentNodeTypeID = lblParentValue.Text == string.Empty ? 111 : Convert.ToInt32(lblParentValue.Text);
+                _objNodeList.ParentNodeTypeID = lblParentValue.Text == string.Empty ? 0 : Convert.ToInt32(lblParentValue.Text);
                 _objNodeList.SeqNo = _objNodeListController.GetSeqNo(_connectionString);
                 _objNodeListController.Save(_connectionString, _objNodeList);
 
@@ -130,8 +155,19 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             {
                 lblParentText.Text = treeNodeList.SelectedNode.Text;
                 lblParentText.Visible = true;
-                lblParentValue.Text = treeNodeList.SelectedNode.Value;
-                txtTitle.Focus();
+                var nodeValue = treeNodeList.SelectedNode.Value;
+                lblParentValue.Text = nodeValue;
+                if (nodeValue.Length == 6)
+                {
+                    txtTitle.Enabled = false;
+
+                }
+                else
+                {
+                    txtTitle.Enabled = true;
+                    txtTitle.Focus();
+                }
+
 
             }
             catch (Exception msgException)
@@ -143,23 +179,45 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
 
         public void GetAllFormURL()
         {
-            string root = Server.MapPath("~");
-            System.IO.DirectoryInfo info = new System.IO.DirectoryInfo(root);
-            System.IO.FileInfo[] files = info.GetFiles("*.aspx", System.IO.SearchOption.AllDirectories);
-
-            string pageName = "";
-            ddlFormURL.Items.Clear();
-            ddlFormURL.Items.Insert(0, new ListItem("--- Please Select ---", "-1"));
-            foreach (System.IO.FileInfo fi in files)
+            try
             {
-                pageName = fi.FullName.Replace(root, "~/").Replace("\\", "/");
+                string root = Server.MapPath("~");
+                System.IO.DirectoryInfo info = new System.IO.DirectoryInfo(root);
+                System.IO.FileInfo[] files = info.GetFiles("*.aspx", System.IO.SearchOption.AllDirectories);
+                string pageName = "";
+                ddlFormURL.Items.Clear();
+                ddlFormURL.Items.Insert(0, new ListItem("--- Please Select ---", "-1"));
+                foreach (System.IO.FileInfo fi in files)
+                {
+                    pageName = fi.FullName.Replace(root, "~/").Replace("\\", "/");
 
-                ListItem lst = new ListItem();
-                lst.Value = pageName;
-                lst.Text = fi.Name.ToString();
-                ddlFormURL.Items.Add(lst);
+                    ListItem lst = new ListItem();
+                    lst.Value = pageName;
+                    lst.Text = fi.Name.ToString();
+                    ddlFormURL.Items.Add(lst);
+                }
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
             }
 
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ClearControl();
+
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
         }
     }
 }

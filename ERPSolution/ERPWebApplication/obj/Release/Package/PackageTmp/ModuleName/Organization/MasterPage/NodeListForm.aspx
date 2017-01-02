@@ -8,10 +8,8 @@
             <table style="width: 100%; text-align: left">
                 <tr>
                     <td colspan="2" style="width: 600px; float: left">
-                        <div style="overflow:auto; height:500px;">
                         <asp:TreeView ID="treeNodeList" runat="server" ImageSet="Msdn" OnSelectedNodeChanged="treeNodeList_SelectedNodeChanged" OnTreeNodePopulate="treeNodeList_TreeNodePopulate">
                         </asp:TreeView>
-                            </div>
                     </td>
                     <td colspan="2" style="text-align: left; float: left">
                         <table style="width: 100%;">
@@ -52,7 +50,7 @@
                                 </td>
                                 <td>:</td>
                                 <td>
-                                    <asp:TextBox ID="txtTitle" runat="server" Width="300px"></asp:TextBox>
+                                    <asp:TextBox ID="txtTitle" runat="server"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
@@ -61,7 +59,7 @@
                                 </td>
                                 <td>:</td>
                                 <td>
-                                    <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine" Width="300px"></asp:TextBox>
+                                    <asp:TextBox ID="txtDescription" runat="server"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
@@ -70,7 +68,7 @@
                                 </td>
                                 <td>:</td>
                                 <td>
-                                    <asp:DropDownList ID="ddlType" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlType_SelectedIndexChanged" Width="310px">
+                                    <asp:DropDownList ID="ddlType" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlType_SelectedIndexChanged">
                                         <asp:ListItem Selected="True" Value="-1">--- Please Select ---</asp:ListItem>
                                         <asp:ListItem Value="1">Folder</asp:ListItem>
                                         <asp:ListItem Value="4">Form</asp:ListItem>
@@ -87,7 +85,7 @@
                                                 </td>
                                                 <td>:</td>
                                                 <td>
-                                                    <asp:DropDownList ID="ddlFormURL" runat="server" Width="320px">
+                                                    <asp:DropDownList ID="ddlFormURL" runat="server">
                                                     </asp:DropDownList>
                                                 </td>
                                             </tr>

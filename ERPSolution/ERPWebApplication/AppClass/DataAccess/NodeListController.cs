@@ -118,13 +118,13 @@ namespace ERPWebApplication.AppClass.DataAccess
         {
             try
             {
+                objTreeView.Nodes.Clear();
+                objTreeView.ExpandAll();
                 var myConnection = new SqlConnection(connectionString);
-                var command = new SqlCommand("SELECT NodeTypeID,ActivityName," +
-                "childnodecount = (SELECT Count(*) FROM suDefaultNodeList WHERE PNodeTypeID = D.NodeTypeID) " +
-                "FROM suDefaultNodeList D WHERE PNodeTypeID = 111", myConnection);
-                var da = new SqlDataAdapter(command);
-                var dt = new DataTable();
-                da.Fill(dt);
+                var sqlString = @"SELECT 111 as NodeTypeID,'Node List' as ActivityName,childnodecount = 
+                                    (SELECT Count(*) FROM suDefaultNodeList  
+                                    WHERE PNodeTypeID = 111)";
+                var dt = clsDataManipulation.GetData(connectionString, sqlString);
                 PopulateNodes(dt, objTreeView.Nodes);
 
             }
@@ -156,12 +156,8 @@ namespace ERPWebApplication.AppClass.DataAccess
         {
             try
             {
-                var myConnection = new SqlConnection(connectionString);
-                var objCommand = new SqlCommand(@"select NodeTypeID,ActivityName,(select count(*) FROM suDefaultNodeList WHERE PNodeTypeID=e.NodeTypeID) childnodecount FROM suDefaultNodeList e where PNodeTypeID=@PNodeTypeID", myConnection);
-                objCommand.Parameters.Add("@PNodeTypeID", SqlDbType.Int).Value = parentid;
-                var da = new SqlDataAdapter(objCommand);
-                var dt = new DataTable();
-                da.Fill(dt);
+                var sqlString = @"select NodeTypeID,ActivityName,(select count(*) FROM suDefaultNodeList WHERE PNodeTypeID=e.NodeTypeID) childnodecount FROM suDefaultNodeList e where PNodeTypeID= " + parentid + "";
+                var dt = clsDataManipulation.GetData(connectionString, sqlString);
                 PopulateNodes(dt, parentNode.ChildNodes);
                 parentNode.CollapseAll();
 
@@ -172,5 +168,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
         }
+
+
     }
 }

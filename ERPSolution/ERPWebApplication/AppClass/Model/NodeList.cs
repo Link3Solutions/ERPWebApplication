@@ -66,7 +66,13 @@ namespace ERPWebApplication.AppClass.Model
         public int ParentNodeTypeID
         {
             get { return _parentNodeTypeID; }
-            set { _parentNodeTypeID = value; }
+            set {
+                if (value == 0)
+                {
+                    throw new Exception(" please select from tree view");
+                    
+                } _parentNodeTypeID = value;
+            }
         }
         private string _formDescription;
 
