@@ -982,6 +982,7 @@
     <Content Include="Images\imageup.jpg" />
     <Content Include="MicrosoftMenuHtmlPage.html" />
     <Content Include="ModuleName\Accounts\CoaHeadSetup.aspx" />
+    <Content Include="ModuleName\Approval\frmProcessDetail.aspx" />
     <Content Include="ModuleName\HRMS\MasterPage\CompanySetupForm.aspx" />
     <Content Include="ModuleName\HRMS\MasterPage\EmployeeSetupForm.aspx" />
     <Content Include="ModuleName\Inventory\MasterPage\ItemCategorySetupForm.aspx" />
@@ -1070,6 +1071,8 @@
   <ItemGroup>
     <Compile Include="AppClass\CommonClass\AutoTableData.cs" />
     <Compile Include="AppClass\CommonClass\CGlobalMeaage.cs" />
+    <Compile Include="AppClass\CommonClass\CheckDropDownList.cs" />
+    <Compile Include="AppClass\CommonClass\CheckDuplicateValue.cs" />
     <Compile Include="AppClass\CommonClass\ClsDropDownListController.cs" />
     <Compile Include="AppClass\CommonClass\ClsGridViewLoad.cs" />
     <Compile Include="AppClass\CommonClass\clsImageHandler.cs" />
@@ -1083,6 +1086,7 @@
     <Compile Include="AppClass\CommonClass\EnumCollections.cs" />
     <Compile Include="AppClass\CommonClass\clsStringManipulation.cs" />
     <Compile Include="AppClass\CommonClass\clsTopMostMessageBox.cs" />
+    <Compile Include="AppClass\CommonClass\Sqlgenerate.cs" />
     <Compile Include="AppClass\DataAccess\ActivitySetupController.cs" />
     <Compile Include="AppClass\DataAccess\ClientInformationController.cs" />
     <Compile Include="AppClass\DataAccess\CoaHeadController.cs" />
@@ -1092,9 +1096,13 @@
     <Compile Include="AppClass\DataAccess\DepartmentSetupController.cs" />
     <Compile Include="AppClass\DataAccess\EmployeeInformationController.cs" />
     <Compile Include="AppClass\DataAccess\EmployeeSetupController.cs" />
+    <Compile Include="AppClass\DataAccess\FileUploadDetailController.cs" />
+    <Compile Include="AppClass\DataAccess\FileUploadHeaderController.cs" />
     <Compile Include="AppClass\DataAccess\ItemCategorySetupController.cs" />
     <Compile Include="AppClass\DataAccess\ItemDetailController.cs" />
     <Compile Include="AppClass\DataAccess\ItemRequisitionController.cs" />
+    <Compile Include="AppClass\DataAccess\ItemRequisitionDetailController.cs" />
+    <Compile Include="AppClass\DataAccess\ItemRequisitionHeaderController.cs" />
     <Compile Include="AppClass\DataAccess\ItemSetupController.cs" />
     <Compile Include="AppClass\DataAccess\ItemTypeSetupController.cs" />
     <Compile Include="AppClass\DataAccess\ItemUsageSetupController.cs" />
@@ -1103,6 +1111,7 @@
     <Compile Include="AppClass\DataAccess\ProjectSetupController.cs" />
     <Compile Include="AppClass\DataAccess\ProritySetupController.cs" />
     <Compile Include="AppClass\DataAccess\PurposeSetupController.cs" />
+    <Compile Include="AppClass\DataAccess\StoredProcedureExecutor.cs" />
     <Compile Include="AppClass\DataAccess\SuppliersController.cs" />
     <Compile Include="AppClass\DataAccess\TwoColumnsTableDataAutoController.cs" />
     <Compile Include="AppClass\DataAccess\TwoColumnsTableDataController.cs" />
@@ -1138,6 +1147,8 @@
     <Compile Include="AppClass\Model\TwoColumnsTableData.cs" />
     <Compile Include="AppClass\Model\TwoColumnsTableDataAuto.cs" />
     <Compile Include="AppClass\Model\TwoColumnTables.cs" />
+    <Compile Include="AppClass\Process\Process.cs" />
+    <Compile Include="AppClass\Process\ProcessHeader.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="About.aspx.cs">
@@ -1160,6 +1171,13 @@
     </Compile>
     <Compile Include="ModuleName\Accounts\CoaHeadSetup.aspx.designer.cs">
       <DependentUpon>CoaHeadSetup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleName\Approval\frmProcessDetail.aspx.cs">
+      <DependentUpon>frmProcessDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuleName\Approval\frmProcessDetail.aspx.designer.cs">
+      <DependentUpon>frmProcessDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModuleName\HRMS\MasterPage\CompanySetupForm.aspx.cs">
       <DependentUpon>CompanySetupForm.aspx</DependentUpon>
