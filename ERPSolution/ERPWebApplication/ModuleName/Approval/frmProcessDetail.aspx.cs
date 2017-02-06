@@ -1526,16 +1526,16 @@ namespace ERPWebApplication.ModuleName.Approval
                 {
                     if (grdViewForBindControl.Rows.Count != 0)
                     {
-                        int CountSelectedEmployee = 0;
+                        //int CountSelectedEmployee = 0;
 
-                        foreach (GridViewRow grdForApplicationId in GridViewEmployeeDetails.Rows)
-                        {
-                            CheckBox chk = (CheckBox)grdForApplicationId.Cells[3].FindControl("chkchild");
-                            if (chk.Checked)
-                            {
-                                CountSelectedEmployee += CountSelectedEmployee + 1;
-                            }
-                        }
+                        //foreach (GridViewRow grdForApplicationId in GridViewEmployeeDetails.Rows)
+                        //{
+                        //    CheckBox chk = (CheckBox)grdForApplicationId.Cells[3].FindControl("chkchild");
+                        //    if (chk.Checked)
+                        //    {
+                        //        CountSelectedEmployee += CountSelectedEmployee + 1;
+                        //    }
+                        //}
                         //if (CountSelectedEmployee != 0)
                         //{
                         string flag = rblProcessType.SelectedValue.ToString();

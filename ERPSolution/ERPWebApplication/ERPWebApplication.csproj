@@ -985,6 +985,7 @@
     <Content Include="ModuleName\Approval\frmProcessDetail.aspx" />
     <Content Include="ModuleName\HRMS\MasterPage\CompanySetupForm.aspx" />
     <Content Include="ModuleName\HRMS\MasterPage\EmployeeSetupForm.aspx" />
+    <Content Include="ModuleName\HRMS\MasterPage\OrganizationalChartForm.aspx" />
     <Content Include="ModuleName\Inventory\MasterPage\ItemCategorySetupForm.aspx" />
     <Content Include="ModuleName\Inventory\MasterPage\TemplateForm.aspx" />
     <Content Include="ModuleName\Inventory\Report\ReportForm\ReportViewer.aspx" />
@@ -1107,10 +1108,12 @@
     <Compile Include="AppClass\DataAccess\ItemTypeSetupController.cs" />
     <Compile Include="AppClass\DataAccess\ItemUsageSetupController.cs" />
     <Compile Include="AppClass\DataAccess\NodeListController.cs" />
+    <Compile Include="AppClass\DataAccess\OrganizationalChartSetupController.cs" />
     <Compile Include="AppClass\DataAccess\PersonTypeSetupController.cs" />
     <Compile Include="AppClass\DataAccess\ProjectSetupController.cs" />
     <Compile Include="AppClass\DataAccess\ProritySetupController.cs" />
     <Compile Include="AppClass\DataAccess\PurposeSetupController.cs" />
+    <Compile Include="AppClass\DataAccess\StandardOrgElementsController.cs" />
     <Compile Include="AppClass\DataAccess\StoredProcedureExecutor.cs" />
     <Compile Include="AppClass\DataAccess\SuppliersController.cs" />
     <Compile Include="AppClass\DataAccess\TwoColumnsTableDataAutoController.cs" />
@@ -1141,6 +1144,7 @@
     <Compile Include="AppClass\Model\ItemCategorySetup.cs" />
     <Compile Include="AppClass\Model\ItemSetup.cs" />
     <Compile Include="AppClass\Model\NodeList.cs" />
+    <Compile Include="AppClass\Model\OrganizationalChartSetup.cs" />
     <Compile Include="AppClass\Model\OwnershipType.cs" />
     <Compile Include="AppClass\Model\RequisitionDetail.cs" />
     <Compile Include="AppClass\Model\RequisitionHeader.cs" />
@@ -1192,6 +1196,13 @@
     </Compile>
     <Compile Include="ModuleName\HRMS\MasterPage\EmployeeSetupForm.aspx.designer.cs">
       <DependentUpon>EmployeeSetupForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleName\HRMS\MasterPage\OrganizationalChartForm.aspx.cs">
+      <DependentUpon>OrganizationalChartForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuleName\HRMS\MasterPage\OrganizationalChartForm.aspx.designer.cs">
+      <DependentUpon>OrganizationalChartForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModuleName\Inventory\MasterPage\ItemCategorySetupForm.aspx.cs">
       <DependentUpon>ItemCategorySetupForm.aspx</DependentUpon>

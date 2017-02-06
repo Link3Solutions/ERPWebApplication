@@ -12,7 +12,7 @@
                 <table style="width: 99%; text-align: left">
                     <tr>
                         <td>
-                            <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="0"
+                            <cc1:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="4"
                                 ScrollBars="None" Width="100%">
                                 <cc1:TabPanel runat="server" HeaderText="TabPanel1" ID="TabPanel1">
                                     <HeaderTemplate>
@@ -155,8 +155,8 @@
                                                             <asp:BoundField DataField="ProcessFlowId" HeaderText="Process Flow Id" />
                                                             <asp:BoundField DataField="FlowDescription" HeaderText="Flow Description" />
                                                             <asp:CommandField HeaderText="Edit" ShowSelectButton="True">
-                                                                <HeaderStyle HorizontalAlign="Center" />
-                                                                <ItemStyle HorizontalAlign="Center" />
+                                                                <HeaderStyle HorizontalAlign="Left" />
+                                                                <ItemStyle HorizontalAlign="Left" />
                                                             </asp:CommandField>
                                                         </Columns>
                                                     </asp:GridView>
@@ -225,8 +225,8 @@
                                                             <asp:BoundField DataField="ProcessLevelId" HeaderText="Process Level Id" />
                                                             <asp:BoundField DataField="LevelDescription" HeaderText="Level Description" />
                                                             <asp:CommandField HeaderText="Edit" ShowSelectButton="True">
-                                                                <HeaderStyle HorizontalAlign="Center" />
-                                                                <ItemStyle HorizontalAlign="Center" />
+                                                                <HeaderStyle HorizontalAlign="Left" />
+                                                                <ItemStyle HorizontalAlign="Left" />
                                                             </asp:CommandField>
                                                         </Columns>
                                                     </asp:GridView>
@@ -289,8 +289,8 @@
                                                             <asp:BoundField DataField="ActionTypeId" HeaderText="Action Type Id" />
                                                             <asp:BoundField DataField="Action" HeaderText="Action Type" />
                                                             <asp:CommandField HeaderText="Edit" ShowSelectButton="True">
-                                                                <HeaderStyle HorizontalAlign="Center" />
-                                                                <ItemStyle HorizontalAlign="Center" />
+                                                                <HeaderStyle HorizontalAlign="Left" />
+                                                                <ItemStyle HorizontalAlign="Left" />
                                                             </asp:CommandField>
                                                         </Columns>
                                                     </asp:GridView>
@@ -404,7 +404,7 @@
                                             </tr>
                                             <tr>
                                                 <td valign="top">
-                                                    <asp:DropDownList ID="ddlProcessLevelId" runat="server" Width="100px"></asp:DropDownList></td>
+                                                    <asp:DropDownList ID="ddlProcessLevelId" runat="server" Width="150px"></asp:DropDownList></td>
                                                 <td rowspan="2">&nbsp;</td>
                                                 <td valign="top">
                                                     <asp:TextBox ID="txtAccessId" runat="server" AutoPostBack="True"
