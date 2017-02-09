@@ -102,7 +102,7 @@
                                     <table style="width: 100%;">
                                         <tr>
                                             <td colspan="2" style="text-align: left; float: left; width: 500px">
-                                                <asp:TreeView ID="TreeViewCompanyChart" runat="server">
+                                                <asp:TreeView ID="TreeViewCompanyChart" runat="server" OnTreeNodePopulate="TreeViewCompanyChart_TreeNodePopulate">
                                                 </asp:TreeView>
                                             </td>
                                             <td colspan="2" style="text-align: left; float: left; width: 435px">
@@ -113,7 +113,7 @@
                                                                 <table style="width: 70%; margin-left: 5px">
                                                                     <tr>
                                                                         <td>
-                                                                            <asp:Button ID="btnSaveChart" runat="server" Text="Save" Width="100px" /></td>
+                                                                            <asp:Button ID="btnSaveChart" runat="server" Text="Save" Width="100px" OnClick="btnSaveChart_Click" /></td>
                                                                         <td>
                                                                             <asp:Button ID="btnClearChart" runat="server" Text="Clear" Width="100px" /></td>
                                                                         <td>
@@ -161,21 +161,18 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
+                                                        <td colspan="3">
+                                                            <asp:Label ID="lblParentElementText" runat="server"></asp:Label>
+                                                            <asp:Label ID="lblParentElementValue" runat="server" Visible="False"></asp:Label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
                                                         <td>
                                                             <asp:Label ID="Label5" runat="server" Text="Title"></asp:Label>
                                                         </td>
                                                         <td>:</td>
                                                         <td>
                                                             <asp:TextBox ID="txtTitle" runat="server"></asp:TextBox>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <asp:Label ID="Label6" runat="server" Text="Parent Element"></asp:Label>
-                                                        </td>
-                                                        <td>:</td>
-                                                        <td>
-                                                            <asp:Label ID="lblParentElement" runat="server"></asp:Label>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -207,20 +204,11 @@
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <asp:Label ID="Label10" runat="server" Text="Name of Head"></asp:Label>
+                                                            <asp:Label ID="Label10" runat="server" Text="ID of Head"></asp:Label>
                                                         </td>
                                                         <td>:</td>
                                                         <td>
-                                                            <asp:TextBox ID="txtHeadName" runat="server"></asp:TextBox>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <asp:Label ID="Label11" runat="server" Text="Email of Head"></asp:Label>
-                                                        </td>
-                                                        <td>:</td>
-                                                        <td>
-                                                            <asp:TextBox ID="txtEmailHead" runat="server" TextMode="Email"></asp:TextBox>
+                                                            <asp:TextBox ID="txtHeadID" runat="server"></asp:TextBox>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -245,7 +233,11 @@
                                                     <tr>
                                                         <td>&nbsp;</td>
                                                         <td>&nbsp;</td>
-                                                        <td>&nbsp;</td>
+                                                        <td>
+                                                            <asp:CheckBox ID="CheckBoxAddress" runat="server" CssClass="checkbox"
+                                                            AutoPostBack="True"  />
+                                                        <asp:Label ID="Label6" runat="server" AssociatedControlID="CheckBoxAddress" CssClass="checkbox">Address</asp:Label>
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp;</td>
