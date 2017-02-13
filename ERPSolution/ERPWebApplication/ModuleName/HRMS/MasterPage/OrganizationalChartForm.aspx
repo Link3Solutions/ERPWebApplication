@@ -102,7 +102,7 @@
                                     <table style="width: 100%;">
                                         <tr>
                                             <td colspan="2" style="text-align: left; float: left; width: 500px">
-                                                <asp:TreeView ID="TreeViewCompanyChart" runat="server" OnTreeNodePopulate="TreeViewCompanyChart_TreeNodePopulate">
+                                                <asp:TreeView ID="TreeViewCompanyChart" runat="server" OnTreeNodePopulate="TreeViewCompanyChart_TreeNodePopulate" OnSelectedNodeChanged="TreeViewCompanyChart_SelectedNodeChanged">
                                                 </asp:TreeView>
                                             </td>
                                             <td colspan="2" style="text-align: left; float: left; width: 435px">
@@ -115,7 +115,7 @@
                                                                         <td>
                                                                             <asp:Button ID="btnSaveChart" runat="server" Text="Save" Width="100px" OnClick="btnSaveChart_Click" /></td>
                                                                         <td>
-                                                                            <asp:Button ID="btnClearChart" runat="server" Text="Clear" Width="100px" /></td>
+                                                                            <asp:Button ID="btnClearChart" runat="server" Text="Clear" Width="100px" OnClick="btnClearChart_Click" /></td>
                                                                         <td>
                                                                             <asp:Button ID="Button3" runat="server" Text="Print" Width="100px" /></td>
                                                                     </tr>
@@ -156,7 +156,7 @@
                                                         </td>
                                                         <td>:</td>
                                                         <td>
-                                                            <asp:DropDownList ID="ddlElement" runat="server">
+                                                            <asp:DropDownList ID="ddlElement" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlElement_SelectedIndexChanged">
                                                             </asp:DropDownList>
                                                         </td>
                                                     </tr>
@@ -237,6 +237,33 @@
                                                             <asp:CheckBox ID="CheckBoxAddress" runat="server" CssClass="checkbox"
                                                             AutoPostBack="True"  />
                                                         <asp:Label ID="Label6" runat="server" AssociatedControlID="CheckBoxAddress" CssClass="checkbox">Address</asp:Label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <asp:Panel ID="PanelAddress" runat="server">
+                                                                <table style="width:100%;">
+                                                                    <tr>
+                                                                        <td>
+                                                                            <asp:Label ID="Label14" runat="server" Text="Contact Number"></asp:Label>
+                                                                        </td>
+                                                                        <td>:</td>
+                                                                        <td>
+                                                                            <asp:TextBox ID="txtContactNumber" runat="server"></asp:TextBox>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                        <td>&nbsp;</td>
+                                                                    </tr>
+                                                                </table>
+                                                            </asp:Panel>
                                                         </td>
                                                     </tr>
                                                     <tr>

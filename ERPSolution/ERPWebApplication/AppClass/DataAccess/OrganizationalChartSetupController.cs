@@ -55,7 +55,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                 if (objOrganizationalChartSetup.OrgElementIDList.Count == 0)
                 {
                     throw new Exception("please select elements correctly");
-                    
+
                 }
 
                 foreach (var listItem in objOrganizationalChartSetup.OrgElementIDList)
@@ -169,7 +169,7 @@ namespace ERPWebApplication.AppClass.DataAccess
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }
@@ -191,7 +191,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
         }
-        public void PopulateSubLevel( int parentid, TreeNode parentNode)
+        public void PopulateSubLevel(int parentid, TreeNode parentNode)
         {
             try
             {
@@ -207,16 +207,28 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
         }
-        
+
         internal void SaveChart(OrganizationalChartSetup objOrganizationalChartSetup, EmployeeSetup objEmployeeSetup, TwoColumnsTableData objTwoColumnsTableData)
         {
             try
             {
+                objOrganizationalChartSetup.EntityID = Convert.ToInt32(objOrganizationalChartSetup.EntityTypeID.ToString() + this.GetEntityID(objOrganizationalChartSetup).ToString());
                 var storedProcedureComandText = @"INSERT INTO [orgOrganizationalChartSetup] ([CompanyID],[ParentEntityID],[EntityID],[EntityTypeID]
                                                ,[AddressTag],[AddressID],[EntityName],[ShortName],[DisplayName],[GroupEmailAddress],[HeadID]
                                                ,[EntityCategoryID],[EntityOpeningDate],[DataUsed],[EntryUserID],[EntryDate]) VALUES ( " +
                                                  objOrganizationalChartSetup.CompanyID + "," +
-                                                 objOrganizationalChartSetup.ParentEntityID + ",'" +
+                                                 objOrganizationalChartSetup.ParentEntityID + "," +
+                                                 objOrganizationalChartSetup.EntityID + "," +
+                                                 objOrganizationalChartSetup.EntityTypeID + ",'" +
+                                                 objOrganizationalChartSetup.AddressTag + "'," +
+                                                 objOrganizationalChartSetup.EntityID + ",'" +
+                                                 objOrganizationalChartSetup.EntityName + "','" +
+                                                 objOrganizationalChartSetup.ShortName + "','" +
+                                                 objOrganizationalChartSetup.DisplayName + "','"+
+                                                 objOrganizationalChartSetup.GroupEmailAddress + "','"+
+                                                 objEmployeeSetup.EmployeeID + "','"+
+                                                 objTwoColumnsTableData.FieldOfID + "',CONVERT(DATETIME,'" +
+                                                 objOrganizationalChartSetup.EntityOpeningDate + "', 103),'" +
                                                  "A" + "', '" +
                                                  "160ea939-7633-46a8-ae49-f661d12abfd5" + "'," +
                                                  "CAST(GETDATE() AS DateTime));";
@@ -225,20 +237,19 @@ namespace ERPWebApplication.AppClass.DataAccess
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }
 
-        public string GetEntityID()
+        public string GetEntityID(OrganizationalChartSetup objOrganizationalChartSetup)
         {
             try
             {
                 string seqNo = null;
                 var storedProcedureComandText = @" DECLARE @RefNumber VARCHAR(10),@countData INT
-                                              SET @countData = ( SELECT ISNULL( MAX( [SeqNo]),0) +1  FROM [suDefaultNodeList])
-                                              SET @RefNumber=STUFF('0000',5-LEN(@countData),20,@countData)
-                                              SELECT @RefNumber";
+                SET @countData = ( SELECT ISNULL( COUNT( EntityID),0) +1  FROM orgOrganizationalChartSetup WHERE EntityTypeID = " + objOrganizationalChartSetup.EntityTypeID + ") " +
+                " SET @RefNumber=STUFF('00',3-LEN(@countData),20,@countData) ; SELECT @RefNumber";
                 var dtSeq = clsDataManipulation.GetData(this.ConnectionString, storedProcedureComandText);
                 foreach (DataRow item in dtSeq.Rows)
                 {
@@ -255,5 +266,22 @@ namespace ERPWebApplication.AppClass.DataAccess
             }
         }
 
+
+        internal void LoadCategory(OrganizationalChartSetup objOrganizationalChartSetup, DropDownList ddlCategory)
+        {
+            try
+            {
+                TwoColumnsTableDataController objTwoColumnsTableDataController = new TwoColumnsTableDataController();
+                TwoColumnsTableData objTwoColumnsTableData = new TwoColumnsTableData();
+                objTwoColumnsTableData.TableID = objOrganizationalChartSetup.EntityTypeID;
+                objTwoColumnsTableDataController.LoadCategory(objTwoColumnsTableData, ddlCategory);
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
     }
 }

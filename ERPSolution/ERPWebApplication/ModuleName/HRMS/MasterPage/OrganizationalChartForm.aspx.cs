@@ -340,6 +340,10 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
             try
             {
                 AddValuesOrganizationalChart();
+                TreeViewCompanyChart.Nodes.Clear();
+                this.PopulateOrganizationalChart();
+                TreeViewCompanyChart.ExpandAll();
+                ClearChartControl();
                 clsTopMostMessageBox.Show(clsMessages.GProcessSuccess);
 
             }
@@ -347,6 +351,29 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
             {
 
                 clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        private void ClearChartControl()
+        {
+            try
+            {
+                ddlCompanyChart.SelectedValue = "-1";
+                ddlElement.Items.Clear();
+                txtTitle.Text = string.Empty;
+                lblParentElementValue.Text = string.Empty;
+                txtShortName.Text = string.Empty;
+                txtDisplayName.Text = string.Empty;
+                txtEmail.Text = string.Empty;
+                txtHeadID.Text = string.Empty;
+                ddlCategory.Items.Clear();
+                txtOpeningDate.Text = string.Empty;
+                CheckBoxAddress.Checked = false;
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
             }
         }
 
@@ -370,15 +397,79 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                 {
                     _objOrganizationalChartSetup.EntityOpeningDate = Convert.ToDateTime(txtOpeningDate.Text);
                 }
-                
+
+                _objOrganizationalChartSetup.AddressTag = CheckBoxAddress.Checked == true ? "Y" : "N";
+
                 _objOrganizationalChartSetupController = new OrganizationalChartSetupController();
-                _objOrganizationalChartSetupController.SaveChart(_objOrganizationalChartSetup,objEmployeeSetup,objTwoColumnsTableData);
+                _objOrganizationalChartSetupController.SaveChart(_objOrganizationalChartSetup, objEmployeeSetup, objTwoColumnsTableData);
 
             }
             catch (Exception msgException)
             {
 
                 throw msgException;
+            }
+        }
+
+        protected void ddlElement_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _objOrganizationalChartSetup = new OrganizationalChartSetup();
+            _objOrganizationalChartSetup.EntityTypeID = Convert.ToInt32(ddlElement.SelectedValue);
+            if (_objOrganizationalChartSetup.EntityTypeID == -1)
+            {
+                ddlCategory.Items.Clear();
+
+            }
+            else
+            {
+                _objOrganizationalChartSetupController = new OrganizationalChartSetupController();
+                _objOrganizationalChartSetupController.LoadCategory(_objOrganizationalChartSetup, ddlCategory);
+            }
+        }
+
+        protected void TreeViewCompanyChart_SelectedNodeChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                lblParentElementText.Text = TreeViewCompanyChart.SelectedNode.Text;
+                lblParentElementText.Visible = true;
+                var nodeValue = TreeViewCompanyChart.SelectedNode.Value;
+                lblParentElementValue.Text = nodeValue;
+                txtTitle.Focus();
+                //if (Convert.ToInt32(nodeValue) == 111)
+                //{
+                //    btnEdit.Enabled = false;
+                //    btnUpdate.Visible = false;
+                //    btnCancelEdit.Visible = false;
+
+                //}
+                //else
+                //{
+                //    btnEdit.Enabled = true;
+                //    ViewNodeDetails(nodeValue);
+                //}
+
+
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        protected void btnClearChart_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.PopulateOrganizationalChart();
+                this.ClearChartControl();
+
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
             }
         }
     }
