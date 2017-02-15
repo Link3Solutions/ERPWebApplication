@@ -25,6 +25,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                     LoadStandardOrgElements(ListBoxStandardOrgElements);
                     LoadCompany(ddlCompanyChart);
                     PopulateOrganizationalChart();
+                    PanelAddress.Visible = false;
                 }
 
             }
@@ -369,10 +370,39 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                 ddlCategory.Items.Clear();
                 txtOpeningDate.Text = string.Empty;
                 CheckBoxAddress.Checked = false;
+                ClearChartAddressControl();
             }
             catch (Exception msgException)
             {
 
+                throw msgException;
+            }
+        }
+
+        private void ClearChartAddressControl()
+        {
+            try
+            {
+                txtContactNumber.Text = string.Empty;
+                txtDisplayAddress.Text = string.Empty;
+                txtPostalCode.Text = string.Empty;
+                txtPhoneNo.Text = string.Empty;
+                txtFax.Text = string.Empty;
+                if (ddlDivision.Items.Count > 0)
+                {
+                    ddlDivision.SelectedValue = "-1";
+                }
+
+                if (ddlDistrict.Items.Count > 0)
+                {
+                    ddlDistrict.SelectedValue = "-1";
+                    
+                }
+
+            }
+            catch (Exception msgException)
+            {
+                
                 throw msgException;
             }
         }
@@ -399,6 +429,21 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                 }
 
                 _objOrganizationalChartSetup.AddressTag = CheckBoxAddress.Checked == true ? "Y" : "N";
+                if (_objOrganizationalChartSetup.AddressTag == "Y")
+                {
+                    var contactNumberValue = txtContactNumber.Text == string.Empty ? null : txtContactNumber.Text;
+                    if (contactNumberValue != null)
+                    {
+                        _objOrganizationalChartSetup.ContactAdreessNumber = Convert.ToInt32(contactNumberValue);
+                    }
+
+                    _objOrganizationalChartSetup.DisplayAddress = txtDisplayAddress.Text == string.Empty ? null : txtDisplayAddress.Text;
+                    _objOrganizationalChartSetup.DivisionID = ddlDivision.SelectedValue == "-1" ? null : ddlDivision.SelectedValue;
+                    _objOrganizationalChartSetup.DistrictID = ddlDistrict.SelectedValue == "-1" ? null : ddlDistrict.SelectedValue;
+                    _objOrganizationalChartSetup.PostalCode = txtPostalCode.Text == string.Empty ? null : txtPostalCode.Text;
+                    _objOrganizationalChartSetup.PhoneNo = txtPhoneNo.Text == string.Empty ? null : txtPhoneNo.Text;
+                    _objOrganizationalChartSetup.Fax = txtFax.Text == string.Empty ? null : txtFax.Text;
+                }
 
                 _objOrganizationalChartSetupController = new OrganizationalChartSetupController();
                 _objOrganizationalChartSetupController.SaveChart(_objOrganizationalChartSetup, objEmployeeSetup, objTwoColumnsTableData);
@@ -464,6 +509,31 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
             {
                 this.PopulateOrganizationalChart();
                 this.ClearChartControl();
+
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        protected void CheckBoxAddress_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (CheckBoxAddress.Checked == true)
+                {
+                    PanelAddress.Visible = true;
+                    _objOrganizationalChartSetupController = new OrganizationalChartSetupController();
+                    _objOrganizationalChartSetupController.LoadDivisionDDL(ddlDivision);
+                    _objOrganizationalChartSetupController.LoadDistrict(ddlDistrict);
+
+                }
+                else
+                {
+                    PanelAddress.Visible = false;
+                }
 
             }
             catch (Exception msgException)

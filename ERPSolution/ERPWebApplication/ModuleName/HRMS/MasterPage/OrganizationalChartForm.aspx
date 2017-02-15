@@ -204,7 +204,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <asp:Label ID="Label10" runat="server" Text="ID of Head"></asp:Label>
+                                                            <asp:Label ID="Label10" runat="server" Text="Name of Head"></asp:Label>
                                                         </td>
                                                         <td>:</td>
                                                         <td>
@@ -235,32 +235,78 @@
                                                         <td>&nbsp;</td>
                                                         <td>
                                                             <asp:CheckBox ID="CheckBoxAddress" runat="server" CssClass="checkbox"
-                                                            AutoPostBack="True"  />
+                                                            AutoPostBack="True" OnCheckedChanged="CheckBoxAddress_CheckedChanged"  />
                                                         <asp:Label ID="Label6" runat="server" AssociatedControlID="CheckBoxAddress" CssClass="checkbox">Address</asp:Label>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td colspan="3">
                                                             <asp:Panel ID="PanelAddress" runat="server">
-                                                                <table style="width:100%;">
+                                                                <table style="width:95%;">
                                                                     <tr>
                                                                         <td>
                                                                             <asp:Label ID="Label14" runat="server" Text="Contact Number"></asp:Label>
                                                                         </td>
                                                                         <td>:</td>
                                                                         <td>
-                                                                            <asp:TextBox ID="txtContactNumber" runat="server"></asp:TextBox>
+                                                                            <asp:TextBox ID="txtContactNumber" runat="server" TextMode="Number"></asp:TextBox>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td>&nbsp;</td>
-                                                                        <td>&nbsp;</td>
-                                                                        <td>&nbsp;</td>
+                                                                        <td>
+                                                                            <asp:Label ID="Label15" runat="server" Text="Display Address"></asp:Label>
+                                                                        </td>
+                                                                        <td>:</td>
+                                                                        <td>
+                                                                            <asp:TextBox ID="txtDisplayAddress" runat="server" TextMode="MultiLine" Width="250px"></asp:TextBox>
+                                                                        </td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td>&nbsp;</td>
-                                                                        <td>&nbsp;</td>
-                                                                        <td>&nbsp;</td>
+                                                                        <td>
+                                                                            <asp:Label ID="Label17" runat="server" Text="Division"></asp:Label>
+                                                                        </td>
+                                                                        <td>:</td>
+                                                                        <td>
+                                                                            <asp:DropDownList ID="ddlDivision" runat="server">
+                                                                            </asp:DropDownList>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <asp:Label ID="Label16" runat="server" Text="District"></asp:Label>
+                                                                        </td>
+                                                                        <td>:</td>
+                                                                        <td>
+                                                                            <asp:DropDownList ID="ddlDistrict" runat="server">
+                                                                            </asp:DropDownList>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <asp:Label ID="Label18" runat="server" Text="Postal Code"></asp:Label>
+                                                                        </td>
+                                                                        <td>:</td>
+                                                                        <td>
+                                                                            <asp:TextBox ID="txtPostalCode" runat="server"></asp:TextBox>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <asp:Label ID="Label19" runat="server" Text="Phone No"></asp:Label>
+                                                                        </td>
+                                                                        <td>:</td>
+                                                                        <td>
+                                                                            <asp:TextBox ID="txtPhoneNo" runat="server"></asp:TextBox>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <asp:Label ID="Label20" runat="server" Text="Fax"></asp:Label>
+                                                                        </td>
+                                                                        <td>:</td>
+                                                                        <td>
+                                                                            <asp:TextBox ID="txtFax" runat="server"></asp:TextBox>
+                                                                        </td>
                                                                     </tr>
                                                                 </table>
                                                             </asp:Panel>

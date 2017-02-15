@@ -91,5 +91,21 @@ namespace ERPWebApplication.AppClass.Model
             get { return _addressTag; }
             set { _addressTag = value; }
         }
+
+        public int ContactAdreessNumber { get; set; }
+
+        public string DisplayAddress { get; set; }
+
+        public string DivisionID { get; set; }
+
+        public string DistrictID { get; set; }
+
+        public string PostalCode { get; set; }
+
+        public string PhoneNo { get; set; }
+
+        public string Fax { get; set; }
+
+        public int ContactAddressUsedID { get; set; }
     }
 }

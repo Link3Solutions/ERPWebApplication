@@ -12,6 +12,7 @@ namespace ERPWebApplication.AppClass.DataAccess
 {
     public class OrganizationalChartSetupController : DataAccessBase
     {
+        private TwoColumnsTableDataAutoController _objTwoColumnsTableDataAutoController;
         internal void LoadCompanyDDL(DropDownList ddlCompany)
         {
             try
@@ -224,15 +225,73 @@ namespace ERPWebApplication.AppClass.DataAccess
                                                  objOrganizationalChartSetup.EntityID + ",'" +
                                                  objOrganizationalChartSetup.EntityName + "','" +
                                                  objOrganizationalChartSetup.ShortName + "','" +
-                                                 objOrganizationalChartSetup.DisplayName + "','"+
-                                                 objOrganizationalChartSetup.GroupEmailAddress + "','"+
-                                                 objEmployeeSetup.EmployeeID + "','"+
+                                                 objOrganizationalChartSetup.DisplayName + "','" +
+                                                 objOrganizationalChartSetup.GroupEmailAddress + "','" +
+                                                 objEmployeeSetup.EmployeeID + "','" +
                                                  objTwoColumnsTableData.FieldOfID + "',CONVERT(DATETIME,'" +
                                                  objOrganizationalChartSetup.EntityOpeningDate + "', 103),'" +
                                                  "A" + "', '" +
                                                  "160ea939-7633-46a8-ae49-f661d12abfd5" + "'," +
                                                  "CAST(GETDATE() AS DateTime));";
+                if (objOrganizationalChartSetup.AddressTag == "Y")
+                {
+                    storedProcedureComandText += SqlSaveAddress(objOrganizationalChartSetup);
+
+                }
                 clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        private string SqlSaveAddress(OrganizationalChartSetup objOrganizationalChartSetup)
+        {
+            try
+            {
+                objOrganizationalChartSetup.ContactAddressUsedID = GetContactAdreessNumber(objOrganizationalChartSetup);
+                var storedProcedureComandText = @"INSERT INTO [orgOrganizationAddress] ([EntityAdreessID],[ContactAdreessNumber],[ContactAddressUsedID],[AddressAsOn]
+                                    ,[DisplayAddress],[DivisionID],[DistrictID],[PostalCode],[ContactPhoneNo],[Fax],[DataUsed],[EntryUserID],[EntryDate]) VALUES ( " +
+                                                 objOrganizationalChartSetup.EntityID + "," +
+                                                 objOrganizationalChartSetup.ContactAdreessNumber + "," +
+                                                 objOrganizationalChartSetup.ContactAddressUsedID + "," +
+                                                 "CAST(GETDATE() AS DateTime)" + ",'" +
+                                                 objOrganizationalChartSetup.DisplayAddress + "'," +
+                                                 objOrganizationalChartSetup.DivisionID + "," +
+                                                 objOrganizationalChartSetup.DistrictID + ",'" +
+                                                 objOrganizationalChartSetup.PostalCode + "','" +
+                                                 objOrganizationalChartSetup.PhoneNo + "','" +
+                                                 objOrganizationalChartSetup.Fax + "','" +
+                                                 "A" + "', '" +
+                                                 "160ea939-7633-46a8-ae49-f661d12abfd5" + "'," +
+                                                 "CAST(GETDATE() AS DateTime));";
+                return storedProcedureComandText;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        private int GetContactAdreessNumber(OrganizationalChartSetup objOrganizationalChartSetup)
+        {
+            try
+            {
+                int seqNo = 0;
+                var storedProcedureComandText = @" SELECT ISNULL( MAX([ContactAddressUsedID]),0)+1 FROM [orgOrganizationAddress] WHERE [EntityAdreessID] = " + objOrganizationalChartSetup.EntityID + "";
+                var dtSeq = clsDataManipulation.GetData(this.ConnectionString, storedProcedureComandText);
+                foreach (DataRow item in dtSeq.Rows)
+                {
+                    seqNo = Convert.ToInt32(item.ItemArray[0].ToString());
+
+                }
+                return seqNo;
+
 
             }
             catch (Exception msgException)
@@ -275,6 +334,36 @@ namespace ERPWebApplication.AppClass.DataAccess
                 TwoColumnsTableData objTwoColumnsTableData = new TwoColumnsTableData();
                 objTwoColumnsTableData.TableID = objOrganizationalChartSetup.EntityTypeID;
                 objTwoColumnsTableDataController.LoadCategory(objTwoColumnsTableData, ddlCategory);
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal void LoadDivisionDDL(DropDownList ddlDivision)
+        {
+            try
+            {
+                _objTwoColumnsTableDataAutoController = new TwoColumnsTableDataAutoController();
+                _objTwoColumnsTableDataAutoController.GetDivision(ddlDivision);
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal void LoadDistrict(DropDownList ddlDistrict)
+        {
+            try
+            {
+                _objTwoColumnsTableDataAutoController = new TwoColumnsTableDataAutoController();
+                _objTwoColumnsTableDataAutoController.GetDistrict(ddlDistrict);
 
             }
             catch (Exception msgException)
