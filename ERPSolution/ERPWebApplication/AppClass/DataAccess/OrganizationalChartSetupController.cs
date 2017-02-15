@@ -213,6 +213,13 @@ namespace ERPWebApplication.AppClass.DataAccess
         {
             try
             {
+                if (objOrganizationalChartSetup.CompanyID == -1)
+                {
+                    throw new Exception("company is required ");
+
+                } 
+
+
                 objOrganizationalChartSetup.EntityID = Convert.ToInt32(objOrganizationalChartSetup.EntityTypeID.ToString() + this.GetEntityID(objOrganizationalChartSetup).ToString());
                 var storedProcedureComandText = @"INSERT INTO [orgOrganizationalChartSetup] ([CompanyID],[ParentEntityID],[EntityID],[EntityTypeID]
                                                ,[AddressTag],[AddressID],[EntityName],[ShortName],[DisplayName],[GroupEmailAddress],[HeadID]
@@ -364,6 +371,51 @@ namespace ERPWebApplication.AppClass.DataAccess
             {
                 _objTwoColumnsTableDataAutoController = new TwoColumnsTableDataAutoController();
                 _objTwoColumnsTableDataAutoController.GetDistrict(ddlDistrict);
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal int GetEntityTypeID(OrganizationalChartSetup objOrganizationalChartSetup)
+        {
+            try
+            {
+                var sqlString = "SELECT [EntityTypeID] FROM [orgOrganizationalChartSetup] WHERE [EntityID] = " + objOrganizationalChartSetup.EntityID + "";
+                clsDataManipulation objclsDataManipulation = new clsDataManipulation();
+                var entityTypeID = objclsDataManipulation.GetSingleValue(this.ConnectionString, sqlString);
+                return entityTypeID;
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal DataTable GetEntityDetails(OrganizationalChartSetup objOrganizationalChartSetup)
+        {
+            try
+            {
+                var sqlString = @"SELECT A.[CompanyID]
+	                              ,[EntityTypeID]
+                                  ,[AddressTag]
+                                  ,[AddressID]
+                                  ,[EntityName]
+                                  ,[ShortName]
+                                  ,[DisplayName]
+                                  ,[GroupEmailAddress]
+                                  ,[HeadID]
+                                  ,[EntityCategoryID]
+                                  ,CAST([EntityOpeningDate] AS DATETIME)
+                              FROM [orgOrganizationalChartSetup] A  
+                              WHERE A.DataUsed = 'A' AND A.EntityID = " + objOrganizationalChartSetup.EntityID + " ";
+                var dtEntityDetails = clsDataManipulation.GetData(this.ConnectionString, sqlString);
+                return dtEntityDetails;
+
 
             }
             catch (Exception msgException)

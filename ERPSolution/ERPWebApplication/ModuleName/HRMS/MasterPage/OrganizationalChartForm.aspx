@@ -109,15 +109,34 @@
                                                 <table style="width: 100%;">
                                                     <tr>
                                                         <td colspan="3">
-                                                            <div style="position: fixed; width: 425px; background-color: #00817F; height: 50px">
+                                                            <div style="position: fixed; width: 425px; background-color: #00817F; height: 100px">
                                                                 <table style="width: 70%; margin-left: 5px">
                                                                     <tr>
+                                                                        <td colspan="2">
+                                                                            <asp:Button ID="btnAddNew" runat="server" Text="Add New" Width="150px" OnClick="btnAddNew_Click" />
+                                                                        </td>
+                                                                        <td colspan="2">
+                                                                            <asp:Button ID="btnEdit" runat="server" Text="Edit" Width="150px" OnClick="btnEdit_Click" />
+                                                                        </td>
                                                                         <td>
-                                                                            <asp:Button ID="btnSaveChart" runat="server" Text="Save" Width="100px" OnClick="btnSaveChart_Click" /></td>
+                                                                            <asp:Button ID="Button3" runat="server" Text="Print" Width="95px" />
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
                                                                         <td>
-                                                                            <asp:Button ID="btnClearChart" runat="server" Text="Clear" Width="100px" OnClick="btnClearChart_Click" /></td>
+                                                                            <asp:Button ID="btnSaveChart" runat="server" OnClick="btnSaveChart_Click" Text="Save" Width="70px" />
+                                                                        </td>
                                                                         <td>
-                                                                            <asp:Button ID="Button3" runat="server" Text="Print" Width="100px" /></td>
+                                                                            <asp:Button ID="btnClearChart" runat="server" OnClick="btnClearChart_Click" Text="Clear" Width="70px" />
+                                                                        </td>
+                                                                        <td>
+                                                                            <asp:Button ID="btnUpdate" runat="server" Text="Update" Width="70px" />
+                                                                        </td>
+                                                                        <td>
+                                                                            <asp:Button ID="btnClearUpdate" runat="server" Text="Clear" Width="70px" OnClick="btnClearUpdate_Click" />
+                                                                        </td>
+                                                                        <td>
+                                                                            &nbsp;</td>
                                                                     </tr>
                                                                 </table>
                                                             </div>
@@ -132,6 +151,20 @@
                                                         <td>&nbsp;</td>
                                                         <td>&nbsp;</td>
                                                         <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            &nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>
+                                                            &nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            &nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>
+                                                            &nbsp;</td>
                                                     </tr>
                                                     <tr>
                                                         <td>
@@ -161,9 +194,12 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td colspan="3">
-                                                            <asp:Label ID="lblParentElementText" runat="server"></asp:Label>
+                                                        <td>
                                                             <asp:Label ID="lblParentElementValue" runat="server" Visible="False"></asp:Label>
+                                                        </td>
+                                                        <td>&nbsp;</td>
+                                                        <td>
+                                                            <asp:Label ID="lblParentElementText" runat="server"></asp:Label>
                                                         </td>
                                                     </tr>
                                                     <tr>
