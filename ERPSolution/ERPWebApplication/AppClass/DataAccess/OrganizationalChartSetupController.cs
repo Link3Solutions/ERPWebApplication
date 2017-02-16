@@ -217,7 +217,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                 {
                     throw new Exception("company is required ");
 
-                } 
+                }
 
 
                 objOrganizationalChartSetup.EntityID = Convert.ToInt32(objOrganizationalChartSetup.EntityTypeID.ToString() + this.GetEntityID(objOrganizationalChartSetup).ToString());
@@ -410,12 +410,62 @@ namespace ERPWebApplication.AppClass.DataAccess
                                   ,[GroupEmailAddress]
                                   ,[HeadID]
                                   ,[EntityCategoryID]
-                                  ,CAST([EntityOpeningDate] AS DATETIME)
+                                  ,[EntityOpeningDate] 
                               FROM [orgOrganizationalChartSetup] A  
                               WHERE A.DataUsed = 'A' AND A.EntityID = " + objOrganizationalChartSetup.EntityID + " ";
                 var dtEntityDetails = clsDataManipulation.GetData(this.ConnectionString, sqlString);
                 return dtEntityDetails;
 
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal DataTable GetEntityAddress(OrganizationalChartSetup objOrganizationalChartSetup)
+        {
+            try
+            {
+                var sqlString = @"SELECT [ContactAdreessNumber]
+	              ,[DisplayAddress]
+                  ,[DivisionID]
+                  ,[DistrictID]
+                  ,[PostalCode]
+                  ,[ContactPhoneNo]
+                  ,[Fax]
+              FROM [orgOrganizationAddress] WHERE [DataUsed] = 'A' AND [EntityAdreessID] = " + objOrganizationalChartSetup.EntityID + "";
+                var dtEntityDetails = clsDataManipulation.GetData(this.ConnectionString, sqlString);
+                return dtEntityDetails;
+
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal void UpdateChart(OrganizationalChartSetup objOrganizationalChartSetup, EmployeeSetup objEmployeeSetup, TwoColumnsTableData objTwoColumnsTableData)
+        {
+            try
+            {
+                var storedProcedureComandText = @"UPDATE [orgOrganizationalChartSetup]
+                                                   SET 
+                                                   [AddressTag] = '" + objOrganizationalChartSetup.AddressTag + "'," +
+                                                                    "[EntityName] = '" + objOrganizationalChartSetup.EntityName + "'," +
+                                                                    "[ShortName] = '" + objOrganizationalChartSetup.ShortName + "'," +
+                                                                    "[DisplayName] = '" + objOrganizationalChartSetup.DisplayName + "'," +
+                                                      "[GroupEmailAddress] = '" + objOrganizationalChartSetup.GroupEmailAddress + "'," +
+                                                      "[HeadID] = '" + objEmployeeSetup.EmployeeID + "'," +
+                                                      "[EntityCategoryID] = '" + objTwoColumnsTableData.FieldOfID + "'," +
+                                                      "[LastUpdateDate] = CAST(GETDATE() AS DateTime) " +
+                                                      ",[LastUpdateUserID] = '160ea939-7633-46a8-ae49-f661d12abfd5'" +
+                                                 " WHERE [EntityID] = " + objOrganizationalChartSetup.ParentEntityID + ";";
+                clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
 
             }
             catch (Exception msgException)

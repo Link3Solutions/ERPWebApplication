@@ -345,7 +345,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
         {
             try
             {
-                AddValuesOrganizationalChart();
+                AddValuesOrganizationalChart(btnSaveChart);
                 TreeViewCompanyChart.Nodes.Clear();
                 this.PopulateOrganizationalChart();
                 TreeViewCompanyChart.ExpandAll();
@@ -402,7 +402,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                 if (ddlDistrict.Items.Count > 0)
                 {
                     ddlDistrict.SelectedValue = "-1";
-                    
+
                 }
 
                 PanelAddress.Visible = false;
@@ -410,12 +410,12 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }
 
-        private void AddValuesOrganizationalChart()
+        private void AddValuesOrganizationalChart(Button btnAction)
         {
             try
             {
@@ -454,7 +454,15 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                 }
 
                 _objOrganizationalChartSetupController = new OrganizationalChartSetupController();
-                _objOrganizationalChartSetupController.SaveChart(_objOrganizationalChartSetup, objEmployeeSetup, objTwoColumnsTableData);
+                if (btnAction == btnSaveChart)
+                {
+                    _objOrganizationalChartSetupController.SaveChart(_objOrganizationalChartSetup, objEmployeeSetup, objTwoColumnsTableData);
+                }
+                else
+                {
+                    _objOrganizationalChartSetupController.UpdateChart(_objOrganizationalChartSetup, objEmployeeSetup, objTwoColumnsTableData);
+                }
+
 
             }
             catch (Exception msgException)
@@ -487,7 +495,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                 lblParentElementText.Text = TreeViewCompanyChart.SelectedNode.Text;
                 lblParentElementText.Visible = true;
                 _objOrganizationalChartSetup = new OrganizationalChartSetup();
-                _objOrganizationalChartSetup.EntityID = Convert.ToInt32( TreeViewCompanyChart.SelectedNode.Value);
+                _objOrganizationalChartSetup.EntityID = Convert.ToInt32(TreeViewCompanyChart.SelectedNode.Value);
                 lblParentElementValue.Text = _objOrganizationalChartSetup.EntityID.ToString();
                 txtTitle.Focus();
                 _objOrganizationalChartSetupController = new OrganizationalChartSetupController();
@@ -500,18 +508,31 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                     btnUpdate.Visible = false;
 
                 }
-                else if(_objOrganizationalChartSetup.EntityTypeID == 1)
+                else if (_objOrganizationalChartSetup.EntityTypeID == 1)
                 {
                     btnUpdate.Visible = false;
-                    ddlCompanyChart.SelectedValue =  _objOrganizationalChartSetup.EntityID.ToString();
-                    _objOrganizationalChartSetup.CompanyID = Convert.ToInt32( ddlCompanyChart.SelectedValue);
+                    ddlCompanyChart.SelectedValue = _objOrganizationalChartSetup.EntityID.ToString();
+                    _objOrganizationalChartSetup.CompanyID = Convert.ToInt32(ddlCompanyChart.SelectedValue);
                     _objOrganizationalChartSetupController.LoadOrganizationalElements(_objOrganizationalChartSetup, ddlElement);
 
                 }
                 else
                 {
                     ViewEntityDetails(_objOrganizationalChartSetup);
-                   
+                    if (CheckBoxAddress.Checked == true)
+                    {
+                        _objOrganizationalChartSetup = new OrganizationalChartSetup();
+                        _objOrganizationalChartSetup.EntityID = Convert.ToInt32(TreeViewCompanyChart.SelectedNode.Value);
+                        ViewEntityAddress(_objOrganizationalChartSetup);
+                        PanelAddress.Visible = true;
+
+                    }
+                    else
+                    {
+                        ClearChartAddressControl();
+
+                    }
+
                 }
 
 
@@ -523,36 +544,70 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
             }
         }
 
+        private void ViewEntityAddress(OrganizationalChartSetup _objOrganizationalChartSetup)
+        {
+            try
+            {
+                _objOrganizationalChartSetupController = new OrganizationalChartSetupController();
+                DataTable dtEntityAddress = _objOrganizationalChartSetupController.GetEntityAddress(_objOrganizationalChartSetup);
+                foreach (DataRow rowNo in dtEntityAddress.Rows)
+                {
+                    txtContactNumber.Text = rowNo["ContactAdreessNumber"].ToString() == null ? string.Empty : rowNo["ContactAdreessNumber"].ToString();
+                    txtDisplayAddress.Text = rowNo["DisplayAddress"].ToString() == null ? string.Empty : rowNo["DisplayAddress"].ToString();
+                    _objOrganizationalChartSetupController.LoadDivisionDDL(ddlDivision);
+                    ddlDivision.SelectedValue = rowNo["DivisionID"].ToString() == null ? "-1" : rowNo["DivisionID"].ToString();
+                    _objOrganizationalChartSetupController.LoadDistrict(ddlDistrict);
+                    ddlDistrict.SelectedValue = rowNo["DistrictID"].ToString() == null ? "-1" : rowNo["DistrictID"].ToString();
+                    txtPostalCode.Text = rowNo["PostalCode"].ToString() == null ? string.Empty : rowNo["PostalCode"].ToString();
+                    txtPhoneNo.Text = rowNo["ContactPhoneNo"].ToString() == null ? string.Empty : rowNo["ContactPhoneNo"].ToString();
+                    txtFax.Text = rowNo["Fax"].ToString() == null ? string.Empty : rowNo["Fax"].ToString();
+
+                }
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
         private void ViewEntityDetails(OrganizationalChartSetup objOrganizationalChartSetup)
         {
             try
             {
                 _objOrganizationalChartSetupController = new OrganizationalChartSetupController();
                 DataTable dtEntityDetails = _objOrganizationalChartSetupController.GetEntityDetails(objOrganizationalChartSetup);
-                foreach (DataRow rowNo  in dtEntityDetails.Rows)
+                foreach (DataRow rowNo in dtEntityDetails.Rows)
                 {
                     ddlCompanyChart.SelectedValue = rowNo["CompanyID"].ToString();
                     _objOrganizationalChartSetup = new OrganizationalChartSetup();
-                    _objOrganizationalChartSetup.CompanyID = Convert.ToInt32( ddlCompanyChart.SelectedValue);
+                    _objOrganizationalChartSetup.CompanyID = Convert.ToInt32(ddlCompanyChart.SelectedValue);
                     _objOrganizationalChartSetupController.LoadOrganizationalElements(_objOrganizationalChartSetup, ddlElement);
                     ddlElement.SelectedValue = rowNo["EntityTypeID"].ToString();
                     txtShortName.Text = rowNo["ShortName"].ToString() == null ? string.Empty : rowNo["ShortName"].ToString();
                     txtDisplayName.Text = rowNo["DisplayName"].ToString() == null ? string.Empty : rowNo["DisplayName"].ToString();
                     txtEmail.Text = rowNo["GroupEmailAddress"].ToString() == null ? string.Empty : rowNo["GroupEmailAddress"].ToString();
                     txtHeadID.Text = rowNo["HeadID"].ToString() == null ? string.Empty : rowNo["HeadID"].ToString();
-                    _objOrganizationalChartSetup.EntityTypeID = Convert.ToInt32( ddlElement.SelectedValue);
-                    _objOrganizationalChartSetupController.LoadCategory(_objOrganizationalChartSetup,this.ddlCategory);
-                    ddlCategory.SelectedValue = rowNo["EntityCategoryID"].ToString() == null ? "-1" : rowNo["EntityCategoryID"].ToString();
+                    _objOrganizationalChartSetup.EntityTypeID = Convert.ToInt32(ddlElement.SelectedValue);
+                    _objOrganizationalChartSetupController.LoadCategory(_objOrganizationalChartSetup, this.ddlCategory);
+                    ddlCategory.SelectedValue = rowNo["EntityCategoryID"].ToString() == "" ? "-1" : rowNo["EntityCategoryID"].ToString();
                     txtOpeningDate.Text = rowNo["EntityOpeningDate"].ToString() == null ? string.Empty : Convert.ToDateTime(rowNo["EntityOpeningDate"].ToString()).ToString("yyyy-MM-dd");
-                    //txtOpeningDate.Text = rowNo["EntityOpeningDate"].ToString("yyyy-MM-dd");
-                    
+                    if (rowNo["AddressTag"].ToString() == "Y")
+                    {
+                        CheckBoxAddress.Checked = true;
+                    }
+                    else
+                    {
+                        CheckBoxAddress.Checked = false;
+                    }
                 }
 
 
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }
@@ -650,6 +705,26 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
 
                 clsTopMostMessageBox.Show(msgException.Message);
             }
+        }
+
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AddValuesOrganizationalChart(btnUpdate);
+                TreeViewCompanyChart.Nodes.Clear();
+                this.PopulateOrganizationalChart();
+                TreeViewCompanyChart.ExpandAll();
+                ClearChartControl();
+                clsTopMostMessageBox.Show(clsMessages.GProcessSuccess);
+
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+
         }
     }
 }

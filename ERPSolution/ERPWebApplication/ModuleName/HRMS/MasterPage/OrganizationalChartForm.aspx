@@ -130,7 +130,7 @@
                                                                             <asp:Button ID="btnClearChart" runat="server" OnClick="btnClearChart_Click" Text="Clear" Width="70px" />
                                                                         </td>
                                                                         <td>
-                                                                            <asp:Button ID="btnUpdate" runat="server" Text="Update" Width="70px" />
+                                                                            <asp:Button ID="btnUpdate" runat="server" Text="Update" Width="70px" OnClick="btnUpdate_Click" />
                                                                         </td>
                                                                         <td>
                                                                             <asp:Button ID="btnClearUpdate" runat="server" Text="Clear" Width="70px" OnClick="btnClearUpdate_Click" />

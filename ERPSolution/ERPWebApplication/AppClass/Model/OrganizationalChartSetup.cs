@@ -54,7 +54,13 @@ namespace ERPWebApplication.AppClass.Model
         public string EntityName
         {
             get { return _entityName; }
-            set { _entityName = value; }
+            set {
+                if (value == null)
+                {
+                    throw new Exception("title is required ");
+                    
+                } _entityName = value;
+            }
         }
         private string _shortName;
 
