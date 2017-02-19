@@ -245,6 +245,8 @@ namespace ERPWebApplication.AppClass.DataAccess
                     storedProcedureComandText += SqlSaveAddress(objOrganizationalChartSetup);
 
                 }
+
+                storedProcedureComandText += this.SqlCreateView(objOrganizationalChartSetup);
                 clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
 
             }
@@ -462,9 +464,23 @@ namespace ERPWebApplication.AppClass.DataAccess
                                                       "[GroupEmailAddress] = '" + objOrganizationalChartSetup.GroupEmailAddress + "'," +
                                                       "[HeadID] = '" + objEmployeeSetup.EmployeeID + "'," +
                                                       "[EntityCategoryID] = '" + objTwoColumnsTableData.FieldOfID + "'," +
+                                                      "[EntityOpeningDate] = CONVERT(DATETIME,'" + objOrganizationalChartSetup.EntityOpeningDate + "',103)" + "," +
                                                       "[LastUpdateDate] = CAST(GETDATE() AS DateTime) " +
                                                       ",[LastUpdateUserID] = '160ea939-7633-46a8-ae49-f661d12abfd5'" +
                                                  " WHERE [EntityID] = " + objOrganizationalChartSetup.ParentEntityID + ";";
+
+                if (objOrganizationalChartSetup.AddressTag == "N")
+                {
+                    storedProcedureComandText += SqlInactiveAddressData(objOrganizationalChartSetup);
+
+                }
+                else if (objOrganizationalChartSetup.AddressTag == "Y")
+                {
+                    storedProcedureComandText += SqlUpdateAddress(objOrganizationalChartSetup);
+
+                }
+
+                storedProcedureComandText += this.SqlCreateView(objOrganizationalChartSetup);
                 clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
 
             }
@@ -473,6 +489,85 @@ namespace ERPWebApplication.AppClass.DataAccess
 
                 throw msgException;
             }
+        }
+
+        private string SqlUpdateAddress(OrganizationalChartSetup objOrganizationalChartSetup)
+        {
+            try
+            {
+                var storedProcedureComandText = @"UPDATE [orgOrganizationAddress]
+                                               SET [ContactAdreessNumber] = " + objOrganizationalChartSetup.ContactAdreessNumber + " " +
+                                               " ,[DisplayAddress] = '" + objOrganizationalChartSetup.DisplayAddress + "'" +
+                                               " ,[DivisionID] = " + objOrganizationalChartSetup.DivisionID + " " +
+                                               " ,[DistrictID] = " + objOrganizationalChartSetup.DistrictID + " " +
+                                               " ,[PostalCode] = '" + objOrganizationalChartSetup.PostalCode + "'" +
+                                               " ,[ContactPhoneNo] = '" + objOrganizationalChartSetup.PhoneNo + "'" +
+                                               " ,[Fax] = '" + objOrganizationalChartSetup.Fax + "'" +
+                                               " ,[LastUpdateDate] = CAST(GETDATE() AS DateTime)" +
+                                               " ,[LastUpdateUserID] = '160ea939-7633-46a8-ae49-f661d12abfd5'" +
+                                             " WHERE [DataUsed] = 'A' AND [EntityAdreessID] = " + objOrganizationalChartSetup.ParentEntityID + ";";
+                return storedProcedureComandText;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        private string SqlInactiveAddressData(OrganizationalChartSetup objOrganizationalChartSetup)
+        {
+            try
+            {
+                var storedProcedureComandText = @" UPDATE [orgOrganizationAddress]
+                                               SET [DataUsed] = 'I'
+                                               ,[LastUpdateDate] = CAST(GETDATE() AS DateTime)
+                                               ,[LastUpdateUserID] = '160ea939-7633-46a8-ae49-f661d12abfd5'
+                                             WHERE [DataUsed] = 'A' AND [EntityAdreessID] = " + objOrganizationalChartSetup.ParentEntityID + " ;";
+                return storedProcedureComandText;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+        private string SqlCreateView(OrganizationalChartSetup objOrganizationalChartSetup)
+        {
+            try
+            {
+                string sqlForView = null;
+                sqlForView = @" if exists(Select * from sysobjects where name = 'org" + objOrganizationalChartSetup.TableName.Replace(" ", String.Empty) + "' and type = 'V' ) begin drop view  org" + objOrganizationalChartSetup.TableName.Replace(" ", String.Empty) + " end;";
+                sqlForView += " exec('create view org" + objOrganizationalChartSetup.TableName.Replace(" ", string.Empty) +
+                             @" as SELECT [CompanyID]
+                          ,[ParentEntityID]
+                          ,[EntityID]      
+                          ,[AddressTag]
+                          ,[AddressID]
+                          ,[EntityName]
+                          ,[ShortName]
+                          ,[DisplayName]
+                          ,[GroupEmailAddress]
+                          ,[HeadID]
+                          ,[EntityCategoryID]
+                          ,[EntityOpeningDate]
+                          ,[DataUsed]
+                          ,[EntryUserID]
+                          ,[EntryDate]
+                          ,[LastUpdateDate]
+                          ,[LastUpdateUserID]
+                      FROM [orgOrganizationalChartSetup] WHERE [EntityTypeID] = " + objOrganizationalChartSetup.EntityTypeID + "');";
+                return sqlForView;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+
         }
     }
 }

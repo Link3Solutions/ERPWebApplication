@@ -422,6 +422,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                 _objOrganizationalChartSetup = new OrganizationalChartSetup();
                 _objOrganizationalChartSetup.CompanyID = Convert.ToInt32(ddlCompanyChart.SelectedValue);
                 _objOrganizationalChartSetup.EntityTypeID = Convert.ToInt32(ddlElement.SelectedValue);
+                _objOrganizationalChartSetup.TableName = ddlElement.SelectedValue == "-1" ? null : ddlElement.SelectedItem.Text;
                 _objOrganizationalChartSetup.EntityName = txtTitle.Text == string.Empty ? null : txtTitle.Text;
                 _objOrganizationalChartSetup.ParentEntityID = Convert.ToInt32(lblParentElementValue.Text);
                 _objOrganizationalChartSetup.ShortName = txtShortName.Text == string.Empty ? null : txtShortName.Text;
@@ -431,6 +432,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                 objEmployeeSetup.EmployeeID = txtHeadID.Text == string.Empty ? null : txtHeadID.Text;
                 TwoColumnsTableData objTwoColumnsTableData = new TwoColumnsTableData();
                 objTwoColumnsTableData.FieldOfID = ddlCategory.SelectedValue == "-1" ? null : ddlCategory.SelectedValue;
+                
                 if (txtOpeningDate.Text != string.Empty)
                 {
                     _objOrganizationalChartSetup.EntityOpeningDate = Convert.ToDateTime(txtOpeningDate.Text);
@@ -500,6 +502,8 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                 txtTitle.Focus();
                 _objOrganizationalChartSetupController = new OrganizationalChartSetupController();
                 _objOrganizationalChartSetup.EntityTypeID = _objOrganizationalChartSetupController.GetEntityTypeID(_objOrganizationalChartSetup);
+                _objOrganizationalChartSetupController.LoadDivisionDDL(ddlDivision);
+                _objOrganizationalChartSetupController.LoadDistrict(ddlDistrict);
                 btnSaveChart.Visible = true;
                 btnUpdate.Visible = true;
                 if (Convert.ToInt32(_objOrganizationalChartSetup.EntityID) == 111)
@@ -554,9 +558,9 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                 {
                     txtContactNumber.Text = rowNo["ContactAdreessNumber"].ToString() == null ? string.Empty : rowNo["ContactAdreessNumber"].ToString();
                     txtDisplayAddress.Text = rowNo["DisplayAddress"].ToString() == null ? string.Empty : rowNo["DisplayAddress"].ToString();
-                    _objOrganizationalChartSetupController.LoadDivisionDDL(ddlDivision);
+                    
                     ddlDivision.SelectedValue = rowNo["DivisionID"].ToString() == null ? "-1" : rowNo["DivisionID"].ToString();
-                    _objOrganizationalChartSetupController.LoadDistrict(ddlDistrict);
+                    
                     ddlDistrict.SelectedValue = rowNo["DistrictID"].ToString() == null ? "-1" : rowNo["DistrictID"].ToString();
                     txtPostalCode.Text = rowNo["PostalCode"].ToString() == null ? string.Empty : rowNo["PostalCode"].ToString();
                     txtPhoneNo.Text = rowNo["ContactPhoneNo"].ToString() == null ? string.Empty : rowNo["ContactPhoneNo"].ToString();

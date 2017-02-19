@@ -34,11 +34,12 @@ namespace ERPWebApplication.AppClass.Model
         public int EntityTypeID
         {
             get { return _entityTypeID; }
-            set {
+            set
+            {
                 if (value == -1)
                 {
                     throw new Exception("element is required ");
-                    
+
                 } _entityTypeID = value;
             }
         }
@@ -54,11 +55,12 @@ namespace ERPWebApplication.AppClass.Model
         public string EntityName
         {
             get { return _entityName; }
-            set {
+            set
+            {
                 if (value == null)
                 {
                     throw new Exception("title is required ");
-                    
+
                 } _entityName = value;
             }
         }
@@ -83,9 +85,9 @@ namespace ERPWebApplication.AppClass.Model
             get { return _groupEmailAddress; }
             set { _groupEmailAddress = value; }
         }
-        private DateTime  _entityOpeningDate;
+        private DateTime? _entityOpeningDate;
 
-        public DateTime EntityOpeningDate
+        public DateTime? EntityOpeningDate
         {
             get { return _entityOpeningDate; }
             set { _entityOpeningDate = value; }
@@ -102,9 +104,33 @@ namespace ERPWebApplication.AppClass.Model
 
         public string DisplayAddress { get; set; }
 
-        public string DivisionID { get; set; }
+        private string _divisionID;
 
-        public string DistrictID { get; set; }
+        public string DivisionID
+        {
+            get { return _divisionID; }
+            set {
+                if (value == null)
+                {
+                    throw new Exception("division is required ");
+                    
+                } _divisionID = value;
+            }
+        }
+
+        private string _districtID;
+
+        public string DistrictID
+        {
+            get { return _districtID; }
+            set {
+                if (value == null)
+                {
+                    throw new Exception("district is required ");
+                    
+                } _districtID = value;
+            }
+        }
 
         public string PostalCode { get; set; }
 
@@ -113,5 +139,18 @@ namespace ERPWebApplication.AppClass.Model
         public string Fax { get; set; }
 
         public int ContactAddressUsedID { get; set; }
+        private string _tableName;
+
+        public string TableName
+        {
+            get { return _tableName; }
+            set {
+                if (value == null)
+                {
+                    throw new Exception("element is required ");
+                    
+                } _tableName = value;
+            }
+        }
     }
 }
