@@ -163,7 +163,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                 var myConnection = new SqlConnection(this.ConnectionString);
                 var sqlString = @" SELECT 111 as EntityID,'Organizational Chart' as EntityName,childnodecount = 
                                     (SELECT Count(*) FROM orgOrganizationalChartSetup  
-                                    WHERE ParentEntityID = 111)";
+                                    WHERE [DataUsed] = 'A' AND ParentEntityID = 111)";
                 var dt = clsDataManipulation.GetData(this.ConnectionString, sqlString);
                 PopulateNodes(dt, TreeViewCompanyChart.Nodes);
 
@@ -196,7 +196,7 @@ namespace ERPWebApplication.AppClass.DataAccess
         {
             try
             {
-                var sqlString = @"select EntityID,EntityName,(select count(*) FROM orgOrganizationalChartSetup WHERE ParentEntityID=e.EntityID) childnodecount FROM orgOrganizationalChartSetup e where ParentEntityID= " + parentid + "";
+                var sqlString = @"select EntityID,EntityName,(select count(*) FROM orgOrganizationalChartSetup WHERE [DataUsed] = 'A' AND ParentEntityID=e.EntityID) childnodecount FROM orgOrganizationalChartSetup e where [DataUsed] = 'A' AND ParentEntityID= " + parentid + "";
                 var dt = clsDataManipulation.GetData(this.ConnectionString, sqlString);
                 PopulateNodes(dt, parentNode.ChildNodes);
                 parentNode.CollapseAll();
@@ -257,6 +257,31 @@ namespace ERPWebApplication.AppClass.DataAccess
             }
         }
 
+        internal void SaveChart(OrganizationalChartSetup objOrganizationalChartSetup)
+        {
+            try
+            {
+                var storedProcedureComandText = @"INSERT INTO [orgOrganizationalChartSetup] ([CompanyID],[ParentEntityID],[EntityID],[EntityTypeID]
+                                               ,[AddressTag],[AddressID],[EntityName],[DataUsed],[EntryUserID],[EntryDate]) VALUES ( " +
+                                                 objOrganizationalChartSetup.CompanyID + "," +
+                                                 objOrganizationalChartSetup.ParentEntityID + "," +
+                                                 objOrganizationalChartSetup.EntityID + "," +
+                                                 objOrganizationalChartSetup.EntityTypeID + ",'" +
+                                                 objOrganizationalChartSetup.AddressTag + "'," +
+                                                 objOrganizationalChartSetup.EntityID + ",'" +
+                                                 objOrganizationalChartSetup.EntityName + "','" +
+                                                 "A" + "', '" +
+                                                 objOrganizationalChartSetup.EntryUserName + "'," +
+                                                 "CAST(GETDATE() AS DateTime));";
+                clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
         private string SqlSaveAddress(OrganizationalChartSetup objOrganizationalChartSetup)
         {
             try
@@ -490,6 +515,25 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
         }
+        internal void UpdateChart(OrganizationalChartSetup objOrganizationalChartSetup)
+        {
+            try
+            {
+                var storedProcedureComandText = @"UPDATE [orgOrganizationalChartSetup]
+                                                   SET [EntityName] = '" + objOrganizationalChartSetup.EntityName + "'," +
+                                                                         "[DataUsed] = 'A' ,"+
+                                                      "[LastUpdateDate] = CAST(GETDATE() AS DateTime) " +
+                                                      ",[LastUpdateUserID] = '" + objOrganizationalChartSetup.EntryUserName + "'" +
+                                                 " WHERE [EntityID] = " + objOrganizationalChartSetup.EntityID + ";";
+                clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
 
         private string SqlUpdateAddress(OrganizationalChartSetup objOrganizationalChartSetup)
         {
@@ -560,6 +604,21 @@ namespace ERPWebApplication.AppClass.DataAccess
                           ,[LastUpdateUserID]
                       FROM [orgOrganizationalChartSetup] WHERE [EntityTypeID] = " + objOrganizationalChartSetup.EntityTypeID + "');";
                 return sqlForView;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+
+        }
+        internal void DeleteChart(OrganizationalChartSetup objOrganizationalChartSetup)
+        {
+            try
+            {
+                var storedProcedureComandText = " UPDATE [orgOrganizationalChartSetup] SET DataUsed	= 'I' WHERE [EntityID] = " + objOrganizationalChartSetup.EntityID + "";
+                clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
 
             }
             catch (Exception msgException)
