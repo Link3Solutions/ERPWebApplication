@@ -3,7 +3,6 @@
 
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
     <hgroup class="title">
-        <%--<h1><%: Title %>.</h1>--%>
     </hgroup>
 
     <section id="passwordForm">
@@ -120,7 +119,7 @@
             </ItemTemplate>
         </asp:ListView>
 
-        <h3>Add an external login</h3>
-        <uc:OpenAuthProviders runat="server" ReturnUrl="~/Account/Manage.aspx" />
+        <%--<h3>Add an external login</h3>
+        <uc:OpenAuthProviders runat="server" ReturnUrl="~/Account/Manage.aspx" />--%>
     </section>
 </asp:Content>

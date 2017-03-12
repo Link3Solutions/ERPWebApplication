@@ -3,7 +3,6 @@
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <hgroup class="title">
-        <%--<h1><%: Title %>.</h1>--%>
     </hgroup>
     <section id="loginForm">
         <h2>Use a local account to log in.</h2>
@@ -41,7 +40,7 @@
     </section>
 
     <section id="socialLoginForm">
-        <h2>Use another service to log in.</h2>
-        <uc:OpenAuthProviders runat="server" ID="OpenAuthLogin" />
+        <%--<h2>Use another service to log in.</h2>
+        <uc:OpenAuthProviders runat="server" ID="OpenAuthLogin" />--%>
     </section>
 </asp:Content>

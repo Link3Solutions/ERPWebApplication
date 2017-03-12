@@ -64,7 +64,6 @@
                         <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/logo_120_100.png" />
                     </div>
                     <div style="float: left; padding-left: 60px; margin-top: 31px">
-
                         <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
                             <Items>
                                 <asp:MenuItem NavigateUrl="~/Default.aspx" Text="HRMS">
@@ -106,10 +105,33 @@
                                 </asp:MenuItem>
                             </Items>
                         </asp:Menu>
-
                     </div>
                     <div style="float: right; padding-right: 10px">
                         <div class="content-wrapper">
+                            <section id="login">
+                    <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul>
+                                <li><a id="registerLink" runat="server" href="~/Account/Register.aspx">Register</a></li>
+                                <li><a id="loginLink" runat="server" href="~/Account/Login.aspx">Log in</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <p>
+                                Hello, <a id="A1" runat="server" class="username" href="~/Account/Manage.aspx" title="Manage your account">
+                                    <asp:LoginName ID="LoginName1" runat="server" CssClass="username" /></a>!
+                                <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" />
+                            </p>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </section>
+                <nav>
+                    <ul id="menu">
+                        <li><a id="A2" runat="server" href="~/">Home</a></li>
+                        <li><a id="A3" runat="server" href="~/About.aspx">About</a></li>
+                        <li><a id="A4" runat="server" href="~/Contact.aspx">Contact</a></li>
+                    </ul>
+                </nav>
                         </div>
                     </div>
                 </div>
@@ -131,7 +153,6 @@
             </div>
 
         </header>
-
         <div id="body" style="padding-top: 122px; width: 100%">
             <div id="fixedImage" style="position: fixed; background-color: #fff">
                 <section style="margin-left: 80px; max-width: 960px">
