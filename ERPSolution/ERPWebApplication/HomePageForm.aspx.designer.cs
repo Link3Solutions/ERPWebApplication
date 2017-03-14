@@ -103,13 +103,13 @@ namespace ERPWebApplication {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// UserName control.
+        /// txtUserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UserName;
+        protected global::System.Web.UI.WebControls.TextBox txtUserName;
         
         /// <summary>
         /// Label3 control.
@@ -121,13 +121,13 @@ namespace ERPWebApplication {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// Password control.
+        /// txtPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Password;
+        protected global::System.Web.UI.WebControls.TextBox txtPassword;
         
         /// <summary>
         /// Label4 control.
@@ -139,13 +139,13 @@ namespace ERPWebApplication {
         protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
-        /// ConfirmPassword control.
+        /// txtConfirmPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ConfirmPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
         
         /// <summary>
         /// Label2 control.
@@ -157,13 +157,13 @@ namespace ERPWebApplication {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// SecurityCode control.
+        /// txtSecurityCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SecurityCode;
+        protected global::System.Web.UI.WebControls.TextBox txtSecurityCode;
         
         /// <summary>
         /// btnRegister control.

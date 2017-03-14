@@ -117,8 +117,8 @@ namespace ERPWebApplication.CommonClass
 
         public static String UserName
         {
-            get { return HttpContext.Current.Session["@#$$%@)UserName(@^&^&%"].ToString(); }
-            set { HttpContext.Current.Session["@#$$%@)UserName(@^&^&%"] = value; }
+            get { return HttpContext.Current.Session["@#$$%@)txtUserName(@^&^&%"].ToString(); }
+            set { HttpContext.Current.Session["@#$$%@)txtUserName(@^&^&%"] = value; }
         }
 
         public static String UserDesignation

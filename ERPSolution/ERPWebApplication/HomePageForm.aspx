@@ -125,20 +125,20 @@
                                         <td>
                                             <ol style="list-style-type:none">
                                                 <li>
-                                                    <asp:Label ID="Label1" runat="server" AssociatedControlID="UserName">User name</asp:Label>
-                                                    <asp:TextBox runat="server" ID="UserName" />
+                                                    <asp:Label ID="Label1" runat="server" AssociatedControlID="txtUserName">User name</asp:Label>
+                                                    <asp:TextBox runat="server" ID="txtUserName" />
                                                 </li>
                                                 <li>
-                                                    <asp:Label ID="Label3" runat="server" AssociatedControlID="Password">Password</asp:Label>
-                                                    <asp:TextBox runat="server" ID="Password" TextMode="Password" />
+                                                    <asp:Label ID="Label3" runat="server" AssociatedControlID="txtPassword">Password</asp:Label>
+                                                    <asp:TextBox runat="server" ID="txtPassword" TextMode="Password" />
                                                 </li>
                                                 <li>
-                                                    <asp:Label ID="Label4" runat="server" AssociatedControlID="ConfirmPassword">Confirm password</asp:Label>
-                                                    <asp:TextBox runat="server" ID="ConfirmPassword" TextMode="Password" />
+                                                    <asp:Label ID="Label4" runat="server" AssociatedControlID="txtConfirmPassword">Confirm password</asp:Label>
+                                                    <asp:TextBox runat="server" ID="txtConfirmPassword" TextMode="Password" />
                                                 </li>
                                                 <li>
-                                                    <asp:Label ID="Label2" runat="server" AssociatedControlID="SecurityCode">Security Code</asp:Label>
-                                                    <asp:TextBox runat="server" ID="SecurityCode" />
+                                                    <asp:Label ID="Label2" runat="server" AssociatedControlID="txtSecurityCode">Security Code</asp:Label>
+                                                    <asp:TextBox runat="server" ID="txtSecurityCode" />
                                                 </li>
                                             </ol>
                                         </td>
@@ -146,7 +146,7 @@
                                         <td>&nbsp;</td>
                                     </tr>
                                     <tr>
-                                        <td style="padding-left:40px"><asp:Button ID="btnRegister" runat="server" Text="Register" Width="100px" /></td>
+                                        <td style="padding-left:40px"><asp:Button ID="btnRegister" runat="server" Text="Register" Width="100px" OnClick="btnRegister_Click" /></td>
                                         <td>&nbsp;</td>
                                         <td>&nbsp;</td>
                                     </tr>
