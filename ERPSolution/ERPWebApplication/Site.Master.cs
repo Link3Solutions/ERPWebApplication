@@ -5,6 +5,10 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ERPWebApplication.AppClass.CommonClass;
+using System.Data;
+using System.IO;
+using ERPWebApplication.AppClass.DataAccess;
 
 namespace ERPWebApplication
 {
@@ -13,6 +17,7 @@ namespace ERPWebApplication
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
+        private UserPermissionController _objUserPermissionController;
 
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -69,7 +74,8 @@ namespace ERPWebApplication
         {
             if (!Page.IsPostBack)
             {
-                if (Page.Title == "Log in")
+                GetMenuData();
+                if (Page.Title == "Home Page")
                 {
                     NavigationMenu.Visible = false;
                     
@@ -77,6 +83,69 @@ namespace ERPWebApplication
                 
             }
 
+        }
+
+        private void GetMenuData()
+        {
+            try
+            {
+                DataTable table = new DataTable();
+                _objUserPermissionController = new UserPermissionController();
+                table = _objUserPermissionController.GetData();
+                DataView view = new DataView(table);
+                view.RowFilter = "PNodeTypeID = 111";
+                foreach (DataRowView row in view)
+                {
+                    MenuItem menuItem = new MenuItem(row["ActivityName"].ToString(),
+                    row["NodeTypeID"].ToString());
+                    menuItem.NavigateUrl = row["FormName"].ToString();
+                    NavigationMenu.Items.Add(menuItem);
+                    AddChildItems(table, menuItem);
+                }
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
+        }
+
+        private void AddChildItems(DataTable table, MenuItem menuItem)
+        {
+            try
+            {
+                DataView viewItem = new DataView(table);
+                viewItem.RowFilter = "PNodeTypeID=" + menuItem.Value;
+                foreach (DataRowView childView in viewItem)
+                {
+                    MenuItem childItem = new MenuItem(childView["ActivityName"].ToString(),
+                    childView["NodeTypeID"].ToString());
+                    childItem.NavigateUrl = childView["FormName"].ToString();
+                    menuItem.ChildItems.Add(childItem);
+                    AddChildItems(table, childItem);
+                }
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
+        }
+
+        protected void lnkbtnLoginoff_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/HomePageForm.aspx");
+
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
         }
     }
 }

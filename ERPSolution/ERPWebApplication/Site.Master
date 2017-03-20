@@ -61,11 +61,11 @@
             <div id="container" style="width: 100%; height: 100px; position: fixed; background-color: #fff; border-top: solid 10px #000">
                 <div id="div1">
                     <div style="float: left">
-                        <%--<asp:Image ID="Image1" runat="server" ImageUrl="~/Images/logo_120_100.png" />--%>
+                        <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/logo_120_100.png" />
                     </div>
                     <div style="float: left; padding-left: 60px; margin-top: 31px">
                         <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
-                           <%-- <Items>
+                            <%--<Items>
                                 <asp:MenuItem NavigateUrl="~/Default.aspx" Text="HRMS">
                                     <asp:MenuItem NavigateUrl="~/Default.aspx" Text="MasterPage">
                                         <asp:MenuItem NavigateUrl="~/ModuleName/HRMS/MasterPage/CompanySetupForm.aspx" Text="Company Setup" Value="11"></asp:MenuItem>
@@ -108,6 +108,9 @@
                     </div>
                     <div style="float: right; padding-right: 10px">
                         <div class="content-wrapper">
+                            <section style="padding-top: 15px" id="login">
+                                <asp:LinkButton ID="lnkbtnLoginoff" runat="server" OnClick="lnkbtnLoginoff_Click">Log off</asp:LinkButton>
+                            </section>
                         </div>
                     </div>
                 </div>

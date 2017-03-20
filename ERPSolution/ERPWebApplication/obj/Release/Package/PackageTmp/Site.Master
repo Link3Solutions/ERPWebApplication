@@ -65,7 +65,7 @@
                     </div>
                     <div style="float: left; padding-left: 60px; margin-top: 31px">
                         <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
-                            <Items>
+                            <%--<Items>
                                 <asp:MenuItem NavigateUrl="~/Default.aspx" Text="HRMS">
                                     <asp:MenuItem NavigateUrl="~/Default.aspx" Text="MasterPage">
                                         <asp:MenuItem NavigateUrl="~/ModuleName/HRMS/MasterPage/CompanySetupForm.aspx" Text="Company Setup" Value="11"></asp:MenuItem>
@@ -103,35 +103,14 @@
                                     </asp:MenuItem>
 
                                 </asp:MenuItem>
-                            </Items>
+                            </Items>--%>
                         </asp:Menu>
                     </div>
                     <div style="float: right; padding-right: 10px">
                         <div class="content-wrapper">
-                            <section id="login">
-                    <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled">
-                        <AnonymousTemplate>
-                            <ul>
-                                <li><a id="registerLink" runat="server" href="~/Account/Register.aspx">Register</a></li>
-                                <li><a id="loginLink" runat="server" href="~/Account/Login.aspx">Log in</a></li>
-                            </ul>
-                        </AnonymousTemplate>
-                        <LoggedInTemplate>
-                            <p>
-                                Hello, <a id="A1" runat="server" class="username" href="~/Account/Manage.aspx" title="Manage your account">
-                                    <asp:LoginName ID="LoginName1" runat="server" CssClass="username" /></a>!
-                                <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" />
-                            </p>
-                        </LoggedInTemplate>
-                    </asp:LoginView>
-                </section>
-                <nav>
-                    <ul id="menu">
-                        <li><a id="A2" runat="server" href="~/">Home</a></li>
-                        <li><a id="A3" runat="server" href="~/About.aspx">About</a></li>
-                        <li><a id="A4" runat="server" href="~/Contact.aspx">Contact</a></li>
-                    </ul>
-                </nav>
+                            <section style="padding-top: 15px" id="login">
+                                <asp:LinkButton ID="lnkbtnLoginoff" runat="server" OnClick="lnkbtnLoginoff_Click">Log off</asp:LinkButton>
+                            </section>
                         </div>
                     </div>
                 </div>

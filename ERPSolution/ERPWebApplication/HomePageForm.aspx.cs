@@ -98,5 +98,19 @@ namespace ERPWebApplication
                 throw msgException;
             }
         }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Default.aspx");
+
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
     }
 }
