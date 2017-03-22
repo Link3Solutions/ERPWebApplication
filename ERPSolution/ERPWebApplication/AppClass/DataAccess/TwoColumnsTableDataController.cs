@@ -173,5 +173,22 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
         }
+
+        internal void LoadRoleType(DropDownList ddlRoleType)
+        {
+            try
+            {
+                TwoColumnsTableData objTwoColumnsTableData = new TwoColumnsTableData();
+                objTwoColumnsTableData.TableID = 25 ;
+                this.LoadRecordDynamicDDL(ddlRoleType, objTwoColumnsTableData);
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+ 
+        }
     }
 }

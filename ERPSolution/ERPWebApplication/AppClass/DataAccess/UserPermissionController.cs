@@ -82,5 +82,20 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
         }
+
+        internal void LoadRoleTypeData(DropDownList ddlRoleType)
+        {
+            try
+            {
+                TwoColumnsTableDataController objTwoColumnsTableDataController = new TwoColumnsTableDataController();
+                objTwoColumnsTableDataController.LoadRoleType(ddlRoleType);
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
+        }
     }
 }

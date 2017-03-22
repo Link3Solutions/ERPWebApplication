@@ -21,6 +21,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                     Session["companyID"] = 1;
                     _objUserPermissionController = new UserPermissionController();
                     _objUserPermissionController.PopulateRootLevel(TreeViewAllNode);
+                    _objUserPermissionController.LoadRoleTypeData(ddlRoleType);
 
                 }
 
