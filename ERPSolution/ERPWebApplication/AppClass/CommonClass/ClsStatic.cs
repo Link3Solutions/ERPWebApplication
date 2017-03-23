@@ -78,8 +78,7 @@ namespace ERPWebApplication.CommonClass
 
         }
     }
-
-
+    
     public static class current
     {
 

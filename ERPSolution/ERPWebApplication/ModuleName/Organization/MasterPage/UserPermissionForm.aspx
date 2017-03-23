@@ -7,14 +7,16 @@
             <table style="width: 100%;">
                 <tr>
                     <td>
-                        <ajaxToolkit:TabContainer ID="TabContainerUserPermission" runat="server" Width="100%" Height="100%" ActiveTabIndex="1">
+                        <ajaxToolkit:TabContainer ID="TabContainerUserPermission" runat="server" Width="100%" Height="100%" ActiveTabIndex="0">
                             <ajaxToolkit:TabPanel ID="TabPanelRoleSetup" runat="server" HeaderText="Role Setup">
                                 <ContentTemplate>
                                     <table style="width:100%;">
                                         <tr>
                                             <td style="text-align: left; float: left; width: 500px">
                                                 <div style="overflow:auto; height:450px;">
-                                                <asp:TreeView ID="TreeViewAllNode" runat="server" OnTreeNodePopulate="TreeViewAllNode_TreeNodePopulate" ShowCheckBoxes="All">
+                                                <asp:TreeView ID="TreeViewAllNode" runat="server" OnTreeNodePopulate="TreeViewAllNode_TreeNodePopulate" ShowCheckBoxes="All" NodeIndent="50" ShowExpandCollapse="False">
+                                                    <ParentNodeStyle Font-Bold="True" />
+                                                    <RootNodeStyle Font-Bold="True" />
                                                 </asp:TreeView>
                                                     </div>
                                             </td>
@@ -26,7 +28,7 @@
                                                                 <table style="width: 50%;">
                                                                     <tr>
                                                                         <td>
-                                                                            <asp:Button ID="btnRoleSave" runat="server" Width="100px" Text="Save" /></td>
+                                                                            <asp:Button ID="btnRoleSave" runat="server" Width="100px" Text="Save" OnClick="btnRoleSave_Click" /></td>
                                                                         <td>
                                                                             <asp:Button ID="btnRoleClear" runat="server" Width="100px" Text="Clear" /></td>
                                                                         <td>&nbsp;</td>

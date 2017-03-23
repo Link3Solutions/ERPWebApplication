@@ -103,13 +103,52 @@ namespace ERPWebApplication
         {
             try
             {
-                Response.Redirect("~/Default.aspx");
-
+                 
+                switch (CheckUserValidation())
+                {
+                    case 1:
+                        {
+                            Response.Redirect("~/Default.aspx");
+                            break;
+                        }
+                    case 2:
+                        {
+                            Response.Redirect("~/Default.aspx");
+                            break;
+                        }
+                    default:
+                        clsTopMostMessageBox.Show(clsMessages.GLoginFail);
+                        break;
+                }
             }
             catch (Exception msgException)
             {
 
                 clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        private int CheckUserValidation()
+        {
+            try
+            {
+                _objUserList = new UserList();
+                _objUserList.UserName = txtLoginUserName.Text == string.Empty ? null : txtLoginUserName.Text;
+                _objUserList.UserPassword = txtLoginPassword.Text == string.Empty ? null : txtLoginPassword.Text;
+                if (_objUserList.UserName == "ADM" && _objUserList.UserPassword == "ADM123")
+                {
+                    LoginUserInformation.UserID = "160ea939-7633-46a8-ae49-f661d12abfd5";
+                    LoginUserInformation.CompanyID = 1;
+                    _objUserList.UserType = 1;
+                }
+
+                return _objUserList.UserType;
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
             }
         }
     }

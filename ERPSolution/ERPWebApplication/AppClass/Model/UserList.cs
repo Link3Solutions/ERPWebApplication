@@ -59,7 +59,9 @@ namespace ERPWebApplication.AppClass.Model
                 } _securityCode = value;
             }
         }
-        
 
+
+
+        public int UserType { get; set; }
     }
 }

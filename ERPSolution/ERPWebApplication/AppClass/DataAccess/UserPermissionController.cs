@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ERPWebApplication.AppClass.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -89,6 +90,19 @@ namespace ERPWebApplication.AppClass.DataAccess
             {
                 TwoColumnsTableDataController objTwoColumnsTableDataController = new TwoColumnsTableDataController();
                 objTwoColumnsTableDataController.LoadRoleType(ddlRoleType);
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
+        }
+
+        internal void SaveRoleData(CompanySetup objCompanySetup, UserPermission objUserPermission)
+        {
+            try
+            {
 
             }
             catch (Exception msgException)

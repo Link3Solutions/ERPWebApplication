@@ -1106,6 +1106,7 @@
     <Compile Include="AppClass\CommonClass\EnumCollections.cs" />
     <Compile Include="AppClass\CommonClass\clsStringManipulation.cs" />
     <Compile Include="AppClass\CommonClass\clsTopMostMessageBox.cs" />
+    <Compile Include="AppClass\CommonClass\LoginUserInformation.cs" />
     <Compile Include="AppClass\CommonClass\Sqlgenerate.cs" />
     <Compile Include="AppClass\DataAccess\ActivitySetupController.cs" />
     <Compile Include="AppClass\DataAccess\ClientInformationController.cs" />
@@ -1173,6 +1174,7 @@
     <Compile Include="AppClass\Model\TwoColumnsTableDataAuto.cs" />
     <Compile Include="AppClass\Model\TwoColumnTables.cs" />
     <Compile Include="AppClass\Model\UserList.cs" />
+    <Compile Include="AppClass\Model\UserPermission.cs" />
     <Compile Include="AppClass\Process\Process.cs" />
     <Compile Include="AppClass\Process\ProcessHeader.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
