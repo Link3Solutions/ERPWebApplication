@@ -57,6 +57,8 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             try
             {
                 AddValuesForRoleSetup();
+                ClearControl();
+                clsTopMostMessageBox.Show(clsMessages.GProcessSuccess);
 
             }
             catch (Exception msgException)
@@ -66,6 +68,22 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             }
         }
 
+        private void ClearControl()
+        {
+            try
+            {
+                ddlRoleType.SelectedValue = "-1";
+                txtRoleTitle.Text = string.Empty;
+                
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
+        }
+        List<int> list = new List<int>();
         private void AddValuesForRoleSetup()
         {
             try
@@ -76,18 +94,44 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 objCompanySetup.EntryUserName = LoginUserInformation.UserID;
                 _objUserPermission.RoleName = txtRoleTitle.Text == string.Empty ? null : txtRoleTitle.Text;
                 
-                foreach (TreeNode nodeNumber in TreeViewAllNode.Nodes)
+                foreach (TreeNode nodeNumber in this.TreeViewAllNode.Nodes)
                 {
-                    if (nodeNumber.Checked == true)
-                    {
-                        _objUserPermission.NodeID = Convert.ToInt32(nodeNumber.Value.ToString());
-                        _objUserPermission.nodeList.Add(_objUserPermission.NodeID);
-                        
-                    }
+                    saveNodePermission(nodeNumber);
                 }
+                
+                _objUserPermission.nodeList = list;
                 _objUserPermission.RoleType = ddlRoleType.SelectedValue == "-1" ? null : ddlRoleType.SelectedValue;
                 _objUserPermissionController = new UserPermissionController();
                 _objUserPermissionController.SaveRoleData(objCompanySetup,_objUserPermission);
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
+        }
+
+        private void saveNodePermission(TreeNode targetNode)
+        {
+            try
+            {
+                if (targetNode.ChildNodes.Count > 0)
+                {
+                    foreach (TreeNode targetChildNode in targetNode.ChildNodes)
+                    {
+                        saveNodePermission(targetChildNode);
+                    }
+                }
+                else
+                {
+                    if (targetNode.Checked)
+                    {
+                        _objUserPermission = new UserPermission();
+                        _objUserPermission.NodeID = Convert.ToInt32(targetNode.Value.ToString());
+                        list.Add(Convert.ToInt32(_objUserPermission.NodeID));
+                    }
+                }
+
             }
             catch (Exception msgException)
             {

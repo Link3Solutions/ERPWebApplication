@@ -103,6 +103,46 @@ namespace ERPWebApplication.AppClass.DataAccess
         {
             try
             {
+                objUserPermission.RoleID = GetRoleID();
+                var storedProcedureComandText = "INSERT INTO [uRoleSetup] ([CompanyID],[RoleID],[RoleTypeID],[RoleName],[DataUsed],[EntryUserID],[EntryDate]) VALUES ( " +
+                                                 objCompanySetup.CompanyID + "," +
+                                                 objUserPermission.RoleID + "," +
+                                                 objUserPermission.RoleType+",'"+
+                                                 objUserPermission.RoleName+"','"+
+                                                 "A" + "', '" +
+                                                 objCompanySetup.EntryUserName + "'," +
+                                                 "CAST(GETDATE() AS DateTime));";
+                clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
+
+                foreach (var itemNo in objUserPermission.nodeList)
+                {
+                    objUserPermission.NodeID = Convert.ToInt32( itemNo.ToString());
+                    var storedProcedureComandTextNode = "INSERT INTO [uRoleSetupDetails] ([RoleID],[NodeID],[DataUsed],[EntryUserID],[EntryDate]) VALUES ( " +
+                                                 objUserPermission.RoleID + "," +
+                                                 objUserPermission.NodeID + ",'" +
+                                                 "A" + "', '" +
+                                                 objCompanySetup.EntryUserName + "'," +
+                                                 "CAST(GETDATE() AS DateTime));";
+                    clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandTextNode);
+                    
+                }
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
+        }
+
+        private int GetRoleID()
+        {
+            try
+            {
+                UserPermission objUserPermission = new UserPermission();
+                var storedProcedureComandText = "SELECT ISNULL( MAX( RoleID ),0) +1 FROM [uRoleSetup]";
+                clsDataManipulation objclsDataManipulation = new clsDataManipulation();
+                return objUserPermission.RoleID = objclsDataManipulation.GetSingleValue(this.ConnectionString, storedProcedureComandText);
 
             }
             catch (Exception msgException)
