@@ -8,12 +8,14 @@ using ERPWebApplication.AppClass.CommonClass;
 using ERPWebApplication.AppClass.DataAccess;
 using ERPWebApplication.AppClass.Model;
 
+
 namespace ERPWebApplication.ModuleName.Organization.MasterPage
 {
     public partial class UserPermissionForm : System.Web.UI.Page
     {
         private UserPermissionController _objUserPermissionController;
         private UserPermission _objUserPermission;
+        private CompanySetup _objCompanySetup;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -24,6 +26,8 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                     _objUserPermissionController.PopulateRootLevel(TreeViewAllNode);
                     _objUserPermissionController.LoadRoleTypeData(ddlRoleType);
                     _objUserPermissionController.LoadRoleTypeData(ddlRoleTypeUser);
+                    LoadRoleRecordGrid();
+                    LoadRoleRecordList();
 
                 }
 
@@ -36,6 +40,42 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
 
         }
 
+        private void LoadRoleRecordList()
+        {
+            try
+            {
+                _objCompanySetup = new CompanySetup();
+                _objCompanySetup.CompanyID = LoginUserInformation.CompanyID;
+                _objUserPermission = new UserPermission();
+                _objUserPermission.RoleType = ddlRoleTypeUser.SelectedValue;
+                _objUserPermissionController = new UserPermissionController();
+                _objUserPermissionController.GetRoleRecord(_objCompanySetup, _objUserPermission, ListBoxRoles);
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException; 
+            }
+        }
+
+        private void LoadRoleRecordGrid()
+        {
+            try
+            {
+                _objCompanySetup = new CompanySetup();
+                _objCompanySetup.CompanyID = LoginUserInformation.CompanyID;
+                _objUserPermission = new UserPermission();
+                _objUserPermission.RoleType = ddlRoleType.SelectedValue;
+                _objUserPermissionController = new UserPermissionController();
+                _objUserPermissionController.GetRoleRecord(_objCompanySetup,_objUserPermission,GridViewRoles);
+            }
+            catch (Exception msgExceptin)
+            {
+                
+                throw msgExceptin;
+            }
+        }
         protected void TreeViewAllNode_TreeNodePopulate(object sender, TreeNodeEventArgs e)
         {
             try
@@ -89,9 +129,9 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             try
             {
                 _objUserPermission = new UserPermission();
-                CompanySetup objCompanySetup = new CompanySetup();
-                objCompanySetup.CompanyID = LoginUserInformation.CompanyID;
-                objCompanySetup.EntryUserName = LoginUserInformation.UserID;
+                _objCompanySetup = new CompanySetup();
+                _objCompanySetup.CompanyID = LoginUserInformation.CompanyID;
+                _objCompanySetup.EntryUserName = LoginUserInformation.UserID;
                 _objUserPermission.RoleName = txtRoleTitle.Text == string.Empty ? null : txtRoleTitle.Text;
                 
                 foreach (TreeNode nodeNumber in this.TreeViewAllNode.Nodes)
@@ -100,9 +140,10 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 }
                 
                 _objUserPermission.nodeList = list;
+                
                 _objUserPermission.RoleType = ddlRoleType.SelectedValue == "-1" ? null : ddlRoleType.SelectedValue;
                 _objUserPermissionController = new UserPermissionController();
-                _objUserPermissionController.SaveRoleData(objCompanySetup,_objUserPermission);
+                _objUserPermissionController.SaveRoleData(_objCompanySetup,_objUserPermission);
             }
             catch (Exception msgException)
             {
@@ -126,11 +167,36 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 {
                     if (targetNode.Checked)
                     {
-                        _objUserPermission = new UserPermission();
-                        _objUserPermission.NodeID = Convert.ToInt32(targetNode.Value.ToString());
-                        list.Add(Convert.ToInt32(_objUserPermission.NodeID));
+                        list.Add(Convert.ToInt32(targetNode.Value.ToString()));
                     }
                 }
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
+        }
+
+        protected void ddlRoleType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                this.LoadRoleRecordGrid();
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        protected void ddlRoleTypeUser_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                this.LoadRoleRecordList();
 
             }
             catch (Exception msgException)

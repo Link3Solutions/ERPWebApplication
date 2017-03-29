@@ -7,7 +7,7 @@
             <table style="width: 100%;">
                 <tr>
                     <td>
-                        <ajaxToolkit:TabContainer ID="TabContainerUserPermission" runat="server" Width="100%" Height="100%" ActiveTabIndex="0">
+                        <ajaxToolkit:TabContainer ID="TabContainerUserPermission" runat="server" Width="100%" Height="100%" ActiveTabIndex="1">
                             <ajaxToolkit:TabPanel ID="TabPanelRoleSetup" runat="server" HeaderText="Role Setup">
                                 <ContentTemplate>
                                     <table style="width:100%;">
@@ -60,7 +60,7 @@
                                                         </td>
                                                         <td>:</td>
                                                         <td>
-                                                            <asp:DropDownList ID="ddlRoleType" runat="server">
+                                                            <asp:DropDownList ID="ddlRoleType" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlRoleType_SelectedIndexChanged">
                                                             </asp:DropDownList>
                                                         </td>
                                                     </tr>
@@ -81,6 +81,9 @@
                                                     <tr>
                                                         <td colspan="3">
                                                             <asp:GridView ID="GridViewRoles" runat="server" Width="100%">
+                                                                <Columns>
+                                                                    <asp:CommandField ShowSelectButton="True" />
+                                                                </Columns>
                                                             </asp:GridView>
                                                         </td>
                                                     </tr>
@@ -127,7 +130,7 @@
                                             </td>
                                             <td>:</td>
                                             <td>
-                                                <asp:DropDownList ID="ddlRoleTypeUser" runat="server">
+                                                <asp:DropDownList ID="ddlRoleTypeUser" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlRoleTypeUser_SelectedIndexChanged">
                                                 </asp:DropDownList>
                                             </td>
                                         </tr>
@@ -143,7 +146,7 @@
                                                 <table style="width: 100%;">
                                                     <tr>
                                                         <td>
-                                                            <asp:ListBox ID="ListBoxStandardOrgElements" runat="server" Height="300px" Width="500px"></asp:ListBox>
+                                                            <asp:ListBox ID="ListBoxRoles" runat="server" Height="300px" Width="500px"></asp:ListBox>
                                                         </td>
                                                         <td>
                                                             <table style="width: 100%;">
@@ -173,7 +176,7 @@
                                                             </table>
                                                         </td>
                                                         <td>
-                                                            <asp:ListBox ID="ListBoxOrganizationElements" runat="server" Height="300px" Width="500px" AutoPostBack="True"></asp:ListBox>
+                                                            <asp:ListBox ID="ListBoxSelectedRoles" runat="server" Height="300px" Width="500px" AutoPostBack="True"></asp:ListBox>
                                                         </td>
                                                     </tr>
                                                     <tr>

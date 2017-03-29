@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
+using ERPWebApplication.AppClass.CommonClass;
 
 
 namespace ERPWebApplication.AppClass.DataAccess
@@ -24,10 +25,10 @@ namespace ERPWebApplication.AppClass.DataAccess
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
-            
+
         }
 
         internal void PopulateRootLevel(TreeView TreeViewAllNode)
@@ -45,7 +46,7 @@ namespace ERPWebApplication.AppClass.DataAccess
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }
@@ -67,7 +68,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
         }
-        public void PopulateSubLevel( int parentid, TreeNode parentNode)
+        public void PopulateSubLevel(int parentid, TreeNode parentNode)
         {
             try
             {
@@ -94,7 +95,7 @@ namespace ERPWebApplication.AppClass.DataAccess
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }
@@ -106,9 +107,9 @@ namespace ERPWebApplication.AppClass.DataAccess
                 objUserPermission.RoleID = GetRoleID();
                 var storedProcedureComandText = "INSERT INTO [uRoleSetup] ([CompanyID],[RoleID],[RoleTypeID],[RoleName],[DataUsed],[EntryUserID],[EntryDate]) VALUES ( " +
                                                  objCompanySetup.CompanyID + "," +
-                                                 objUserPermission.RoleID + "," +
-                                                 objUserPermission.RoleType+",'"+
-                                                 objUserPermission.RoleName+"','"+
+                                                 objUserPermission.RoleID + ",'" +
+                                                 objUserPermission.RoleType + "','" +
+                                                 objUserPermission.RoleName + "','" +
                                                  "A" + "', '" +
                                                  objCompanySetup.EntryUserName + "'," +
                                                  "CAST(GETDATE() AS DateTime));";
@@ -116,7 +117,7 @@ namespace ERPWebApplication.AppClass.DataAccess
 
                 foreach (var itemNo in objUserPermission.nodeList)
                 {
-                    objUserPermission.NodeID = Convert.ToInt32( itemNo.ToString());
+                    objUserPermission.NodeID = Convert.ToInt32(itemNo.ToString());
                     var storedProcedureComandTextNode = "INSERT INTO [uRoleSetupDetails] ([RoleID],[NodeID],[DataUsed],[EntryUserID],[EntryDate]) VALUES ( " +
                                                  objUserPermission.RoleID + "," +
                                                  objUserPermission.NodeID + ",'" +
@@ -124,13 +125,13 @@ namespace ERPWebApplication.AppClass.DataAccess
                                                  objCompanySetup.EntryUserName + "'," +
                                                  "CAST(GETDATE() AS DateTime));";
                     clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandTextNode);
-                    
+
                 }
 
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }
@@ -147,9 +148,58 @@ namespace ERPWebApplication.AppClass.DataAccess
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
+        }
+
+        internal void GetRoleRecord(CompanySetup objCompanySetup, UserPermission objUserPermission,GridView targetGridView)
+        {
+            try
+            {
+                DataTable dtRoleRecord = null;
+                dtRoleRecord = clsDataManipulation.GetData(this.ConnectionString, this.SQLGetRoleRecord(objCompanySetup, objUserPermission));
+                targetGridView.DataSource = null;
+                targetGridView.DataBind();
+                if (dtRoleRecord.Rows.Count > 0)
+                {
+                    targetGridView.DataSource = dtRoleRecord;
+                    targetGridView.DataBind();
+                }
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+        internal void GetRoleRecord(CompanySetup objCompanySetup, UserPermission objUserPermission, ListBox targetListBox)
+        {
+            try
+            {
+                ClsListBoxController.LoadListBox(this.ConnectionString, this.SQLGetRoleRecord(objCompanySetup,objUserPermission), targetListBox, "RoleName", "RoleID");
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+        private string SQLGetRoleRecord(CompanySetup objCompanySetup, UserPermission objUserPermission)
+        {
+            string sqlString = @"  SELECT 
+              [RoleID]      
+              ,[RoleName]            
+          FROM [uRoleSetup] WHERE [DataUsed] = 'A' AND [CompanyID] = " + objCompanySetup.CompanyID + "";
+            if (objUserPermission.RoleType != "-1")
+            {
+                sqlString += " AND [RoleTypeID] = '" + objUserPermission.RoleType + "'";
+
+            }
+
+            sqlString += "  ORDER BY RoleName";
+            return sqlString;
         }
     }
 }

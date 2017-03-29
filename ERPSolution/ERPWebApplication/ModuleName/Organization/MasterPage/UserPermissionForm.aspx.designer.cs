@@ -193,13 +193,13 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage {
         protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
-        /// ListBoxStandardOrgElements control.
+        /// ListBoxRoles control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ListBoxStandardOrgElements;
+        protected global::System.Web.UI.WebControls.ListBox ListBoxRoles;
         
         /// <summary>
         /// btnForword control.
@@ -238,12 +238,12 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage {
         protected global::System.Web.UI.WebControls.Button btnBackAll;
         
         /// <summary>
-        /// ListBoxOrganizationElements control.
+        /// ListBoxSelectedRoles control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ListBoxOrganizationElements;
+        protected global::System.Web.UI.WebControls.ListBox ListBoxSelectedRoles;
     }
 }
