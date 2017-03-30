@@ -153,7 +153,7 @@ namespace ERPWebApplication.AppClass.DataAccess
             }
         }
 
-        internal void GetRoleRecord(CompanySetup objCompanySetup, UserPermission objUserPermission,GridView targetGridView)
+        internal void GetRoleRecord(CompanySetup objCompanySetup, UserPermission objUserPermission, GridView targetGridView)
         {
             try
             {
@@ -177,7 +177,7 @@ namespace ERPWebApplication.AppClass.DataAccess
         {
             try
             {
-                ClsListBoxController.LoadListBox(this.ConnectionString, this.SQLGetRoleRecord(objCompanySetup,objUserPermission), targetListBox, "RoleName", "RoleID");
+                ClsListBoxController.LoadListBox(this.ConnectionString, this.SQLGetRoleRecord(objCompanySetup, objUserPermission), targetListBox, "RoleName", "RoleID");
 
             }
             catch (Exception msgException)
@@ -200,6 +200,48 @@ namespace ERPWebApplication.AppClass.DataAccess
 
             sqlString += "  ORDER BY RoleName";
             return sqlString;
+        }
+
+        internal void SaveUserRole(EmployeeSetup objEmployeeSetup, UserPermission objUserPermission)
+        {
+            try
+            {
+                if (objEmployeeSetup.EmployeeID == null)
+                {
+                    throw new Exception("User code is required ");
+
+                }
+
+                if (objUserPermission.RoleType == null)
+                {
+                    throw new Exception("Role type is required ");
+                }
+                
+                string storedProcedureComandTextNode = null;
+                foreach (var itemNo in objUserPermission.roleList)
+                {
+                    objUserPermission.RoleID = itemNo;
+                    storedProcedureComandTextNode += @" INSERT INTO [uUsersInRoles] ([CompanyID],[UserId],[RoleTypeID],[RoleID],[DataUsed],[EntryUserID],[EntryDate]) VALUES(" +
+                                                    objEmployeeSetup.CompanyID + ",'" +
+                                                    objEmployeeSetup.EmployeeID + "','" +
+                                                    objUserPermission.RoleType + "'," +
+                                                    objUserPermission.RoleID + ",'" +
+                                                    "A" + "','" +
+                                                    objEmployeeSetup.EntryUserName + "'," +
+                                                    "CAST(GETDATE() AS DateTime)" + ");";
+                }
+
+                if (storedProcedureComandTextNode != null)
+                {
+                    clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandTextNode);
+                }
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
         }
     }
 }

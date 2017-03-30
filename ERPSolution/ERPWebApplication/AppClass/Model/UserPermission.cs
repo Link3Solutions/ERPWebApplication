@@ -42,5 +42,6 @@ namespace ERPWebApplication.AppClass.Model
             set { _nodeID = value; }
         }
         public List<int> nodeList;
+        public List<int> roleList;
     }
 }

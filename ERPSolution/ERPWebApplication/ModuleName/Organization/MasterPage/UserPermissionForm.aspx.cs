@@ -123,7 +123,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 throw msgException;
             }
         }
-        List<int> list = new List<int>();
+        List<int> listNode = new List<int>();
         private void AddValuesForRoleSetup()
         {
             try
@@ -139,7 +139,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                     saveNodePermission(nodeNumber);
                 }
                 
-                _objUserPermission.nodeList = list;
+                _objUserPermission.nodeList = listNode;
                 
                 _objUserPermission.RoleType = ddlRoleType.SelectedValue == "-1" ? null : ddlRoleType.SelectedValue;
                 _objUserPermissionController = new UserPermissionController();
@@ -167,7 +167,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 {
                     if (targetNode.Checked)
                     {
-                        list.Add(Convert.ToInt32(targetNode.Value.ToString()));
+                        listNode.Add(Convert.ToInt32(targetNode.Value.ToString()));
                     }
                 }
 
@@ -204,6 +204,168 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 
                 throw msgException;
             }
+        }
+
+        protected void btnForword_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach (ListItem item in ListBoxRoles.Items)
+                {
+                    if (item.Selected)
+                    {
+                        if (ListBoxSelectedRoles.Items.Contains(item))
+                        {
+                            throw new Exception("this element already selected.");
+
+                        }
+
+                        ListBoxSelectedRoles.Items.Add(new ListItem(item.Text, item.Value));
+                        ListBoxSelectedRoles.AppendDataBoundItems = true;
+                    }
+                }
+
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        protected void btnForwordAll_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ListBoxSelectedRoles.Items.Clear();
+                foreach (ListItem item in ListBoxRoles.Items)
+                {
+                    ListBoxSelectedRoles.Items.Add(item);
+                }
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<ListItem> deletedItems = new List<ListItem>();
+                foreach (ListItem item in ListBoxSelectedRoles.Items)
+                {
+                    if (item.Selected)
+                    {
+                        deletedItems.Add(item);
+                    }
+                }
+
+                foreach (ListItem item in deletedItems)
+                {
+                    ListBoxSelectedRoles.Items.Remove(item);
+                }
+
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        protected void btnBackAll_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ListBoxSelectedRoles.Items.Clear();
+
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AddValuesForUserRole();
+                ClearControlOfUserRole();
+                clsTopMostMessageBox.Show(clsMessages.GProcessSuccess);
+
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        private void ClearControlOfUserRole()
+        {
+            try
+            {
+                txtUserCode.Text = string.Empty;
+                ddlRoleTypeUser.SelectedValue = "-1";
+                ListBoxSelectedRoles.Items.Clear();
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
+        }
+
+        private void AddValuesForUserRole()
+        {
+            try
+            {
+                _objUserPermission = new UserPermission();
+                List<int> listRole = new List<int>();
+                foreach (ListItem item in ListBoxSelectedRoles.Items)
+                {
+                    listRole.Add( Convert.ToInt32( item.Value.ToString()));
+                }
+                _objUserPermission.roleList = listRole;
+                _objUserPermission.RoleType = ddlRoleTypeUser.SelectedValue == "-1" ? null : ddlRoleTypeUser.SelectedValue;
+                EmployeeSetup objEmployeeSetup = new EmployeeSetup();
+                objEmployeeSetup.EmployeeID = txtUserCode.Text == string.Empty ? null : txtUserCode.Text;
+                objEmployeeSetup.CompanyID = LoginUserInformation.CompanyID;
+                objEmployeeSetup.EntryUserName = LoginUserInformation.UserID;
+                _objUserPermissionController = new UserPermissionController();
+                _objUserPermissionController.SaveUserRole(objEmployeeSetup,_objUserPermission);
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.ClearControlOfUserRole();
+
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        protected void GridViewRoles_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            e.Row.Cells[1].Visible = false;
         }
     }
 }

@@ -1744,7 +1744,7 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage
 
                             }
                             flAttachmentInBill.SaveAs(Server.MapPath("~/UploadFile/") + savename);
-                           // MessageBoxShow(this, "Add another file and click attach to attach in the list");
+                           // MessageBoxShow(this, "Add another file and click attach to attach in the listNode");
                         }
 
                     }
