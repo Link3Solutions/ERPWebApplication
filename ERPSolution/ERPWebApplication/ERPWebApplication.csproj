@@ -1163,6 +1163,7 @@
     <Compile Include="AppClass\Model\EmployeeTypeSetup.cs" />
     <Compile Include="AppClass\Model\FileUploadDetail.cs" />
     <Compile Include="AppClass\Model\FileUploadHeader.cs" />
+    <Compile Include="AppClass\Model\IsUser.cs" />
     <Compile Include="AppClass\Model\ItemCategorySetup.cs" />
     <Compile Include="AppClass\Model\ItemSetup.cs" />
     <Compile Include="AppClass\Model\NodeList.cs" />

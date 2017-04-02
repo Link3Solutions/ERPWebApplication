@@ -101,14 +101,26 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
+                                <td>
+                                    <asp:Label ID="Label10" runat="server" Text="Email"></asp:Label>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <asp:TextBox ID="txtEmail" runat="server" TextMode="Email"></asp:TextBox>
+                                </td>
                             </tr>
                             <tr>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
+                                <td>
+                                    <asp:Label ID="Label11" runat="server" Text="User Permission"></asp:Label>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <asp:DropDownList ID="ddlUserPermission" runat="server">
+                                        <asp:ListItem Selected="True" Value="-1">--- Please Select ---</asp:ListItem>
+                                        <asp:ListItem Value="1">Yes</asp:ListItem>
+                                        <asp:ListItem Value="0">No</asp:ListItem>
+                                    </asp:DropDownList>
+                                </td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>

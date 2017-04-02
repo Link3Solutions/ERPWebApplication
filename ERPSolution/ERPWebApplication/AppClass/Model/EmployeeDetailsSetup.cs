@@ -63,5 +63,12 @@ namespace ERPWebApplication.AppClass.Model
             }
         }
         //full name()
+        private string _email;
+
+        public string Email
+        {
+            get { return _email; }
+            set { _email = value; }
+        }
     }
 }

@@ -87,8 +87,12 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                 _objEmployeeDetailsSetup.FirstName = txtFirstName.Text == string.Empty ? null : txtFirstName.Text;
                 _objEmployeeDetailsSetup.MiddleName = txtMiddleName.Text == string.Empty ? null : txtMiddleName.Text;
                 _objEmployeeDetailsSetup.LastName = txtLastName.Text == string.Empty ? null : txtLastName.Text;
+                _objEmployeeDetailsSetup.Email = txtEmail.Text == string.Empty ? null : txtEmail.Text;
+                _objEmployeeDetailsSetup.EntryUserName = LoginUserInformation.UserID;
+                IsUser objIsUser = new IsUser();
+                objIsUser.UserPermission = Convert.ToInt32( ddlUserPermission.SelectedValue);
                 _objEmployeeSetupController = new EmployeeSetupController();
-                _objEmployeeSetupController.Save(_objEmployeeDetailsSetup, _objEmployeeTypeSetup, _objEmployeeCategorySetup, _objDesignationSetup);
+                _objEmployeeSetupController.Save(_objEmployeeDetailsSetup, _objEmployeeTypeSetup, _objEmployeeCategorySetup, _objDesignationSetup,objIsUser);
 
             }
             catch (Exception msgException)

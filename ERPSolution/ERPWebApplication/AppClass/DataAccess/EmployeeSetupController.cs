@@ -10,12 +10,12 @@ namespace ERPWebApplication.AppClass.DataAccess
     public class EmployeeSetupController : DataAccessBase
     {
         public void Save(EmployeeDetailsSetup objEmployeeDetailsSetup, EmployeeTypeSetup objEmployeeTypeSetup,
-            EmployeeCategorySetup objEmployeeCategorySetup, DesignationSetup objDesignationSetup)
+            EmployeeCategorySetup objEmployeeCategorySetup, DesignationSetup objDesignationSetup, IsUser objIsUser)
         {
             try
             {
                 var storedProcedureComandText = "INSERT INTO [hrEmployeeSetup] ([CompanyID],[BranchID],[EmployeeID],[EmployeeTypeID], " +
-                    " [EmployeeCategoryID] ,[Title],[FirstName],[MiddleName],[LastName] ,[DataUsed],[EntryUserID],[EntryDate]) VALUES ( " +
+                    " [EmployeeCategoryID] ,[Title],[FirstName],[MiddleName],[LastName],[Email],[UserPermission] ,[DataUsed],[EntryUserID],[EntryDate]) VALUES ( " +
                     objEmployeeDetailsSetup.CompanyID + "," +
                     objEmployeeDetailsSetup.BranchID + ", '" +
                     objEmployeeDetailsSetup.EmployeeID + "', " +
@@ -25,8 +25,10 @@ namespace ERPWebApplication.AppClass.DataAccess
                     objEmployeeDetailsSetup.FirstName + "', '" +
                     objEmployeeDetailsSetup.MiddleName + "', '" +
                     objEmployeeDetailsSetup.LastName + "', '" +
+                    objEmployeeDetailsSetup.Email + "'," +
+                    objIsUser.UserPermission + ",'" +
                     "A" + "', '" +
-                    "160ea939-7633-46a8-ae49-f661d12abfd5" + "'," +
+                    objEmployeeDetailsSetup.EntryUserName + "'," +
                     "CAST(GETDATE() AS DateTime));";
                 clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
 
@@ -49,7 +51,7 @@ namespace ERPWebApplication.AppClass.DataAccess
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }
