@@ -1142,6 +1142,7 @@
     <Compile Include="AppClass\DataAccess\UnitSetupController.cs" />
     <Compile Include="AppClass\DataAccess\UserListController.cs" />
     <Compile Include="AppClass\DataAccess\UserPermissionController.cs" />
+    <Compile Include="AppClass\DataAccess\UserSecurityCodeController.cs" />
     <Compile Include="AppClass\Model\BranchSetup.cs" />
     <Compile Include="AppClass\Model\BusinessType.cs" />
     <Compile Include="AppClass\Model\ClsCompanySetup.cs" />
@@ -1176,6 +1177,7 @@
     <Compile Include="AppClass\Model\TwoColumnTables.cs" />
     <Compile Include="AppClass\Model\UserList.cs" />
     <Compile Include="AppClass\Model\UserPermission.cs" />
+    <Compile Include="AppClass\Model\UserSecurityCode.cs" />
     <Compile Include="AppClass\Process\Process.cs" />
     <Compile Include="AppClass\Process\ProcessHeader.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />

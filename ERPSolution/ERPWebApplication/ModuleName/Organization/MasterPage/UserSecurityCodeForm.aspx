@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="User Security Code" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="UserSecurityCodeForm.aspx.cs" Inherits="ERPWebApplication.ModuleName.Organization.MasterPage.UserSecurityCodeForm" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -7,7 +8,27 @@
             <table style="width: 100%;">
                 <tr>
                     <td colspan="3">
-                        <asp:GridView ID="GridViewUsers" Width="100%" runat="server">
+                        <asp:GridView ID="GridViewUsers" Width="100%" runat="server" AutoGenerateColumns="False">
+                            <Columns>
+                                <asp:TemplateField HeaderText="SL">
+                                    <ItemTemplate>
+                                        <%# Container.DisplayIndex + 1 %>
+                                    </ItemTemplate>
+                                    <HeaderStyle HorizontalAlign="Center" />
+                                    <ItemStyle HorizontalAlign="Left" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="ID">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("EmployeeID") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Name">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("FullName") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:CommandField ShowSelectButton="True" />
+                            </Columns>
                         </asp:GridView>
                     </td>
                 </tr>
