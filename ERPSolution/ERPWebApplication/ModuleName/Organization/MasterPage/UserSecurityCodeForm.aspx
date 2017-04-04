@@ -8,7 +8,7 @@
             <table style="width: 100%;">
                 <tr>
                     <td colspan="3">
-                        <asp:GridView ID="GridViewUsers" Width="100%" runat="server" AutoGenerateColumns="False">
+                        <asp:GridView ID="GridViewUsers" Width="100%" runat="server" AutoGenerateColumns="False" OnRowCommand="GridViewUsers_RowCommand">
                             <Columns>
                                 <asp:TemplateField HeaderText="SL">
                                     <ItemTemplate>
@@ -19,7 +19,7 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="ID">
                                     <ItemTemplate>
-                                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("EmployeeID") %>'></asp:Label>
+                                        <asp:Label ID="lblEmployeeID" runat="server" Text='<%# Bind("EmployeeID") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Name">

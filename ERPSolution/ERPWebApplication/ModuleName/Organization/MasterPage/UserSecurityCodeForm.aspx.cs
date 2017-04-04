@@ -33,5 +33,30 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             }
 
         }
+
+        protected void GridViewUsers_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+
+            try
+            {
+                int selectedIndex = Convert.ToInt32(e.CommandArgument.ToString());
+                if (e.CommandName.Equals("Select"))
+                {
+                    _objUserSecurityCode = new UserSecurityCode();
+                    _objUserSecurityCode.UserKnownID = ((Label)GridViewUsers.Rows[selectedIndex].FindControl("lblEmployeeID")).Text;
+                    _objCompanySetup = new CompanySetup();
+                    _objCompanySetup.CompanyID = LoginUserInformation.CompanyID;
+                    _objCompanySetup.EntryUserName = LoginUserInformation.UserID;
+                    _objUserSecurityCodeController = new UserSecurityCodeController();
+                    _objUserSecurityCodeController.SendSecurityCode(_objCompanySetup,_objUserSecurityCode);
+                    _objUserSecurityCodeController.LoadUserForSecurityCode(_objCompanySetup, GridViewUsers);
+                }
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
     }
 }

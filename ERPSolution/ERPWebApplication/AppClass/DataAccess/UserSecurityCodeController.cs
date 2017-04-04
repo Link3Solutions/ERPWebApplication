@@ -49,5 +49,37 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
         }
+
+        internal void SendSecurityCode(CompanySetup objCompanySetup, UserSecurityCode objUserSecurityCode)
+        {
+            try
+            {
+                Save(objCompanySetup,objUserSecurityCode);
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
+        }
+
+        private void Save(CompanySetup objCompanySetup, UserSecurityCode objUserSecurityCode)
+        {
+            try
+            {
+                var storedProcedureComandText = "exec [spInitiateSecurityCode] " +
+                                        objCompanySetup.CompanyID + ",'" +
+                                        objUserSecurityCode.UserKnownID+ "','"+
+                                        objCompanySetup.EntryUserName+"'";
+                clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
+        }
     }
 }
