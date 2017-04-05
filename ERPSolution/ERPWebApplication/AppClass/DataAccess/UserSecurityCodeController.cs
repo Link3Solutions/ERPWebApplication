@@ -55,6 +55,42 @@ namespace ERPWebApplication.AppClass.DataAccess
             try
             {
                 Save(objCompanySetup,objUserSecurityCode);
+                SendSecurityCodeByMail(objCompanySetup,objUserSecurityCode);
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
+        }
+
+        private void SendSecurityCodeByMail(CompanySetup objCompanySetup, UserSecurityCode objUserSecurityCode)
+        {
+            try
+            {
+                objUserSecurityCode.SecurityCode = GetSecurityCode(objCompanySetup,objUserSecurityCode);
+                if (objUserSecurityCode.SecurityCode != 0)
+                {
+                    
+                }
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
+        }
+
+        private int GetSecurityCode(CompanySetup objCompanySetup, UserSecurityCode objUserSecurityCode)
+        {
+            try
+            {
+                string sql = "";
+                clsDataManipulation objclsDataManipulation = new clsDataManipulation();
+                //sobjUserSecurityCode.objclsDataManipulation.GetSingleValue(this.ConnectionString, sql);
+                return 0;
 
             }
             catch (Exception msgException)
@@ -73,7 +109,6 @@ namespace ERPWebApplication.AppClass.DataAccess
                                         objUserSecurityCode.UserKnownID+ "','"+
                                         objCompanySetup.EntryUserName+"'";
                 clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
-
             }
             catch (Exception msgException)
             {
