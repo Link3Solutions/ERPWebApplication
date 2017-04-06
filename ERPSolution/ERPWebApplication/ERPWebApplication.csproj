@@ -1127,6 +1127,7 @@
     <Compile Include="AppClass\DataAccess\ItemSetupController.cs" />
     <Compile Include="AppClass\DataAccess\ItemTypeSetupController.cs" />
     <Compile Include="AppClass\DataAccess\ItemUsageSetupController.cs" />
+    <Compile Include="AppClass\DataAccess\MailServiceController.cs" />
     <Compile Include="AppClass\DataAccess\NodeListController.cs" />
     <Compile Include="AppClass\DataAccess\OrganizationalChartSetupController.cs" />
     <Compile Include="AppClass\DataAccess\PersonTypeSetupController.cs" />
@@ -1167,6 +1168,7 @@
     <Compile Include="AppClass\Model\IsUser.cs" />
     <Compile Include="AppClass\Model\ItemCategorySetup.cs" />
     <Compile Include="AppClass\Model\ItemSetup.cs" />
+    <Compile Include="AppClass\Model\MailServiceSetup.cs" />
     <Compile Include="AppClass\Model\NodeList.cs" />
     <Compile Include="AppClass\Model\OrganizationalChartSetup.cs" />
     <Compile Include="AppClass\Model\OwnershipType.cs" />

@@ -86,6 +86,29 @@ public class clsDataManipulation
         }
     }
 
+    public string GetSingleValueAsString(string connectionString, string sqlString)
+    {
+        try
+        {
+            string targetValue = null;
+            var storedProcedureComandText = @"" + sqlString + " ";
+            var dtTargetValue = clsDataManipulation.GetData(connectionString, storedProcedureComandText);
+            foreach (DataRow item in dtTargetValue.Rows)
+            {
+                targetValue = item.ItemArray[0].ToString();
+
+            }
+            return targetValue;
+
+
+        }
+        catch (Exception msgException)
+        {
+
+            throw msgException;
+        }
+    }
+
     public static bool DuplicateDataCheckfunction(string ConnectionString, string SQLStatementpar)
     {
         SqlConnection sqlConn = null;

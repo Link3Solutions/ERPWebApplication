@@ -1,5 +1,6 @@
 ﻿using ERPWebApplication.AppClass.Model;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -54,13 +55,13 @@ namespace ERPWebApplication.AppClass.DataAccess
         {
             try
             {
-                Save(objCompanySetup,objUserSecurityCode);
-                SendSecurityCodeByMail(objCompanySetup,objUserSecurityCode);
+                Save(objCompanySetup, objUserSecurityCode);
+                SendSecurityCodeByMail(objCompanySetup, objUserSecurityCode);
 
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }
@@ -69,16 +70,28 @@ namespace ERPWebApplication.AppClass.DataAccess
         {
             try
             {
-                objUserSecurityCode.SecurityCode = GetSecurityCode(objCompanySetup,objUserSecurityCode);
+                objUserSecurityCode.SecurityCode = GetSecurityCode(objCompanySetup, objUserSecurityCode);
                 if (objUserSecurityCode.SecurityCode != 0)
                 {
-                    
+                    MailServiceSetup objMailServiceSetup = new MailServiceSetup();
+                    objMailServiceSetup.MailBody = "Your security code is: " + objUserSecurityCode.SecurityCode + "";
+                    EmployeeInformationController objEmployeeInformationController = new EmployeeInformationController();
+                    EmployeeSetup objEmployeeSetup = new EmployeeSetup();
+                    objEmployeeSetup.EmployeeID = objUserSecurityCode.UserKnownID;
+                    objEmployeeSetup.CompanyID = objCompanySetup.CompanyID;
+                    objMailServiceSetup.EmailTo = objEmployeeInformationController.GetEmployeeEmail(objEmployeeSetup);
+                    objMailServiceSetup.MailtypeID = "1";
+                    ArrayList attachDocument = new ArrayList();
+                    objMailServiceSetup.AttachItem = attachDocument;
+                    MailServiceController objMailServiceController = new MailServiceController();
+                    objMailServiceController.eMailSendService(objCompanySetup, objMailServiceSetup);
+
                 }
 
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }
@@ -87,15 +100,14 @@ namespace ERPWebApplication.AppClass.DataAccess
         {
             try
             {
-                string sql = "";
+                string sql = "SELECT [SecurityCode] FROM [UserSecurityCode] WHERE DataUsed = 'A' AND SecurityCodeStatus = 0 AND [CompanyID]= " + objCompanySetup.CompanyID + " AND [EmployeeID] = '" + objUserSecurityCode.UserKnownID + "'";
                 clsDataManipulation objclsDataManipulation = new clsDataManipulation();
-                //sobjUserSecurityCode.objclsDataManipulation.GetSingleValue(this.ConnectionString, sql);
-                return 0;
-
+                objUserSecurityCode.SecurityCode = objclsDataManipulation.GetSingleValue(this.ConnectionString, sql);
+                return objUserSecurityCode.SecurityCode;
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }
@@ -106,13 +118,13 @@ namespace ERPWebApplication.AppClass.DataAccess
             {
                 var storedProcedureComandText = "exec [spInitiateSecurityCode] " +
                                         objCompanySetup.CompanyID + ",'" +
-                                        objUserSecurityCode.UserKnownID+ "','"+
-                                        objCompanySetup.EntryUserName+"'";
+                                        objUserSecurityCode.UserKnownID + "','" +
+                                        objCompanySetup.EntryUserName + "'";
                 clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }
