@@ -38,8 +38,13 @@ namespace ERPWebApplication.AppClass.DataAccess
             try
             {
                 DataTable dtUser = null;
-                string sqlString = @"SELECT A.EmployeeID,A.FullName FROM [hrEmployeeSetup] A WHERE NOT EXISTS ( SELECT B.EmployeeID FROM UserSecurityCode B 
+                string sqlString = @"SELECT A.EmployeeID,A.FullName,A.EntryDate,NULL AS DateOfCode FROM [hrEmployeeSetup] A WHERE NOT EXISTS ( SELECT B.EmployeeID FROM UserSecurityCode B 
                 WHERE A.CompanyID = B.CompanyID AND A.EmployeeID = B.EmployeeID ) AND A.UserPermission = 1 AND A.CompanyID = " + objCompanySetup.CompanyID + "";
+                sqlString += @" UNION
+                SELECT A.EmployeeID,A.FullName,A.EntryDate AS EntryDate ,B.EntryDate AS DateOfCode FROM [hrEmployeeSetup] A 
+                INNER JOIN UserSecurityCode B ON A.CompanyID = B.CompanyID AND A.EmployeeID = B.EmployeeID WHERE 
+                B.SecurityCodeStatus = 0 AND B.DataUsed = 'A' AND A.CompanyID = " + objCompanySetup.CompanyID + "";
+                sqlString += @" ORDER BY A.EntryDate";
                 dtUser = clsDataManipulation.GetData(this.ConnectionString, sqlString);
                 return dtUser;
 
