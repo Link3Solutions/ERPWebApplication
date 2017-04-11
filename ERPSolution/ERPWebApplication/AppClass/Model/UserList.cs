@@ -63,5 +63,18 @@ namespace ERPWebApplication.AppClass.Model
 
 
         public int UserType { get; set; }
+        private string _userEmail;
+
+        public string UserEmail
+        {
+            get { return _userEmail; }
+            set {
+                if (value == null)
+                {
+                    throw new Exception("Email is required ");
+                    
+                } _userEmail = value;
+            }
+        }
     }
 }

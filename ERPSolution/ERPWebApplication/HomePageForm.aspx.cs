@@ -71,6 +71,7 @@ namespace ERPWebApplication
                 txtPassword.Text = string.Empty;
                 txtConfirmPassword.Text = string.Empty;
                 txtSecurityCode.Text = string.Empty;
+                txtEmail.Text = string.Empty;
 
             }
             catch (Exception msgException)
@@ -89,6 +90,7 @@ namespace ERPWebApplication
                 _objUserList.UserPassword = txtPassword.Text == string.Empty ? null : txtPassword.Text;
                 _objUserList.ConfirmPassword = txtConfirmPassword.Text == string.Empty ? null : txtConfirmPassword.Text;
                 _objUserList.SecurityCode = txtSecurityCode.Text == string.Empty ? null : txtSecurityCode.Text;
+                _objUserList.UserEmail = txtEmail.Text == string.Empty ? null : txtEmail.Text;
                 _objUserListController = new UserListController();
                 _objUserListController.Save(_objUserList);
             }
