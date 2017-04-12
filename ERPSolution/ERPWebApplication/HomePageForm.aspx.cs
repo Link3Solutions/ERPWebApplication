@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using ERPWebApplication.AppClass.CommonClass;
 using ERPWebApplication.AppClass.DataAccess;
 using ERPWebApplication.AppClass.Model;
+using System.Data;
 
 namespace ERPWebApplication
 {
@@ -142,6 +143,17 @@ namespace ERPWebApplication
                     LoginUserInformation.UserID = "160ea939-7633-46a8-ae49-f661d12abfd5";
                     LoginUserInformation.CompanyID = 1;
                     _objUserList.UserType = 1;
+                }
+
+                DataTable dtUserInformation = new DataTable();
+                _objUserListController = new UserListController();
+                dtUserInformation = _objUserListController.GetLoginUserInformation(_objUserList);
+                if (dtUserInformation.Rows.Count > 0)
+                {
+                    LoginUserInformation.CompanyID = 1;
+                    LoginUserInformation.UserID = "";
+                    _objUserList.UserType = 2;
+                    
                 }
 
                 return _objUserList.UserType;

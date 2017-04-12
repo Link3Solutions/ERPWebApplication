@@ -1,6 +1,7 @@
 ﻿using ERPWebApplication.AppClass.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -30,10 +31,35 @@ namespace ERPWebApplication.AppClass.DataAccess
 
                 }
 
+                if (CheckUserName(objUserList) != 0)
+                {
+                    throw new Exception("User name already exist ");
+
+                }
+
                 var storedProcedureComandText = "exec [uUserRegistration] '" +
                                         objUserList.UserPassword + "','" +
-                                        objUserList.SecurityCode + "'";
+                                        objUserList.SecurityCode + "','" +
+                                        objUserList.UserName + "'";
                 clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        private int CheckUserName(UserList objUserList)
+        {
+            try
+            {
+                int countUserProfileId = 0;
+                string sqlString = "SELECT ISNULL( COUNT( UserProfileID),0) FROM uUserList WHERE UserName = '" + objUserList.UserName + "'";
+                clsDataManipulation objclsDataManipulation = new clsDataManipulation();
+                objclsDataManipulation.GetSingleValue(this.ConnectionString, sqlString);
+                return countUserProfileId;
 
             }
             catch (Exception msgException)
@@ -64,5 +90,21 @@ namespace ERPWebApplication.AppClass.DataAccess
         }
 
 
+
+        internal DataTable GetLoginUserInformation(UserList objUserList)
+        {
+            try
+            {
+                DataTable dtInformation = new DataTable();
+                string sqlString = null;
+                return dtInformation;
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
+        }
     }
 }
