@@ -25,6 +25,35 @@ namespace ERPWebApplication.AppClass.DataAccess
                                         objTwoColumnsTableData.FieldDescription + "','" +
                                         objTwoColumnsTableData.EntryUserName + "'";
                 clsDataManipulation.StoredProcedureExecuteNonQuery(connectionString, storedProcedureComandTest);
+                clsDataManipulation.StoredProcedureExecuteNonQuery(connectionString, this.SqlCreateView(objTwoColumnsTableData));
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+
+        }
+
+        private string SqlCreateView(TwoColumnsTableData objTwoColumnsTableData)
+        {
+            try
+            {
+                string sqlForView = null;
+                sqlForView = @" if exists(Select * from sysobjects where name = '" + objTwoColumnsTableData.TableName.Replace(" ", String.Empty) + "' and type = 'V' ) begin drop view " + objTwoColumnsTableData.TableName.Replace(" ", String.Empty) + " end;";
+                sqlForView += " exec('create view " + objTwoColumnsTableData.TableName.Replace(" ", string.Empty) +
+                             @" as   SELECT  CompanyID
+			                ,[FieldOfID]
+			                ,[FieldOfName]
+			                ,FieldDescription
+                            ,[DataUsed]
+                            ,[EntryUserID]
+                            ,[EntryDate]
+                            ,[LastUpdateDate]
+                            ,[LastUpdateUserID]
+                            FROM [TwoColumnsTable] WHERE CompanyID = " + objTwoColumnsTableData.CompanyID + " AND [TableID] = " + objTwoColumnsTableData.TableID + "');";
+                return sqlForView;
 
             }
             catch (Exception msgException)
@@ -63,6 +92,7 @@ namespace ERPWebApplication.AppClass.DataAccess
             {
                 string sqlString = "UPDATE TwoColumnsTable SET DataUsed	= 'I' WHERE FieldOfID = '" + objTwoColumnsTableData.FieldOfID + "'";
                 clsDataManipulation.StoredProcedureExecuteNonQuery(connectionString, sqlString);
+                clsDataManipulation.StoredProcedureExecuteNonQuery(connectionString, this.SqlCreateView(objTwoColumnsTableData));
 
             }
             catch (Exception msgException)
@@ -85,6 +115,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                                         objTwoColumnsTableData.FieldDescription + "','" +
                                         objTwoColumnsTableData.EntryUserName + "'";
                 clsDataManipulation.StoredProcedureExecuteNonQuery(connectionString, storedProcedureComandTest);
+                clsDataManipulation.StoredProcedureExecuteNonQuery(connectionString, this.SqlCreateView(objTwoColumnsTableData));
 
             }
             catch (Exception msgException)
@@ -179,7 +210,7 @@ namespace ERPWebApplication.AppClass.DataAccess
             try
             {
                 TwoColumnsTableData objTwoColumnsTableData = new TwoColumnsTableData();
-                objTwoColumnsTableData.TableID = 25 ;
+                objTwoColumnsTableData.TableID = 25;
                 this.LoadRecordDynamicDDL(ddlRoleType, objTwoColumnsTableData);
 
             }
@@ -188,7 +219,7 @@ namespace ERPWebApplication.AppClass.DataAccess
 
                 throw msgException;
             }
- 
+
         }
     }
 }

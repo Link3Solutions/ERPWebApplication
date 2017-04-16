@@ -77,7 +77,7 @@ namespace ERPWebApplication
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }
@@ -94,10 +94,18 @@ namespace ERPWebApplication
                 _objUserList.UserEmail = txtEmail.Text == string.Empty ? null : txtEmail.Text;
                 _objUserListController = new UserListController();
                 _objUserListController.Save(_objUserList);
+                DataTable dtUserInformation = new DataTable();
+                dtUserInformation = _objUserListController.GetLoginUserInformation(_objUserList);
+                foreach (DataRow rowNo in dtUserInformation.Rows)
+                {
+                    LoginUserInformation.CompanyID = Convert.ToInt32(rowNo["CompanyID"].ToString());
+                    LoginUserInformation.UserID = rowNo["UserProfileID"].ToString();
+                    LoginUserInformation.EmployeeCode = rowNo["EmployeeID"].ToString();
+                }
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }
@@ -106,7 +114,7 @@ namespace ERPWebApplication
         {
             try
             {
-                 
+
                 switch (CheckUserValidation())
                 {
                     case 1:
@@ -142,18 +150,20 @@ namespace ERPWebApplication
                 {
                     LoginUserInformation.UserID = "160ea939-7633-46a8-ae49-f661d12abfd5";
                     LoginUserInformation.CompanyID = 1;
-                    _objUserList.UserType = 1;
+                    LoginUserInformation.EmployeeCode = "ADM";
+                    return _objUserList.UserType = 1;
                 }
 
                 DataTable dtUserInformation = new DataTable();
                 _objUserListController = new UserListController();
                 dtUserInformation = _objUserListController.GetLoginUserInformation(_objUserList);
-                if (dtUserInformation.Rows.Count > 0)
+                foreach (DataRow rowNo in dtUserInformation.Rows)
                 {
-                    LoginUserInformation.CompanyID = 1;
-                    LoginUserInformation.UserID = "";
-                    _objUserList.UserType = 2;
-                    
+                    LoginUserInformation.CompanyID = Convert.ToInt32(rowNo["CompanyID"].ToString());
+                    LoginUserInformation.UserID = rowNo["UserProfileID"].ToString();
+                    LoginUserInformation.EmployeeCode = rowNo["EmployeeID"].ToString();
+                    return _objUserList.UserType = 2;
+
                 }
 
                 return _objUserList.UserType;
@@ -161,7 +171,7 @@ namespace ERPWebApplication
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }

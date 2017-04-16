@@ -140,6 +140,10 @@
                                                     <asp:Label ID="Label2" runat="server" AssociatedControlID="txtSecurityCode">Security Code</asp:Label>
                                                     <asp:TextBox runat="server" ID="txtSecurityCode" />
                                                 </li>
+                                                <li>
+                                                    <asp:Label ID="Label7" runat="server" AssociatedControlID="txtEmail">Email</asp:Label>
+                                                    <asp:TextBox runat="server" ID="txtEmail" TextMode="Email" />
+                                                </li>
                                             </ol>
                                         </td>
                                         <td>&nbsp;</td>

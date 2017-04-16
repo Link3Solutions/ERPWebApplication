@@ -97,6 +97,8 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             try
             {
                 AddValuesForRoleSetup();
+                LoadRoleRecordGrid();
+                LoadRoleRecordList();
                 ClearControl();
                 clsTopMostMessageBox.Show(clsMessages.GProcessSuccess);
 
@@ -158,9 +160,14 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             {
                 if (targetNode.ChildNodes.Count > 0)
                 {
+                    if (targetNode.Checked)
+                    {
+                        listNode.Add(Convert.ToInt32(targetNode.Value.ToString()));
+                    }
                     foreach (TreeNode targetChildNode in targetNode.ChildNodes)
                     {
                         saveNodePermission(targetChildNode);
+                        
                     }
                 }
                 else

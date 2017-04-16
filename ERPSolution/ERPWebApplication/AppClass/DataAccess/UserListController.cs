@@ -96,13 +96,16 @@ namespace ERPWebApplication.AppClass.DataAccess
             try
             {
                 DataTable dtInformation = new DataTable();
-                string sqlString = null;
+                string sqlString = @"SELECT A.UserProfileID,C.CompanyID,C.EmployeeID FROM uUserList A INNER JOIN uUserProfile B ON A.UserProfileID = B.UserProfileID
+                INNER JOIN UserSecurityCode C ON B.SecurityCode = C.SecurityCode
+                WHERE A.UserName = '" + objUserList.UserName + "' AND B.[Password] = '" + objUserList.UserPassword + "'";
+                dtInformation = clsDataManipulation.GetData(this.ConnectionString, sqlString);
                 return dtInformation;
 
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }

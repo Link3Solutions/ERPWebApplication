@@ -172,6 +172,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 _objTwoColumnsTableData.FieldOfName = txtFieldOfName.Text == string.Empty ? null : txtFieldOfName.Text;
                 _objTwoColumnsTableData.FieldDescription = txtFieldDescription.Text == string.Empty ? null : txtFieldDescription.Text;
                 _objTwoColumnsTableData.EntryUserName = Session["entryUserCode"].ToString();
+                _objTwoColumnsTableData.TableName = lblSelectedTableName.Text == string.Empty ? null : lblSelectedTableName.Text;
                 _objTwoColumnsTableDataController = new TwoColumnsTableDataController();
                 if (btnSave.Text == "Save")
                 {
@@ -244,6 +245,9 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 {
                     _objTwoColumnsTableData = new TwoColumnsTableData();
                     _objTwoColumnsTableData.FieldOfID = lblFieldOfID;
+                    _objTwoColumnsTableData.CompanyID = LoginUserInformation.CompanyID;
+                    _objTwoColumnsTableData.TableID = Convert.ToInt32(Session["tableID"].ToString());
+                    _objTwoColumnsTableData.TableName = lblSelectedTableName.Text == string.Empty ? null : lblSelectedTableName.Text;
                     _objTwoColumnsTableDataController = new TwoColumnsTableDataController();
                     _objTwoColumnsTableDataController.Delete(_connectionString,_objTwoColumnsTableData);
                     ShowTwoColumnsTableData();

@@ -216,7 +216,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                 {
                     throw new Exception("Role type is required ");
                 }
-                
+
                 string storedProcedureComandTextNode = null;
                 foreach (var itemNo in objUserPermission.roleList)
                 {
@@ -235,6 +235,26 @@ namespace ERPWebApplication.AppClass.DataAccess
                 {
                     clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandTextNode);
                 }
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal DataTable GetData(EmployeeSetup objEmployeeSetup)
+        {
+            try
+            {
+                string sqlString = @"SELECT DISTINCT D.[NodeTypeID], D.[ActivityName], D.[FormDescription], D.[FormName],D.[PNodeTypeID] FROM uUsersInRoles A
+                INNER JOIN uRoleSetup B ON A.RoleID = B.RoleID AND A.RoleTypeID = B.RoleTypeID
+                INNER JOIN uRoleSetupDetails C ON B.RoleID = C.RoleID
+                INNER JOIN [uDefaultNodeList] D ON C.NodeID = D.NodeTypeID
+                WHERE A.DataUsed = 'A' AND B.DataUsed = 'A' AND C.DataUsed = 'A' AND D.DataUsed = 'A' AND A.CompanyID = " + objEmployeeSetup.CompanyID + " AND A.UserId = '" + objEmployeeSetup.EmployeeID + "'";
+                var dtEntityDetails = clsDataManipulation.GetData(this.ConnectionString, sqlString);
+                return dtEntityDetails;
 
             }
             catch (Exception msgException)

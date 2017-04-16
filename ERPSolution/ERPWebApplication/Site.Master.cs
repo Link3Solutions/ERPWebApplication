@@ -9,6 +9,7 @@ using ERPWebApplication.AppClass.CommonClass;
 using System.Data;
 using System.IO;
 using ERPWebApplication.AppClass.DataAccess;
+using ERPWebApplication.AppClass.Model;
 
 namespace ERPWebApplication
 {
@@ -91,7 +92,19 @@ namespace ERPWebApplication
             {
                 DataTable table = new DataTable();
                 _objUserPermissionController = new UserPermissionController();
-                table = _objUserPermissionController.GetData();
+                if (LoginUserInformation.UserID == "160ea939-7633-46a8-ae49-f661d12abfd5")
+                {
+                    table = _objUserPermissionController.GetData();
+                }
+                else
+                {
+                    EmployeeSetup objEmployeeSetup = new EmployeeSetup();
+                    objEmployeeSetup.CompanyID = LoginUserInformation.CompanyID;
+                    objEmployeeSetup.EmployeeID = LoginUserInformation.EmployeeCode;
+                    table = _objUserPermissionController.GetData(objEmployeeSetup);
+                    
+                }
+                
                 DataView view = new DataView(table);
                 view.RowFilter = "PNodeTypeID = 111";
                 foreach (DataRowView row in view)

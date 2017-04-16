@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="User Permission" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="UserPermissionForm.aspx.cs" Inherits="ERPWebApplication.ModuleName.Organization.MasterPage.UserPermissionForm" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -7,21 +8,21 @@
             <table style="width: 100%;">
                 <tr>
                     <td>
-                        <ajaxToolkit:TabContainer ID="TabContainerUserPermission" runat="server" Width="100%" Height="100%" ActiveTabIndex="1">
+                        <ajaxToolkit:TabContainer ID="TabContainerUserPermission" runat="server" Width="100%" Height="100%" ActiveTabIndex="0">
                             <ajaxToolkit:TabPanel ID="TabPanelRoleSetup" runat="server" HeaderText="Role Setup">
                                 <ContentTemplate>
-                                    <table style="width:100%;">
+                                    <table style="width: 100%;">
                                         <tr>
                                             <td style="text-align: left; float: left; width: 500px">
-                                                <div style="overflow:auto; height:450px;">
-                                                <asp:TreeView ID="TreeViewAllNode" runat="server" OnTreeNodePopulate="TreeViewAllNode_TreeNodePopulate" ShowCheckBoxes="All" NodeIndent="50" ShowExpandCollapse="False">
-                                                    <ParentNodeStyle Font-Bold="True" />
-                                                    <RootNodeStyle Font-Bold="True" />
-                                                </asp:TreeView>
-                                                    </div>
+                                                <div style="overflow: auto; height: 450px;">
+                                                    <asp:TreeView ID="TreeViewAllNode" runat="server" OnTreeNodePopulate="TreeViewAllNode_TreeNodePopulate" ShowCheckBoxes="All" NodeIndent="50" ShowExpandCollapse="False">
+                                                        <ParentNodeStyle Font-Bold="True" />
+                                                        <RootNodeStyle Font-Bold="True" />
+                                                    </asp:TreeView>
+                                                </div>
                                             </td>
                                             <td style="text-align: left; float: left; width: 435px">
-                                                <table style="width:100%;">
+                                                <table style="width: 100%;">
                                                     <tr>
                                                         <td colspan="3">
                                                             <div style="position: fixed; width: 425px; background-color: #00817F; height: 50px">
@@ -34,7 +35,7 @@
                                                                         <td>&nbsp;</td>
                                                                     </tr>
                                                                 </table>
-                                                                </div>
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -48,11 +49,9 @@
                                                         <td>&nbsp;</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>
-                                                            &nbsp;</td>
                                                         <td>&nbsp;</td>
-                                                        <td>
-                                                            &nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
                                                     </tr>
                                                     <tr>
                                                         <td>
@@ -80,8 +79,25 @@
                                                     </tr>
                                                     <tr>
                                                         <td colspan="3">
-                                                            <asp:GridView ID="GridViewRoles" runat="server" Width="100%">
+                                                            <asp:GridView ID="GridViewRoles" runat="server" Width="100%" AutoGenerateColumns="False" OnRowDataBound="GridViewRoles_RowDataBound">
                                                                 <Columns>
+                                                                    <asp:TemplateField HeaderText="SL">
+                                                                        <ItemTemplate>
+                                                                            <%# Container.DisplayIndex + 1 %>
+                                                                        </ItemTemplate>
+                                                                        <HeaderStyle HorizontalAlign="Center" />
+                                                                        <ItemStyle HorizontalAlign="Left" />
+                                                                    </asp:TemplateField>
+                                                                    <asp:TemplateField HeaderText="Role ID">
+                                                                        <ItemTemplate>
+                                                                            <asp:Label ID="Label6" runat="server" Text='<%# Bind("RoleID") %>'></asp:Label>
+                                                                        </ItemTemplate>
+                                                                    </asp:TemplateField>
+                                                                    <asp:TemplateField HeaderText="Role Name">
+                                                                        <ItemTemplate>
+                                                                            <asp:Label ID="Label7" runat="server" Text='<%# Bind("RoleName") %>'></asp:Label>
+                                                                        </ItemTemplate>
+                                                                    </asp:TemplateField>
                                                                     <asp:CommandField ShowSelectButton="True" />
                                                                 </Columns>
                                                             </asp:GridView>
