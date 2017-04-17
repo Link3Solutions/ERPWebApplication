@@ -1144,6 +1144,7 @@
     <Compile Include="AppClass\DataAccess\UserListController.cs" />
     <Compile Include="AppClass\DataAccess\UserPermissionController.cs" />
     <Compile Include="AppClass\DataAccess\UserSecurityCodeController.cs" />
+    <Compile Include="AppClass\DataAccess\VehicleInformationController.cs" />
     <Compile Include="AppClass\Model\BranchSetup.cs" />
     <Compile Include="AppClass\Model\BusinessType.cs" />
     <Compile Include="AppClass\Model\ClsCompanySetup.cs" />
