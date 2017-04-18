@@ -139,6 +139,15 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage {
         protected global::System.Web.UI.WebControls.TextBox txtUserCode;
         
         /// <summary>
+        /// txtUserCode_AutoCompleteExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.AutoCompleteExtender txtUserCode_AutoCompleteExtender;
+        
+        /// <summary>
         /// btnSave control.
         /// </summary>
         /// <remarks>

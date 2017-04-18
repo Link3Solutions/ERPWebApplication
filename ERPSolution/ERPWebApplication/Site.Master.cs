@@ -73,15 +73,24 @@ namespace ERPWebApplication
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            try
             {
-                GetMenuData();
-                if (Page.Title == "Home Page")
+                if (!Page.IsPostBack)
                 {
-                    NavigationMenu.Visible = false;
-                    
+                    GetMenuData();
+                    if (Page.Title == "Home Page")
+                    {
+                        NavigationMenu.Visible = false;
+
+                    }
+
                 }
-                
+
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
             }
 
         }

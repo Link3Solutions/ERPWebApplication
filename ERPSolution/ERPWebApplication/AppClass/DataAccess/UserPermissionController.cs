@@ -263,5 +263,42 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
         }
+
+        internal void GetUserRoleRecord(EmployeeSetup objEmployeeSetup, UserPermission objUserPermission, ListBox targetListBox)
+        {
+            try
+            {
+                ClsListBoxController.LoadListBox(this.ConnectionString, this.SQLGetUserRoleRecord(objEmployeeSetup, objUserPermission), targetListBox, "RoleName", "RoleID");
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        private string SQLGetUserRoleRecord(EmployeeSetup objEmployeeSetup, UserPermission objUserPermission)
+        {
+            try
+            {
+                string sqlString = @"  SELECT A.RoleID,B.RoleName FROM uUsersInRoles A INNER JOIN uRoleSetup B ON A.RoleID = B.RoleID 
+                WHERE A.CompanyID = " + objEmployeeSetup.CompanyID + " AND A.UserId = '" + objEmployeeSetup.EmployeeID + "'";
+                if (objUserPermission.RoleType != "-1")
+                {
+                    sqlString += " AND A.[RoleTypeID] = '" + objUserPermission.RoleType + "'";
+
+                }
+
+                sqlString += "  ORDER BY B.RoleName";
+                return sqlString;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
     }
 }

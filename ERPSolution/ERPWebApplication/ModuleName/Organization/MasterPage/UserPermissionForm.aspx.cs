@@ -28,6 +28,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                     _objUserPermissionController.LoadRoleTypeData(ddlRoleTypeUser);
                     LoadRoleRecordGrid();
                     LoadRoleRecordList();
+                    txtUserCode_AutoCompleteExtender.ContextKey = LoginUserInformation.CompanyID.ToString();
 
                 }
 
@@ -56,6 +57,25 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             {
                 
                 throw msgException; 
+            }
+        }
+        private void LoadUserRoleRecord()
+        {
+            try
+            {
+                EmployeeSetup objEmployeeSetup = new EmployeeSetup();
+                objEmployeeSetup.CompanyID = LoginUserInformation.CompanyID;
+                objEmployeeSetup.EmployeeID = txtUserCode.Text == string.Empty ? null : txtUserCode.Text;
+                _objUserPermission = new UserPermission();
+                _objUserPermission.RoleType = ddlRoleTypeUser.SelectedValue;
+                _objUserPermissionController = new UserPermissionController();
+                _objUserPermissionController.GetUserRoleRecord(objEmployeeSetup, _objUserPermission, ListBoxSelectedRoles);
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
             }
         }
 
@@ -204,6 +224,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             try
             {
                 this.LoadRoleRecordList();
+                this.LoadUserRoleRecord();
 
             }
             catch (Exception msgException)
@@ -373,6 +394,20 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
         protected void GridViewRoles_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             e.Row.Cells[1].Visible = false;
+        }
+
+        protected void txtUserCode_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                this.LoadUserRoleRecord();
+
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
         }
     }
 }

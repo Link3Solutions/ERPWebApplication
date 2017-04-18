@@ -8,7 +8,7 @@
             <table style="width: 100%;">
                 <tr>
                     <td>
-                        <ajaxToolkit:TabContainer ID="TabContainerUserPermission" runat="server" Width="100%" Height="100%" ActiveTabIndex="0">
+                        <ajaxToolkit:TabContainer ID="TabContainerUserPermission" runat="server" Width="100%" Height="100%" ActiveTabIndex="1">
                             <ajaxToolkit:TabPanel ID="TabPanelRoleSetup" runat="server" HeaderText="Role Setup">
                                 <ContentTemplate>
                                     <table style="width: 100%;">
@@ -123,7 +123,14 @@
                                             </td>
                                             <td>:</td>
                                             <td>
-                                                <asp:TextBox ID="txtUserCode" runat="server"></asp:TextBox>
+                                                <asp:TextBox ID="txtUserCode" runat="server" AutoPostBack="True" OnTextChanged="txtUserCode_TextChanged"></asp:TextBox>
+                                                <ajaxToolkit:AutoCompleteExtender ID="txtUserCode_AutoCompleteExtender" runat="server"
+                                        CompletionListCssClass="autocomplete_completionListElement"
+                                        CompletionListHighlightedItemCssClass="autocomplete_highlightedListItem"
+                                        CompletionListItemCssClass="autocomplete_listItem2"
+                                        DelimiterCharacters=""
+                                        MinimumPrefixLength="1" ServiceMethod="GetEmpId" ServicePath="~/WebService/ServiceSystem.asmx" TargetControlID="txtUserCode" BehaviorID="_content_txtUserCode_AutoCompleteExtender">
+                                    </ajaxToolkit:AutoCompleteExtender>
                                             </td>
                                             <td rowspan="3" style="text-align: right; float: right; width: 435px">
                                                 <div style="position: fixed; width: 425px; background-color: #00817F; height: 50px">
