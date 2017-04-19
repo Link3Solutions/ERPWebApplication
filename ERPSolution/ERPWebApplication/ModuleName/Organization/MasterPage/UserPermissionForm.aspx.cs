@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using ERPWebApplication.AppClass.CommonClass;
 using ERPWebApplication.AppClass.DataAccess;
 using ERPWebApplication.AppClass.Model;
+using System.Data;
 
 
 namespace ERPWebApplication.ModuleName.Organization.MasterPage
@@ -70,6 +71,15 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 _objUserPermission.RoleType = ddlRoleTypeUser.SelectedValue;
                 _objUserPermissionController = new UserPermissionController();
                 _objUserPermissionController.GetUserRoleRecord(objEmployeeSetup, _objUserPermission, ListBoxSelectedRoles);
+                if (ListBoxSelectedRoles.Items.Count > 0)
+                {
+                    btnSave.Text = "Update";
+                    
+                }
+                else
+                {
+                    btnSave.Text = "Save";
+                }
 
             }
             catch (Exception msgException)
@@ -136,6 +146,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             {
                 ddlRoleType.SelectedValue = "-1";
                 txtRoleTitle.Text = string.Empty;
+                btnRoleSave.Text = "Save";
                 
 
             }
@@ -229,8 +240,8 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             }
             catch (Exception msgException)
             {
-                
-                throw msgException;
+
+                clsTopMostMessageBox.Show(msgException.Message);
             }
         }
 
@@ -341,6 +352,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 txtUserCode.Text = string.Empty;
                 ddlRoleTypeUser.SelectedValue = "-1";
                 ListBoxSelectedRoles.Items.Clear();
+                btnSave.Text = "Save";
 
             }
             catch (Exception msgException)
@@ -367,7 +379,15 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 objEmployeeSetup.CompanyID = LoginUserInformation.CompanyID;
                 objEmployeeSetup.EntryUserName = LoginUserInformation.UserID;
                 _objUserPermissionController = new UserPermissionController();
-                _objUserPermissionController.SaveUserRole(objEmployeeSetup,_objUserPermission);
+                if (btnSave.Text == "Save")
+                {
+                    _objUserPermissionController.SaveUserRole(objEmployeeSetup, _objUserPermission);
+                }
+                else
+                {
+                    _objUserPermissionController.UpdateUserRole(objEmployeeSetup,_objUserPermission);
+                }
+                
 
             }
             catch (Exception msgException)
@@ -394,6 +414,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
         protected void GridViewRoles_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             e.Row.Cells[1].Visible = false;
+            e.Row.Cells[3].Visible = false;
         }
 
         protected void txtUserCode_TextChanged(object sender, EventArgs e)
@@ -401,6 +422,108 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             try
             {
                 this.LoadUserRoleRecord();
+
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        protected void GridViewRoles_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            try
+            {
+                int selectedIndex = Convert.ToInt32(e.CommandArgument.ToString());
+                string lblRoleID = ((Label)GridViewRoles.Rows[selectedIndex].FindControl("lblRoleID")).Text;
+                if (e.CommandName.Equals("Select"))
+                {
+                    string lblRoleName = ((Label)GridViewRoles.Rows[selectedIndex].FindControl("lblRoleName")).Text;
+                    string lblRoleTypeID = ((Label)GridViewRoles.Rows[selectedIndex].FindControl("lblRoleTypeID")).Text;
+                    
+                    ddlRoleType.SelectedValue = lblRoleTypeID;
+                    txtRoleTitle.Text = lblRoleName;
+                    btnRoleSave.Text = "Update";
+                    Session["selectedRoleID"] = lblRoleID;
+                    ShowNodesOfRole();
+                    
+                }
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        private void ShowNodesOfRole()
+        {
+            try
+            {
+                _objUserPermission = new UserPermission();
+                _objUserPermission.RoleID = Convert.ToInt32( Session["selectedRoleID"].ToString());
+                _objCompanySetup = new CompanySetup();
+                _objCompanySetup.CompanyID = LoginUserInformation.CompanyID;
+                _objUserPermissionController = new UserPermissionController();
+                DataTable dtNodes = _objUserPermissionController.GetNodesOfRole(_objCompanySetup,_objUserPermission);
+                while (TreeViewAllNode.CheckedNodes.Count > 0)
+                {
+                    TreeViewAllNode.CheckedNodes[0].Checked = false;
+                }
+
+                foreach (DataRow rowNo in dtNodes.Rows)
+                {
+                    foreach (TreeNode nodeNumber in this.TreeViewAllNode.Nodes)
+                    {
+                        ShowNodeInRole(nodeNumber, rowNo["NodeID"].ToString());
+                    }
+                    
+                }
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
+        }
+
+        
+        private void ShowNodeInRole(TreeNode targetNode,string nodeValue)
+        {
+            try
+            {
+                if (nodeValue == targetNode.Value)
+                {
+                    targetNode.Checked = true;
+
+                }
+
+                foreach (TreeNode targetChildNode in targetNode.ChildNodes)
+                {
+                    if (nodeValue == targetChildNode.Value)
+                    {
+                        targetChildNode.Checked = true;
+                        
+                    }
+                    
+                    ShowNodeInRole(targetChildNode,nodeValue);
+
+                }
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        protected void btnRoleClear_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.ClearControl();
 
             }
             catch (Exception msgException)

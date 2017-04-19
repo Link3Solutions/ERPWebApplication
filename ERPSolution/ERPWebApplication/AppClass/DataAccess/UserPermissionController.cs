@@ -190,7 +190,8 @@ namespace ERPWebApplication.AppClass.DataAccess
         {
             string sqlString = @"  SELECT 
               [RoleID]      
-              ,[RoleName]            
+              ,[RoleName]
+              ,[RoleTypeID]
           FROM [uRoleSetup] WHERE [DataUsed] = 'A' AND [CompanyID] = " + objCompanySetup.CompanyID + "";
             if (objUserPermission.RoleType != "-1")
             {
@@ -283,7 +284,7 @@ namespace ERPWebApplication.AppClass.DataAccess
             try
             {
                 string sqlString = @"  SELECT A.RoleID,B.RoleName FROM uUsersInRoles A INNER JOIN uRoleSetup B ON A.RoleID = B.RoleID 
-                WHERE A.CompanyID = " + objEmployeeSetup.CompanyID + " AND A.UserId = '" + objEmployeeSetup.EmployeeID + "'";
+                WHERE A.[DataUsed] = 'A' AND A.CompanyID = " + objEmployeeSetup.CompanyID + " AND A.UserId = '" + objEmployeeSetup.EmployeeID + "'";
                 if (objUserPermission.RoleType != "-1")
                 {
                     sqlString += " AND A.[RoleTypeID] = '" + objUserPermission.RoleType + "'";
@@ -292,6 +293,53 @@ namespace ERPWebApplication.AppClass.DataAccess
 
                 sqlString += "  ORDER BY B.RoleName";
                 return sqlString;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal void UpdateUserRole(EmployeeSetup objEmployeeSetup, UserPermission objUserPermission)
+        {
+            try
+            {
+                if (objEmployeeSetup.EmployeeID == null)
+                {
+                    throw new Exception("User code is required ");
+
+                }
+
+                if (objUserPermission.RoleType == null)
+                {
+                    throw new Exception("Role type is required ");
+                }
+
+                string storedProcedureComandTextNode = @" UPDATE [uUsersInRoles] SET [DataUsed] = 'I' ,[LastUpdateDate] = CAST(GETDATE() AS DateTime)
+                  ,[LastUpdateUserID] = '" + objEmployeeSetup.EntryUserName + "'" +
+                                           " WHERE [CompanyID] = " + objEmployeeSetup.CompanyID + " AND [UserId] = '" + objEmployeeSetup.EmployeeID + "'" +
+                                           " AND [RoleTypeID] = '" + objUserPermission.RoleType + "'";
+                clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandTextNode);
+                this.SaveUserRole(objEmployeeSetup, objUserPermission);
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal DataTable GetNodesOfRole(CompanySetup objCompanySetup, UserPermission objUserPermission)
+        {
+            try
+            {
+                DataTable dtNodes = new DataTable();
+                string sqlString = @"SELECT DISTINCT A.NodeID FROM uRoleSetupDetails A INNER JOIN uRoleSetup B ON A.RoleID = B.RoleID
+                                    WHERE A.DataUsed = 'A' AND B.DataUsed = 'A' AND A.RoleID = " + objUserPermission.RoleID + " AND B.CompanyID = " + objCompanySetup.CompanyID + " ORDER BY A.NodeID";
+                dtNodes = clsDataManipulation.GetData(this.ConnectionString, sqlString);
+                return dtNodes;
 
             }
             catch (Exception msgException)

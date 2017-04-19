@@ -8,7 +8,7 @@
             <table style="width: 100%;">
                 <tr>
                     <td>
-                        <ajaxToolkit:TabContainer ID="TabContainerUserPermission" runat="server" Width="100%" Height="100%" ActiveTabIndex="1">
+                        <ajaxToolkit:TabContainer ID="TabContainerUserPermission" runat="server" Width="100%" Height="100%" ActiveTabIndex="0">
                             <ajaxToolkit:TabPanel ID="TabPanelRoleSetup" runat="server" HeaderText="Role Setup">
                                 <ContentTemplate>
                                     <table style="width: 100%;">
@@ -31,7 +31,7 @@
                                                                         <td>
                                                                             <asp:Button ID="btnRoleSave" runat="server" Width="100px" Text="Save" OnClick="btnRoleSave_Click" /></td>
                                                                         <td>
-                                                                            <asp:Button ID="btnRoleClear" runat="server" Width="100px" Text="Clear" /></td>
+                                                                            <asp:Button ID="btnRoleClear" runat="server" Width="100px" Text="Clear" OnClick="btnRoleClear_Click" /></td>
                                                                         <td>&nbsp;</td>
                                                                     </tr>
                                                                 </table>
@@ -79,7 +79,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td colspan="3">
-                                                            <asp:GridView ID="GridViewRoles" runat="server" Width="100%" AutoGenerateColumns="False" OnRowDataBound="GridViewRoles_RowDataBound">
+                                                            <asp:GridView ID="GridViewRoles" runat="server" Width="100%" AutoGenerateColumns="False" OnRowDataBound="GridViewRoles_RowDataBound" OnRowCommand="GridViewRoles_RowCommand">
                                                                 <Columns>
                                                                     <asp:TemplateField HeaderText="SL">
                                                                         <ItemTemplate>
@@ -90,12 +90,17 @@
                                                                     </asp:TemplateField>
                                                                     <asp:TemplateField HeaderText="Role ID">
                                                                         <ItemTemplate>
-                                                                            <asp:Label ID="Label6" runat="server" Text='<%# Bind("RoleID") %>'></asp:Label>
+                                                                            <asp:Label ID="lblRoleID" runat="server" Text='<%# Bind("RoleID") %>'></asp:Label>
                                                                         </ItemTemplate>
                                                                     </asp:TemplateField>
                                                                     <asp:TemplateField HeaderText="Role Name">
                                                                         <ItemTemplate>
-                                                                            <asp:Label ID="Label7" runat="server" Text='<%# Bind("RoleName") %>'></asp:Label>
+                                                                            <asp:Label ID="lblRoleName" runat="server" Text='<%# Bind("RoleName") %>'></asp:Label>
+                                                                        </ItemTemplate>
+                                                                    </asp:TemplateField>
+                                                                    <asp:TemplateField HeaderText="Role Type ID">
+                                                                        <ItemTemplate>
+                                                                            <asp:Label ID="lblRoleTypeID" runat="server" Text='<%# Bind("RoleTypeID") %>'></asp:Label>
                                                                         </ItemTemplate>
                                                                     </asp:TemplateField>
                                                                     <asp:CommandField ShowSelectButton="True" />
