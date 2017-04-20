@@ -348,5 +348,35 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
         }
+
+        internal void UpdateRoleData(CompanySetup objCompanySetup, UserPermission objUserPermission)
+        {
+            try
+            {
+                string sqlForUpdate = @"UPDATE [uRoleSetup] SET [RoleName] = '" + objUserPermission.RoleName + "',[LastUpdateDate] = CAST(GETDATE() AS DateTime)," +
+                                "[LastUpdateUserID] = '" + objCompanySetup.EntryUserName + "' WHERE [CompanyID] = " + objCompanySetup.CompanyID + " AND " +
+                                " [RoleID] = 1 AND [RoleTypeID] = '" + objUserPermission.RoleType + "'; " +
+                                 " DELETE FROM uRoleSetupDetails WHERE RoleID = " + objUserPermission.RoleID + "";
+                clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, sqlForUpdate);
+
+                foreach (var itemNo in objUserPermission.nodeList)
+                {
+                    objUserPermission.NodeID = Convert.ToInt32(itemNo.ToString());
+                    var storedProcedureComandTextNode = "INSERT INTO [uRoleSetupDetails] ([RoleID],[NodeID],[DataUsed],[EntryUserID],[EntryDate]) VALUES ( " +
+                                                 objUserPermission.RoleID + "," +
+                                                 objUserPermission.NodeID + ",'" +
+                                                 "A" + "', '" +
+                                                 objCompanySetup.EntryUserName + "'," +
+                                                 "CAST(GETDATE() AS DateTime));";
+                    clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandTextNode);
+                }
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
     }
 }

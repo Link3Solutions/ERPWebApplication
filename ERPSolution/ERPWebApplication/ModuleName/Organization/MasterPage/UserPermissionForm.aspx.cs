@@ -147,8 +147,11 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 ddlRoleType.SelectedValue = "-1";
                 txtRoleTitle.Text = string.Empty;
                 btnRoleSave.Text = "Save";
-                
-
+                ddlRoleType.Enabled = true;
+                while (TreeViewAllNode.CheckedNodes.Count > 0)
+                {
+                    TreeViewAllNode.CheckedNodes[0].Checked = false;
+                }
             }
             catch (Exception msgException)
             {
@@ -176,7 +179,17 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 
                 _objUserPermission.RoleType = ddlRoleType.SelectedValue == "-1" ? null : ddlRoleType.SelectedValue;
                 _objUserPermissionController = new UserPermissionController();
-                _objUserPermissionController.SaveRoleData(_objCompanySetup,_objUserPermission);
+                if (btnRoleSave.Text == "Save")
+                {
+                    _objUserPermissionController.SaveRoleData(_objCompanySetup, _objUserPermission);
+                    
+                }
+                else
+                {
+                    _objUserPermission.RoleID = Convert.ToInt32(Session["selectedRoleID"].ToString());
+                    _objUserPermissionController.UpdateRoleData(_objCompanySetup,_objUserPermission);
+                }
+                
             }
             catch (Exception msgException)
             {
@@ -447,6 +460,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                     btnRoleSave.Text = "Update";
                     Session["selectedRoleID"] = lblRoleID;
                     ShowNodesOfRole();
+                    ddlRoleType.Enabled = false;
                     
                 }
             }
