@@ -31,7 +31,7 @@
                                                                         <td>
                                                                             <asp:Button ID="btnRoleSave" runat="server" Width="100px" Text="Save" OnClick="btnRoleSave_Click" /></td>
                                                                         <td>
-                                                                            <asp:Button ID="btnRoleClear" runat="server" Width="100px" Text="Clear" /></td>
+                                                                            <asp:Button ID="btnRoleClear" runat="server" Width="100px" Text="Clear" OnClick="btnRoleClear_Click" /></td>
                                                                         <td>&nbsp;</td>
                                                                     </tr>
                                                                 </table>
@@ -79,7 +79,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td colspan="3">
-                                                            <asp:GridView ID="GridViewRoles" runat="server" Width="100%" AutoGenerateColumns="False" OnRowDataBound="GridViewRoles_RowDataBound">
+                                                            <asp:GridView ID="GridViewRoles" runat="server" Width="100%" AutoGenerateColumns="False" OnRowDataBound="GridViewRoles_RowDataBound" OnRowCommand="GridViewRoles_RowCommand">
                                                                 <Columns>
                                                                     <asp:TemplateField HeaderText="SL">
                                                                         <ItemTemplate>
@@ -90,12 +90,17 @@
                                                                     </asp:TemplateField>
                                                                     <asp:TemplateField HeaderText="Role ID">
                                                                         <ItemTemplate>
-                                                                            <asp:Label ID="Label6" runat="server" Text='<%# Bind("RoleID") %>'></asp:Label>
+                                                                            <asp:Label ID="lblRoleID" runat="server" Text='<%# Bind("RoleID") %>'></asp:Label>
                                                                         </ItemTemplate>
                                                                     </asp:TemplateField>
                                                                     <asp:TemplateField HeaderText="Role Name">
                                                                         <ItemTemplate>
-                                                                            <asp:Label ID="Label7" runat="server" Text='<%# Bind("RoleName") %>'></asp:Label>
+                                                                            <asp:Label ID="lblRoleName" runat="server" Text='<%# Bind("RoleName") %>'></asp:Label>
+                                                                        </ItemTemplate>
+                                                                    </asp:TemplateField>
+                                                                    <asp:TemplateField HeaderText="Role Type ID">
+                                                                        <ItemTemplate>
+                                                                            <asp:Label ID="lblRoleTypeID" runat="server" Text='<%# Bind("RoleTypeID") %>'></asp:Label>
                                                                         </ItemTemplate>
                                                                     </asp:TemplateField>
                                                                     <asp:CommandField ShowSelectButton="True" />
@@ -123,7 +128,14 @@
                                             </td>
                                             <td>:</td>
                                             <td>
-                                                <asp:TextBox ID="txtUserCode" runat="server"></asp:TextBox>
+                                                <asp:TextBox ID="txtUserCode" runat="server" AutoPostBack="True" OnTextChanged="txtUserCode_TextChanged"></asp:TextBox>
+                                                <ajaxToolkit:AutoCompleteExtender ID="txtUserCode_AutoCompleteExtender" runat="server"
+                                        CompletionListCssClass="autocomplete_completionListElement"
+                                        CompletionListHighlightedItemCssClass="autocomplete_highlightedListItem"
+                                        CompletionListItemCssClass="autocomplete_listItem2"
+                                        DelimiterCharacters=""
+                                        MinimumPrefixLength="1" ServiceMethod="GetEmpId" ServicePath="~/WebService/ServiceSystem.asmx" TargetControlID="txtUserCode" BehaviorID="_content_txtUserCode_AutoCompleteExtender">
+                                    </ajaxToolkit:AutoCompleteExtender>
                                             </td>
                                             <td rowspan="3" style="text-align: right; float: right; width: 435px">
                                                 <div style="position: fixed; width: 425px; background-color: #00817F; height: 50px">

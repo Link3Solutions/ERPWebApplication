@@ -1158,6 +1158,7 @@
     <Compile Include="AppClass\Model\CompanySetup.cs" />
     <Compile Include="AppClass\Model\CountryDetailsSetup.cs" />
     <Compile Include="AppClass\Model\CountrySetup.cs" />
+    <Compile Include="AppClass\Model\DepartmentSetup.cs" />
     <Compile Include="AppClass\Model\DesignationSetup.cs" />
     <Compile Include="AppClass\Model\DistrictSetup.cs" />
     <Compile Include="AppClass\Model\EmployeeCategorySetup.cs" />
@@ -1175,6 +1176,7 @@
     <Compile Include="AppClass\Model\OwnershipType.cs" />
     <Compile Include="AppClass\Model\RequisitionDetail.cs" />
     <Compile Include="AppClass\Model\RequisitionHeader.cs" />
+    <Compile Include="AppClass\Model\SectionSetup.cs" />
     <Compile Include="AppClass\Model\TwoColumnsTableData.cs" />
     <Compile Include="AppClass\Model\TwoColumnsTableDataAuto.cs" />
     <Compile Include="AppClass\Model\TwoColumnTables.cs" />

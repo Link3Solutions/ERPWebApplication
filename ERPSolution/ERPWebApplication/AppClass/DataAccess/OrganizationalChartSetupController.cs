@@ -521,7 +521,7 @@ namespace ERPWebApplication.AppClass.DataAccess
             {
                 var storedProcedureComandText = @"UPDATE [orgOrganizationalChartSetup]
                                                    SET [EntityName] = '" + objOrganizationalChartSetup.EntityName + "'," +
-                                                                         "[DataUsed] = 'A' ,"+
+                                                                         "[DataUsed] = 'A' ," +
                                                       "[LastUpdateDate] = CAST(GETDATE() AS DateTime) " +
                                                       ",[LastUpdateUserID] = '" + objOrganizationalChartSetup.EntryUserName + "'" +
                                                  " WHERE [EntityID] = " + objOrganizationalChartSetup.EntityID + ";";
@@ -628,5 +628,82 @@ namespace ERPWebApplication.AppClass.DataAccess
             }
 
         }
+        TwoColumnsTableData _objTwoColumnsTableData = new TwoColumnsTableData();
+        internal void LoadDepartmentDDL(DropDownList givenDDLID, BranchSetup objBranchSetup)
+        {
+            try
+            {
+                _objTwoColumnsTableData.TableName = "[orgDepartment]";
+                SectionSetup objSectionSetup = new SectionSetup();
+                objSectionSetup.CompanyID = objBranchSetup.CompanyID;
+                ClsDropDownListController.LoadDropDownList(this.ConnectionString, this.SqlOrgDepartment(objSectionSetup), givenDDLID, "EntityName", "EntityID");
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+        internal void LoadBranchDDL(DropDownList givenDDLID, CompanySetup objCompanySetup)
+        {
+            try
+            {
+                _objTwoColumnsTableData.TableName = "[orgBranch]";
+                SectionSetup objSectionSetup = new SectionSetup();
+                objSectionSetup.CompanyID = objCompanySetup.CompanyID;
+                ClsDropDownListController.LoadDropDownList(this.ConnectionString, this.SqlOrgDepartment(objSectionSetup), givenDDLID, "EntityName", "EntityID");
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+
+        }
+        internal void LoadSectionDDL(DropDownList givenDDLID, DepartmentSetup objDepartmentSetup)
+        {
+            try
+            {
+                _objTwoColumnsTableData.TableName = "[orgSection]";
+                SectionSetup objSectionSetup = new SectionSetup();
+                objSectionSetup.CompanyID = objDepartmentSetup.CompanyID;
+                ClsDropDownListController.LoadDropDownList(this.ConnectionString, this.SqlOrgDepartment(objSectionSetup), givenDDLID, "EntityName", "EntityID");
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+
+        }
+
+        private string SqlOrgDepartment(SectionSetup objSectionSetup)
+        {
+            try
+            {
+                string sqlString = null;
+                sqlString = @"SELECT [EntityID]
+                          ,[EntityName]
+                      FROM " + _objTwoColumnsTableData.TableName + " WHERE DataUsed = 'A' AND CompanyID = " + objSectionSetup.CompanyID + "";
+                if (objSectionSetup.BranchID != 0 || objSectionSetup.BranchID != null)
+                {
+                    sqlString += " AND ParentEntityID = " + objSectionSetup.BranchID + "";
+
+                }
+
+                sqlString += " ORDER BY EntityName  ";
+                return sqlString;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
     }
 }
