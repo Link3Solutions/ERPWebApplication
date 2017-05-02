@@ -43,5 +43,7 @@ namespace ERPWebApplication.AppClass.Model
         }
         public List<int> nodeList;
         public List<int> roleList;
+
+        public List<int> RelatedUserRoleList { get; set; }
     }
 }

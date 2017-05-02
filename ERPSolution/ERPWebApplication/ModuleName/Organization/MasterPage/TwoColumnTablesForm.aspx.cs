@@ -19,11 +19,23 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
         private TwoColumnTablesController _objTwoColumnTablesController;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            try
             {
-                Session["entryUserCode"] = "ADM";
-                ShowRecord();
+                if (!Page.IsPostBack)
+                {
+                    Session["entryUserCode"] = "ADM";
+                    ShowRecord();
+                    CompanySetup objCompanySetup = new CompanySetup();
+                    objCompanySetup.CompanyID = LoginUserInformation.CompanyID;
+                    _objTwoColumnTablesController.LoadRelatedUserRoleDDL(ddlRelatedUserRoleID, objCompanySetup);
 
+                }
+
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
             }
 
         }

@@ -234,6 +234,19 @@ namespace ERPWebApplication.AppClass.DataAccess
 
                 if (storedProcedureComandTextNode != null)
                 {
+                    foreach (var itemNo in objUserPermission.RelatedUserRoleList)
+                    {
+                        TwoColumnTables objTwoColumnTables = new TwoColumnTables();
+                        objTwoColumnTables.RelatedUserRoleID = itemNo;
+                        storedProcedureComandTextNode += @"INSERT INTO [uUsersInRelatedRoles] ([CompanyID],[UserId],[RoleID],[DataUsed],[EntryUserID],[EntryDate]) VALUES(" +
+                        objEmployeeSetup.CompanyID + ",'" +
+                        objEmployeeSetup.EmployeeID + "'," +
+                        objTwoColumnTables.RelatedUserRoleID + ",'" +
+                        "A" + "','" +
+                        objEmployeeSetup.EntryUserName + "'," +
+                        "CAST(GETDATE() AS DateTime)" + ");";
+                    }
+
                     clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandTextNode);
                 }
 
@@ -321,6 +334,9 @@ namespace ERPWebApplication.AppClass.DataAccess
                   ,[LastUpdateUserID] = '" + objEmployeeSetup.EntryUserName + "'" +
                                            " WHERE [CompanyID] = " + objEmployeeSetup.CompanyID + " AND [UserId] = '" + objEmployeeSetup.EmployeeID + "'" +
                                            " AND [RoleTypeID] = '" + objUserPermission.RoleType + "'";
+                storedProcedureComandTextNode += @"; UPDATE [uUsersInRelatedRoles] SET [DataUsed] = 'I' ,[LastUpdateDate] = CAST(GETDATE() AS DateTime)
+                  ,[LastUpdateUserID] = '" + objEmployeeSetup.EntryUserName + "'" +
+                                           " WHERE [CompanyID] = " + objEmployeeSetup.CompanyID + " AND [UserId] = '" + objEmployeeSetup.EmployeeID + "'";
                 clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandTextNode);
                 this.SaveUserRole(objEmployeeSetup, objUserPermission);
             }
@@ -370,6 +386,53 @@ namespace ERPWebApplication.AppClass.DataAccess
                                                  "CAST(GETDATE() AS DateTime));";
                     clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandTextNode);
                 }
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal void LoadRelatedUserRoleLB(ListBox ListBoxRelatedUserRole, CompanySetup _objCompanySetup)
+        {
+            try
+            {
+                TwoColumnTablesController objTwoColumnTablesController = new TwoColumnTablesController();
+                objTwoColumnTablesController.LoadRelatedUserRoleLB(ListBoxRelatedUserRole, _objCompanySetup);
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal void GetRelatedUserRoleRecord(EmployeeSetup objEmployeeSetup, ListBox targetListBox)
+        {
+            try
+            {
+                ClsListBoxController.LoadListBox(this.ConnectionString, this.SQLGetRelatedUserRoleRecord(objEmployeeSetup), targetListBox, "RelatedToText", "RoleID");
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        private string SQLGetRelatedUserRoleRecord(EmployeeSetup objEmployeeSetup)
+        {
+            try
+            {
+                string sqlString = null;
+                sqlString = @"SELECT DISTINCT A.[RoleID],B.RelatedToText FROM [uUsersInRelatedRoles] A INNER JOIN sysRelatedUserRole B ON A.CompanyID = B.CompanyID
+                            AND A.RoleID = B.RelatedToID WHERE A.DataUsed = 'A' AND A.[CompanyID] = " + objEmployeeSetup.CompanyID + " AND A.UserId = '" + objEmployeeSetup.EmployeeID + "'" +
+                            " ORDER BY B.RelatedToText";
+                return sqlString;
 
             }
             catch (Exception msgException)

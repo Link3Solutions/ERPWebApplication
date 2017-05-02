@@ -22,11 +22,20 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            try
             {
-                Session["relatedUserRoleID"] = 1;
-                ShowsysTwoColumnTables();
+                if (!Page.IsPostBack)
+                {
+                    Session["relatedUserRoleID"] = 1;
+                    ShowsysTwoColumnTables();
 
+                }
+
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
             }
 
         }

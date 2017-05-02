@@ -30,6 +30,9 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                     LoadRoleRecordGrid();
                     LoadRoleRecordList();
                     txtUserCode_AutoCompleteExtender.ContextKey = LoginUserInformation.CompanyID.ToString();
+                    _objCompanySetup = new CompanySetup();
+                    _objCompanySetup.CompanyID = LoginUserInformation.CompanyID;
+                    _objUserPermissionController.LoadRelatedUserRoleLB(ListBoxRelatedUserRole,_objCompanySetup);
 
                 }
 
@@ -71,6 +74,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 _objUserPermission.RoleType = ddlRoleTypeUser.SelectedValue;
                 _objUserPermissionController = new UserPermissionController();
                 _objUserPermissionController.GetUserRoleRecord(objEmployeeSetup, _objUserPermission, ListBoxSelectedRoles);
+                _objUserPermissionController.GetRelatedUserRoleRecord(objEmployeeSetup,ListBoxSelectedRelatedUserRole);
                 if (ListBoxSelectedRoles.Items.Count > 0)
                 {
                     btnSave.Text = "Update";
@@ -366,6 +370,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 ddlRoleTypeUser.SelectedValue = "-1";
                 ListBoxSelectedRoles.Items.Clear();
                 btnSave.Text = "Save";
+                ListBoxSelectedRelatedUserRole.Items.Clear();
 
             }
             catch (Exception msgException)
@@ -392,6 +397,14 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 objEmployeeSetup.CompanyID = LoginUserInformation.CompanyID;
                 objEmployeeSetup.EntryUserName = LoginUserInformation.UserID;
                 _objUserPermissionController = new UserPermissionController();
+
+                List<int> listRelatedUserRole = new List<int>();
+                foreach (ListItem item in ListBoxSelectedRelatedUserRole.Items)
+                {
+                    listRelatedUserRole.Add( Convert.ToInt32( item.Value.ToString()));
+                }
+                _objUserPermission.RelatedUserRoleList = listRelatedUserRole;
+
                 if (btnSave.Text == "Save")
                 {
                     _objUserPermissionController.SaveUserRole(objEmployeeSetup, _objUserPermission);
@@ -545,6 +558,94 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
 
                 clsTopMostMessageBox.Show(msgException.Message);
             }
+        }
+
+        protected void btnForwordUserRole_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach (ListItem item in ListBoxRelatedUserRole.Items)
+                {
+                    if (item.Selected)
+                    {
+                        if (ListBoxSelectedRelatedUserRole.Items.Contains(item))
+                        {
+                            throw new Exception("this element already selected.");
+
+                        }
+
+                        ListBoxSelectedRelatedUserRole.Items.Add(new ListItem(item.Text, item.Value));
+                        ListBoxSelectedRelatedUserRole.AppendDataBoundItems = true;
+                    }
+                }
+
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+
+        }
+
+        protected void btnForwordAllUserRole_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ListBoxSelectedRelatedUserRole.Items.Clear();
+                foreach (ListItem item in ListBoxRelatedUserRole.Items)
+                {
+                    ListBoxSelectedRelatedUserRole.Items.Add(item);
+                }
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+
+        }
+
+        protected void btnBackUserRole_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<ListItem> deletedItems = new List<ListItem>();
+                foreach (ListItem item in ListBoxSelectedRelatedUserRole.Items)
+                {
+                    if (item.Selected)
+                    {
+                        deletedItems.Add(item);
+                    }
+                }
+
+                foreach (ListItem item in deletedItems)
+                {
+                    ListBoxSelectedRelatedUserRole.Items.Remove(item);
+                }
+
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+
+        }
+
+        protected void btnBackAllUserRole_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ListBoxSelectedRelatedUserRole.Items.Clear();
+
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+
         }
     }
 }

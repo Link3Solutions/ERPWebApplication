@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.UI.WebControls;
+using ERPWebApplication.AppClass.CommonClass;
 
 namespace ERPWebApplication.AppClass.DataAccess
 {
-    public class TwoColumnTablesController
+    public class TwoColumnTablesController : DataAccessBase
     {
         public void Save(string connectionString, TwoColumnTables objTwoColumnTables)
         {
@@ -113,6 +115,46 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
 
+        }
+
+        internal void LoadRelatedUserRoleDDL(DropDownList ddlRelatedUserRoleID, CompanySetup objCompanySetup)
+        {
+            try
+            {
+                ClsDropDownListController.LoadDropDownList(this.ConnectionString, this.SqlForRelatedUserRole(objCompanySetup), ddlRelatedUserRoleID, "RelatedToText", "RelatedToID");
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+        internal void LoadRelatedUserRoleLB(ListBox givenListBoxID, CompanySetup objCompanySetup)
+        {
+            try
+            {
+                ClsListBoxController.LoadListBox(this.ConnectionString, this.SqlForRelatedUserRole(objCompanySetup), givenListBoxID, "RelatedToText", "RelatedToID");
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+        private string SqlForRelatedUserRole(CompanySetup objCompanySetup)
+        {
+            try
+            {
+                string sqlString = null;
+                sqlString = " SELECT [RelatedToID],[RelatedToText]  FROM [sysRelatedUserRole] WHERE CompanyID = " + objCompanySetup.CompanyID + " ORDER BY [RelatedToText]";
+                return sqlString;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
         }
     }
 }
