@@ -8,7 +8,7 @@
             <table style="width: 100%;">
                 <tr>
                     <td>
-                        <ajaxToolkit:TabContainer ID="TabContainerUserPermission" runat="server" Width="100%" Height="100%" ActiveTabIndex="0">
+                        <ajaxToolkit:TabContainer ID="TabContainerUserPermission" runat="server" Width="100%" Height="100%" ActiveTabIndex="1">
                             <ajaxToolkit:TabPanel ID="TabPanelRoleSetup" runat="server" HeaderText="Role Setup">
                                 <ContentTemplate>
                                     <table style="width: 100%;">
@@ -174,18 +174,18 @@
                                                 <table style="width: 100%;">
                                                     <tr>
                                                         <td>
-                                                            <asp:ListBox ID="ListBoxRoles" runat="server" Height="300px" Width="500px"></asp:ListBox>
+                                                            <asp:ListBox ID="ListBoxRoles" runat="server" Height="300px" Width="250px"></asp:ListBox>
                                                         </td>
                                                         <td>
                                                             <table style="width: 100%;">
                                                                 <tr>
                                                                     <td>
-                                                                        <asp:Button ID="btnForword" runat="server" Text="&gt;" Width="25px" OnClick="btnForword_Click" />
+                                                                        <asp:Button ID="btnForword" runat="server" OnClick="btnForword_Click" Text="&gt;" Width="25px" />
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
-                                                                        <asp:Button ID="btnForwordAll" runat="server" Text="&gt;&gt;" Width="25px" OnClick="btnForwordAll_Click" />
+                                                                        <asp:Button ID="btnForwordAll" runat="server" OnClick="btnForwordAll_Click" Text="&gt;&gt;" Width="25px" />
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -193,32 +193,68 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
-                                                                        <asp:Button ID="btnBack" runat="server" Text="&lt;" Width="25px" OnClick="btnBack_Click" />
+                                                                        <asp:Button ID="btnBack" runat="server" OnClick="btnBack_Click" Text="&lt;" Width="25px" />
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
-                                                                        <asp:Button ID="btnBackAll" runat="server" Text="&lt;&lt;" Width="25px" OnClick="btnBackAll_Click" />
+                                                                        <asp:Button ID="btnBackAll" runat="server" OnClick="btnBackAll_Click" Text="&lt;&lt;" Width="25px" />
                                                                     </td>
                                                                 </tr>
                                                             </table>
                                                         </td>
                                                         <td>
-                                                            <asp:ListBox ID="ListBoxSelectedRoles" runat="server" Height="300px" Width="500px" AutoPostBack="True"></asp:ListBox>
+                                                            <asp:ListBox ID="ListBoxSelectedRoles" runat="server" AutoPostBack="True" Height="300px" Width="250px"></asp:ListBox>
+                                                        </td>
+                                                        <td>
+                                                            &nbsp;</td>
+                                                        <td>
+                                                            <asp:ListBox ID="ListBoxRelatedUserRole" Height="300px" Width="250px" runat="server"></asp:ListBox>
+                                                        </td>
+                                                        <td>
+                                                            <table style="width:100%;">
+                                                                <tr>
+                                                                    <td>
+                                                                        <asp:Button ID="btnForwordUserRole" runat="server" Text="&gt;" Width="25px" OnClick="btnForwordUserRole_Click" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <asp:Button ID="btnForwordAllUserRole" runat="server" Text="&gt;&gt;" Width="25px" OnClick="btnForwordAllUserRole_Click" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <asp:Button ID="btnBackUserRole" runat="server" Text="&lt;" Width="25px" OnClick="btnBackUserRole_Click" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <asp:Button ID="btnBackAllUserRole" runat="server" Text="&lt;&lt;" Width="25px" OnClick="btnBackAllUserRole_Click" />
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                        <td>
+                                                            <asp:ListBox ID="ListBoxSelectedRelatedUserRole" Height="300px" Width="250px" runat="server"></asp:ListBox>
                                                         </td>
                                                     </tr>
                                                     <tr>
+                                                        <td colspan="3">&nbsp;</td>
                                                         <td>&nbsp;</td>
-                                                        <td>&nbsp;</td>
-                                                        <td>&nbsp;</td>
+                                                        <td colspan="3">&nbsp;</td>
                                                     </tr>
                                                     <tr>
+                                                        <td colspan="3">&nbsp;</td>
                                                         <td>&nbsp;</td>
-                                                        <td>&nbsp;</td>
-                                                        <td>&nbsp;</td>
+                                                        <td colspan="3">&nbsp;</td>
                                                     </tr>
                                                 </table>
                                             </td>
+                                            
                                         </tr>
                                     </table>
                                 </ContentTemplate>

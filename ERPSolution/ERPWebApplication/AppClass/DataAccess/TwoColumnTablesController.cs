@@ -77,6 +77,25 @@ namespace ERPWebApplication.AppClass.DataAccess
             }
 
         }
+        public DataTable GetRecord(string connectionString, TwoColumnTables objTwoColumnTables, EmployeeSetup objEmployeeSetup)
+        {
+            try
+            {
+                DataTable dtItem = null;
+                string sqlString = @"SELECT DISTINCT A.[TableID],A.[TableName],A.[RelatedUserRoleID] FROM [sysTwoColumnTables] A INNER JOIN uUsersInRelatedRoles B ON A.RelatedUserRoleID = B.RoleID
+                WHERE A.DataUsed = 'A' AND B.DataUsed = 'A' AND A.EntrySystem = '" + objTwoColumnTables.EntrySystem + "' AND " +
+                " B.CompanyID = " + objEmployeeSetup.CompanyID + " AND B.UserId = '" + objEmployeeSetup.EmployeeID + "' ORDER BY A.[TableName],A.[RelatedUserRoleID]";
+                dtItem = clsDataManipulation.GetData(connectionString, sqlString);
+                return dtItem;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+
+        }
 
         public void Delete(string connectionString, TwoColumnTables objTwoColumnTables)
         {

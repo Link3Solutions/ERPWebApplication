@@ -47,8 +47,11 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 _objTwoColumnTables = new TwoColumnTables();
                 _objTwoColumnTables.RelatedUserRoleID = Convert.ToInt32(Session["relatedUserRoleID"].ToString());
                 _objTwoColumnTables.EntrySystem = "A";
+                EmployeeSetup objEmployeeSetup = new EmployeeSetup();
+                objEmployeeSetup.CompanyID = LoginUserInformation.CompanyID;
+                objEmployeeSetup.EmployeeID = LoginUserInformation.EmployeeCode;
                 _objTwoColumnTablesController = new TwoColumnTablesController();
-                DataTable dtTablesName = _objTwoColumnTablesController.GetRecord(_connectionString, _objTwoColumnTables);
+                DataTable dtTablesName = _objTwoColumnTablesController.GetRecord(_connectionString, _objTwoColumnTables,objEmployeeSetup);
                 grdTableName.DataSource = null;
                 grdTableName.DataBind();
                 if (dtTablesName.Rows.Count > 0)

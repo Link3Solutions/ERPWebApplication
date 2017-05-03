@@ -49,7 +49,6 @@
                                     <td>:</td>
                                     <td>
                                         <asp:DropDownList ID="ddlRelatedUserRoleID" runat="server">
-                                            <asp:ListItem Value="1">HR</asp:ListItem>
                                         </asp:DropDownList>
                                     </td>
                                 </tr>
