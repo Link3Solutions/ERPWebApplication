@@ -688,7 +688,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                 sqlString = @"SELECT [EntityID]
                           ,[EntityName]
                       FROM " + _objTwoColumnsTableData.TableName + " WHERE DataUsed = 'A' AND CompanyID = " + objSectionSetup.CompanyID + "";
-                if (objSectionSetup.BranchID != 0 || objSectionSetup.BranchID != null)
+                if (objSectionSetup.BranchID != 0 )
                 {
                     sqlString += " AND ParentEntityID = " + objSectionSetup.BranchID + "";
 

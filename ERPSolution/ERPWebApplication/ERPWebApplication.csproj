@@ -1114,7 +1114,6 @@
     <Compile Include="AppClass\DataAccess\CompanySetupController.cs" />
     <Compile Include="AppClass\DataAccess\CountrySetupController.cs" />
     <Compile Include="AppClass\DataAccess\DataAccessBase.cs" />
-    <Compile Include="AppClass\DataAccess\DepartmentSetupController.cs" />
     <Compile Include="AppClass\DataAccess\EmployeeInformationController.cs" />
     <Compile Include="AppClass\DataAccess\EmployeeSetupController.cs" />
     <Compile Include="AppClass\DataAccess\FileUploadDetailController.cs" />

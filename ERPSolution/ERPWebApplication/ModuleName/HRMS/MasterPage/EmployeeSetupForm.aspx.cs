@@ -18,6 +18,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
         private EmployeeTypeSetup _objEmployeeTypeSetup;
         private EmployeeCategorySetup _objEmployeeCategorySetup;
         private DesignationSetup _objDesignationSetup;
+        private CompanySetup _objCompanySetup;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -43,7 +44,19 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
             {
                 _objEmployeeSetupController = new EmployeeSetupController();
                 _objEmployeeSetupController.LoadCompanyDDL(ddlCompany);
-                //_objEmployeeSetupController.LoadBranchDDL(ddlBranch);
+                foreach (ListItem itemNo in ddlCompany.Items)
+                {
+                    if (Convert.ToInt32( itemNo.Value) == LoginUserInformation.CompanyID )
+                    {
+                        ddlCompany.SelectedValue = LoginUserInformation.CompanyID.ToString();
+                        
+                    }
+                    
+                }
+
+                _objCompanySetup = new CompanySetup();
+                _objCompanySetup.CompanyID = Convert.ToInt32( ddlCompany.SelectedValue);
+                _objEmployeeSetupController.LoadBranchDDL(ddlBranch,_objCompanySetup);
                 //_objEmployeeSetupController.LoadEmployeeType(ddlEmployeeType);
                 //_objEmployeeSetupController.LoadEmployeeCategoryDDL(ddlEmployeeCategory);
                 //_objEmployeeSetupController.LoadDesignationDDL(ddlDesignation);

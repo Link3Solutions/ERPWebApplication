@@ -57,10 +57,20 @@ namespace ERPWebApplication.AppClass.DataAccess
         }
 
 
-
-        internal void LoadBranchDDL(DropDownList ddlBranch)
+        private OrganizationalChartSetupController _objOrganizationalChartSetupController;
+        internal void LoadBranchDDL(DropDownList ddlBranch, CompanySetup objCompanySetup)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _objOrganizationalChartSetupController = new OrganizationalChartSetupController();
+                _objOrganizationalChartSetupController.LoadBranchDDL(ddlBranch, objCompanySetup);
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
         }
 
         internal void LoadEmployeeType(DropDownList ddlEmployeeType)
