@@ -87,5 +87,49 @@ namespace ERPWebApplication.AppClass.DataAccess
         {
             throw new NotImplementedException();
         }
+
+        internal void LoadDepartmentDDL(DropDownList ddlDepartment, BranchSetup objBranchSetup)
+        {
+            try
+            {
+                _objOrganizationalChartSetupController = new OrganizationalChartSetupController();
+                _objOrganizationalChartSetupController.LoadDepartmentDDL(ddlDepartment, objBranchSetup);
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
+        }
+
+        internal void LoadSectionDDL(DropDownList ddlSection, DepartmentSetup objDepartmentSetup)
+        {
+            try
+            {
+                _objOrganizationalChartSetupController = new OrganizationalChartSetupController();
+                _objOrganizationalChartSetupController.LoadSectionDDL(ddlSection, objDepartmentSetup);
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
+        }
+
+        internal void LoadTeamDDL(DropDownList ddlTeam, SectionSetup objSectionSetup)
+        {
+            try
+            {
+                _objOrganizationalChartSetupController = new OrganizationalChartSetupController();
+                _objOrganizationalChartSetupController.LoadTeamDDL(ddlTeam, objSectionSetup);
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
+        }
     }
 }

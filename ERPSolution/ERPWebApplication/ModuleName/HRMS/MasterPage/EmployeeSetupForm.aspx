@@ -169,7 +169,7 @@
                                 </td>
                                 <td>:</td>
                                 <td>
-                                    <asp:DropDownList ID="ddlBranch" runat="server">
+                                    <asp:DropDownList ID="ddlBranch" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlBranch_SelectedIndexChanged">
                                     </asp:DropDownList>
                                 </td>
                             </tr>
@@ -179,7 +179,7 @@
                                 </td>
                                 <td>:</td>
                                 <td>
-                                    <asp:DropDownList ID="ddlDepartment" runat="server">
+                                    <asp:DropDownList ID="ddlDepartment" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlDepartment_SelectedIndexChanged">
                                     </asp:DropDownList>
                                 </td>
                             </tr>
@@ -189,7 +189,7 @@
                                 </td>
                                 <td>:</td>
                                 <td>
-                                    <asp:DropDownList ID="ddlSection" runat="server">
+                                    <asp:DropDownList ID="ddlSection" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlSection_SelectedIndexChanged">
                                     </asp:DropDownList>
                                 </td>
                             </tr>

@@ -636,6 +636,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                 _objTwoColumnsTableData.TableName = "[orgDepartment]";
                 SectionSetup objSectionSetup = new SectionSetup();
                 objSectionSetup.CompanyID = objBranchSetup.CompanyID;
+                objSectionSetup.BranchID = objBranchSetup.BranchID;
                 ClsDropDownListController.LoadDropDownList(this.ConnectionString, this.SqlOrgDepartment(objSectionSetup), givenDDLID, "EntityName", "EntityID");
 
             }
@@ -669,6 +670,8 @@ namespace ERPWebApplication.AppClass.DataAccess
                 _objTwoColumnsTableData.TableName = "[orgSection]";
                 SectionSetup objSectionSetup = new SectionSetup();
                 objSectionSetup.CompanyID = objDepartmentSetup.CompanyID;
+                objSectionSetup.BranchID = objDepartmentSetup.BranchID;
+                objSectionSetup.DepartmentID = objDepartmentSetup.DepartmentID;
                 ClsDropDownListController.LoadDropDownList(this.ConnectionString, this.SqlOrgDepartment(objSectionSetup), givenDDLID, "EntityName", "EntityID");
 
             }
@@ -678,6 +681,21 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
 
+        }
+
+        internal void LoadTeamDDL(DropDownList givenDDLID, SectionSetup objSectionSetup)
+        {
+            try
+            {
+                _objTwoColumnsTableData.TableName = "[orgTeam]";
+                ClsDropDownListController.LoadDropDownList(this.ConnectionString, this.SqlOrgDepartment(objSectionSetup), givenDDLID, "EntityName", "EntityID");
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
         }
 
         private string SqlOrgDepartment(SectionSetup objSectionSetup)
@@ -694,6 +712,18 @@ namespace ERPWebApplication.AppClass.DataAccess
 
                 }
 
+                if (objSectionSetup.DepartmentID != 0)
+                {
+                    sqlString += " OR ParentEntityID = " + objSectionSetup.DepartmentID + "";
+                    
+                }
+
+                if (objSectionSetup.SectionID != 0)
+                {
+                    sqlString += " OR ParentEntityID = " + objSectionSetup.SectionID + "";
+
+                }
+
                 sqlString += " ORDER BY EntityName  ";
                 return sqlString;
 
@@ -705,5 +735,7 @@ namespace ERPWebApplication.AppClass.DataAccess
             }
         }
 
+
+        
     }
 }

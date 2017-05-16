@@ -1176,6 +1176,7 @@
     <Compile Include="AppClass\Model\RequisitionDetail.cs" />
     <Compile Include="AppClass\Model\RequisitionHeader.cs" />
     <Compile Include="AppClass\Model\SectionSetup.cs" />
+    <Compile Include="AppClass\Model\TeamSetup.cs" />
     <Compile Include="AppClass\Model\TwoColumnsTableData.cs" />
     <Compile Include="AppClass\Model\TwoColumnsTableDataAuto.cs" />
     <Compile Include="AppClass\Model\TwoColumnTables.cs" />
