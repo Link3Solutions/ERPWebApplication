@@ -163,7 +163,7 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage
         private void LoadDataInDropdown()
         {
 
-           //ClsDropDownListController.LoadListBox(_connectionString, ProritySetupController.GetDataPriority(Convert.ToInt32(Session[ClsStatic.sessionCompanyID]), Convert.ToInt32(Session[ClsStatic.sessionBranchID])), ddlPriority, "PriorityName", "PriorityID");
+           //ClsDropDownListController.LoadGridView(_connectionString, ProritySetupController.GetDataPriority(Convert.ToInt32(Session[ClsStatic.sessionCompanyID]), Convert.ToInt32(Session[ClsStatic.sessionBranchID])), ddlPriority, "PriorityName", "PriorityID");
             LoadPriorityDropDown(ddlPrioritySearch);
 
 

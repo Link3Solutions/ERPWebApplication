@@ -1034,6 +1034,7 @@
     <Content Include="CSS\HomePage\bootstrap.css.map" />
     <Content Include="WebService\ServiceSystem.asmx" />
     <Content Include="ClassDiagram1.cd" />
+    <Content Include="WebUserControls\OrganizationalChartControl.ascx" />
     <None Include="Properties\PublishProfiles\ERPApplicationPublish.pubxml" />
     <Content Include="README.docx" />
     <Content Include="Properties\Settings.settings">
@@ -1139,6 +1140,7 @@
     <Compile Include="AppClass\DataAccess\TwoColumnsTableDataAutoController.cs" />
     <Compile Include="AppClass\DataAccess\TwoColumnsTableDataController.cs" />
     <Compile Include="AppClass\DataAccess\TwoColumnTablesController.cs" />
+    <Compile Include="AppClass\DataAccess\UCOrganizationalChartController.cs" />
     <Compile Include="AppClass\DataAccess\UnitSetupController.cs" />
     <Compile Include="AppClass\DataAccess\UserListController.cs" />
     <Compile Include="AppClass\DataAccess\UserPermissionController.cs" />
@@ -1352,6 +1354,13 @@
     <Compile Include="WebService\ServiceSystem.asmx.cs">
       <DependentUpon>ServiceSystem.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WebUserControls\OrganizationalChartControl.ascx.cs">
+      <DependentUpon>OrganizationalChartControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUserControls\OrganizationalChartControl.ascx.designer.cs">
+      <DependentUpon>OrganizationalChartControl.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

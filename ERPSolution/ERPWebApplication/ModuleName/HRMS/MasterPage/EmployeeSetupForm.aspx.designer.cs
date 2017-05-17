@@ -317,5 +317,14 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTeam;
+        
+        /// <summary>
+        /// OrganizationalChartControl1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ERPWebApplication.WebUserControls.OrganizationalChartControl OrganizationalChartControl1;
     }
 }

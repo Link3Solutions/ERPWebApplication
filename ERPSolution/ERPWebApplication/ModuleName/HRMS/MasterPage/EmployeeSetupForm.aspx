@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="Employee Setup" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EmployeeSetupForm.aspx.cs" Inherits="ERPWebApplication.ModuleName.HRMS.MasterPage.EmployeeSetupForm" %>
 
+<%@ Register src="../../../WebUserControls/OrganizationalChartControl.ascx" tagname="OrganizationalChartControl" tagprefix="uc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -217,14 +219,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td colspan="3">
+                        <uc1:OrganizationalChartControl ID="OrganizationalChartControl1" runat="server" />
+                    </td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>

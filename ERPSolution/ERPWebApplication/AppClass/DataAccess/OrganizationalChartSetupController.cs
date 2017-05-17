@@ -112,12 +112,57 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
         }
+        private string SqlGetOrganizationalElementsWithCompany(OrganizationalChartSetup objOrganizationalChartSetup)
+        {
+            try
+            {
+                string sqlQuery = null;
+                sqlQuery = @"SELECT A.[OrgElementID],B.OrgElementName,B.[HierarchyID]      
+                             FROM [orgOrganizationElements] A 
+                             INNER JOIN orgStandardOrgElements B ON A.OrgElementID = B.OrgElementID
+                             WHERE A.[DataUsed] = 'A' AND A.[CompanyID]= " + objOrganizationalChartSetup.CompanyID + "" +
+                             " UNION SELECT 1 AS [OrgElementID],'Company' AS OrgElementName,1 AS [HierarchyID] ORDER BY B.[HierarchyID]";
+                return sqlQuery;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
         internal void LoadOrganizationalElements(OrganizationalChartSetup objOrganizationalChartSetup, DropDownList dropDownListOrganizationElements)
         {
             try
             {
                 ClsDropDownListController.LoadDropDownList(this.ConnectionString, this.SqlGetOrganizationalElements(objOrganizationalChartSetup), dropDownListOrganizationElements,
                     "OrgElementName", "OrgElementID");
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+        internal void LoadOrganizationalElements(OrganizationalChartSetup objOrganizationalChartSetup, GridView gridViewOrganizationElements)
+        {
+            try
+            {
+                ClsGridViewLoad.LoadGridView(this.ConnectionString, this.SqlGetOrganizationalElements(objOrganizationalChartSetup), gridViewOrganizationElements);
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+        internal void LoadOrganizationalElementsWithCompany(OrganizationalChartSetup objOrganizationalChartSetup, GridView gridViewOrganizationElements)
+        {
+            try
+            {
+                ClsGridViewLoad.LoadGridView(this.ConnectionString, this.SqlGetOrganizationalElementsWithCompany(objOrganizationalChartSetup), gridViewOrganizationElements);
 
             }
             catch (Exception msgException)
@@ -706,7 +751,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                 sqlString = @"SELECT [EntityID]
                           ,[EntityName]
                       FROM " + _objTwoColumnsTableData.TableName + " WHERE DataUsed = 'A' AND CompanyID = " + objSectionSetup.CompanyID + "";
-                if (objSectionSetup.BranchID != 0 )
+                if (objSectionSetup.BranchID != 0)
                 {
                     sqlString += " AND ParentEntityID = " + objSectionSetup.BranchID + "";
 
@@ -715,7 +760,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                 if (objSectionSetup.DepartmentID != 0)
                 {
                     sqlString += " OR ParentEntityID = " + objSectionSetup.DepartmentID + "";
-                    
+
                 }
 
                 if (objSectionSetup.SectionID != 0)
@@ -736,6 +781,6 @@ namespace ERPWebApplication.AppClass.DataAccess
         }
 
 
-        
+
     }
 }
