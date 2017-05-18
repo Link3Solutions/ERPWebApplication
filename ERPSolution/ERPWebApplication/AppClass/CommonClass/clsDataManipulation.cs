@@ -480,7 +480,7 @@ public class clsDataManipulation
             var sqlCom = new SqlCommand(queryStr, sqlConn);
             var noOfRowsAffected = sqlCom.ExecuteNonQuery();
             sqlConn.Close();
-            return noOfRowsAffected.ToString(CultureInfo.InvariantCulture) + "  row(s) affected";
+            return noOfRowsAffected.ToString(CultureInfo.InvariantCulture) + "  rowSelected(s) affected";
         }
         catch (SqlException msgException)
         {

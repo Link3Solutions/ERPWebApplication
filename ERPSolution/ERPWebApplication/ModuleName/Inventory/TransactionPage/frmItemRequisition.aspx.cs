@@ -173,7 +173,7 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage
             ClsDropDownListController.LoadDropDownList(_connectionString, ActivitySetupController.GetDataActivitySetup(Convert.ToInt32(Session[ClsStatic.sessionCompanyID]), Convert.ToInt32(Session[ClsStatic.sessionBranchID])), ddlRefType, "ActivityName", "KnownByID");
             //ClsDropDownListController.LoadDropDownList(_connectionString, DepartmentSetupController.GetDataDepartmentSetup(Convert.ToInt32(Session[ClsStatic.sessionCompanyID]), Convert.ToInt32(Session[ClsStatic.sessionBranchID])), ddlRequestedDept, "DepartmentName", "DepartmentID");
 
-            // For searching ddl
+            // For searching ddlSelected
 
             ClsDropDownListController.LoadDropDownList(_connectionString, PurposeSetupController.GetDataPurposeSetup(Convert.ToInt32(Session[ClsStatic.sessionCompanyID]), Convert.ToInt32(Session[ClsStatic.sessionBranchID])), ddlPurposeSearch, "ItemUsage", "ItemUsageID");
             ClsDropDownListController.LoadDropDownList(_connectionString, ProritySetupController.GetDataPriority(Convert.ToInt32(Session[ClsStatic.sessionCompanyID]), Convert.ToInt32(Session[ClsStatic.sessionBranchID])), ddlPriority, "PriorityName", "PriorityID");
