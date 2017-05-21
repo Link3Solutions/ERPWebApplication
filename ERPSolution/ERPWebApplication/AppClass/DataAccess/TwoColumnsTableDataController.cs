@@ -180,8 +180,13 @@ namespace ERPWebApplication.AppClass.DataAccess
         {
             try
             {
-                objTwoColumnsTableData.TableID = 22;
-                this.LoadRecordDDL(givenDDL, objTwoColumnsTableData);
+                string sqlString = @"SELECT [FieldOfID]
+                 ,[FieldOfName]
+                 FROM [orgDesignation] 
+                 WHERE DataUsed = 'A' AND [CompanyID] = " + objTwoColumnsTableData.CompanyID + " AND [BranchID] = " + objTwoColumnsTableData.BranchID + " ORDER BY [FieldOfName]";
+                ClsDropDownListController.LoadDropDownList(this.ConnectionString, sqlString, givenDDL, "FieldOfName", "FieldOfID");
+                //objTwoColumnsTableData.TableID = 22;
+                //this.LoadRecordDDL(givenDDL, objTwoColumnsTableData);
 
             }
             catch (Exception msgException)
