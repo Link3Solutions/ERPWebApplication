@@ -51,7 +51,7 @@
                                 </td>
                                 <td>:</td>
                                 <td>
-                                    <asp:DropDownList ID="ddlDesignation" runat="server">
+                                    <asp:DropDownList ID="ddlTitle" runat="server">
                                     </asp:DropDownList>
                                 </td>
                             </tr>

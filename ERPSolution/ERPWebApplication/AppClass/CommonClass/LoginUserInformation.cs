@@ -14,8 +14,8 @@ namespace ERPWebApplication.AppClass.CommonClass
         }
         public static int CompanyID
         {
-            get { return Convert.ToInt32( HttpContext.Current.Session["@#$$%@)companyID(@^&^&%"].ToString()); }
-            set { HttpContext.Current.Session["@#$$%@)companyID(@^&^&%"] = value; }
+            get { return Convert.ToInt32( HttpContext.Current.Session["@#$$%@)lastPositionNo(@^&^&%"].ToString()); }
+            set { HttpContext.Current.Session["@#$$%@)lastPositionNo(@^&^&%"] = value; }
         }
         public static string EmployeeCode
         {

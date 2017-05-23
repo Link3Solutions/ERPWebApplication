@@ -35,14 +35,14 @@ namespace ERPWebApplication.CommonClass
 
             if (current.UserNode.ToString().ToUpper().Contains(tmp[1])) return;
 
-            //foreach (dsLinkoffice.tblNodePermRow dr in current.UserNode.Rows)
+            //foreach (dsLinkoffice.tblNodePermRow drOrganigationElement in current.UserNode.Rows)
             //{
-            //    tmp = dr.NodeUrl.Split('~');
+            //    tmp = drOrganigationElement.NodeUrl.Split('~');
             //    if(tmp.Length>1)
             //        if(curpath.Contains(tmp[1]))
             //        {
-            //            current.PermissionPrm = dr.NodePerm;
-            //            current.FormParameter = dr.NodeParam;
+            //            current.PermissionPrm = drOrganigationElement.NodePerm;
+            //            current.FormParameter = drOrganigationElement.NodeParam;
             //            return;
             //        }
             //}

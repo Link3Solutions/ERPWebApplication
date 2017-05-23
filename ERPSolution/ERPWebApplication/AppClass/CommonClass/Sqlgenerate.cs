@@ -299,10 +299,7 @@ using System.Data.SqlClient;
 
         # region Employee Information Setup
 
-        public static string SqlGetDesignationIntoDDL()
-        {
-            return "SELECT DISTINCT JobCode,JobTitle FROM Hrms_Job_Master WHERE T_C1 = '1' ORDER BY JobTitle";
-        }
+        
 
         public static string SqlGetLeaveTypeIntoDDL()
         {

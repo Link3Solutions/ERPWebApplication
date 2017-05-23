@@ -28,7 +28,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 {
                     Session["relatedUserRoleID"] = 1;
                     Session["entryUserCode"] = 1;
-                    Session["companyID"] = 1;
+                    Session["lastPositionNo"] = 1;
                     Session["branchID"] = 1;
                     ShowsysTwoColumnTables();
                 }
@@ -109,7 +109,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             try
             {
                 _objTwoColumnsTableData = new TwoColumnsTableData();
-                _objTwoColumnsTableData.CompanyID = Convert.ToInt32(Session["companyID"].ToString());
+                _objTwoColumnsTableData.CompanyID = Convert.ToInt32(Session["lastPositionNo"].ToString());
                 _objTwoColumnsTableData.BranchID = Convert.ToInt32(Session["branchID"].ToString());
                 _objTwoColumnsTableData.TableID = Convert.ToInt32(Session["tableID"].ToString());
                 _objTwoColumnsTableDataController = new TwoColumnsTableDataController();
@@ -168,7 +168,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             try
             {
                 _objTwoColumnsTableData = new TwoColumnsTableData();
-                _objTwoColumnsTableData.CompanyID = Convert.ToInt32(Session["companyID"].ToString());
+                _objTwoColumnsTableData.CompanyID = Convert.ToInt32(Session["lastPositionNo"].ToString());
                 _objTwoColumnsTableData.BranchID = Convert.ToInt32(Session["branchID"].ToString());
                 _objTwoColumnsTableData.TableID = Convert.ToInt32(Session["tableID"].ToString());
                 _objTwoColumnsTableData.FieldOfName = txtFieldOfName.Text == string.Empty ? null : txtFieldOfName.Text;

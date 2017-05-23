@@ -40,13 +40,13 @@ namespace ERPWebApplication.AppClass.DataAccess
                     {
                         objMailServiceSetup.MailBody = dr["MailBody"].ToString();
                     }
-                    //if (dr["IsUserNameWillSend"].ToString().Equals("Y") == true)
+                    //if (drOrganigationElement["IsUserNameWillSend"].ToString().Equals("Y") == true)
                     //{
-                    //    eMailBody = eMailBody + "\nuser name:" + dr["IsUserNameWillSend"].ToString();
+                    //    eMailBody = eMailBody + "\nuser name:" + drOrganigationElement["IsUserNameWillSend"].ToString();
                     //}
-                    //if (dr["IspAsswordWillSend"].ToString().Equals("Y") == true)
+                    //if (drOrganigationElement["IspAsswordWillSend"].ToString().Equals("Y") == true)
                     //{
-                    //    eMailBody = eMailBody + "\nPassword:" + dr["IspAsswordWillSend"].ToString();
+                    //    eMailBody = eMailBody + "\nPassword:" + drOrganigationElement["IspAsswordWillSend"].ToString();
                     //}
                 }
 

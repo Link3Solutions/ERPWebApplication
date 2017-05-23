@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using ERPWebApplication.AppClass.CommonClass;
 using ERPWebApplication.AppClass.DataAccess;
 using ERPWebApplication.AppClass.Model;
+using System.Data;
 
 namespace ERPWebApplication.WebUserControls
 {
@@ -260,6 +261,168 @@ namespace ERPWebApplication.WebUserControls
             }
         }
 
+        private int _empCompany;
+        private int _empBranch;
+        private int _empDepartment;
+        private int _empSection;
+        private int _empTeam;
+        public int empCompany
+        {
+            get
+            {
+                this.organigationalValue();
+                return _empCompany;
+            }
+        }
+        public int empBranch
+        {
+            get
+            {
+                this.organigationalValue();
+                return _empBranch;
+            }
+        }
+        public int empDepartment
+        {
+            get
+            {
+                this.organigationalValue();
+                return _empDepartment;
+            }
+        }
+        public int empSection
+        {
+            get
+            {
+                this.organigationalValue();
+                return _empSection;
+            }
+        }
+        public int empTeam
+        {
+            get
+            {
+                this.organigationalValue();
+                return _empTeam;
+            }
+        }
+        public DataTable empValueAsTable
+        {
+            get
+            {
+                return this.organigationalValueAsTable();
+            }
+        }
+        private void organigationalValue()
+        {
+            try
+            {
+                foreach (GridViewRow rowNoInGrid in GridViewOrganizationalChart.Rows)
+                {
+                    DropDownList ddlElementDataCompany = (DropDownList)rowNoInGrid.FindControl("ddlElementData");
+                    switch (rowNoInGrid.RowIndex)
+                    {
+                        case 0:
+                            {
+                                _empCompany = Convert.ToInt32(ddlElementDataCompany.SelectedValue);
+                                break;
+                            }
+                        case 1:
+                            {
+                                _empBranch = Convert.ToInt32(ddlElementDataCompany.SelectedValue);
+                                break;
+                            }
+                        case 2:
+                            {
+                                _empDepartment = Convert.ToInt32(ddlElementDataCompany.SelectedValue);
+                                break;
+                            }
+                        case 3:
+                            {
+                                _empSection = Convert.ToInt32(ddlElementDataCompany.SelectedValue);
+                                break;
+                            }
+                        case 4:
+                            {
+                                _empTeam = Convert.ToInt32(ddlElementDataCompany.SelectedValue);
+                                break;
+                            }
+                        default:
+                            break;
+                    }
 
+                }
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+        private DataTable organigationalValueAsTable()
+        {
+            try
+            {
+                var dtEmployeeInfo = new DataTable();
+                DataRow drOrganigationElement;
+                dtEmployeeInfo.Columns.Add(new DataColumn("EntityTypeID", typeof(int)));
+                dtEmployeeInfo.Columns.Add(new DataColumn("EntityID", typeof(int)));
+                foreach (GridViewRow rowNoInGrid in GridViewOrganizationalChart.Rows)
+                {
+                    DropDownList ddlElementDataCompany = (DropDownList)rowNoInGrid.FindControl("ddlElementData");
+                    OrganizationalChartSetup objOrganizationalChartSetup = new OrganizationalChartSetup();
+                    objOrganizationalChartSetup.EntityID = Convert.ToInt32( ddlElementDataCompany.SelectedValue);
+                    if (objOrganizationalChartSetup.EntityID == -1)
+                    {
+                        break;
+                        
+                    }
+
+                    switch (rowNoInGrid.RowIndex)
+                    {
+                        case 1:
+                            {
+                                drOrganigationElement = dtEmployeeInfo.NewRow();
+                                drOrganigationElement[0] = 2; drOrganigationElement[1] = objOrganizationalChartSetup.EntityID;
+                                dtEmployeeInfo.Rows.Add(drOrganigationElement);
+                                break;
+                            }
+                        case 2:
+                            {
+                                drOrganigationElement = dtEmployeeInfo.NewRow();
+                                drOrganigationElement[0] = 3;drOrganigationElement[1] = objOrganizationalChartSetup.EntityID;
+                                dtEmployeeInfo.Rows.Add(drOrganigationElement);
+                                break;
+                            }
+                        case 3:
+                            {
+                                drOrganigationElement = dtEmployeeInfo.NewRow();
+                                drOrganigationElement[0] = 4;drOrganigationElement[1] = objOrganizationalChartSetup.EntityID;
+                                dtEmployeeInfo.Rows.Add(drOrganigationElement);
+                                break;
+                            }
+                        case 4:
+                            {
+                                drOrganigationElement = dtEmployeeInfo.NewRow();
+                                drOrganigationElement[0] = 5;drOrganigationElement[1] = objOrganizationalChartSetup.EntityID;
+                                dtEmployeeInfo.Rows.Add(drOrganigationElement);
+                                break;
+                            }
+                        default:
+                            break;
+                    }
+
+
+                }
+                return dtEmployeeInfo;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
     }
 }

@@ -165,7 +165,7 @@ namespace ERPWebApplication.WebService
 
             foreach (DataRow dr in dt.Rows)
             {
-                //sqlString[indx] = dr["ItemRequisitionNo"].ToString() + ":" + dr["RequisitionBy"].ToString() + ":" + dr["RequisitionDate"].ToString();
+                //sqlString[indx] = drOrganigationElement["ItemRequisitionNo"].ToString() + ":" + drOrganigationElement["RequisitionBy"].ToString() + ":" + drOrganigationElement["RequisitionDate"].ToString();
                 str[indx] = dr["ItemRequisitionNo"].ToString() + " : " + dr["RequisitionBy"].ToString() + ":" + Convert.ToDateTime(dr["RequisitionDate"]).ToShortDateString();
                 indx++;
 

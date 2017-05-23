@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -70,5 +71,10 @@ namespace ERPWebApplication.AppClass.Model
             get { return _email; }
             set { _email = value; }
         }
+
+        public int EmployeeSerialNo { get; set; }
+
+        public int EmployeeTitle { get; set; }
+        public DataTable dtEmployeeChart;
     }
 }

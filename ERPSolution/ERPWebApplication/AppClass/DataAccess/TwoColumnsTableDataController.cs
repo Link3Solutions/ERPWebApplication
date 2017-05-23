@@ -180,13 +180,30 @@ namespace ERPWebApplication.AppClass.DataAccess
         {
             try
             {
+                ClsDropDownListController.LoadDropDownList(this.ConnectionString, SqlGetDesignation(objTwoColumnsTableData), givenDDL, "FieldOfName", "FieldOfID");
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        private static string SqlGetDesignation(TwoColumnsTableData objTwoColumnsTableData)
+        {
+            try
+            {
                 string sqlString = @"SELECT [FieldOfID]
                  ,[FieldOfName]
                  FROM [orgDesignation] 
-                 WHERE DataUsed = 'A' AND [CompanyID] = " + objTwoColumnsTableData.CompanyID + " AND [BranchID] = " + objTwoColumnsTableData.BranchID + " ORDER BY [FieldOfName]";
-                ClsDropDownListController.LoadDropDownList(this.ConnectionString, sqlString, givenDDL, "FieldOfName", "FieldOfID");
-                //objTwoColumnsTableData.TableID = 22;
-                //this.LoadRecordDDL(givenDDL, objTwoColumnsTableData);
+                 WHERE DataUsed = 'A' AND [CompanyID] = " + objTwoColumnsTableData.CompanyID + "";
+                if (objTwoColumnsTableData.BranchID != 0)
+                {
+                    sqlString += " AND [BranchID] = " + objTwoColumnsTableData.BranchID + "";
+                }
+
+                sqlString += " ORDER BY [FieldOfName]";
+                return sqlString;
 
             }
             catch (Exception msgException)
@@ -225,6 +242,95 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
 
+        }
+
+        internal void LoadEmployeeTypeDDL(DropDownList ddlEmployeeType, TwoColumnsTableData objTwoColumnsTableData)
+        {
+            try
+            {
+                ClsDropDownListController.LoadDropDownList(this.ConnectionString, SqlForEmployeeType(objTwoColumnsTableData), ddlEmployeeType, "FieldOfName", "FieldOfID");
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        private string SqlForEmployeeType(TwoColumnsTableData objTwoColumnsTableData)
+        {
+            try
+            {
+                string sqlString = null;
+                sqlString = "SELECT [FieldOfID],[FieldOfName] FROM [EmployeeType] WHERE [DataUsed] = 'A' AND [CompanyID] = " + objTwoColumnsTableData.CompanyID + " ORDER BY [FieldOfName]";
+                return sqlString;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal void LoadEmployeeCategoryDDL(DropDownList ddlEmployeeCategory, TwoColumnsTableData objTwoColumnsTableData)
+        {
+            try
+            {
+                ClsDropDownListController.LoadDropDownList(this.ConnectionString, SqlGetEmployeeCategory(objTwoColumnsTableData), ddlEmployeeCategory, "FieldOfName", "FieldOfID");
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        private string SqlGetEmployeeCategory(TwoColumnsTableData objTwoColumnsTableData)
+        {
+            try
+            {
+                string sqlString = null;
+                sqlString = "SELECT [FieldOfID],[FieldOfName] FROM [EmployeeCategory] WHERE [DataUsed] = 'A' AND [CompanyID] = " + objTwoColumnsTableData.CompanyID + " ORDER BY [FieldOfName]";
+                return sqlString;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal void LoadEmployeeTitle(DropDownList ddlTitle)
+        {
+            try
+            {
+                ClsDropDownListController.LoadDropDownList(this.ConnectionString, SqlGetEmployeeTitle(), ddlTitle, "FieldOfName", "FieldOfID");
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
+        }
+
+        private string SqlGetEmployeeTitle()
+        {
+            try
+            {
+                string sqlString = null;
+                sqlString = "SELECT [FieldOfID],[FieldOfName] FROM [EmployeeTitle] WHERE [DataUsed] = 'A' ORDER BY [FieldOfName]";
+                return sqlString;
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
         }
     }
 }
