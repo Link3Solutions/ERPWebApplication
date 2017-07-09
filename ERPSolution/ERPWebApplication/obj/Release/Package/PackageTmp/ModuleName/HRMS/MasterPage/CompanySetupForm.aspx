@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Company Setup" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CompanySetupForm.aspx.cs" Inherits="ERPWebApplication.ModuleName.HRMS.MasterPage.CompanySetupForm" %>
+﻿<%@ Page Title="Company Setup" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CompanySetupForm.aspx.cs" Inherits="ERPWebApplication.ModuleName.HRMS.MasterPage.CompanySetupForm"  %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
@@ -103,7 +103,7 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="3">
-                                                    <asp:Label ID="Label124" runat="server" Text="Company Address" Font-Bold="True" Font-Italic="True" Font-Underline="True"></asp:Label>
+                                                    <asp:Label ID="Label124" runat="server" Text="Company Address" CssClass="labelasHeader"></asp:Label>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -241,7 +241,7 @@
                                         <table style="width: 100%; text-align: left;">
                                             <tr>
                                                 <td colspan="3" style="margin-top: -5px">
-                                                    <div style="position: fixed; width: 345px; background-color: #00817F; height: 60px; text-align: center">
+                                                    <div style="position: fixed; width: 345px; background-color: white; height: 60px; text-align: center">
                                                         <table style="width: 90%; margin-left: 5px">
                                                             <tr>
                                                                 <td style="text-align: right">
@@ -312,7 +312,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <asp:Label ID="Label108" runat="server" Font-Bold="True" Font-Italic="True" Font-Underline="True" Text="Contact Person"></asp:Label>
+                                                    <asp:Label ID="Label108" runat="server" CssClass="labelasHeader" Text="Contact Person"></asp:Label>
                                                 </td>
                                                 <td>&nbsp;</td>
                                                 <td>&nbsp;</td>
@@ -367,7 +367,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <asp:Label ID="Label112" runat="server" Font-Bold="True" Font-Italic="True" Font-Underline="True" Text="Alternate Contact Person"></asp:Label>
+                                                    <asp:Label ID="Label112" runat="server" CssClass="labelasHeader" Text="Alternate Contact Person"></asp:Label>
                                                 </td>
                                                 <td>&nbsp;</td>
                                                 <td>&nbsp;</td>
@@ -468,8 +468,13 @@
                                         <asp:Label ID="lblCountryID" runat="server" Text='<%# Bind("CountryID") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:CommandField ShowSelectButton="True" />
+                                <asp:CommandField ShowSelectButton="True">
+                                    <controlstyle cssclass="cssSelect" />
+                                </asp:CommandField >
+                                    
+
                             </Columns>
+                            <HeaderStyle />
                         </asp:GridView>
                     </td>
                 </tr>

@@ -2,11 +2,6 @@
 <table style="width: 100%;">
     <tr>
         <td colspan="3">
-            <asp:Label ID="Label12" runat="server" Font-Bold="True" Font-Italic="True" Font-Underline="True" Text="Organizational Chart"></asp:Label>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="3">
             <asp:GridView ID="GridViewOrganizationalChart" runat="server" AutoGenerateColumns="False" ShowHeader="False" Width="395px" OnRowDataBound="GridViewOrganizationalChart_RowDataBound">
                 <Columns>
                     <asp:TemplateField>
@@ -21,7 +16,8 @@
                     </asp:TemplateField>
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:DropDownList ID="ddlElementData" runat="server" Width="250px" AutoPostBack="True" OnSelectedIndexChanged="ddlElementData_SelectedIndexChanged">
+                            <asp:DropDownList ID="ddlElementData"  runat="server" Width="250px" AutoPostBack="True" OnSelectedIndexChanged="ddlElementData_SelectedIndexChanged">
+
                             </asp:DropDownList>
                         </ItemTemplate>
                     </asp:TemplateField>

@@ -19,6 +19,7 @@ namespace ERPWebApplication
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
         private UserPermissionController _objUserPermissionController;
+        private ProjectSetup _objProjectSetup;
 
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -84,6 +85,8 @@ namespace ERPWebApplication
 
                     }
 
+                    ControlPageTitle();
+
                 }
 
             }
@@ -93,6 +96,34 @@ namespace ERPWebApplication
                 clsTopMostMessageBox.Show(msgException.Message);
             }
 
+        }
+
+        private void ControlPageTitle()
+        {
+            try
+            {
+                _objProjectSetup = new ProjectSetup();
+                _objProjectSetup.PageTitle = Page.Title == "" ? null : Page.Title;
+                lblWelcomeMessage.Text = clsMessages.GWelcome;
+                lblLoginEmployeeName.Text = LoginUserInformation.EmployeeFullName;
+                if (_objProjectSetup.PageTitle != null )
+                {
+                    lblAt.Text = clsMessages.GYouAreAt;
+                    lblPageTitle.Text = _objProjectSetup.PageTitle+clsMessages.GFullStop;
+
+                }
+                else
+                {
+                    lblAt.Text = string.Empty;
+                    lblPageTitle.Text = string.Empty;
+                }
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
         }
 
         private void GetMenuData()

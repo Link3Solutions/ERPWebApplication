@@ -8,7 +8,8 @@
             <table style="width: 100%; text-align: left">
                 <tr>
                     <td colspan="3">
-                        <ajaxToolkit:TabContainer ID="TabContainerOrgChart" Height="100%" Width="100%" runat="server" ActiveTabIndex="1">
+                        <ajaxToolkit:TabContainer ID="TabContainerOrgChart" Height="100%" Width="100%" runat="server" ActiveTabIndex="1" CssClass="tab" CssTheme="None" EnableTheming="True" ToolTip="Organizational Chart">
+
                             <ajaxToolkit:TabPanel runat="server" HeaderText="Organization Elements" ID="TabPanel1">
                                 <ContentTemplate>
                                     <table style="width: 100%;">
@@ -22,7 +23,7 @@
                                                 </asp:DropDownList>
                                             </td>
                                             <td rowspan="2" style="text-align: right; float: right; width: 435px">
-                                                <div style="position: fixed; width: 425px; background-color: #00817F; height: 50px">
+                                                <div style="position: fixed; width: 425px; background-color: white; height: 50px">
                                                     <table style="width: 70%; margin-left: 5px">
                                                         <tr>
                                                             <td>
@@ -97,6 +98,8 @@
                                     </table>
                                 </ContentTemplate>
                             </ajaxToolkit:TabPanel>
+
+
                             <ajaxToolkit:TabPanel ID="TabPanel2" runat="server" HeaderText="Organizational Chart Setup">
                                 <ContentTemplate>
                                     <table style="width: 100%;">
@@ -105,11 +108,11 @@
                                                 <asp:TreeView ID="TreeViewCompanyChart" runat="server" OnTreeNodePopulate="TreeViewCompanyChart_TreeNodePopulate" OnSelectedNodeChanged="TreeViewCompanyChart_SelectedNodeChanged">
                                                 </asp:TreeView>
                                             </td>
-                                            <td colspan="2" style="text-align: left; float: left; width: 435px">
+                                            <td colspan="2" style="text-align: left; float: left; width: 430px">
                                                 <table style="width: 100%;">
                                                     <tr>
                                                         <td colspan="3">
-                                                            <div style="position: fixed; width: 425px; background-color: #00817F; height: 100px">
+                                                            <div style="position: fixed; width: 425px; background-color: white; height: 100px">
                                                                 <table style="width: 70%; margin-left: 5px">
                                                                     <tr>
                                                                         <td colspan="2">
@@ -124,19 +127,18 @@
                                                                     </tr>
                                                                     <tr>
                                                                         <td>
-                                                                            <asp:Button ID="btnSaveChart" runat="server" OnClick="btnSaveChart_Click" Text="Save" Width="70px" />
+                                                                            <asp:Button ID="btnSaveChart" runat="server" OnClick="btnSaveChart_Click" Text="Save" Width="70px" CssClass="buttonCommand" />
                                                                         </td>
                                                                         <td>
-                                                                            <asp:Button ID="btnClearChart" runat="server" OnClick="btnClearChart_Click" Text="Clear" Width="70px" />
+                                                                            <asp:Button ID="btnClearChart" runat="server" OnClick="btnClearChart_Click" Text="Clear" Width="70px" CssClass="buttonCancel" />
                                                                         </td>
                                                                         <td>
-                                                                            <asp:Button ID="btnUpdate" runat="server" Text="Update" Width="70px" OnClick="btnUpdate_Click" />
+                                                                            <asp:Button ID="btnUpdate" runat="server" Text="Update" Width="70px" OnClick="btnUpdate_Click" CssClass="buttonCommand" />
                                                                         </td>
                                                                         <td>
-                                                                            <asp:Button ID="btnClearUpdate" runat="server" Text="Clear" Width="70px" OnClick="btnClearUpdate_Click" />
+                                                                            <asp:Button ID="btnClearUpdate" runat="server" Text="Clear" Width="70px" OnClick="btnClearUpdate_Click" CssClass="buttonCancel" />
                                                                         </td>
-                                                                        <td>
-                                                                            &nbsp;</td>
+                                                                        <td>&nbsp;</td>
                                                                     </tr>
                                                                 </table>
                                                             </div>
@@ -153,18 +155,19 @@
                                                         <td>&nbsp;</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>
-                                                            &nbsp;</td>
                                                         <td>&nbsp;</td>
-                                                        <td>
-                                                            &nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>
-                                                            &nbsp;</td>
                                                         <td>&nbsp;</td>
-                                                        <td>
-                                                            &nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
                                                     </tr>
                                                     <tr>
                                                         <td>
@@ -271,14 +274,14 @@
                                                         <td>&nbsp;</td>
                                                         <td>
                                                             <asp:CheckBox ID="CheckBoxAddress" runat="server" CssClass="checkbox"
-                                                            AutoPostBack="True" OnCheckedChanged="CheckBoxAddress_CheckedChanged"  />
-                                                        <asp:Label ID="Label6" runat="server" AssociatedControlID="CheckBoxAddress" CssClass="checkbox">Address</asp:Label>
+                                                                AutoPostBack="True" OnCheckedChanged="CheckBoxAddress_CheckedChanged" />
+                                                            <asp:Label ID="Label6" runat="server" AssociatedControlID="CheckBoxAddress" CssClass="checkbox">Address</asp:Label>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td colspan="3">
                                                             <asp:Panel ID="PanelAddress" runat="server">
-                                                                <table style="width:95%;">
+                                                                <table style="width: 95%;">
                                                                     <tr>
                                                                         <td>
                                                                             <asp:Label ID="Label14" runat="server" Text="Contact Number"></asp:Label>
@@ -369,6 +372,7 @@
                                     </table>
                                 </ContentTemplate>
                             </ajaxToolkit:TabPanel>
+
                         </ajaxToolkit:TabContainer></td>
                 </tr>
                 <tr>

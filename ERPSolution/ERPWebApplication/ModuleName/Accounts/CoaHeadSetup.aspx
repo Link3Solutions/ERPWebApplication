@@ -40,7 +40,7 @@
                             </table>
                     </td>
                     <td>
-                        <div style="position: fixed; width: 350px; background-color: #00817F; height: 100px">
+                        <div style="position: fixed; width: 350px; background-color: white; height: 100px">
                             <table style="width: 100%; text-align: left;margin-left:5px">
                                 <tr>
                                     <td colspan="2">
@@ -80,22 +80,9 @@
                             <div style="height: 415px; width: 600px">
                                 <asp:Panel ID="Panel5" runat="server" Height="100%" ScrollBars="Auto"
                                     Width="100%">
-                                    <asp:TreeView ID="treeCOAHead" runat="server" ImageSet="Msdn"
-                                        NodeStyle-CssClass="treeNode"
-                                        RootNodeStyle-CssClass="rootNode"
-                                        LeafNodeStyle-CssClass="leafNode"
-                                        SelectedNodeStyle-CssClass="selectedNode"
-                                        ParentNodeStyle-CssClass="parentNode"
-                                        HoverNodeStyle-CssClass="hoverNode"
+                                    <asp:TreeView ID="treeCOAHead" runat="server" 
                                         OnTreeNodePopulate="treeCOAHead_TreeNodePopulate"
                                         OnSelectedNodeChanged="treeCOAHead_SelectedNodeChanged">
-                                        <HoverNodeStyle Font-Underline="True" ForeColor="#428BCA" />
-                                        <HoverNodeStyle CssClass="hoverNode" />
-                                        <LeafNodeStyle CssClass="leafNode" />
-                                        <NodeStyle CssClass="treeNode" />
-                                        <ParentNodeStyle CssClass="parentNode" />
-                                        <RootNodeStyle CssClass="rootNode" />
-                                        <SelectedNodeStyle CssClass="selectedNode" />
                                     </asp:TreeView>
                                 </asp:Panel>
                             </div>

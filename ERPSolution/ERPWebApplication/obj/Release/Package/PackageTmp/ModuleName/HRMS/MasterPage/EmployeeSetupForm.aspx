@@ -51,7 +51,7 @@
                                 </td>
                                 <td>:</td>
                                 <td>
-                                    <asp:DropDownList ID="ddlDesignation" runat="server">
+                                    <asp:DropDownList ID="ddlTitle" runat="server">
                                     </asp:DropDownList>
                                 </td>
                             </tr>
@@ -80,6 +80,16 @@
                                 <td>:</td>
                                 <td>
                                     <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:Label ID="Label12" runat="server" Text="Designation"></asp:Label>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <asp:DropDownList ID="ddlDesignationEmployee" runat="server">
+                                    </asp:DropDownList>
                                 </td>
                             </tr>
                             <tr>
@@ -123,7 +133,7 @@
                                     <table style="width: 100%;">
                                         <tr>
                                             <td colspan="3" style="margin-top: -5px">
-                                                <div style="position: fixed; width: 400px; background-color: #00817F; height: 50px">
+                                                <div style="position: fixed; width: 400px; background-color: white; height: 50px">
                                                     <table style="width: 70%; margin-left: 5px">
                                                         <tr>
                                                             <td>
@@ -152,58 +162,13 @@
                             </tr>
                             <tr>
                                 <td colspan="3">
-                                    <asp:Label ID="Label12" runat="server" Font-Bold="True" Font-Italic="True" Font-Underline="True" Text="Organizational Chart"></asp:Label>
+                                    <uc1:OrganizationalChartControl ID="OrganizationalChartControl1" runat="server" />
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    <asp:Label ID="Label1" runat="server" Text="Company"></asp:Label>
-                                </td>
-                                <td>:</td>
-                                <td>
-                                    <asp:DropDownList ID="ddlCompany" runat="server" Enabled="False">
-                                    </asp:DropDownList>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:Label ID="Label2" runat="server" Text="Branch"></asp:Label>
-                                </td>
-                                <td>:</td>
-                                <td>
-                                    <asp:DropDownList ID="ddlBranch" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlBranch_SelectedIndexChanged">
-                                    </asp:DropDownList>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:Label ID="Label13" runat="server" Text="Department"></asp:Label>
-                                </td>
-                                <td>:</td>
-                                <td>
-                                    <asp:DropDownList ID="ddlDepartment" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlDepartment_SelectedIndexChanged">
-                                    </asp:DropDownList>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:Label ID="Label14" runat="server" Text="Section"></asp:Label>
-                                </td>
-                                <td>:</td>
-                                <td>
-                                    <asp:DropDownList ID="ddlSection" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlSection_SelectedIndexChanged">
-                                    </asp:DropDownList>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:Label ID="Label15" runat="server" Text="Team"></asp:Label>
-                                </td>
-                                <td>:</td>
-                                <td>
-                                    <asp:DropDownList ID="ddlTeam" runat="server">
-                                    </asp:DropDownList>
-                                </td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
@@ -220,8 +185,7 @@
                 </tr>
                 <tr>
                     <td colspan="3">
-                        <uc1:OrganizationalChartControl ID="OrganizationalChartControl1" runat="server" />
-                    </td>
+                        &nbsp;</td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>

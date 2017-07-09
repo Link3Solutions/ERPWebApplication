@@ -8,7 +8,7 @@
 </head>--%>
 <head id="Head1" runat="server">
     <meta charset="utf-8" />
-    <title><%: Page.Title %>- ERP Web Application</title>
+    <title ><%: Page.Title %>- ERP Web Application</title>
     <asp:PlaceHolder ID="PlaceHolder1" runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
@@ -90,7 +90,7 @@
                     <section class="featured">
                         <div class="content-wrapperHeader">
                             <hgroup class="title">
-                                <h2 style="font-size: 1.5em;"><%: Page.Title %>.</h2>
+                                <h2 style="font-size: 1.1em;"><%: Page.Title %>.</h2>
                             </hgroup>
                         </div>
                     </section>
@@ -98,7 +98,7 @@
             </div>
 
         </header>
-        <div id="body" style="padding-top: 122px; width: 100%">
+        <div id="body" style="padding-top: 109px; width: 100%">
             <div id="fixedImage" style="position: fixed; background-color: #fff">
                 <section style="margin-left: 80px; max-width: 960px">
                     <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/heroAccent.png" />

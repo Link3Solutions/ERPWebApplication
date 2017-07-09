@@ -96,9 +96,12 @@ namespace ERPWebApplication.AppClass.DataAccess
             try
             {
                 DataTable dtInformation = new DataTable();
-                string sqlString = @"SELECT A.UserProfileID,C.CompanyID,C.EmployeeID FROM uUserList A INNER JOIN uUserProfile B ON A.UserProfileID = B.UserProfileID
+                string sqlString = @"SELECT A.UserProfileID,C.CompanyID,C.EmployeeID,D.FullName FROM uUserList A 
+                INNER JOIN uUserProfile B 
+                ON A.UserProfileID = B.UserProfileID
                 INNER JOIN UserSecurityCode C ON B.SecurityCode = C.SecurityCode
-                WHERE A.UserName = '" + objUserList.UserName + "' AND B.[Password] = '" + objUserList.UserPassword + "'";
+                INNER JOIN hrEmployeeSetup D ON C.CompanyID = D.CompanyID AND C.EmployeeID = D.EmployeeID 
+                WHERE C.DataUsed = 'A' AND A.UserName = '" + objUserList.UserName + "' AND B.[Password] = '" + objUserList.UserPassword + "'";
                 dtInformation = clsDataManipulation.GetData(this.ConnectionString, sqlString);
                 return dtInformation;
 

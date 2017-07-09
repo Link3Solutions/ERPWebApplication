@@ -985,6 +985,7 @@
     <Content Include="CSS\menuStyle.css" />
     <Content Include="CSS\microsoftMenu.css" />
     <Content Include="CSS\StyleSheetGridView.css" />
+    <Content Include="CSS\StyleSheetSpecial.css" />
     <Content Include="HomePageForm.aspx" />
     <Content Include="Images\btnClose.jpg" />
     <Content Include="Images\btnNo.jpg" />
@@ -994,6 +995,9 @@
     <Content Include="Images\imageup.jpg" />
     <Content Include="MicrosoftMenuHtmlPage.html" />
     <Content Include="ModuleName\Accounts\CoaHeadSetup.aspx" />
+    <Content Include="ModuleName\Accounts\MasterPage\JournalVoucherForm.aspx" />
+    <Content Include="ModuleName\Accounts\MasterPage\SubledgerSetupForm.aspx" />
+    <Content Include="ModuleName\Accounts\MasterPage\YearSetupForm.aspx" />
     <Content Include="ModuleName\Approval\frmProcessDetail.aspx" />
     <Content Include="ModuleName\HRMS\MasterPage\CompanySetupForm.aspx" />
     <Content Include="ModuleName\HRMS\MasterPage\EmployeeSetupForm.aspx" />
@@ -1035,6 +1039,7 @@
     <Content Include="WebService\ServiceSystem.asmx" />
     <Content Include="ClassDiagram1.cd" />
     <Content Include="WebUserControls\OrganizationalChartControl.ascx" />
+    <Content Include="App_Themes\Site\Site.skin" />
     <None Include="Properties\PublishProfiles\ERPApplicationPublish.pubxml" />
     <Content Include="README.docx" />
     <Content Include="Properties\Settings.settings">
@@ -1136,6 +1141,7 @@
     <Compile Include="AppClass\DataAccess\PurposeSetupController.cs" />
     <Compile Include="AppClass\DataAccess\StandardOrgElementsController.cs" />
     <Compile Include="AppClass\DataAccess\StoredProcedureExecutor.cs" />
+    <Compile Include="AppClass\DataAccess\SubledgerSetupController.cs" />
     <Compile Include="AppClass\DataAccess\SuppliersController.cs" />
     <Compile Include="AppClass\DataAccess\TwoColumnsTableDataAutoController.cs" />
     <Compile Include="AppClass\DataAccess\TwoColumnsTableDataController.cs" />
@@ -1146,6 +1152,7 @@
     <Compile Include="AppClass\DataAccess\UserPermissionController.cs" />
     <Compile Include="AppClass\DataAccess\UserSecurityCodeController.cs" />
     <Compile Include="AppClass\DataAccess\VehicleInformationController.cs" />
+    <Compile Include="AppClass\DataAccess\YearSetupController.cs" />
     <Compile Include="AppClass\Model\BranchSetup.cs" />
     <Compile Include="AppClass\Model\BusinessType.cs" />
     <Compile Include="AppClass\Model\ClsCompanySetup.cs" />
@@ -1175,9 +1182,11 @@
     <Compile Include="AppClass\Model\NodeList.cs" />
     <Compile Include="AppClass\Model\OrganizationalChartSetup.cs" />
     <Compile Include="AppClass\Model\OwnershipType.cs" />
+    <Compile Include="AppClass\Model\ProjectSetup.cs" />
     <Compile Include="AppClass\Model\RequisitionDetail.cs" />
     <Compile Include="AppClass\Model\RequisitionHeader.cs" />
     <Compile Include="AppClass\Model\SectionSetup.cs" />
+    <Compile Include="AppClass\Model\SubledgerSetup.cs" />
     <Compile Include="AppClass\Model\TeamSetup.cs" />
     <Compile Include="AppClass\Model\TwoColumnsTableData.cs" />
     <Compile Include="AppClass\Model\TwoColumnsTableDataAuto.cs" />
@@ -1185,6 +1194,7 @@
     <Compile Include="AppClass\Model\UserList.cs" />
     <Compile Include="AppClass\Model\UserPermission.cs" />
     <Compile Include="AppClass\Model\UserSecurityCode.cs" />
+    <Compile Include="AppClass\Model\YearSetup.cs" />
     <Compile Include="AppClass\Process\Process.cs" />
     <Compile Include="AppClass\Process\ProcessHeader.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -1216,6 +1226,27 @@
     </Compile>
     <Compile Include="ModuleName\Accounts\CoaHeadSetup.aspx.designer.cs">
       <DependentUpon>CoaHeadSetup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleName\Accounts\MasterPage\JournalVoucherForm.aspx.cs">
+      <DependentUpon>JournalVoucherForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuleName\Accounts\MasterPage\JournalVoucherForm.aspx.designer.cs">
+      <DependentUpon>JournalVoucherForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleName\Accounts\MasterPage\SubledgerSetupForm.aspx.cs">
+      <DependentUpon>SubledgerSetupForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuleName\Accounts\MasterPage\SubledgerSetupForm.aspx.designer.cs">
+      <DependentUpon>SubledgerSetupForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleName\Accounts\MasterPage\YearSetupForm.aspx.cs">
+      <DependentUpon>YearSetupForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuleName\Accounts\MasterPage\YearSetupForm.aspx.designer.cs">
+      <DependentUpon>YearSetupForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModuleName\Approval\frmProcessDetail.aspx.cs">
       <DependentUpon>frmProcessDetail.aspx</DependentUpon>

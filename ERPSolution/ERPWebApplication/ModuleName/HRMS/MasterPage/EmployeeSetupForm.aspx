@@ -133,7 +133,7 @@
                                     <table style="width: 100%;">
                                         <tr>
                                             <td colspan="3" style="margin-top: -5px">
-                                                <div style="position: fixed; width: 400px; background-color: #00817F; height: 50px">
+                                                <div style="position: fixed; width: 400px; background-color: white; height: 50px">
                                                     <table style="width: 70%; margin-left: 5px">
                                                         <tr>
                                                             <td>

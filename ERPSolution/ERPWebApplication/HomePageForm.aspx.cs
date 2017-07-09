@@ -101,6 +101,7 @@ namespace ERPWebApplication
                     LoginUserInformation.CompanyID = Convert.ToInt32(rowNo["CompanyID"].ToString());
                     LoginUserInformation.UserID = rowNo["UserProfileID"].ToString();
                     LoginUserInformation.EmployeeCode = rowNo["EmployeeID"].ToString();
+                    LoginUserInformation.EmployeeFullName = rowNo["FullName"].ToString();
                 }
             }
             catch (Exception msgException)
@@ -151,6 +152,7 @@ namespace ERPWebApplication
                     LoginUserInformation.UserID = "160ea939-7633-46a8-ae49-f661d12abfd5";
                     LoginUserInformation.CompanyID = 1;
                     LoginUserInformation.EmployeeCode = "ADM";
+                    LoginUserInformation.EmployeeFullName = "Administrator";
                     return _objUserList.UserType = 1;
                 }
 
@@ -162,6 +164,7 @@ namespace ERPWebApplication
                     LoginUserInformation.CompanyID = Convert.ToInt32(rowNo["CompanyID"].ToString());
                     LoginUserInformation.UserID = rowNo["UserProfileID"].ToString();
                     LoginUserInformation.EmployeeCode = rowNo["EmployeeID"].ToString();
+                    LoginUserInformation.EmployeeFullName = rowNo["FullName"].ToString();
                     return _objUserList.UserType = 2;
 
                 }

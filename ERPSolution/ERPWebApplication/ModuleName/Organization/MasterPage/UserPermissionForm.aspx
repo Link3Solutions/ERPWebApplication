@@ -8,7 +8,7 @@
             <table style="width: 100%;">
                 <tr>
                     <td>
-                        <ajaxToolkit:TabContainer ID="TabContainerUserPermission" runat="server" Width="100%" Height="100%" ActiveTabIndex="1">
+                        <ajaxToolkit:TabContainer ID="TabContainerUserPermission" runat="server" Width="100%" Height="100%" ActiveTabIndex="1" CssClass="tab" CssTheme="None">
                             <ajaxToolkit:TabPanel ID="TabPanelRoleSetup" runat="server" HeaderText="Role Setup">
                                 <ContentTemplate>
                                     <table style="width: 100%;">
@@ -25,7 +25,7 @@
                                                 <table style="width: 100%;">
                                                     <tr>
                                                         <td colspan="3">
-                                                            <div style="position: fixed; width: 425px; background-color: #00817F; height: 50px">
+                                                            <div style="position: fixed; width: 425px; background-color: white; height: 50px">
                                                                 <table style="width: 50%;">
                                                                     <tr>
                                                                         <td>
@@ -138,7 +138,7 @@
                                     </ajaxToolkit:AutoCompleteExtender>
                                             </td>
                                             <td rowspan="3" style="text-align: right; float: right; width: 435px">
-                                                <div style="position: fixed; width: 425px; background-color: #00817F; height: 50px">
+                                                <div style="position: fixed; width: 425px; background-color: white; height: 50px">
                                                     <table style="width: 70%; margin-left: 5px">
                                                         <tr>
                                                             <td>
