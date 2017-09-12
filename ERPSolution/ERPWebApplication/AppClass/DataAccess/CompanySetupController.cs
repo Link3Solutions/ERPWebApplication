@@ -251,7 +251,7 @@ namespace ERPWebApplication.AppClass.DataAccess
             try
             {
                 DataTable dtLogo = null;
-                var storedProcedureComandText = @"select CompanyLogo from [comCompanySetup] WHERE CompanyID = '" + objCompanyDetailsSetup.CompanyID + "'";
+                var storedProcedureComandText = @"select CompanyLogo from [comCompanySetup] WHERE CompanyLogo  IS NOT NULL AND CompanyID = '" + objCompanyDetailsSetup.CompanyID + "'";
                 dtLogo = clsDataManipulation.GetData(this.ConnectionString, storedProcedureComandText);
                 return dtLogo;
 
@@ -368,7 +368,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                 string sqlString = null;
                 sqlString = @"SELECT [CompanyID]
                               ,[CompanyName]      
-                          FROM [comCompanySetup] WHERE [DataUsed] = 'A'";
+                          FROM [comCompanySetup] WHERE [DataUsed] = 'A' ORDER BY [CompanyName]";
                 return sqlString;
 
             }

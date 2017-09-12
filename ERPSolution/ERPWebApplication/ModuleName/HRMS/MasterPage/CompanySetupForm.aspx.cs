@@ -180,8 +180,8 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                     {
                         ddlAltContDesignation.SelectedValue = AltContDesignation;
                     }
-                    
-                    
+
+
                     txtAltContactNumber.Text = rowNo["AlternateContactPersonContactNumber"].ToString() == null ? string.Empty : rowNo["AlternateContactPersonContactNumber"].ToString();
                     txtPhone.Text = rowNo["CompanyPhones"].ToString() == null ? string.Empty : rowNo["CompanyPhones"].ToString();
                     txtFax.Text = rowNo["CompanyFax"].ToString() == null ? string.Empty : rowNo["CompanyFax"].ToString();
@@ -195,8 +195,8 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                     {
                         txtLicence.Text = licenceNo;
                     }
-                    
-                    
+
+
                     txtFaceBook.Text = rowNo["FaceBookID"].ToString() == null ? string.Empty : rowNo["FaceBookID"].ToString();
                     txtLinkedInID.Text = rowNo["LinkedInID"].ToString() == null ? string.Empty : rowNo["LinkedInID"].ToString();
                     txtTwitterID.Text = rowNo["TwitterID"].ToString() == null ? string.Empty : rowNo["TwitterID"].ToString();
@@ -205,7 +205,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                     if (businessType == null || businessType == "0" || businessType == "")
                     {
                         ddlBusinessType.SelectedValue = "-1";
-                        
+
                     }
                     else
                     {
@@ -216,7 +216,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                     if (ownershipType == null || ownershipType == "-1" || ownershipType == "")
                     {
                         ddlOwnershipType.SelectedValue = "-1";
-                        
+
                     }
                     else
                     {
@@ -227,7 +227,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                     if (districtID == null || districtID == "-1" || districtID == "")
                     {
                         ddlDistrict.SelectedValue = "-1";
-                        
+
                     }
                     else
                     {
@@ -357,7 +357,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                 txtCompanyName.Text = string.Empty;
                 txtEmail.Text = string.Empty;
                 txtMobile.Text = string.Empty;
-                btnSave.Text = "Save";
+                btnSave.Text = "Update";
                 lblImage.Text = "<br />  Logo <br />  Not <br />  Available ";
                 ViewState["profileImage"] = null;
                 PanelDetails.Visible = false;
@@ -469,13 +469,13 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                         else
                         {
                             clsTopMostMessageBox.Show(clsMessages.GImageSize);
-                            
+
                         }
                     }
                     else
                     {
                         clsTopMostMessageBox.Show(clsMessages.GImageSizeBytes);
-                        
+
                     }
 
                 }
@@ -493,7 +493,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                 DataTable dtLogo = _objCompanySetupController.GetLogo(_objCompanyDetailsSetup);
                 if (dtLogo.Rows.Count > 0)
                 {
-                    var img = (byte[])dtLogo.Rows[0].ItemArray[0];
+                    byte[] img = (byte[])dtLogo.Rows[0].ItemArray[0];
                     string base64string = Convert.ToBase64String(img, 0, img.Length);
                     lblImage.Text = "<img src='data:image/png;base64," + base64string + "' alt='<br />  Logo <br />  Not <br />  Available ' width='150px' hight='150px' vspace='5px' hspace='5px' />";
                     ViewState["profileImage"] = img;

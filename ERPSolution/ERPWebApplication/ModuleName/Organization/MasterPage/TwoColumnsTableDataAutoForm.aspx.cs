@@ -49,7 +49,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 _objTwoColumnTables.EntrySystem = "A";
                 EmployeeSetup objEmployeeSetup = new EmployeeSetup();
                 objEmployeeSetup.CompanyID = LoginUserInformation.CompanyID;
-                objEmployeeSetup.EmployeeID = LoginUserInformation.EmployeeCode;
+                objEmployeeSetup.EmployeeID = LoginUserInformation.UserID;
                 _objTwoColumnTablesController = new TwoColumnTablesController();
                 DataTable dtTablesName = _objTwoColumnTablesController.GetRecord(_connectionString, _objTwoColumnTables,objEmployeeSetup);
                 grdTableName.DataSource = null;

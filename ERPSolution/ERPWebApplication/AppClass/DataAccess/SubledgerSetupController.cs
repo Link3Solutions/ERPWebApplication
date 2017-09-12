@@ -352,6 +352,21 @@ namespace ERPWebApplication.AppClass.DataAccess
                             dtSpecifiedConvertibleData = clsDataManipulation.GetData(this.ConnectionString, SqlGetDivision(objSubledgerSetup));
                             break;
                         }
+                    case 11:
+                        {
+                            dtSpecifiedConvertibleData = clsDataManipulation.GetData(this.ConnectionString, SqlGetProject(objSubledgerSetup));
+                            break;
+                        }
+                    case 7:
+                        {
+                            dtSpecifiedConvertibleData = clsDataManipulation.GetData(this.ConnectionString, SqlGetClient(objSubledgerSetup));
+                            break;
+                        }
+                    case 8:
+                        {
+                            dtSpecifiedConvertibleData = clsDataManipulation.GetData(this.ConnectionString, SqlGetSupplier(objSubledgerSetup));
+                            break;
+                        }
                     default:
                         dtSpecifiedConvertibleData = null;
                         break;
@@ -364,6 +379,91 @@ namespace ERPWebApplication.AppClass.DataAccess
 
                 throw msgException;
             }
+        }
+
+        private string SqlGetSupplier(SubledgerSetup objSubledgerSetup)
+        {
+            try
+            {
+                string storedProcedureCommandText = @"SELECT [ContactID] AS ReferenceID,[FullName] AS SubledgerHeadName
+                            FROM [AllSuppliers] ";
+                if (objSubledgerSetup.CompanyID != 0)
+                {
+                    storedProcedureCommandText += " WHERE [CompanyID] = " + objSubledgerSetup.CompanyID + "";
+
+                }
+
+                if (objSubledgerSetup.BranchID != 0)
+                {
+                    storedProcedureCommandText += " AND [BranchID] = " + objSubledgerSetup.BranchID + "";
+
+                }
+
+                return storedProcedureCommandText += " ORDER BY [ContactID]";
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        private string SqlGetClient(SubledgerSetup objSubledgerSetup)
+        {
+            try
+            {
+                string storedProcedureCommandText = @"SELECT [ContactID] AS ReferenceID,[FullName] AS SubledgerHeadName
+                            FROM [Show All Clients] ";
+                if (objSubledgerSetup.CompanyID != 0)
+                {
+                    storedProcedureCommandText += " WHERE [CompanyID] = " + objSubledgerSetup.CompanyID + "";
+
+                }
+
+                if (objSubledgerSetup.BranchID != 0)
+                {
+                    storedProcedureCommandText += " AND [BranchID] = " + objSubledgerSetup.BranchID + "";
+
+                }
+
+                return storedProcedureCommandText += " ORDER BY [ContactID]";
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        private string SqlGetProject(SubledgerSetup objSubledgerSetup)
+        {
+            try
+            {
+                string storedProcedureCommandText = @"SELECT [ProjectID] AS ReferenceID,[ProjectName] AS SubledgerHeadName
+                            FROM [pmProjectSetup] WHERE [DataUsed] = 'A' ";
+                if (objSubledgerSetup.CompanyID != 0)
+                {
+                    storedProcedureCommandText += " AND [CompanyID] = " + objSubledgerSetup.CompanyID + "";
+
+                }
+
+                if (objSubledgerSetup.BranchID != 0)
+                {
+                    storedProcedureCommandText += " AND [BranchID] = " + objSubledgerSetup.BranchID + "";
+
+                }
+
+                return storedProcedureCommandText += " ORDER BY [ProjectID]";
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+
         }
 
         private string SqlGetDivision(SubledgerSetup objSubledgerSetup)

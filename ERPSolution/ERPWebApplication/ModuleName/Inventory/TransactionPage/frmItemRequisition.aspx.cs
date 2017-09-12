@@ -922,7 +922,7 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage
                 txtRequestedBy.Text = hdr.Rows[0]["RequisitionBy"].ToString();
                 ddlRequestedDept.Text = hdr.Rows[0]["RequestedDepartmentID"].ToString();
                 ddlItemUserType.Text = hdr.Rows[0]["UserTypeID"].ToString();
-                txtUserName.Text = hdr.Rows[0]["UserID"].ToString();
+                txtUserName.Text = hdr.Rows[0]["UserIdentifierID"].ToString();
                 txtLocAddress.Text = hdr.Rows[0]["LocationAddress"].ToString();
                 txtrequestedDate.Text = Convert.ToDateTime(hdr.Rows[0]["RequisitionDate"]).ToShortDateString();
                 txtDateNeed.Text = Convert.ToDateTime(hdr.Rows[0]["RequiredDate"]).ToShortDateString();
@@ -1694,7 +1694,7 @@ namespace ERPWebApplication.ModuleName.Inventory.TransactionPage
         
         }
 
-        //Save
+        //Update
 
         protected void btnupload_Click(object sender, EventArgs e)
         {

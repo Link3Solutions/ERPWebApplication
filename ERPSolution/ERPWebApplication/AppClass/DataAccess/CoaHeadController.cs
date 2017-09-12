@@ -12,7 +12,7 @@ using System.Web;
 
 namespace ERPWebApplication.AppClass.DataAccess
 {
-    public class CoaHeadController
+    public class CoaHeadController : DataAccessBase
     {
         public CoaHeadController()
         {
@@ -25,6 +25,22 @@ namespace ERPWebApplication.AppClass.DataAccess
             try
             {
                 string sql = "SELECT SubLedgerTypeID,SubLedgerID FROM AccCOASubHeadSetup WHERE SubledgerHeadName = '" + subledgerHeadName + "'";
+                return clsDataManipulation.GetData(connectionString, sql);
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+        public DataTable GetSubLedgerInformationForType(string connectionString, string subledgerHeadName)
+        {
+            try
+            {
+                string sql = @"SELECT A.SubLedgerTypeID,A.SubLedgerID FROM AccCOASubHeadSetup A
+                                INNER JOIN [AccCOASubLedgerTypeSetup] B ON A.SubLedgerTypeID = B.SubledgerTypeID
+                                WHERE B.SubLedgerTypeName = '" + subledgerHeadName + "'";
                 return clsDataManipulation.GetData(connectionString, sql);
 
             }
@@ -53,8 +69,8 @@ namespace ERPWebApplication.AppClass.DataAccess
                                         +objCoaHead.CompanyID + "," +
                                         +objCoaHead.BranchID + "," +
                                         +objCoaHead.IsBudgetRelated + ",'" +
-                                        objCoaHead.AnalysisRequired + "',"+
-                                        "'"+objCoaHead.EntryUserId+"'";
+                                        objCoaHead.AnalysisRequired + "'," +
+                                        "'" + objCoaHead.EntryUserId + "'";
                 myCommand.CommandTimeout = 600;
                 myCommand.ExecuteNonQuery();
                 myConnection.Close();
@@ -94,15 +110,15 @@ namespace ERPWebApplication.AppClass.DataAccess
                 var myCommand = myConnection.CreateCommand();
                 myConnection.Open();
                 myCommand.CommandText = "exec [Update_accCOAHeadSetup] " +
-                                        +objCoaHead.AccountNo + "," +                                        
+                                        +objCoaHead.AccountNo + "," +
                                         +objCoaHead.AccountTypeId + "," +
                                         "'" + objCoaHead.AccountName + "'," +
-                                        "'" + objCoaHead.AccountDescription + "'," +                                       
+                                        "'" + objCoaHead.AccountDescription + "'," +
                                         +objCoaHead.CompanyID + "," +
                                         +objCoaHead.BranchID + "," +
                                         +objCoaHead.IsBudgetRelated + ",'" +
-                                        objCoaHead.AnalysisRequired + "',"+
-                                        "'"+objCoaHead.EntryUserId+"'";
+                                        objCoaHead.AnalysisRequired + "'," +
+                                        "'" + objCoaHead.EntryUserId + "'";
                 myCommand.CommandTimeout = 600;
                 myCommand.ExecuteNonQuery();
                 myConnection.Close();
@@ -125,6 +141,24 @@ namespace ERPWebApplication.AppClass.DataAccess
 
 
                 }
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal string CheckAnalysisrequired(CoaHead objCoaHead)
+        {
+            try
+            {
+                string analysisrequiredData = null;
+                string sql = @"SELECT AnalysisRequired FROM accCOAHeadSetup WHERE AccountNo = " + objCoaHead.AccountNo + "";
+                clsDataManipulation objclsDataManipulation = new clsDataManipulation();
+                analysisrequiredData = objclsDataManipulation.GetSingleValueAsString(this.ConnectionString, sql);
+                return analysisrequiredData;
 
             }
             catch (Exception msgException)

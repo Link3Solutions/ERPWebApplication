@@ -33,6 +33,53 @@ public class clsDataManipulation
             myConnection.Close();
         }
     }
+    public static void StoredProcedureExecuteNonQueryRollBack(string connectionString, string storedProcedureCommandTest)
+    {
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+
+            SqlCommand command = connection.CreateCommand();
+            SqlTransaction transaction;
+
+            // Start a local transaction.
+            transaction = connection.BeginTransaction();
+
+            // Must assign both transaction object and connection
+            // to Command object for a pending local transaction
+            command.Connection = connection;
+            command.Transaction = transaction;
+
+            try
+            {
+                new SqlCommand(storedProcedureCommandTest, connection).ExecuteNonQuery();
+                // Attempt to commit the transaction.
+                transaction.Commit();
+
+            }
+            catch (Exception ex)
+            {
+                // Attempt to roll back the transaction.
+                try
+                {
+                    transaction.Rollback();
+                }
+                catch (Exception ex2)
+                {
+                    if (ex2 == null)
+                    {
+                        ex2 = ex;
+
+                    }
+
+                    // This catch block will handle any errors that may have occurred
+                    // on the server that would cause the rollback to fail, such as
+                    // a closed connection.
+                    throw ex2;
+                }
+            }
+        }
+    }
     public static DataTable GetData(string connectionString, string storedProcedureCommandTest)
     {
         var resultantDataTable = new DataTable();
@@ -101,6 +148,22 @@ public class clsDataManipulation
             return targetValue;
 
 
+        }
+        catch (Exception msgException)
+        {
+
+            throw msgException;
+        }
+    }
+    public string GetAnUniqueidentifierNumber(string connectionString)
+    {
+        try
+        {
+            string uniqueidentifierNumber = null;
+            string sqlString = @"SELECT NEWID() AS uniqueidentifierNumber";
+            uniqueidentifierNumber = this.GetSingleValueAsString(connectionString, sqlString);
+
+            return uniqueidentifierNumber;
         }
         catch (Exception msgException)
         {

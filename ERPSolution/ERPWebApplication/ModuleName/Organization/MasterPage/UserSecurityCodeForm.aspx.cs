@@ -19,10 +19,8 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
         {
             try
             {
-                _objCompanySetup = new CompanySetup();
-                _objCompanySetup.CompanyID = LoginUserInformation.CompanyID;
                 _objUserSecurityCodeController = new UserSecurityCodeController();
-                _objUserSecurityCodeController.LoadUserForSecurityCode(_objCompanySetup, GridViewUsers);
+                _objUserSecurityCodeController.LoadUserForSecurityCode(GridViewUsers);
 
 
             }
@@ -44,12 +42,15 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 {
                     _objUserSecurityCode = new UserSecurityCode();
                     _objUserSecurityCode.UserKnownID = ((Label)GridViewUsers.Rows[selectedIndex].FindControl("lblEmployeeID")).Text;
+                    UserProfile objUserProfile = new UserProfile();
+                    objUserProfile.Email = ((Label)GridViewUsers.Rows[selectedIndex].FindControl("lblEmail")).Text;
                     _objCompanySetup = new CompanySetup();
                     _objCompanySetup.CompanyID = LoginUserInformation.CompanyID;
                     _objCompanySetup.EntryUserName = LoginUserInformation.UserID;
                     _objUserSecurityCodeController = new UserSecurityCodeController();
-                    _objUserSecurityCodeController.SendSecurityCode(_objCompanySetup,_objUserSecurityCode);
-                    _objUserSecurityCodeController.LoadUserForSecurityCode(_objCompanySetup, GridViewUsers);
+                    _objUserSecurityCodeController.SendSecurityCode(_objCompanySetup,_objUserSecurityCode,objUserProfile);
+                    _objUserSecurityCodeController.LoadUserForSecurityCode(GridViewUsers);
+                    clsTopMostMessageBox.Show(clsMessages.GProcessSuccess);
                 }
             }
             catch (Exception msgException)
@@ -57,6 +58,11 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
 
                 clsTopMostMessageBox.Show(msgException.Message);
             }
+        }
+
+        protected void GridViewUsers_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            e.Row.Cells[1].Visible = false;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" Title="Home Page" AutoEventWireup="true" CodeBehind="HomePageForm.aspx.cs" Inherits="ERPWebApplication.HomePageForm" %>
-
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -8,7 +9,7 @@
 </head>--%>
 <head id="Head1" runat="server">
     <meta charset="utf-8" />
-    <title ><%: Page.Title %>- ERP Web Application</title>
+    <title><%: Page.Title %>- ERP Web Application</title>
     <asp:PlaceHolder ID="PlaceHolder1" runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
@@ -33,6 +34,21 @@
         }
 
     </script>
+
+    <style type="text/css">
+        .auto-style1 {
+            height: 222px;
+        }
+        .labelView{
+    font-family: Tahoma;
+    font-size: 0.9em;
+    font-weight: normal;    
+    color:#606163;
+    text-align: left;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+    </style>
 
 </head>
 <%--<body>
@@ -61,7 +77,6 @@
                 <asp:ScriptReference Name="WebFormsBundle" />
                 <%--Site Scripts--%>
             </Scripts>
-
 
         </asp:ScriptManager>
         <header>
@@ -98,6 +113,8 @@
             </div>
 
         </header>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
         <div id="body" style="padding-top: 109px; width: 100%">
             <div id="fixedImage" style="position: fixed; background-color: #fff">
                 <section style="margin-left: 80px; max-width: 960px">
@@ -122,8 +139,8 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <ol style="list-style-type:none">
+                                        <td class="auto-style1">
+                                            <ol style="list-style-type: none">
                                                 <li>
                                                     <asp:Label ID="Label1" runat="server" AssociatedControlID="txtUserName">User name</asp:Label>
                                                     <asp:TextBox runat="server" ID="txtUserName" />
@@ -146,11 +163,12 @@
                                                 </li>
                                             </ol>
                                         </td>
-                                        <td>&nbsp;</td>
-                                        <td>&nbsp;</td>
+                                        <td class="auto-style1"></td>
+                                        <td class="auto-style1"></td>
                                     </tr>
                                     <tr>
-                                        <td style="padding-left:40px"><asp:Button ID="btnRegister" runat="server" Text="Register" Width="100px" OnClick="btnRegister_Click" /></td>
+                                        <td style="padding-left: 40px">
+                                            <asp:Button ID="btnRegister" runat="server" Text="Register" Width="100px" OnClick="btnRegister_Click" /></td>
                                         <td>&nbsp;</td>
                                         <td>&nbsp;</td>
                                     </tr>
@@ -170,21 +188,34 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><ol style="list-style-type:none" >
-                        <li>
-                            <asp:Label ID="Label5" runat="server" AssociatedControlID="txtLoginUserName">User name</asp:Label>
-                            <asp:TextBox runat="server" ID="txtLoginUserName" />
-                        </li>
-                        <li>
-                            <asp:Label ID="Label6" runat="server" AssociatedControlID="txtLoginPassword">Password</asp:Label>
-                            <asp:TextBox runat="server" ID="txtLoginPassword" TextMode="Password" />
-                        </li>
-                                        </ol></td>
+                                        <td>
+                                            <ol style="list-style-type: none">
+                                                <li>
+                                                    <asp:Label  ID="Label5" runat="server" AssociatedControlID="txtLoginUserName" CssClass="labelView" >User name</asp:Label>
+                                                    <asp:TextBox runat="server" ID="txtLoginUserName" />
+                                                </li>
+                                                <li style="padding-left: 170px">
+                                                    <asp:LinkButton ID="lnkbtnCompany" runat="server" OnClick="lnkbtnCompany_Click" CssClass="labelView">Show Company</asp:LinkButton>
+                                                </li>
+                                                <li>
+                                                    
+                                                </li>
+                                                <li >
+                                                    <asp:Label ID="lblCompanyText" runat="server" AssociatedControlID="ddlCompany" CssClass="labelView">Company</asp:Label>
+                                                    <asp:DropDownList ID="ddlCompany" runat="server"></asp:DropDownList>
+                                                </li>
+                                                <li>
+                                                    <asp:Label ID="lblLoginPassword" runat="server" AssociatedControlID="txtLoginPassword" CssClass="labelView">Password</asp:Label>
+                                                    <asp:TextBox runat="server" ID="txtLoginPassword" TextMode="Password" />
+                                                </li>
+                                            </ol>
+                                        </td>
                                         <td>&nbsp;</td>
                                         <td>&nbsp;</td>
                                     </tr>
                                     <tr>
-                                        <td style="padding-left:40px"><asp:Button ID="btnLogin" runat="server" Text="Log in" Width="100px" OnClick="btnLogin_Click" /></td>
+                                        <td style="padding-left: 40px">
+                                            <asp:Button ID="btnLogin" runat="server" Text="Log in" Width="100px" OnClick="btnLogin_Click" /></td>
                                         <td>&nbsp;</td>
                                         <td>&nbsp;</td>
                                     </tr>
@@ -207,6 +238,8 @@
                 </div>
             </div>
         </footer>
+                </ContentTemplate>
+            </asp:UpdatePanel>
     </form>
 </body>
 </html>

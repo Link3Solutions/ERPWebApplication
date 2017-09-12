@@ -55,6 +55,16 @@
                                                     </tr>
                                                     <tr>
                                                         <td>
+                                                            <asp:Label ID="Label7" runat="server" Text="Company"></asp:Label>
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td>
+                                                            <asp:DropDownList ID="ddlCompanyForRole" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCompanyForRole_SelectedIndexChanged">
+                                                            </asp:DropDownList>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
                                                             <asp:Label ID="Label2" runat="server" Text="Role Type"></asp:Label>
                                                         </td>
                                                         <td>:</td>
@@ -124,20 +134,14 @@
                                     <table style="width: 100%;">
                                         <tr>
                                             <td>
-                                                <asp:Label ID="Label3" runat="server" Text="User Code"></asp:Label>
+                                                <asp:Label ID="Label6" runat="server" Text="Company"></asp:Label>
                                             </td>
                                             <td>:</td>
                                             <td>
-                                                <asp:TextBox ID="txtUserCode" runat="server" AutoPostBack="True" OnTextChanged="txtUserCode_TextChanged"></asp:TextBox>
-                                                <ajaxToolkit:AutoCompleteExtender ID="txtUserCode_AutoCompleteExtender" runat="server"
-                                        CompletionListCssClass="autocomplete_completionListElement"
-                                        CompletionListHighlightedItemCssClass="autocomplete_highlightedListItem"
-                                        CompletionListItemCssClass="autocomplete_listItem2"
-                                        DelimiterCharacters=""
-                                        MinimumPrefixLength="1" ServiceMethod="GetEmpId" ServicePath="~/WebService/ServiceSystem.asmx" TargetControlID="txtUserCode" BehaviorID="_content_txtUserCode_AutoCompleteExtender">
-                                    </ajaxToolkit:AutoCompleteExtender>
+                                                <asp:DropDownList ID="ddlCompany" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCompany_SelectedIndexChanged">
+                                                </asp:DropDownList>
                                             </td>
-                                            <td rowspan="3" style="text-align: right; float: right; width: 435px">
+                                            <td rowspan="4" style="text-align: right; float: right; width: 435px">
                                                 <div style="position: fixed; width: 425px; background-color: white; height: 50px">
                                                     <table style="width: 70%; margin-left: 5px">
                                                         <tr>
@@ -150,6 +154,17 @@
                                                         </tr>
                                                     </table>
                                                 </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <asp:Label ID="Label3" runat="server" Text="User Code"></asp:Label>
+                                            </td>
+                                            <td>:</td>
+                                            <td>
+                                                <asp:TextBox ID="txtUserCode" runat="server" AutoPostBack="True" OnTextChanged="txtUserCode_TextChanged"></asp:TextBox>
+                                                <ajaxToolkit:AutoCompleteExtender ID="txtUserCode_AutoCompleteExtender" runat="server" BehaviorID="_content_txtUserCode_AutoCompleteExtender" CompletionListCssClass="autocomplete_completionListElement" CompletionListHighlightedItemCssClass="autocomplete_highlightedListItem" CompletionListItemCssClass="autocomplete_listItem2" DelimiterCharacters="" MinimumPrefixLength="1" ServiceMethod="GetUserId" ServicePath="~/WebService/ServiceSystem.asmx" TargetControlID="txtUserCode">
+                                                </ajaxToolkit:AutoCompleteExtender>
                                             </td>
                                         </tr>
                                         <tr>

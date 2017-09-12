@@ -348,7 +348,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:16</publishTime>
     </File>
     <File Include="bin/ControlLibrary.dll">
-      <publishTime>07/03/2017 10:07:34</publishTime>
+      <publishTime>08/06/2017 17:44:37</publishTime>
     </File>
     <File Include="bin/CrystalDecisions.CrystalReports.Design.dll">
       <publishTime>01/06/2013 05:05:56</publishTime>
@@ -399,7 +399,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:28</publishTime>
     </File>
     <File Include="bin/ERPWebApplication.dll">
-      <publishTime>07/03/2017 10:07:35</publishTime>
+      <publishTime>08/06/2017 17:44:38</publishTime>
     </File>
     <File Include="bin/FlashControlV71.dll">
       <publishTime>03/03/2011 12:25:18</publishTime>
@@ -440,6 +440,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Bundle.config">
       <publishTime>08/21/2016 12:45:10</publishTime>
     </File>
+    <File Include="ChangeCompanyForm.aspx">
+      <publishTime>08/03/2017 12:15:54</publishTime>
+    </File>
     <File Include="ClassDiagram1.cd">
       <publishTime>01/19/2017 11:22:04</publishTime>
     </File>
@@ -447,7 +450,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:10</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>06/13/2017 13:39:50</publishTime>
+      <publishTime>06/07/2017 18:12:57</publishTime>
     </File>
     <File Include="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png">
       <publishTime>08/21/2016 12:45:16</publishTime>
@@ -2616,7 +2619,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:10</publishTime>
     </File>
     <File Include="HomePageForm.aspx">
-      <publishTime>06/06/2017 12:43:28</publishTime>
+      <publishTime>08/03/2017 11:17:57</publishTime>
     </File>
     <File Include="Images/accent.png">
       <publishTime>08/21/2016 12:45:10</publishTime>
@@ -2682,13 +2685,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="ModuleName/Accounts/CoaHeadSetup.aspx">
-      <publishTime>06/13/2017 13:19:01</publishTime>
+      <publishTime>07/10/2017 12:19:36</publishTime>
     </File>
     <File Include="ModuleName/Accounts/MasterPage/JournalVoucherForm.aspx">
       <publishTime>06/11/2017 11:22:28</publishTime>
     </File>
     <File Include="ModuleName/Accounts/MasterPage/SubledgerSetupForm.aspx">
-      <publishTime>07/02/2017 16:26:38</publishTime>
+      <publishTime>05/07/2017 17:09:30</publishTime>
     </File>
     <File Include="ModuleName/Accounts/MasterPage/YearSetupForm.aspx">
       <publishTime>06/19/2017 14:25:42</publishTime>
@@ -2700,7 +2703,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/13/2017 11:05:13</publishTime>
     </File>
     <File Include="ModuleName/HRMS/MasterPage/EmployeeSetupForm.aspx">
-      <publishTime>06/13/2017 11:05:12</publishTime>
+      <publishTime>08/06/2017 15:02:01</publishTime>
     </File>
     <File Include="ModuleName/HRMS/MasterPage/OrganizationalChartForm.aspx">
       <publishTime>06/13/2017 13:38:41</publishTime>
@@ -2751,10 +2754,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/13/2017 11:05:12</publishTime>
     </File>
     <File Include="ModuleName/Organization/MasterPage/UserPermissionForm.aspx">
-      <publishTime>06/13/2017 11:05:12</publishTime>
+      <publishTime>08/02/2017 14:06:55</publishTime>
+    </File>
+    <File Include="ModuleName/Organization/MasterPage/UserProfileForm.aspx">
+      <publishTime>07/25/2017 11:07:20</publishTime>
     </File>
     <File Include="ModuleName/Organization/MasterPage/UserSecurityCodeForm.aspx">
-      <publishTime>04/10/2017 15:42:42</publishTime>
+      <publishTime>08/03/2017 12:23:55</publishTime>
     </File>
     <File Include="NodeList.aspx">
       <publishTime>10/23/2016 14:48:04</publishTime>
@@ -2871,7 +2877,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/28/2016 12:52:14</publishTime>
     </File>
     <File Include="Site.Master">
-      <publishTime>06/07/2017 15:57:49</publishTime>
+      <publishTime>07/16/2017 16:02:26</publishTime>
     </File>
     <File Include="UploadFile/Action Planning form.xlsx">
       <publishTime>10/23/2016 14:33:30</publishTime>
@@ -2916,7 +2922,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/23/2016 14:33:30</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/03/2017 10:07:39</publishTime>
+      <publishTime>08/06/2017 17:44:42</publishTime>
     </File>
     <File Include="WebService/ServiceSystem.asmx">
       <publishTime>10/30/2016 11:17:38</publishTime>

@@ -63,7 +63,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 txtTableName.Text = string.Empty;
                 txtEntryMode.Text = string.Empty;
                 txtRelatedTo.Text = string.Empty;
-                btnSave.Text = "Save";
+                btnSave.Text = "Update";
                 ddlEntrySystem.SelectedValue = "-1";
                 ddlRelatedUserRoleID.SelectedValue = "-1";
 
@@ -108,7 +108,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 _objTwoColumnTables.RelatedUserRoleID = ddlRelatedUserRoleID.SelectedValue == "-1" ? 0 : Convert.ToInt32(ddlRelatedUserRoleID.SelectedValue);
                 _objTwoColumnTables.EntrySystem = ddlEntrySystem.SelectedValue == "-1" ? null : ddlEntrySystem.SelectedValue;
                 _objTwoColumnTablesController = new TwoColumnTablesController();
-                if (btnSave.Text == "Save")
+                if (btnSave.Text == "Update")
                 {
                     _objTwoColumnTablesController.Save(_connectionString, _objTwoColumnTables);
 

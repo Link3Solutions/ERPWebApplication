@@ -208,7 +208,7 @@
                                                                 DelimiterCharacters="" Enabled="True"
                                                                 ServicePath="~/WebService/ServiceSystem.asmx"
                                                                 MinimumPrefixLength="1"
-                                                                ServiceMethod="GetSubledgerHeadName"
+                                                                ServiceMethod="GetSubledgerType"
                                                                 TargetControlID="txtSubledgerTypeID">
                                                             </cc1:AutoCompleteExtender>
                                                         </td>
@@ -227,7 +227,7 @@
                                                                 DelimiterCharacters="" Enabled="True"
                                                                 ServicePath="~/WebService/ServiceSystem.asmx"
                                                                 MinimumPrefixLength="1"
-                                                                ServiceMethod="GetSubledgerHeadName"
+                                                                ServiceMethod="GetSubledgerType"
                                                                 TargetControlID="txtSubledgerTypeID0">
                                                             </cc1:AutoCompleteExtender>
                                                         </td>
@@ -246,7 +246,7 @@
                                                                 DelimiterCharacters="" Enabled="True"
                                                                 ServicePath="~/WebService/ServiceSystem.asmx"
                                                                 MinimumPrefixLength="1"
-                                                                ServiceMethod="GetSubledgerHeadName"
+                                                                ServiceMethod="GetSubledgerType"
                                                                 TargetControlID="txtSubledgerTypeID1">
                                                             </cc1:AutoCompleteExtender>
                                                         </td>
@@ -265,7 +265,7 @@
                                                                 DelimiterCharacters="" Enabled="True"
                                                                 ServicePath="~/WebService/ServiceSystem.asmx"
                                                                 MinimumPrefixLength="1"
-                                                                ServiceMethod="GetSubledgerHeadName"
+                                                                ServiceMethod="GetSubledgerType"
                                                                 TargetControlID="txtSubledgerTypeID2">
                                                             </cc1:AutoCompleteExtender>
                                                         </td>
@@ -284,7 +284,7 @@
                                                                 DelimiterCharacters="" Enabled="True"
                                                                 ServicePath="~/WebService/ServiceSystem.asmx"
                                                                 MinimumPrefixLength="1"
-                                                                ServiceMethod="GetSubledgerHeadName"
+                                                                ServiceMethod="GetSubledgerType"
                                                                 TargetControlID="txtSubledgerTypeID3">
                                                             </cc1:AutoCompleteExtender>
                                                         </td>

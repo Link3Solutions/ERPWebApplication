@@ -20,6 +20,8 @@ namespace ERPWebApplication
         private string _antiXsrfTokenValue;
         private UserPermissionController _objUserPermissionController;
         private ProjectSetup _objProjectSetup;
+        private UserList _objUserList;
+        private UserListController _objUserListController;
 
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -86,6 +88,7 @@ namespace ERPWebApplication
                     }
 
                     ControlPageTitle();
+                    ControllnkbtnChangeCompany();
 
                 }
 
@@ -140,7 +143,7 @@ namespace ERPWebApplication
                 {
                     EmployeeSetup objEmployeeSetup = new EmployeeSetup();
                     objEmployeeSetup.CompanyID = LoginUserInformation.CompanyID;
-                    objEmployeeSetup.EmployeeID = LoginUserInformation.EmployeeCode;
+                    objEmployeeSetup.EntryUserName = LoginUserInformation.UserID;
                     table = _objUserPermissionController.GetData(objEmployeeSetup);
                     
                 }
@@ -198,6 +201,43 @@ namespace ERPWebApplication
             {
 
                 clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        protected void lnkbtnChangeCompany_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/ChangeCompanyForm.aspx");
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+        private void ControllnkbtnChangeCompany()
+        {
+            try
+            {
+                _objUserList = new UserList();
+                _objUserList.UserName = LoginUserInformation.UserName;
+                _objUserListController = new UserListController();
+                DataTable dtAssignCompany = _objUserListController.GetAssignCompanyUpdate(_objUserList);
+                if (dtAssignCompany.Rows.Count > 1)
+                {
+                    lnkbtnChangeCompany.Visible = true;
+                }
+                else
+                {
+                    lnkbtnChangeCompany.Visible = false;
+                    
+                }
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
             }
         }
     }

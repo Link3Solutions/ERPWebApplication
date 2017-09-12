@@ -27,7 +27,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 if (!Page.IsPostBack)
                 {
                     Session["relatedUserRoleID"] = 1;
-                    Session["entryUserCode"] = 1;
+                    Session["entryUserCode"] = LoginUserInformation.UserID;
                     Session["lastPositionNo"] = 1;
                     Session["branchID"] = 1;
                     ShowsysTwoColumnTables();
@@ -50,7 +50,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 _objTwoColumnTables.EntrySystem = "M";
                 EmployeeSetup objEmployeeSetup = new EmployeeSetup();
                 objEmployeeSetup.CompanyID = LoginUserInformation.CompanyID;
-                objEmployeeSetup.EmployeeID = LoginUserInformation.EmployeeCode;
+                objEmployeeSetup.EmployeeID = LoginUserInformation.UserID;
                 _objTwoColumnTablesController = new TwoColumnTablesController();
                 DataTable dtTablesName = _objTwoColumnTablesController.GetRecord(_connectionString, _objTwoColumnTables,objEmployeeSetup);
                 grdTableName.DataSource = null;
@@ -94,7 +94,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 txtFieldOfName.Focus();
                 Session["tableID"] = lblTableID;
                 ShowTwoColumnsTableData();
-                btnSave.Text = "Save";
+                btnSave.Text = "Update";
 
             }
             catch (Exception msgException)
@@ -153,7 +153,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             {
                 txtFieldOfName.Text = string.Empty;
                 txtFieldDescription.Text = string.Empty;
-                btnSave.Text = "Save";
+                btnSave.Text = "Update";
 
             }
             catch (Exception msgException)
@@ -176,7 +176,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 _objTwoColumnsTableData.EntryUserName = Session["entryUserCode"].ToString();
                 _objTwoColumnsTableData.TableName = lblSelectedTableName.Text == string.Empty ? null : lblSelectedTableName.Text;
                 _objTwoColumnsTableDataController = new TwoColumnsTableDataController();
-                if (btnSave.Text == "Save")
+                if (btnSave.Text == "Update")
                 {
                     _objTwoColumnsTableDataController.Save(_connectionString, _objTwoColumnsTableData);
                 }

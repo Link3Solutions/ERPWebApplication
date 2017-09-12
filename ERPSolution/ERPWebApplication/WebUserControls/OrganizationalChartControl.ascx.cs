@@ -30,6 +30,11 @@ namespace ERPWebApplication.WebUserControls
                 }
                 DropDownList ddlElementDataCompany = (DropDownList)GridViewOrganizationalChart.Rows[0].FindControl("ddlElementData");
                 ddlElementDataCompany.Enabled = false;
+                if (ddlElementDataCompany.Items.Count >2)
+                {
+                    ddlElementDataCompany.Enabled = true;
+                    
+                }
 
             }
             catch (Exception msgException)

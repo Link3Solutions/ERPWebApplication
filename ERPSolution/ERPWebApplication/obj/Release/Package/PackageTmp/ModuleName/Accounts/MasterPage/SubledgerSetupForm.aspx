@@ -39,21 +39,20 @@
                     <tr>
                         <td style="width: 122px">
                             <asp:Label ID="Label19" runat="server" 
-                                Text="Known Value ID"></asp:Label>
+                                Text="Known By"></asp:Label>
                         </td>
                         <td style="width: 20px">
                             <asp:Label ID="Label21" runat="server"  Text=":"></asp:Label>
                         </td>
                         <td>
                             <asp:DropDownList ID="ddlKnownValue" runat="server" >
-                                <asp:ListItem Value="1">Employee</asp:ListItem>
                             </asp:DropDownList>
                         </td>
                     </tr>
                     <tr>
                         <td style="width: 122px">
                             <asp:Label ID="Label20" runat="server" 
-                                Text="Is Convertable "></asp:Label>
+                                Text="Is Convertible "></asp:Label>
                         </td>
                         <td style="width: 20px">
                             <asp:Label ID="Label22" runat="server"  Text=":"></asp:Label>
@@ -70,10 +69,13 @@
                         <td style="width: 122px">&nbsp;</td>
                         <td style="width: 20px">&nbsp;</td>
                         <td>
-                            <asp:Button ID="btnSubledgerTypeSave" runat="server"
-                                Text="Save" Width="100px" OnClick="btnSubledgerTypeSave_Click" />
-                            <asp:Button ID="btnSubledgerTypeView" runat="server" 
-                                Text="View" Width="100px" />
+                            &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 122px">&nbsp;</td>
+                        <td style="width: 20px">&nbsp;</td>
+                        <td>
+                            <asp:Button ID="btnSubledgerTypeSave" runat="server" OnClick="btnSubledgerTypeSave_Click" Text="Save" Width="100px" />
                         </td>
                     </tr>
                     <tr>
@@ -133,17 +135,6 @@
                     </tr>
                     <tr>
                         <td style="width: 122px">
-                            <asp:Label ID="Label6" runat="server"  Text="Referance ID"></asp:Label>
-                        </td>
-                        <td style="width: 20px">
-                            <asp:Label ID="Label10" runat="server"  Text=":"></asp:Label>
-                        </td>
-                        <td>
-                            <asp:TextBox ID="txtreferanceId" runat="server" ></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="width: 122px">
                             <asp:Label ID="Label7" runat="server"  Text="Subledger Name"></asp:Label>
                         </td>
                         <td style="width: 20px">
@@ -173,9 +164,7 @@
                         <td style="width: 122px">&nbsp;</td>
                         <td style="width: 20px">&nbsp;</td>
                         <td>
-                            <asp:Button ID="btnSaveSetup" runat="server" Text="Save" Width="83px" />
-                            <asp:Button ID="btnViewSetup" runat="server" Text="View" Width="83px" />
-                            <asp:Button ID="btnViewSetupAll" runat="server" Text="View ALL" Width="83px" />
+                            <asp:Button ID="btnSaveSubLedger" runat="server" Text="Save" Width="83px" OnClick="btnSaveSubLedger_Click" />
                         </td>
                     </tr>
                     <tr>
@@ -230,17 +219,8 @@
                             <asp:Label ID="Label14" runat="server"  Text=":"></asp:Label>
                         </td>
                         <td>
-                            <asp:DropDownList ID="ddlSubLedgerTypeConvertable" runat="server">
+                            <asp:DropDownList ID="ddlSubLedgerTypeConvertible" runat="server">
                             </asp:DropDownList>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="width: 122px">&nbsp;</td>
-                        <td style="width: 20px">&nbsp;</td>
-                        <td>
-                            <asp:RadioButtonList ID="rdosubLedgerOption" runat="server" 
-                                RepeatDirection="Horizontal" Visible="False">
-                            </asp:RadioButtonList>
                         </td>
                     </tr>
                     <tr>
@@ -252,8 +232,7 @@
                         <td style="width: 122px">&nbsp;</td>
                         <td style="width: 20px">&nbsp;</td>
                         <td>
-                            <asp:Button ID="btnConvertSubledger" runat="server" Text="Convert" Width="100px" />
-                            <asp:Button ID="btnViewConvertedSubledger" runat="server" Text="View" Width="100px" />
+                            <asp:Button ID="btnConvertSubledger" runat="server" Text="Convert" Width="100px" OnClick="btnConvertSubledger_Click" />
                         </td>
                     </tr>
                     <tr>

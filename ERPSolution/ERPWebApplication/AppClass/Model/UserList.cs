@@ -76,5 +76,22 @@ namespace ERPWebApplication.AppClass.Model
                 } _userEmail = value;
             }
         }
+
+        private string _userID;
+
+        public string UserID
+        {
+            get { return _userID; }
+            set { _userID = value; }
+        }
+        private int _isUser;
+
+        public int IsUser
+        {
+            get { return _isUser; }
+            set { _isUser = value; }
+        }
+
+        
     }
 }

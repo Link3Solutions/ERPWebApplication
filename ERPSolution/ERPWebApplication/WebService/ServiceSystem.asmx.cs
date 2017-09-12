@@ -252,6 +252,28 @@ namespace ERPWebApplication.WebService
             }
             return SubledgerHeadList;
         }
+        [WebMethod]
+        public List<string> GetSubledgerType(string prefixText, int count, String contextKey)
+        {
+            List<string> SubledgerHeadList = new List<string>();
+            DataTable dt = new DataTable();
+            string str = "";
+            string constr = contextKey;
+            if (prefixText == "*")
+            {
+                str = "SELECT DISTINCT [SubLedgerTypeName]  FROM [AccCOASubLedgerTypeSetup] WHERE [DataUsed] = 'A' ORDER BY [SubLedgerTypeName]";
+            }
+            else
+            {
+                str = "SELECT DISTINCT [SubLedgerTypeName] FROM [AccCOASubLedgerTypeSetup] WHERE [DataUsed] = 'A' AND ([SubLedgerTypeName] like '%" + prefixText + "%' ) ORDER BY [SubLedgerTypeName]";
+            }
+            dt = DataProcess.GetData(constr, str);
+            foreach (DataRow dr in dt.Rows)
+            {
+                SubledgerHeadList.Add(dr["SubLedgerTypeName"].ToString());
+            }
+            return SubledgerHeadList;
+        }
         #endregion ItemRequisition
 
 
@@ -327,7 +349,112 @@ namespace ERPWebApplication.WebService
             }
             catch (Exception msgException)
             {
-                
+
+                throw msgException;
+            }
+        }
+        [WebMethod]
+        public List<string> GetAllActiveEmpId(string prefixText, int count, string contextKey)
+        {
+            try
+            {
+                _objCompanySetup = new CompanySetup();
+                _objCompanySetup.CompanyID = Convert.ToInt32(contextKey);
+                List<string> ItemList = new List<string>();
+                DataTable dtEmployee = new DataTable();
+                string sqlString = "";
+                if (prefixText == "*")
+                {
+                    sqlString = "SELECT EmployeeID FROM [hrEmployeeSetup] WHERE DataUsed = 'A' ORDER BY EmployeeID";
+
+                }
+                else
+                {
+                    sqlString = "SELECT EmployeeID FROM [hrEmployeeSetup] WHERE (EmployeeID like '%" + prefixText + "%'  or (FullName like '%" + prefixText + "%')) AND DataUsed = 'A' ORDER BY EmployeeID";
+
+                }
+
+                dtEmployee = clsDataManipulation.GetData(_connectionString, sqlString);
+                foreach (DataRow dr in dtEmployee.Rows)
+                {
+                    ItemList.Add(dr["EmployeeID"].ToString());
+                }
+                return ItemList;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+        [WebMethod]
+        public List<string> GetUserId(string prefixText, int count, string contextKey)
+        {
+            try
+            {
+                _objCompanySetup = new CompanySetup();
+                _objCompanySetup.CompanyID = Convert.ToInt32(contextKey);
+                List<string> ItemList = new List<string>();
+                DataTable dtEmployee = new DataTable();
+                string sqlString = "";
+                if (prefixText == "*")
+                {
+                    sqlString = "SELECT UserIdentifier FROM [uUserProfile] WHERE DataUsed = 'A' ORDER BY UserIdentifier ";
+
+                }
+                else
+                {
+                    sqlString = "SELECT UserIdentifier FROM [uUserProfile] WHERE (UserIdentifier like '%" + prefixText + "%' ) AND DataUsed = 'A'  ORDER BY UserIdentifier";
+
+                }
+
+                dtEmployee = clsDataManipulation.GetData(_connectionString, sqlString);
+                foreach (DataRow dr in dtEmployee.Rows)
+                {
+                    ItemList.Add(dr["UserIdentifier"].ToString());
+                }
+                return ItemList;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+        [WebMethod]
+        public List<string> GetCOAHead(string prefixText, int count, string contextKey)
+        {
+            try
+            {
+                _objCompanySetup = new CompanySetup();
+                _objCompanySetup.CompanyID = Convert.ToInt32(contextKey);
+                List<string> ItemList = new List<string>();
+                DataTable dtCOAHead = new DataTable();
+                string sqlString = "";
+                if (prefixText == "*")
+                {
+                    sqlString = "SELECT AccountNo,AccountName FROM accCOAHeadSetup WHERE CompanyID = " + _objCompanySetup.CompanyID + " ORDER BY AccountName";
+
+                }
+                else
+                {
+                    sqlString = "SELECT AccountNo,AccountName FROM accCOAHeadSetup WHERE CompanyID = " + _objCompanySetup.CompanyID + " AND (AccountNo like '%" + prefixText + "%'  or (AccountName like '%" + prefixText + "%')) ORDER BY AccountName";
+
+                }
+
+                dtCOAHead = clsDataManipulation.GetData(_connectionString, sqlString);
+                foreach (DataRow dr in dtCOAHead.Rows)
+                {
+                    ItemList.Add(dr["AccountNo"].ToString() + ":" + dr["AccountName"].ToString());
+                }
+                return ItemList;
+
+            }
+            catch (Exception msgException)
+            {
+
                 throw msgException;
             }
         }

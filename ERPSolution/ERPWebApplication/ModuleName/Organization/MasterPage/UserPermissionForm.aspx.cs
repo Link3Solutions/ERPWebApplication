@@ -23,6 +23,8 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             {
                 if (!Page.IsPostBack)
                 {
+                    LoadCompany(ddlCompanyForRole);
+                    LoadCompany(ddlCompany);
                     _objUserPermissionController = new UserPermissionController();
                     _objUserPermissionController.PopulateRootLevel(TreeViewAllNode);
                     _objUserPermissionController.LoadRoleTypeData(ddlRoleType);
@@ -30,9 +32,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                     LoadRoleRecordGrid();
                     LoadRoleRecordList();
                     txtUserCode_AutoCompleteExtender.ContextKey = LoginUserInformation.CompanyID.ToString();
-                    _objCompanySetup = new CompanySetup();
-                    _objCompanySetup.CompanyID = LoginUserInformation.CompanyID;
-                    _objUserPermissionController.LoadRelatedUserRoleLB(ListBoxRelatedUserRole,_objCompanySetup);
+                    LoadRelatedUserRole();
 
                 }
 
@@ -45,12 +45,41 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
 
         }
 
+        private void LoadRelatedUserRole()
+        {
+            try
+            {
+                _objCompanySetup = new CompanySetup();
+                _objCompanySetup.CompanyID = Convert.ToInt32(ddlCompany.SelectedValue);
+                _objUserPermissionController.LoadRelatedUserRoleLB(ListBoxRelatedUserRole, _objCompanySetup);
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        private void LoadCompany(DropDownList ddlCompany)
+        {
+            try
+            {
+                _objUserPermissionController = new UserPermissionController();
+                _objUserPermissionController.LoadCompanyDDL(ddlCompany);
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
         private void LoadRoleRecordList()
         {
             try
             {
                 _objCompanySetup = new CompanySetup();
-                _objCompanySetup.CompanyID = LoginUserInformation.CompanyID;
+                _objCompanySetup.CompanyID = Convert.ToInt32(ddlCompany.SelectedValue);
                 _objUserPermission = new UserPermission();
                 _objUserPermission.RoleType = ddlRoleTypeUser.SelectedValue;
                 _objUserPermissionController = new UserPermissionController();
@@ -59,8 +88,8 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             }
             catch (Exception msgException)
             {
-                
-                throw msgException; 
+
+                throw msgException;
             }
         }
         private void LoadUserRoleRecord()
@@ -68,17 +97,17 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             try
             {
                 EmployeeSetup objEmployeeSetup = new EmployeeSetup();
-                objEmployeeSetup.CompanyID = LoginUserInformation.CompanyID;
+                objEmployeeSetup.CompanyID = Convert.ToInt32(ddlCompany.SelectedValue);
                 objEmployeeSetup.EmployeeID = txtUserCode.Text == string.Empty ? null : txtUserCode.Text;
                 _objUserPermission = new UserPermission();
                 _objUserPermission.RoleType = ddlRoleTypeUser.SelectedValue;
                 _objUserPermissionController = new UserPermissionController();
                 _objUserPermissionController.GetUserRoleRecord(objEmployeeSetup, _objUserPermission, ListBoxSelectedRoles);
-                _objUserPermissionController.GetRelatedUserRoleRecord(objEmployeeSetup,ListBoxSelectedRelatedUserRole);
+                _objUserPermissionController.GetRelatedUserRoleRecord(objEmployeeSetup, ListBoxSelectedRelatedUserRole);
                 if (ListBoxSelectedRoles.Items.Count > 0)
                 {
                     btnSave.Text = "Update";
-                    
+
                 }
                 else
                 {
@@ -88,7 +117,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }
@@ -98,15 +127,15 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             try
             {
                 _objCompanySetup = new CompanySetup();
-                _objCompanySetup.CompanyID = LoginUserInformation.CompanyID;
+                _objCompanySetup.CompanyID = Convert.ToInt32(ddlCompanyForRole.SelectedValue);
                 _objUserPermission = new UserPermission();
                 _objUserPermission.RoleType = ddlRoleType.SelectedValue;
                 _objUserPermissionController = new UserPermissionController();
-                _objUserPermissionController.GetRoleRecord(_objCompanySetup,_objUserPermission,GridViewRoles);
+                _objUserPermissionController.GetRoleRecord(_objCompanySetup, _objUserPermission, GridViewRoles);
             }
             catch (Exception msgExceptin)
             {
-                
+
                 throw msgExceptin;
             }
         }
@@ -131,9 +160,9 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             try
             {
                 AddValuesForRoleSetup();
+                ClearControl();
                 LoadRoleRecordGrid();
                 LoadRoleRecordList();
-                ClearControl();
                 clsTopMostMessageBox.Show(clsMessages.GProcessSuccess);
 
             }
@@ -156,10 +185,14 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 {
                     TreeViewAllNode.CheckedNodes[0].Checked = false;
                 }
+
+                ddlCompanyForRole.SelectedValue = "-1";
+                GridViewRoles.DataSource = null;
+                GridViewRoles.DataBind();
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }
@@ -170,34 +203,34 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             {
                 _objUserPermission = new UserPermission();
                 _objCompanySetup = new CompanySetup();
-                _objCompanySetup.CompanyID = LoginUserInformation.CompanyID;
+                _objCompanySetup.CompanyID = Convert.ToInt32(ddlCompanyForRole.SelectedValue);
                 _objCompanySetup.EntryUserName = LoginUserInformation.UserID;
                 _objUserPermission.RoleName = txtRoleTitle.Text == string.Empty ? null : txtRoleTitle.Text;
-                
+
                 foreach (TreeNode nodeNumber in this.TreeViewAllNode.Nodes)
                 {
                     saveNodePermission(nodeNumber);
                 }
-                
+
                 _objUserPermission.nodeList = listNode;
-                
+
                 _objUserPermission.RoleType = ddlRoleType.SelectedValue == "-1" ? null : ddlRoleType.SelectedValue;
                 _objUserPermissionController = new UserPermissionController();
                 if (btnRoleSave.Text == "Save")
                 {
                     _objUserPermissionController.SaveRoleData(_objCompanySetup, _objUserPermission);
-                    
+
                 }
                 else
                 {
                     _objUserPermission.RoleID = Convert.ToInt32(Session["selectedRoleID"].ToString());
-                    _objUserPermissionController.UpdateRoleData(_objCompanySetup,_objUserPermission);
+                    _objUserPermissionController.UpdateRoleData(_objCompanySetup, _objUserPermission);
                 }
-                
+
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }
@@ -215,7 +248,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                     foreach (TreeNode targetChildNode in targetNode.ChildNodes)
                     {
                         saveNodePermission(targetChildNode);
-                        
+
                     }
                 }
                 else
@@ -229,7 +262,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }
@@ -371,11 +404,12 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 ListBoxSelectedRoles.Items.Clear();
                 btnSave.Text = "Save";
                 ListBoxSelectedRelatedUserRole.Items.Clear();
+                ddlCompany.SelectedValue = "-1";
 
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }
@@ -388,20 +422,24 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 List<int> listRole = new List<int>();
                 foreach (ListItem item in ListBoxSelectedRoles.Items)
                 {
-                    listRole.Add( Convert.ToInt32( item.Value.ToString()));
+                    listRole.Add(Convert.ToInt32(item.Value.ToString()));
                 }
                 _objUserPermission.roleList = listRole;
                 _objUserPermission.RoleType = ddlRoleTypeUser.SelectedValue == "-1" ? null : ddlRoleTypeUser.SelectedValue;
                 EmployeeSetup objEmployeeSetup = new EmployeeSetup();
-                objEmployeeSetup.EmployeeID = txtUserCode.Text == string.Empty ? null : txtUserCode.Text;
-                objEmployeeSetup.CompanyID = LoginUserInformation.CompanyID;
+
+                UserProfile objUserProfile = new UserProfile();
+                UserProfileController objUserProfileController = new UserProfileController();
+                objUserProfile.UserIdentifierID = txtUserCode.Text == string.Empty ? null : txtUserCode.Text;
+                objEmployeeSetup.EmployeeID = objUserProfileController.GetUserProfileID(objUserProfile);
+                objEmployeeSetup.CompanyID = Convert.ToInt32(ddlCompany.SelectedValue);
                 objEmployeeSetup.EntryUserName = LoginUserInformation.UserID;
                 _objUserPermissionController = new UserPermissionController();
 
                 List<int> listRelatedUserRole = new List<int>();
                 foreach (ListItem item in ListBoxSelectedRelatedUserRole.Items)
                 {
-                    listRelatedUserRole.Add( Convert.ToInt32( item.Value.ToString()));
+                    listRelatedUserRole.Add(Convert.ToInt32(item.Value.ToString()));
                 }
                 _objUserPermission.RelatedUserRoleList = listRelatedUserRole;
 
@@ -411,14 +449,14 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 }
                 else
                 {
-                    _objUserPermissionController.UpdateUserRole(objEmployeeSetup,_objUserPermission);
+                    _objUserPermissionController.UpdateUserRole(objEmployeeSetup, _objUserPermission);
                 }
-                
+
 
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }
@@ -467,14 +505,14 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 {
                     string lblRoleName = ((Label)GridViewRoles.Rows[selectedIndex].FindControl("lblRoleName")).Text;
                     string lblRoleTypeID = ((Label)GridViewRoles.Rows[selectedIndex].FindControl("lblRoleTypeID")).Text;
-                    
+
                     ddlRoleType.SelectedValue = lblRoleTypeID;
                     txtRoleTitle.Text = lblRoleName;
                     btnRoleSave.Text = "Update";
                     Session["selectedRoleID"] = lblRoleID;
                     ShowNodesOfRole();
                     ddlRoleType.Enabled = false;
-                    
+
                 }
             }
             catch (Exception msgException)
@@ -489,11 +527,11 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             try
             {
                 _objUserPermission = new UserPermission();
-                _objUserPermission.RoleID = Convert.ToInt32( Session["selectedRoleID"].ToString());
+                _objUserPermission.RoleID = Convert.ToInt32(Session["selectedRoleID"].ToString());
                 _objCompanySetup = new CompanySetup();
-                _objCompanySetup.CompanyID = LoginUserInformation.CompanyID;
+                _objCompanySetup.CompanyID = Convert.ToInt32(ddlCompanyForRole.SelectedValue);
                 _objUserPermissionController = new UserPermissionController();
-                DataTable dtNodes = _objUserPermissionController.GetNodesOfRole(_objCompanySetup,_objUserPermission);
+                DataTable dtNodes = _objUserPermissionController.GetNodesOfRole(_objCompanySetup, _objUserPermission);
                 while (TreeViewAllNode.CheckedNodes.Count > 0)
                 {
                     TreeViewAllNode.CheckedNodes[0].Checked = false;
@@ -505,19 +543,19 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                     {
                         ShowNodeInRole(nodeNumber, rowNo["NodeID"].ToString());
                     }
-                    
+
                 }
 
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }
 
-        
-        private void ShowNodeInRole(TreeNode targetNode,string nodeValue)
+
+        private void ShowNodeInRole(TreeNode targetNode, string nodeValue)
         {
             try
             {
@@ -532,10 +570,10 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                     if (nodeValue == targetChildNode.Value)
                     {
                         targetChildNode.Checked = true;
-                        
+
                     }
-                    
-                    ShowNodeInRole(targetChildNode,nodeValue);
+
+                    ShowNodeInRole(targetChildNode, nodeValue);
 
                 }
             }
@@ -646,6 +684,33 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 clsTopMostMessageBox.Show(msgException.Message);
             }
 
+        }
+
+        protected void ddlCompanyForRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                this.LoadRoleRecordGrid();
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        protected void ddlCompany_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                this.LoadRoleRecordList();
+                LoadRelatedUserRole();
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
         }
     }
 }

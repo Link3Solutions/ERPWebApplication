@@ -123,7 +123,7 @@ namespace ERPWebApplication.ModuleName.Approval
                 if (GetStatus() != "Error")
                 {
                     DataTable ValuesForUpdate = CheckDuplicateValue.DuplicateCheckForUpdate("ProcessDescription", "ProcessId", "ProcessDescription", txtProcessDescription.Text.ToString() == "" ? "" : txtProcessDescription.Text.ToString());
-                    if (btnSave.Text == "Save")
+                    if (btnSave.Text == "Update")
                     {
                         if (ValuesForUpdate.Rows.Count == 0)
                         {
@@ -169,7 +169,7 @@ namespace ERPWebApplication.ModuleName.Approval
                             Response.Write(@"<script language='javascript'>alert('ProcessDescription already exists pleae choose different ProcessDescription')</script>");
                         }
                     }
-                    else if (btnSave.Text != "Save")
+                    else if (btnSave.Text != "Update")
                     {
                         if (ValuesForUpdate.Rows.Count == 0 || ValuesForUpdate.Rows[0][1].ToString() == txtProcessId.Text.ToString())
                         {
@@ -198,7 +198,7 @@ namespace ERPWebApplication.ModuleName.Approval
                             {
                                 myTrans.Commit();
                             }
-                            btnSave.Text = "Save";
+                            btnSave.Text = "Update";
                         }
                         else
                         {
@@ -546,7 +546,7 @@ namespace ERPWebApplication.ModuleName.Approval
         private void SaveDataForProcessLevelDescription()
         {
             DataTable ValuesForUpdate = CheckDuplicateValue.DuplicateCheckForUpdate("LevelDescription", "ProcessLevelId", "ProcessLevelDescription", txtLevelDescription.Text.ToString() == "" ? "" : txtLevelDescription.Text.ToString());
-            if (btnSaveLevelDescription.Text == "Save")
+            if (btnSaveLevelDescription.Text == "Update")
             {
                 if (ValuesForUpdate.Rows.Count == 0)
                 {
@@ -592,7 +592,7 @@ namespace ERPWebApplication.ModuleName.Approval
                     Response.Write(@"<script language='javascript'>alert('Level Description already exists pleae choose different Level Description')</script>");
                 }
             }
-            else if (btnSaveLevelDescription.Text != "Save")
+            else if (btnSaveLevelDescription.Text != "Update")
             {
                 if (ValuesForUpdate.Rows.Count == 0 || Convert.ToInt32(ValuesForUpdate.Rows[0][1].ToString()) == Convert.ToInt32(txtProcessLevelId.Text.ToString()))
                 {
@@ -632,7 +632,7 @@ namespace ERPWebApplication.ModuleName.Approval
                     {
                         myConnection.Close();
                     }
-                    btnSaveLevelDescription.Text = "Save";
+                    btnSaveLevelDescription.Text = "Update";
                 }
                 else
                 {
@@ -644,7 +644,7 @@ namespace ERPWebApplication.ModuleName.Approval
         private void SaveDataForProcessActionType()
         {
             DataTable ValuesForUpdate = CheckDuplicateValue.DuplicateCheckForUpdateNew("Action", "ActionTypeId", "ProcessId", "ProcessActionType", txtActionType.Text.ToString() == "" ? "" : txtActionType.Text.ToString(), ddlProcessIdForAction.SelectedItem.Value.ToString());
-            if (btnSaveProcessActionType.Text == "Save")
+            if (btnSaveProcessActionType.Text == "Update")
             {
                 if (ValuesForUpdate.Rows.Count == 0)
                 {
@@ -690,7 +690,7 @@ namespace ERPWebApplication.ModuleName.Approval
                     Response.Write(@"<script language='javascript'>alert('Action Type already exists pleae choose different Action Type')</script>");
                 }
             }
-            else if (btnSaveProcessActionType.Text != "Save")
+            else if (btnSaveProcessActionType.Text != "Update")
             {
                 if (ValuesForUpdate.Rows.Count == 0 || Convert.ToInt32(ValuesForUpdate.Rows[0][1].ToString()) == Convert.ToInt32(txtActionTypeId.Text.ToString()))
                 {
@@ -730,7 +730,7 @@ namespace ERPWebApplication.ModuleName.Approval
                     {
                         myConnection.Close();
                     }
-                    btnSaveProcessActionType.Text = "Save";
+                    btnSaveProcessActionType.Text = "Update";
                 }
                 else
                 {
@@ -1058,7 +1058,7 @@ namespace ERPWebApplication.ModuleName.Approval
         private void SaveDataForProcessFlowDefinition()
         {
             DataTable ValuesForUpdate = CheckDuplicateValue.DuplicateCheckForUpdate("FlowDescription", "ProcessFlowId", "ProcessFlowDefinition", txtProcessFlowDescription.Text == "" ? "" : txtProcessFlowDescription.Text);
-            if (btnSaveProcessFlowDescription.Text == "Save")
+            if (btnSaveProcessFlowDescription.Text == "Update")
             {
                 if (ValuesForUpdate.Rows.Count == 0)
                 {
@@ -1105,7 +1105,7 @@ namespace ERPWebApplication.ModuleName.Approval
                     Response.Write(@"<script language='javascript'>alert('Flow Description already exists pleae choose different Flow Description')</script>");
                 }
             }
-            else if (btnSaveProcessFlowDescription.Text != "Save")
+            else if (btnSaveProcessFlowDescription.Text != "Update")
             {
                 if (ValuesForUpdate.Rows.Count == 0 || Convert.ToInt32(ValuesForUpdate.Rows[0][1].ToString()) == Convert.ToInt32(txtProcessFlowId.Text.ToString()))
                 {
@@ -1146,7 +1146,7 @@ namespace ERPWebApplication.ModuleName.Approval
                     {
                         myConnection.Close();
                     }
-                    btnSaveProcessFlowDescription.Text = "Save";
+                    btnSaveProcessFlowDescription.Text = "Update";
                 }
                 else
                 {
@@ -1574,7 +1574,7 @@ namespace ERPWebApplication.ModuleName.Approval
                     clsTopMostMessageBox.Show("Please Select Information Correctly");
                 }
 
-                clsTopMostMessageBox.Show("Data Save Successful");
+                clsTopMostMessageBox.Show("Data Update Successful");
                 
             }
             catch (Exception ex)

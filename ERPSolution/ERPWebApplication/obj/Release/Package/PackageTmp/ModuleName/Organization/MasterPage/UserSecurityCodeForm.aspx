@@ -8,7 +8,7 @@
             <table style="width: 100%;">
                 <tr>
                     <td colspan="3">
-                        <asp:GridView ID="GridViewUsers" Width="100%" runat="server" AutoGenerateColumns="False" OnRowCommand="GridViewUsers_RowCommand">
+                        <asp:GridView ID="GridViewUsers" Width="100%" runat="server" AutoGenerateColumns="False" OnRowCommand="GridViewUsers_RowCommand" OnRowDataBound="GridViewUsers_RowDataBound">
                             <Columns>
                                 <asp:TemplateField HeaderText="SL">
                                     <ItemTemplate>
@@ -19,12 +19,17 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="ID">
                                     <ItemTemplate>
-                                        <asp:Label ID="lblEmployeeID" runat="server" Text='<%# Bind("EmployeeID") %>'></asp:Label>
+                                        <asp:Label ID="lblEmployeeID" runat="server" Text='<%# Bind("UserProfileID") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Name">
                                     <ItemTemplate>
                                         <asp:Label ID="Label2" runat="server" Text='<%# Bind("FullName") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Email">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblEmail" runat="server" Text='<%# Bind("Email") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Entry Date">
@@ -37,7 +42,7 @@
                                         <asp:Label ID="Label4" runat="server" Text='<%# Bind("DateOfCode", "{0:d}") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:CommandField ShowSelectButton="True" />
+                                <asp:CommandField ShowSelectButton="True" SelectText="Send code" />
                             </Columns>
                         </asp:GridView>
                     </td>

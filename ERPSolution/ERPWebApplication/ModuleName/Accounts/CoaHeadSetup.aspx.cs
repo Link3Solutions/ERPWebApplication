@@ -180,7 +180,7 @@ namespace ERPWebApplication.ModuleName.Accounts
 
                     if (subLedger != null)
                     {
-                        var dtCheckSubLedgerInfo = objCoaHeadController.GetSubLedgerInformation(_connectionString, subLedger);
+                        var dtCheckSubLedgerInfo = objCoaHeadController.GetSubLedgerInformationForType(_connectionString, subLedger);
                         foreach (DataRow rowNo in dtCheckSubLedgerInfo.Rows)
                         {
                             dr = objCoaHead.DtSubledgerInformation.NewRow();
@@ -459,7 +459,7 @@ namespace ERPWebApplication.ModuleName.Accounts
 
                     if (subLedger != null)
                     {
-                        var dtCheckSubLedgerInfo = objCoaHeadController.GetSubLedgerInformation(_connectionString, subLedger);
+                        var dtCheckSubLedgerInfo = objCoaHeadController.GetSubLedgerInformationForType(_connectionString, subLedger);
                         foreach (DataRow rowNo in dtCheckSubLedgerInfo.Rows)
                         {
                             dr = objCoaHead.DtSubledgerInformation.NewRow();

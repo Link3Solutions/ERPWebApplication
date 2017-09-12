@@ -13,6 +13,15 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage {
     public partial class JournalVoucherForm {
         
         /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        /// <summary>
         /// TabContainer2 control.
         /// </summary>
         /// <remarks>
@@ -49,13 +58,31 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// dplJournalType control.
+        /// ddlJournalType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dplJournalType;
+        protected global::System.Web.UI.WebControls.DropDownList ddlJournalType;
+        
+        /// <summary>
+        /// Label32 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label32;
+        
+        /// <summary>
+        /// txtReferenceJournal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtReferenceJournal;
         
         /// <summary>
         /// Label17 control.
@@ -67,13 +94,31 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage {
         protected global::System.Web.UI.WebControls.Label Label17;
         
         /// <summary>
-        /// dpTransactionype control.
+        /// ddlTransactionType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dpTransactionype;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTransactionType;
+        
+        /// <summary>
+        /// Label9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label9;
+        
+        /// <summary>
+        /// ddlVoucherType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlVoucherType;
         
         /// <summary>
         /// Label5 control.
@@ -85,22 +130,13 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage {
         protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// dtptrnDate control.
+        /// txtJournalDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox dtptrnDate;
-        
-        /// <summary>
-        /// dtptrnDate_CalendarExtender control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender dtptrnDate_CalendarExtender;
+        protected global::System.Web.UI.WebControls.TextBox txtJournalDate;
         
         /// <summary>
         /// Label6 control.
@@ -121,13 +157,13 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage {
         protected global::System.Web.UI.WebControls.TextBox txtAccCode;
         
         /// <summary>
-        /// autoComplete1 control.
+        /// txtAccCode_AutoCompleteExtender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.AutoCompleteExtender autoComplete1;
+        protected global::AjaxControlToolkit.AutoCompleteExtender txtAccCode_AutoCompleteExtender;
         
         /// <summary>
         /// Label22 control.
@@ -148,42 +184,6 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage {
         protected global::System.Web.UI.WebControls.TextBox txtAmount;
         
         /// <summary>
-        /// Label9 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label9;
-        
-        /// <summary>
-        /// dplType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dplType;
-        
-        /// <summary>
-        /// txtNarration control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNarration;
-        
-        /// <summary>
-        /// pnlcurrency control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlcurrency;
-        
-        /// <summary>
         /// Label26 control.
         /// </summary>
         /// <remarks>
@@ -193,22 +193,13 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage {
         protected global::System.Web.UI.WebControls.Label Label26;
         
         /// <summary>
-        /// Label27 control.
+        /// ddlCurrency control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label27;
-        
-        /// <summary>
-        /// lblCurrency control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCurrency;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCurrency;
         
         /// <summary>
         /// Label24 control.
@@ -220,22 +211,13 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage {
         protected global::System.Web.UI.WebControls.Label Label24;
         
         /// <summary>
-        /// Label28 control.
+        /// txtCurrencyRate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label28;
-        
-        /// <summary>
-        /// txtRate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRate;
+        protected global::System.Web.UI.WebControls.TextBox txtCurrencyRate;
         
         /// <summary>
         /// Label25 control.
@@ -247,103 +229,49 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage {
         protected global::System.Web.UI.WebControls.Label Label25;
         
         /// <summary>
-        /// txtCurRate control.
+        /// txtBaseAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCurRate;
+        protected global::System.Web.UI.WebControls.TextBox txtBaseAmount;
         
         /// <summary>
-        /// btnSubledger control.
+        /// txtNarration control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubledger;
+        protected global::System.Web.UI.WebControls.TextBox txtNarration;
         
         /// <summary>
-        /// btnInsert control.
+        /// btnAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnInsert;
+        protected global::System.Web.UI.WebControls.Button btnAdd;
         
         /// <summary>
-        /// txtReferance control.
+        /// btnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtReferance;
+        protected global::System.Web.UI.WebControls.Button btnSave;
         
         /// <summary>
-        /// ButtonSave control.
+        /// grdVoucher control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonSave;
-        
-        /// <summary>
-        /// btnPrint control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPrint;
-        
-        /// <summary>
-        /// btnClearAll control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClearAll;
-        
-        /// <summary>
-        /// txtSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSearch;
-        
-        /// <summary>
-        /// AutoCompleteExtender1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.AutoCompleteExtender AutoCompleteExtender1;
-        
-        /// <summary>
-        /// btnSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSearch;
-        
-        /// <summary>
-        /// gdvJV control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gdvJV;
+        protected global::System.Web.UI.WebControls.GridView grdVoucher;
         
         /// <summary>
         /// ModalPopupExtender1 control.

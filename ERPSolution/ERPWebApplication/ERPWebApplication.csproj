@@ -274,6 +274,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="ChangeCompanyForm.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -993,6 +994,7 @@
     <Content Include="Images\btnYes.jpg" />
     <Content Include="Images\header.png" />
     <Content Include="Images\imageup.jpg" />
+    <Content Include="Images\Remove.png" />
     <Content Include="MicrosoftMenuHtmlPage.html" />
     <Content Include="ModuleName\Accounts\CoaHeadSetup.aspx" />
     <Content Include="ModuleName\Accounts\MasterPage\JournalVoucherForm.aspx" />
@@ -1026,6 +1028,7 @@
     <Content Include="ModuleName\Organization\MasterPage\TwoColumnsTableDataForm.aspx" />
     <Content Include="ModuleName\Organization\MasterPage\TwoColumnTablesForm.aspx" />
     <Content Include="ModuleName\Organization\MasterPage\UserPermissionForm.aspx" />
+    <Content Include="ModuleName\Organization\MasterPage\UserProfileForm.aspx" />
     <Content Include="ModuleName\Organization\MasterPage\UserSecurityCodeForm.aspx" />
     <Content Include="packages.config" />
     <Content Include="CSS\CSSstyleTheme\CommonCSS\default.skin" />
@@ -1096,6 +1099,7 @@
   <ItemGroup>
     <Compile Include="AppClass\CommonClass\AutoTableData.cs" />
     <Compile Include="AppClass\CommonClass\CGlobalMeaage.cs" />
+    <Compile Include="AppClass\CommonClass\CGlobalMethod.cs" />
     <Compile Include="AppClass\CommonClass\CheckDropDownList.cs" />
     <Compile Include="AppClass\CommonClass\CheckDuplicateValue.cs" />
     <Compile Include="AppClass\CommonClass\ClsDropDownListController.cs" />
@@ -1118,6 +1122,7 @@
     <Compile Include="AppClass\DataAccess\ClientInformationController.cs" />
     <Compile Include="AppClass\DataAccess\CoaHeadController.cs" />
     <Compile Include="AppClass\DataAccess\CompanySetupController.cs" />
+    <Compile Include="AppClass\DataAccess\CompanyWiseUserListController.cs" />
     <Compile Include="AppClass\DataAccess\CountrySetupController.cs" />
     <Compile Include="AppClass\DataAccess\DataAccessBase.cs" />
     <Compile Include="AppClass\DataAccess\EmployeeInformationController.cs" />
@@ -1132,6 +1137,7 @@
     <Compile Include="AppClass\DataAccess\ItemSetupController.cs" />
     <Compile Include="AppClass\DataAccess\ItemTypeSetupController.cs" />
     <Compile Include="AppClass\DataAccess\ItemUsageSetupController.cs" />
+    <Compile Include="AppClass\DataAccess\JournalVoucherController.cs" />
     <Compile Include="AppClass\DataAccess\MailServiceController.cs" />
     <Compile Include="AppClass\DataAccess\NodeListController.cs" />
     <Compile Include="AppClass\DataAccess\OrganizationalChartSetupController.cs" />
@@ -1150,6 +1156,7 @@
     <Compile Include="AppClass\DataAccess\UnitSetupController.cs" />
     <Compile Include="AppClass\DataAccess\UserListController.cs" />
     <Compile Include="AppClass\DataAccess\UserPermissionController.cs" />
+    <Compile Include="AppClass\DataAccess\UserProfileController.cs" />
     <Compile Include="AppClass\DataAccess\UserSecurityCodeController.cs" />
     <Compile Include="AppClass\DataAccess\VehicleInformationController.cs" />
     <Compile Include="AppClass\DataAccess\YearSetupController.cs" />
@@ -1178,6 +1185,7 @@
     <Compile Include="AppClass\Model\IsUser.cs" />
     <Compile Include="AppClass\Model\ItemCategorySetup.cs" />
     <Compile Include="AppClass\Model\ItemSetup.cs" />
+    <Compile Include="AppClass\Model\JournalVoucher.cs" />
     <Compile Include="AppClass\Model\MailServiceSetup.cs" />
     <Compile Include="AppClass\Model\NodeList.cs" />
     <Compile Include="AppClass\Model\OrganizationalChartSetup.cs" />
@@ -1193,6 +1201,7 @@
     <Compile Include="AppClass\Model\TwoColumnTables.cs" />
     <Compile Include="AppClass\Model\UserList.cs" />
     <Compile Include="AppClass\Model\UserPermission.cs" />
+    <Compile Include="AppClass\Model\UserProfile.cs" />
     <Compile Include="AppClass\Model\UserSecurityCode.cs" />
     <Compile Include="AppClass\Model\YearSetup.cs" />
     <Compile Include="AppClass\Process\Process.cs" />
@@ -1205,6 +1214,13 @@
     </Compile>
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeCompanyForm.aspx.cs">
+      <DependentUpon>ChangeCompanyForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangeCompanyForm.aspx.designer.cs">
+      <DependentUpon>ChangeCompanyForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -1361,6 +1377,13 @@
     </Compile>
     <Compile Include="ModuleName\Organization\MasterPage\UserPermissionForm.aspx.designer.cs">
       <DependentUpon>UserPermissionForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleName\Organization\MasterPage\UserProfileForm.aspx.cs">
+      <DependentUpon>UserProfileForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuleName\Organization\MasterPage\UserProfileForm.aspx.designer.cs">
+      <DependentUpon>UserProfileForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModuleName\Organization\MasterPage\UserSecurityCodeForm.aspx.cs">
       <DependentUpon>UserSecurityCodeForm.aspx</DependentUpon>

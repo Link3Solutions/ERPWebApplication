@@ -195,7 +195,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
             {
                 ddlCompany.SelectedValue = "-1";
                 ListBoxOrganizationElements.Items.Clear();
-                btnSave.Text = "Save";
+                btnSave.Text = "Update";
 
             }
             catch (Exception msgException)
@@ -219,7 +219,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                 _objOrganizationalChartSetup.OrgElementIDList = list;
 
                 _objOrganizationalChartSetupController = new OrganizationalChartSetupController();
-                if (btnSave.Text == "Save")
+                if (btnSave.Text == "Update")
                 {
                     _objOrganizationalChartSetupController.Save(_objOrganizationalChartSetup);
                 }
@@ -271,7 +271,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                     }
                     else
                     {
-                        btnSave.Text = "Save";
+                        btnSave.Text = "Update";
                     }
                 }
 

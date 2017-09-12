@@ -12,6 +12,17 @@ namespace ERPWebApplication.AppClass.CommonClass
             get { return HttpContext.Current.Session["@#$$%@)userID(@^&^&%"].ToString(); }
             set { HttpContext.Current.Session["@#$$%@)userID(@^&^&%"] = value; }
         }
+        public static string UserProfileID
+        {
+            get { return HttpContext.Current.Session["@#$$%@)userProfileID(@^&^&%"].ToString(); }
+            set { HttpContext.Current.Session["@#$$%@)userProfileID(@^&^&%"] = value; }
+ 
+        }
+        public static string UserName
+        {
+            get { return HttpContext.Current.Session["@#$$%@)userName(@^&^&%"].ToString(); }
+            set { HttpContext.Current.Session["@#$$%@)userName(@^&^&%"] = value; }
+        }
         public static int CompanyID
         {
             get { return Convert.ToInt32(HttpContext.Current.Session["@#$$%@)lastPositionNo(@^&^&%"].ToString()); }

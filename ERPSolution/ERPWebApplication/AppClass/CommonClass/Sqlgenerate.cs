@@ -14,7 +14,7 @@ using System.Data.SqlClient;
             string sql = "SELECT a.COMP_CODE, a.COMP_NAME, a.COMP_HRM, a.COMP_HO, a.COMP_FO"
                         + " FROM SYM_ADM_CCM a"
                         + " inner join [tblUserCompany] b on a.COMP_CODE=b.CompanyID"
-                        + " where [COMP_HRM]='Y'  and b.UserID='" + Userid + "' and NodeID='" + Nodeid + "'";
+                        + " where [COMP_HRM]='Y'  and b.UserIdentifierID='" + Userid + "' and NodeID='" + Nodeid + "'";
             return sql;
         }
 
@@ -553,7 +553,7 @@ using System.Data.SqlClient;
         public static string SqlDeleteNodePermission(string companyId, string empId, string nodeId)
         {
             return "DELETE FROM [tbl_adm_list] WHERE adm_id = '" + empId + "' AND adm_det = '" + nodeId + "' AND Comp_Code = '" + companyId + "';" +
-                   "DELETE FROM tblUserCompany WHERE UserID = '" + empId + "' AND NodeID = '" + nodeId + "' AND CompanyID = '" + companyId + "';" +
+                   "DELETE FROM tblUserCompany WHERE UserIdentifierID = '" + empId + "' AND NodeID = '" + nodeId + "' AND CompanyID = '" + companyId + "';" +
                    "DELETE FROM tblUserCompanyDepartment WHERE UserId = '" + empId + "' AND  NodeID = '" + nodeId + "' AND CompanyID = '" + companyId + "'";
         }
         #endregion Node Permission

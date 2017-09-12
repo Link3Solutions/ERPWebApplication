@@ -132,5 +132,32 @@ namespace ERPWebApplication.AppClass.CommonClass
                 throw msgException;
             }
         }
+
+        internal static void LoadDropDownListFromDataTable(DataTable dtGivenData, DropDownList dropDownListName, string displayMember, string valueMember)
+        {
+            try
+            {
+                dropDownListName.Items.Clear();
+                if (dtGivenData.Rows.Count > 0)
+                {
+                    dropDownListName.Items.Insert(0, new ListItem("--- Please Select ---", "-1"));
+                    foreach (DataRow dr in dtGivenData.Rows)
+                    {
+                        ListItem lst = new ListItem();
+                        lst.Value = dr[valueMember].ToString();
+                        lst.Text = dr[displayMember].ToString();
+                        dropDownListName.Items.Add(lst);
+                    }
+                }
+                else
+                {
+                    dropDownListName.Items.Insert(0, new ListItem("--- No Data Found ---", "-1"));
+                }
+            }
+            catch (Exception msgException)
+            {
+                throw msgException;
+            }
+        }
     }
 }
