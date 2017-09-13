@@ -1,5 +1,0 @@
-D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplicationTest\bin\Debug\ERPWebApplicationTest.dll
-D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplicationTest\bin\Debug\ERPWebApplicationTest.pdb
-D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplicationTest\obj\Debug\ERPWebApplicationTest.csprojResolveAssemblyReference.cache
-D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplicationTest\obj\Debug\ERPWebApplicationTest.dll
-D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ERPWebApplicationTest\obj\Debug\ERPWebApplicationTest.pdb

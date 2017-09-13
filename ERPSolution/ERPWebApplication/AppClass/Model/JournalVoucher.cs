@@ -99,5 +99,21 @@ namespace ERPWebApplication.AppClass.Model
             get { return _dtAssignSubLedgerType; }
             set { _dtAssignSubLedgerType = value; }
         }
+        private List<string> _listAnalysisData = new List<string>();
+
+        public List<string> ListAnalysisData
+        {
+            get { return _listAnalysisData; }
+            set { _listAnalysisData = value; }
+        }
+        private List<string> _listAnalysisDataText = new List<string>();
+
+        public List<string> ListAnalysisDataText
+        {
+            get { return _listAnalysisDataText; }
+            set { _listAnalysisDataText = value; }
+        }
+
+        
     }
 }

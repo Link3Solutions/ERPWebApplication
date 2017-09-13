@@ -16,6 +16,7 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
     {
         private JournalVoucherController _objJournalVoucherController;
         private JournalVoucher _objJournalVoucher;
+        private CoaHead _objCoaHead;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -70,9 +71,9 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
                 _objJournalVoucher.TransactionTypeText = ddlTransactionType.SelectedItem.Text;
                 _objJournalVoucher.VoucherTypeID = ddlVoucherType.SelectedValue == "-1" ? null : ddlVoucherType.SelectedValue;
                 _objJournalVoucher.VoucherDate = Convert.ToDateTime(txtJournalDate.Text);
-                CoaHead objCoaHead = new CoaHead();
-                objCoaHead.AccountNo = Convert.ToInt32(txtAccCode.Text.Split(':')[0].Trim() == string.Empty ? null : txtAccCode.Text.Split(':')[0].Trim());
-                objCoaHead.AccountName = txtAccCode.Text.Split(':')[1].Trim() == string.Empty ? null : txtAccCode.Text.Split(':')[1].Trim();
+                _objCoaHead = new CoaHead();
+                _objCoaHead.AccountNo = Convert.ToInt32(txtAccCode.Text.Split(':')[0].Trim() == string.Empty ? null : txtAccCode.Text.Split(':')[0].Trim());
+                _objCoaHead.AccountName = txtAccCode.Text.Split(':')[1].Trim() == string.Empty ? null : txtAccCode.Text.Split(':')[1].Trim();
                 _objJournalVoucher.TransactionCurrencyAmount = Convert.ToDecimal(txtAmount.Text);
                 _objJournalVoucher.CurrencyRate = Convert.ToDecimal(txtCurrencyRate.Text);
                 _objJournalVoucher.BaseAmount = Convert.ToDecimal(txtBaseAmount.Text);
@@ -92,17 +93,17 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
                 var dtTable = (DataTable)ViewState["voucherInformation"];
                 _objJournalVoucher.SlNo = dtTable == null ? 1 : this.GetMaxColumnValue(dtTable) + 1;
                 CoaHeadController objCoaHeadController = new CoaHeadController();
-                if (objCoaHeadController.CheckAnalysisrequired(objCoaHead) == "Y")
+                if (objCoaHeadController.CheckAnalysisrequired(_objCoaHead) == "Y")
                 {
                     ModalPopupExtender1.Show();
-                    lblAccountCode.Text = objCoaHead.AccountNo.ToString();
-                    lblAccountName.Text = objCoaHead.AccountName;
+                    lblAccountCode.Text = _objCoaHead.AccountNo.ToString();
+                    lblAccountName.Text = _objCoaHead.AccountName;
                     txttotalamt.Text = _objJournalVoucher.TransactionCurrencyAmount.ToString();
 
                     ClearAllAnalysisDDL();
 
                     _objJournalVoucherController = new JournalVoucherController();
-                    _objJournalVoucher.DtAssignSubLedgerType = _objJournalVoucherController.GetAssignedSubLedgerType(objCoaHead);
+                    _objJournalVoucher.DtAssignSubLedgerType = _objJournalVoucherController.GetAssignedSubLedgerType(_objCoaHead);
 
                     if (_objJournalVoucher.DtAssignSubLedgerType.Rows.Count > 0)
                     {
@@ -151,7 +152,7 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
                     ModalPopupExtender1.Hide();
                 }
 
-                this.BindVoucherInformationGrid(_objJournalVoucher, objCoaHead);
+                this.BindVoucherInformationGrid(_objJournalVoucher, _objCoaHead);
 
             }
             catch (Exception msgException)
@@ -360,6 +361,69 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
             //GridView grdSubLedger = ((GridView)grdVoucher.Rows[1].FindControl("grdSubLedger"));
             //grdSubLedger.DataSource = ViewState["voucherInformation"];
             //grdSubLedger.DataBind();
+        }
+
+        protected void btnInsertAnalysis_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AddValuesAnalysis();
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+
+        }
+
+        private void AddValuesAnalysis()
+        {
+            try
+            {
+                _objCoaHead = new CoaHead();
+                _objCoaHead.AccountNo = Convert.ToInt32( lblAccountCode.Text);               
+                _objJournalVoucher = new JournalVoucher();
+                _objJournalVoucher.TransactionCurrencyAmount = Convert.ToDecimal( txttotalamt.Text);
+
+                if (ddl1st.Items.Count > 0)
+                {
+                    _objJournalVoucher.ListAnalysisData.Add(ddl1st.SelectedValue == "-1" ? null : ddl1st.SelectedValue);
+                    _objJournalVoucher.ListAnalysisDataText.Add(ddl1st.SelectedItem.Text);
+                }
+
+                if (ddl2nd.Items.Count > 0)
+                {
+                    _objJournalVoucher.ListAnalysisData.Add(ddl2nd.SelectedValue == "-1" ? null : ddl2nd.SelectedValue);
+                    _objJournalVoucher.ListAnalysisDataText.Add(ddl2nd.SelectedItem.Text);
+                    
+                }
+
+                if (ddl3rd.Items.Count > 0)
+                {
+                    _objJournalVoucher.ListAnalysisData.Add(ddl3rd.SelectedValue == "-1" ? null : ddl3rd.SelectedValue);
+                    _objJournalVoucher.ListAnalysisDataText.Add(ddl3rd.SelectedItem.Text);
+                }
+
+                if (ddl4th.Items.Count > 0)
+                {
+                    _objJournalVoucher.ListAnalysisData.Add(ddl4th.SelectedValue == "-1" ? null : ddl4th.SelectedValue);
+                    _objJournalVoucher.ListAnalysisDataText.Add(ddl4th.SelectedItem.Text);
+                }
+
+                if (ddl5th.Items.Count > 0)
+                {
+                    _objJournalVoucher.ListAnalysisData.Add(ddl5th.SelectedValue == "-1" ? null : ddl5th.SelectedValue);
+                    _objJournalVoucher.ListAnalysisDataText.Add(ddl5th.SelectedItem.Text);
+                }
+                
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
         }
 
 

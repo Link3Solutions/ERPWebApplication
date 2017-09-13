@@ -384,7 +384,7 @@
                                                                             <asp:Button ID="btnRemoveAnalysis" runat="server" CssClass="CssBtnRegular" Text="Remove" Visible="False" Width="100px" />
                                                                         </td>
                                                                         <td class="auto-style30">
-                                                                            <asp:Button ID="btnInsertAnalysis" runat="server" Text="Insert" Width="100px" />
+                                                                            <asp:Button ID="btnInsertAnalysis" runat="server" Text="Insert" Width="100px" OnClick="btnInsertAnalysis_Click" />
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
