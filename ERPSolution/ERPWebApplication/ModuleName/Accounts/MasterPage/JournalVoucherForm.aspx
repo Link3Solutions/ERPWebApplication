@@ -18,7 +18,7 @@
                                         <table style="width: 1140px; font-family: Tahoma; font-size: small;">
                                             <tr>
                                                 <td style="width: 570px">
-                                                    <div style="width: 100%; height: 450px; overflow-y: scroll;overflow-x:hidden">
+                                                    <div style="width: 100%; height: 450px; overflow-y: scroll; overflow-x: hidden">
                                                         <table>
                                                             <tr>
                                                                 <td>
@@ -76,7 +76,7 @@
                                                                         Width="380px"></asp:TextBox>
                                                                     <ajaxToolkit:AutoCompleteExtender ID="txtAccCode_AutoCompleteExtender"
                                                                         runat="server" BehaviorID="txtAccCode_AutoCompleteExtender"
-                                                                        DelimiterCharacters="" 
+                                                                        DelimiterCharacters=""
                                                                         MinimumPrefixLength="1"
                                                                         ServiceMethod="GetCOAHead"
                                                                         ServicePath="~/WebService/ServiceSystem.asmx"
@@ -141,7 +141,7 @@
                                                     </div>
                                                 </td>
                                                 <td style="width: 570px">
-                                                    <div style="width: 100%; height: 450px; overflow-y: scroll;overflow-x:hidden">
+                                                    <div style="width: 100%; height: 450px; overflow-y: scroll; overflow-x: hidden">
                                                         <table style="width: 100%;">
                                                             <tr>
                                                                 <td>
@@ -268,7 +268,7 @@
                                     </ajaxToolkit:ModalPopupExtender>
 
                                     <asp:Panel ID="PanelAnalysis" runat="server" BorderColor="#336699" BorderStyle="Solid" BackColor="White" Height="500px" Style="display: block" Width="1000px">
-                                        <table style="width: 100%;margin-left:5px">
+                                        <table style="width: 100%; margin-left: 5px">
                                             <tr>
                                                 <td class="auto-style11" style="text-align: center">SUBLEDGER ENTRY</td>
                                             </tr>
@@ -406,78 +406,78 @@
                                                                     </tr>
                                                                     <tr>
                                                                         <td colspan="3">
-                                                                            <asp:GridView ID="GridViewAnalysis" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" CssClass="grid" ForeColor="Black" GridLines="Horizontal" Width="100%" AutoGenerateColumns="False">
-                                                                                <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                                                                                <HeaderStyle CssClass="gridHeader" />
-                                                                                <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-                                                                                <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                                                                            <asp:GridView ID="grdAnalysis" runat="server" AutoGenerateColumns="False" OnRowDataBound="grdAnalysis_RowDataBound" Width="100%">
                                                                                 <Columns>
-                                                                                    <asp:BoundField DataField="Sub Line" HeaderText="Sub Line">
-                                                                                        <ItemStyle Width="50px" />
-                                                                                    </asp:BoundField>
-                                                                                    <asp:BoundField DataField="Account Code" HeaderText="Account Code">
-                                                                                        <ItemStyle Width="50px" />
-                                                                                    </asp:BoundField>
-                                                                                    <asp:BoundField DataField="Group-1" HeaderText="Group-1">
-                                                                                        <ItemStyle Width="50px" />
-                                                                                    </asp:BoundField>
-                                                                                    <asp:BoundField DataField="Group-2" HeaderText="Group-2">
-                                                                                        <ItemStyle Width="50px" />
-                                                                                    </asp:BoundField>
-                                                                                    <asp:BoundField DataField="Group-3" HeaderText="Group-3">
-                                                                                        <ItemStyle Width="50px" />
-                                                                                    </asp:BoundField>
-                                                                                    <asp:BoundField DataField="Group-4" HeaderText="Group-4">
-                                                                                        <ItemStyle Width="50px" />
-                                                                                    </asp:BoundField>
-                                                                                    <asp:BoundField DataField="Group-5" HeaderText="Group-5">
-                                                                                        <ItemStyle Width="50px" />
-                                                                                    </asp:BoundField>
-                                                                                    <asp:BoundField DataField="Sub-1" HeaderText="Sub-1">
-                                                                                        <ItemStyle Width="150px" />
-                                                                                    </asp:BoundField>
-                                                                                    <asp:BoundField DataField="Sub-2" HeaderText="Sub-2">
-                                                                                        <ItemStyle Width="150px" />
-                                                                                    </asp:BoundField>
-                                                                                    <asp:BoundField DataField="Sub-3" HeaderText="Sub-3">
-                                                                                        <ItemStyle Width="150px" />
-                                                                                    </asp:BoundField>
-                                                                                    <asp:BoundField DataField="Sub-4" HeaderText="Sub-4">
-                                                                                        <ItemStyle Width="150px" />
-                                                                                    </asp:BoundField>
-                                                                                    <asp:BoundField DataField="Sub-5" HeaderText="Sub-5">
-                                                                                        <ItemStyle Width="150px" />
-                                                                                    </asp:BoundField>
-                                                                                    <asp:BoundField DataField="Sub1" HeaderText="Sub1">
-                                                                                        <ItemStyle Width="50px" />
-                                                                                    </asp:BoundField>
-                                                                                    <asp:BoundField DataField="Sub2" HeaderText="Sub2">
-                                                                                        <ItemStyle Width="50px" />
-                                                                                    </asp:BoundField>
-                                                                                    <asp:BoundField DataField="Sub3" HeaderText="Sub3">
-                                                                                        <ItemStyle Width="50px" />
-                                                                                    </asp:BoundField>
-                                                                                    <asp:BoundField DataField="Sub4" HeaderText="Sub4">
-                                                                                        <ItemStyle Width="50px" />
-                                                                                    </asp:BoundField>
-                                                                                    <asp:BoundField DataField="Sub5" HeaderText="Sub5">
-                                                                                        <ItemStyle Width="50px" />
-                                                                                    </asp:BoundField>
-                                                                                    <asp:BoundField DataField="Amount" HeaderText="Amount">
-                                                                                        <ItemStyle Width="100px" />
-                                                                                    </asp:BoundField>
-                                                                                    <asp:BoundField DataField="Line" HeaderText="Line">
-                                                                                        <ItemStyle Width="50px" />
-                                                                                    </asp:BoundField>
-                                                                                    <asp:BoundField DataField="Sub-6" HeaderText="Sub-6">
-                                                                                        <ItemStyle Width="50px" />
-                                                                                    </asp:BoundField>
-                                                                                    <asp:CommandField ButtonType="Image" SelectImageUrl="~/App_Themes/Images/remove.png"
-                                                                                        ShowSelectButton="True" HeaderText="Remove">
-                                                                                        <ItemStyle HorizontalAlign="Center" Width="50px" />
-                                                                                        <HeaderStyle HorizontalAlign="Center" />
-                                                                                    </asp:CommandField>
-
+                                                                                    <asp:TemplateField HeaderText="SL">
+                                                                                        <ItemTemplate>
+                                                                                            <%# Container.DisplayIndex + 1 %>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+                                                                                    <asp:TemplateField HeaderText="Account Code">
+                                                                                        <ItemTemplate>
+                                                                                            <asp:Label ID="lblAccountingCode" runat="server" Text='<%# Bind("AccountingCode") %>'></asp:Label>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+                                                                                    <asp:TemplateField HeaderText="1st Analysis Value">
+                                                                                        <ItemTemplate>
+                                                                                            <asp:Label ID="lbl1stAnalysisValue" runat="server" Text='<%# Bind("1stAnalysisValue") %>'></asp:Label>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+                                                                                    <asp:TemplateField HeaderText="2nd Analysis Value">
+                                                                                        <ItemTemplate>
+                                                                                            <asp:Label ID="lbl2ndAnalysisValue" runat="server" Text='<%# Bind("2ndAnalysisValue") %>'></asp:Label>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+                                                                                    <asp:TemplateField HeaderText="3rd Analysis Value">
+                                                                                        <ItemTemplate>
+                                                                                            <asp:Label ID="lbl3rdAnalysisValue" runat="server" Text='<%# Bind("3rdAnalysisValue") %>'></asp:Label>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+                                                                                    <asp:TemplateField HeaderText="4th Analysis Value">
+                                                                                        <ItemTemplate>
+                                                                                            <asp:Label ID="lbl4thAnalysisValue" runat="server" Text='<%# Bind("4thAnalysisValue") %>'></asp:Label>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+                                                                                    <asp:TemplateField HeaderText="5th Analysis Value">
+                                                                                        <ItemTemplate>
+                                                                                            <asp:Label ID="lbl5thAnalysisValue" runat="server" Text='<%# Bind("5thAnalysisValue") %>'></asp:Label>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+                                                                                    <asp:TemplateField HeaderText="1st Analysis Text">
+                                                                                        <ItemTemplate>
+                                                                                            <asp:Label ID="lbl1stAnalysisText" runat="server" Text='<%# Bind("1stAnalysisText") %>'></asp:Label>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+                                                                                    <asp:TemplateField HeaderText="2nd Analysis Text">
+                                                                                        <ItemTemplate>
+                                                                                            <asp:Label ID="lbl2ndAnalysisText" runat="server" Text='<%# Bind("2ndAnalysisText") %>'></asp:Label>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+                                                                                    <asp:TemplateField HeaderText="3rd Analysis Text">
+                                                                                        <ItemTemplate>
+                                                                                            <asp:Label ID="lbl3rdAnalysisText" runat="server" Text='<%# Bind("3rdAnalysisText") %>'></asp:Label>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+                                                                                    <asp:TemplateField HeaderText="4th Analysis Text">
+                                                                                        <ItemTemplate>
+                                                                                            <asp:Label ID="lbl4thAnalysisText" runat="server" Text='<%# Bind("4thAnalysisText") %>'></asp:Label>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+                                                                                    <asp:TemplateField HeaderText="5th Analysis Text">
+                                                                                        <ItemTemplate>
+                                                                                            <asp:Label ID="lbl5thAnalysisText" runat="server" Text='<%# Bind("5thAnalysisText") %>'></asp:Label>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+                                                                                    <asp:TemplateField HeaderText="SubLeger Amount">
+                                                                                        <ItemTemplate>
+                                                                                            <asp:Label ID="lblSubLegerAmount" runat="server" Text='<%# Bind("SubLegerAmount") %>'></asp:Label>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+                                                                                    <asp:TemplateField HeaderText="SlNo">
+                                                                                        <ItemTemplate>
+                                                                                            <asp:Label ID="lblSlNo" runat="server" Text='<%# Bind("SlNo") %>'></asp:Label>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
                                                                                 </Columns>
                                                                             </asp:GridView>
                                                                         </td>

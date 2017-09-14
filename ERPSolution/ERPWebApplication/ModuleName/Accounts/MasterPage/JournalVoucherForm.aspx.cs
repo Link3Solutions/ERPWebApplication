@@ -388,34 +388,39 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
 
                 if (ddl1st.Items.Count > 0)
                 {
-                    _objJournalVoucher.ListAnalysisData.Add(ddl1st.SelectedValue == "-1" ? null : ddl1st.SelectedValue);
-                    _objJournalVoucher.ListAnalysisDataText.Add(ddl1st.SelectedItem.Text);
+                    _objJournalVoucher.AnalysisValue1st = ddl1st.SelectedValue == "-1" ? null : ddl1st.SelectedValue;
+                    _objJournalVoucher.AnalysisText1st = ddl1st.SelectedItem.Text;
                 }
 
                 if (ddl2nd.Items.Count > 0)
                 {
-                    _objJournalVoucher.ListAnalysisData.Add(ddl2nd.SelectedValue == "-1" ? null : ddl2nd.SelectedValue);
-                    _objJournalVoucher.ListAnalysisDataText.Add(ddl2nd.SelectedItem.Text);
+                    _objJournalVoucher.AnalysisValue2nd = ddl2nd.SelectedValue == "-1" ? null : ddl2nd.SelectedValue;
+                    _objJournalVoucher.AnalysisText2nd = ddl2nd.SelectedItem.Text;
                     
                 }
 
                 if (ddl3rd.Items.Count > 0)
                 {
-                    _objJournalVoucher.ListAnalysisData.Add(ddl3rd.SelectedValue == "-1" ? null : ddl3rd.SelectedValue);
-                    _objJournalVoucher.ListAnalysisDataText.Add(ddl3rd.SelectedItem.Text);
+                    _objJournalVoucher.AnalysisValue3rd = ddl3rd.SelectedValue == "-1" ? null : ddl3rd.SelectedValue;
+                    _objJournalVoucher.AnalysisText3rd = ddl3rd.SelectedItem.Text;
                 }
 
                 if (ddl4th.Items.Count > 0)
                 {
-                    _objJournalVoucher.ListAnalysisData.Add(ddl4th.SelectedValue == "-1" ? null : ddl4th.SelectedValue);
-                    _objJournalVoucher.ListAnalysisDataText.Add(ddl4th.SelectedItem.Text);
+                    _objJournalVoucher.AnalysisValue4th = ddl4th.SelectedValue == "-1" ? null : ddl4th.SelectedValue;
+                    _objJournalVoucher.AnalysisText4th = ddl4th.SelectedItem.Text;
                 }
 
                 if (ddl5th.Items.Count > 0)
                 {
-                    _objJournalVoucher.ListAnalysisData.Add(ddl5th.SelectedValue == "-1" ? null : ddl5th.SelectedValue);
-                    _objJournalVoucher.ListAnalysisDataText.Add(ddl5th.SelectedItem.Text);
+                    _objJournalVoucher.AnalysisValue5th = ddl5th.SelectedValue == "-1" ? null : ddl5th.SelectedValue;
+                    _objJournalVoucher.AnalysisText5th = ddl5th.SelectedItem.Text;
                 }
+
+                var dtTable = (DataTable)ViewState["analysisInformation"];
+                CGlobalMethod objCGlobalMethod = new CGlobalMethod();
+                _objJournalVoucher.SlNo = dtTable == null ? 1 : objCGlobalMethod.GetMaxColumnValue(dtTable) + 1;
+                this.BindAnalysisInformationGrid(_objJournalVoucher, _objCoaHead);
                 
 
             }
@@ -424,6 +429,110 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
                 
                 throw msgException;
             }
+        }
+        private void BindAnalysisInformationGrid(JournalVoucher objJournalVoucher, CoaHead objCoaHead)
+        {
+            try
+            {
+                var dt = new DataTable();
+                DataRow dr;
+
+                dt.Columns.Add("AccountingCode", typeof(string));
+                dt.Columns.Add("1stAnalysisValue", typeof(string));
+                dt.Columns.Add("2ndAnalysisValue", typeof(string));
+                dt.Columns.Add("3rdAnalysisValue", typeof(string));
+                dt.Columns.Add("4thAnalysisValue", typeof(string));
+                dt.Columns.Add("5thAnalysisValue", typeof(string));
+                dt.Columns.Add("1stAnalysisText", typeof(string));
+                dt.Columns.Add("2ndAnalysisText", typeof(string));
+                dt.Columns.Add("3rdAnalysisText", typeof(string));
+                dt.Columns.Add("4thAnalysisText", typeof(string));
+                dt.Columns.Add("5thAnalysisText", typeof(string));
+                dt.Columns.Add("SubLegerAmount", typeof(double));
+                dt.Columns.Add("SlNo", typeof(int));
+
+                if (ViewState["analysisInformation"] != null)
+                {
+                    var dtTable = (DataTable)ViewState["analysisInformation"];
+                    var count = dtTable.Rows.Count;
+                    for (var i = 0; i < count + 1; i++)
+                    {
+                        dt = (DataTable)ViewState["analysisInformation"];
+                        if (dt.Rows.Count <= 0) continue;
+                        dr = dt.NewRow();
+                        dr[0] = dt.Rows[0][0].ToString();
+                    }
+                    dr = dt.NewRow();
+                    dr[0] = objCoaHead.AccountNo;
+                    dr[1] = objJournalVoucher.AnalysisValue1st;
+                    dr[2] = objJournalVoucher.AnalysisValue2nd;
+                    dr[3] = objJournalVoucher.AnalysisValue3rd;
+                    dr[4] = objJournalVoucher.AnalysisValue4th;
+                    dr[5] = objJournalVoucher.AnalysisValue5th;
+                    dr[6] = objJournalVoucher.AnalysisText1st;
+                    dr[7] = objJournalVoucher.AnalysisText2nd;
+                    dr[8] = objJournalVoucher.AnalysisText3rd;
+                    dr[9] = objJournalVoucher.AnalysisText4th;
+                    dr[10] = objJournalVoucher.AnalysisText5th;
+                    dr[11] = objJournalVoucher.TransactionCurrencyAmount;
+                    dr[12] = objJournalVoucher.SlNo;
+
+                    dt.Rows.Add(dr);
+
+                }
+                else
+                {
+                    dr = dt.NewRow();
+                    dr[0] = objCoaHead.AccountNo;
+                    dr[1] = objJournalVoucher.AnalysisValue1st;
+                    dr[2] = objJournalVoucher.AnalysisValue2nd;
+                    dr[3] = objJournalVoucher.AnalysisValue3rd;
+                    dr[4] = objJournalVoucher.AnalysisValue4th;
+                    dr[5] = objJournalVoucher.AnalysisValue5th;
+                    dr[6] = objJournalVoucher.AnalysisText1st;
+                    dr[7] = objJournalVoucher.AnalysisText2nd;
+                    dr[8] = objJournalVoucher.AnalysisText3rd;
+                    dr[9] = objJournalVoucher.AnalysisText4th;
+                    dr[10] = objJournalVoucher.AnalysisText5th;
+                    dr[11] = objJournalVoucher.TransactionCurrencyAmount;
+                    dr[12] = objJournalVoucher.SlNo;
+
+
+                    dt.Rows.Add(dr);
+                }
+                if (ViewState["analysisInformation"] != null)
+                {
+                    DataTable dtTemp = (DataTable)ViewState["analysisInformation"];
+                    dtTemp.DefaultView.Sort = "SlNo DESC";
+                    dtTemp = dtTemp.DefaultView.ToTable();
+                    grdAnalysis.DataSource = dtTemp;
+                    grdAnalysis.DataBind();
+                }
+                else
+                {
+                    dt.DefaultView.Sort = "SlNo DESC";
+                    dt = dt.DefaultView.ToTable();
+                    grdAnalysis.DataSource = dt;
+                    grdAnalysis.DataBind();
+
+                }
+                ViewState["analysisInformation"] = dt;
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        protected void grdAnalysis_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            e.Row.Cells[1].Visible = false;
+            e.Row.Cells[2].Visible = false;
+            e.Row.Cells[3].Visible = false;
+            e.Row.Cells[4].Visible = false;
+            e.Row.Cells[5].Visible = false;
+            e.Row.Cells[13].Visible = false;
         }
 
 

@@ -553,13 +553,13 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage {
         protected global::System.Web.UI.WebControls.Button btnSearchAnalysis;
         
         /// <summary>
-        /// GridViewAnalysis control.
+        /// grdAnalysis control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewAnalysis;
+        protected global::System.Web.UI.WebControls.GridView grdAnalysis;
         
         /// <summary>
         /// btnShowAnalysisPopup control.

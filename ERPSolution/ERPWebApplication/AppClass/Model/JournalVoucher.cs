@@ -114,6 +114,77 @@ namespace ERPWebApplication.AppClass.Model
             set { _listAnalysisDataText = value; }
         }
 
+        private string _analysisValue1st;
+
+        public string AnalysisValue1st
+        {
+            get { return _analysisValue1st; }
+            set { _analysisValue1st = value; }
+        }
+        private string _analysisValue2nd;
+
+        public string AnalysisValue2nd
+        {
+            get { return _analysisValue2nd; }
+            set { _analysisValue2nd = value; }
+        }
+        private string _analysisValue3rd;
+
+        public string AnalysisValue3rd
+        {
+            get { return _analysisValue3rd; }
+            set { _analysisValue3rd = value; }
+        }
+        private string _analysisValue4th;
+
+        public string AnalysisValue4th
+        {
+            get { return _analysisValue4th; }
+            set { _analysisValue4th = value; }
+        }
+        private string _analysisValue5th;
+
+        public string AnalysisValue5th
+        {
+            get { return _analysisValue5th; }
+            set { _analysisValue5th = value; }
+        }
+        private string _analysisText1st;
+
+        public string AnalysisText1st
+        {
+            get { return _analysisText1st; }
+            set { _analysisText1st = value; }
+        }
+        private string _analysisText2nd;
+
+        public string AnalysisText2nd
+        {
+            get { return _analysisText2nd; }
+            set { _analysisText2nd = value; }
+        }
+        private string _analysisText3rd;
+
+        public string AnalysisText3rd
+        {
+            get { return _analysisText3rd; }
+            set { _analysisText3rd = value; }
+        }
+        private string _analysisText4th;
+
+        public string AnalysisText4th
+        {
+            get { return _analysisText4th; }
+            set { _analysisText4th = value; }
+        }
+        private string _analysisText5th;
+
+        public string AnalysisText5th
+        {
+            get { return _analysisText5th; }
+            set { _analysisText5th = value; }
+        }
+        
         
     }
 }
