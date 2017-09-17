@@ -99,6 +99,7 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
                     lblAccountCode.Text = _objCoaHead.AccountNo.ToString();
                     lblAccountName.Text = _objCoaHead.AccountName;
                     txttotalamt.Text = _objJournalVoucher.TransactionCurrencyAmount.ToString();
+                    txtbalamt.Text = _objJournalVoucher.TransactionCurrencyAmount.ToString();
 
                     ClearAllAnalysisDDL();
 
@@ -368,11 +369,20 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
             try
             {
                 AddValuesAnalysis();
+                if (txtbalamt.Text == 0.ToString())
+                {
+                    ModalPopupExtender1.Hide();
+                }
+                else
+                {
+                    ModalPopupExtender1.Show();
+                }
             }
             catch (Exception msgException)
             {
 
                 clsTopMostMessageBox.Show(msgException.Message);
+                ModalPopupExtender1.Show();
             }
 
         }
@@ -386,32 +396,32 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
                 _objJournalVoucher = new JournalVoucher();
                 _objJournalVoucher.TransactionCurrencyAmount = Convert.ToDecimal( txttotalamt.Text);
 
-                if (ddl1st.Items.Count > 0)
+                if (ddl1st.Items.Count > 1)
                 {
                     _objJournalVoucher.AnalysisValue1st = ddl1st.SelectedValue == "-1" ? null : ddl1st.SelectedValue;
                     _objJournalVoucher.AnalysisText1st = ddl1st.SelectedItem.Text;
                 }
 
-                if (ddl2nd.Items.Count > 0)
+                if (ddl2nd.Items.Count > 1)
                 {
                     _objJournalVoucher.AnalysisValue2nd = ddl2nd.SelectedValue == "-1" ? null : ddl2nd.SelectedValue;
                     _objJournalVoucher.AnalysisText2nd = ddl2nd.SelectedItem.Text;
                     
                 }
 
-                if (ddl3rd.Items.Count > 0)
+                if (ddl3rd.Items.Count > 1)
                 {
                     _objJournalVoucher.AnalysisValue3rd = ddl3rd.SelectedValue == "-1" ? null : ddl3rd.SelectedValue;
                     _objJournalVoucher.AnalysisText3rd = ddl3rd.SelectedItem.Text;
                 }
 
-                if (ddl4th.Items.Count > 0)
+                if (ddl4th.Items.Count > 1)
                 {
                     _objJournalVoucher.AnalysisValue4th = ddl4th.SelectedValue == "-1" ? null : ddl4th.SelectedValue;
                     _objJournalVoucher.AnalysisText4th = ddl4th.SelectedItem.Text;
                 }
 
-                if (ddl5th.Items.Count > 0)
+                if (ddl5th.Items.Count > 1)
                 {
                     _objJournalVoucher.AnalysisValue5th = ddl5th.SelectedValue == "-1" ? null : ddl5th.SelectedValue;
                     _objJournalVoucher.AnalysisText5th = ddl5th.SelectedItem.Text;
@@ -420,6 +430,7 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
                 var dtTable = (DataTable)ViewState["analysisInformation"];
                 CGlobalMethod objCGlobalMethod = new CGlobalMethod();
                 _objJournalVoucher.SlNo = dtTable == null ? 1 : objCGlobalMethod.GetMaxColumnValue(dtTable) + 1;
+                _objJournalVoucher.SubLegerAmount = Convert.ToDecimal( txtsplitamt.Text == string.Empty ? 0 : Convert.ToDecimal( txtsplitamt.Text));
                 this.BindAnalysisInformationGrid(_objJournalVoucher, _objCoaHead);
                 
 
@@ -474,7 +485,7 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
                     dr[8] = objJournalVoucher.AnalysisText3rd;
                     dr[9] = objJournalVoucher.AnalysisText4th;
                     dr[10] = objJournalVoucher.AnalysisText5th;
-                    dr[11] = objJournalVoucher.TransactionCurrencyAmount;
+                    dr[11] = objJournalVoucher.SubLegerAmount;
                     dr[12] = objJournalVoucher.SlNo;
 
                     dt.Rows.Add(dr);
@@ -494,7 +505,7 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
                     dr[8] = objJournalVoucher.AnalysisText3rd;
                     dr[9] = objJournalVoucher.AnalysisText4th;
                     dr[10] = objJournalVoucher.AnalysisText5th;
-                    dr[11] = objJournalVoucher.TransactionCurrencyAmount;
+                    dr[11] = objJournalVoucher.SubLegerAmount;
                     dr[12] = objJournalVoucher.SlNo;
 
 
@@ -532,6 +543,7 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
             e.Row.Cells[3].Visible = false;
             e.Row.Cells[4].Visible = false;
             e.Row.Cells[5].Visible = false;
+            e.Row.Cells[6].Visible = false;
             e.Row.Cells[13].Visible = false;
         }
 

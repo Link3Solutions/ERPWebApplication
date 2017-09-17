@@ -13,7 +13,8 @@ namespace ERPWebApplication.AppClass.Model
         public Nullable<int> JournalTypeID
         {
             get { return _journalTypeID; }
-            set {
+            set
+            {
                 if (value == null)
                 {
                     throw new Exception(" Journal type is required ");
@@ -27,7 +28,8 @@ namespace ERPWebApplication.AppClass.Model
         public Nullable<int> TransactionTypeID
         {
             get { return _transactionTypeID; }
-            set {
+            set
+            {
                 if (value == null)
                 {
                     throw new Exception(" Transaction type is required ");
@@ -35,17 +37,18 @@ namespace ERPWebApplication.AppClass.Model
             }
         }
 
-        
+
         private string _voucherTypeID;
 
         public string VoucherTypeID
         {
             get { return _voucherTypeID; }
-            set {
+            set
+            {
                 if (value == null)
                 {
                     throw new Exception(" Voucher type is required ");
-                    
+
                 } _voucherTypeID = value;
             }
         }
@@ -62,6 +65,13 @@ namespace ERPWebApplication.AppClass.Model
         {
             get { return _transactionCurrencyAmount; }
             set { _transactionCurrencyAmount = value; }
+        }
+        private decimal _subLegerAmount;
+
+        public decimal SubLegerAmount
+        {
+            get { return _subLegerAmount; }
+            set { _subLegerAmount = value; }
         }
         private decimal _currencyRate;
 
@@ -119,35 +129,66 @@ namespace ERPWebApplication.AppClass.Model
         public string AnalysisValue1st
         {
             get { return _analysisValue1st; }
-            set { _analysisValue1st = value; }
+            set
+            {
+                if (value == null)
+                {
+                    throw new Exception("First analysis is not selected");
+
+                } _analysisValue1st = value;
+            }
         }
         private string _analysisValue2nd;
 
         public string AnalysisValue2nd
         {
             get { return _analysisValue2nd; }
-            set { _analysisValue2nd = value; }
+            set
+            {
+                if (value == null)
+                {
+                    throw new Exception("Second analysis is not selected");
+                } _analysisValue2nd = value;
+            }
         }
         private string _analysisValue3rd;
 
         public string AnalysisValue3rd
         {
             get { return _analysisValue3rd; }
-            set { _analysisValue3rd = value; }
+            set
+            {
+                if (value == null)
+                {
+                    throw new Exception("Third analysis is not selected");
+                } _analysisValue3rd = value;
+            }
         }
         private string _analysisValue4th;
 
         public string AnalysisValue4th
         {
             get { return _analysisValue4th; }
-            set { _analysisValue4th = value; }
+            set
+            {
+                if (value == null)
+                {
+                    throw new Exception("Fourth analysis is not selected");
+                } _analysisValue4th = value;
+            }
         }
         private string _analysisValue5th;
 
         public string AnalysisValue5th
         {
             get { return _analysisValue5th; }
-            set { _analysisValue5th = value; }
+            set
+            {
+                if (value == null)
+                {
+                    throw new Exception("Fifth analysis is not selected");
+                } _analysisValue5th = value;
+            }
         }
         private string _analysisText1st;
 
@@ -184,7 +225,7 @@ namespace ERPWebApplication.AppClass.Model
             get { return _analysisText5th; }
             set { _analysisText5th = value; }
         }
-        
-        
+
+
     }
 }

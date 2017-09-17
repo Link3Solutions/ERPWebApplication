@@ -406,7 +406,7 @@
                                                                     </tr>
                                                                     <tr>
                                                                         <td colspan="3">
-                                                                            <asp:GridView ID="grdAnalysis" runat="server" AutoGenerateColumns="False" OnRowDataBound="grdAnalysis_RowDataBound" Width="100%">
+                                                                            <asp:GridView ID="grdAnalysis" runat="server" AutoGenerateColumns="False" OnRowDataBound="grdAnalysis_RowDataBound" Width="600px">
                                                                                 <Columns>
                                                                                     <asp:TemplateField HeaderText="SL">
                                                                                         <ItemTemplate>
@@ -443,27 +443,27 @@
                                                                                             <asp:Label ID="lbl5thAnalysisValue" runat="server" Text='<%# Bind("5thAnalysisValue") %>'></asp:Label>
                                                                                         </ItemTemplate>
                                                                                     </asp:TemplateField>
-                                                                                    <asp:TemplateField HeaderText="1st Analysis Text">
+                                                                                    <asp:TemplateField HeaderText="1st Analysis">
                                                                                         <ItemTemplate>
                                                                                             <asp:Label ID="lbl1stAnalysisText" runat="server" Text='<%# Bind("1stAnalysisText") %>'></asp:Label>
                                                                                         </ItemTemplate>
                                                                                     </asp:TemplateField>
-                                                                                    <asp:TemplateField HeaderText="2nd Analysis Text">
+                                                                                    <asp:TemplateField HeaderText="2nd Analysis">
                                                                                         <ItemTemplate>
                                                                                             <asp:Label ID="lbl2ndAnalysisText" runat="server" Text='<%# Bind("2ndAnalysisText") %>'></asp:Label>
                                                                                         </ItemTemplate>
                                                                                     </asp:TemplateField>
-                                                                                    <asp:TemplateField HeaderText="3rd Analysis Text">
+                                                                                    <asp:TemplateField HeaderText="3rd Analysis">
                                                                                         <ItemTemplate>
                                                                                             <asp:Label ID="lbl3rdAnalysisText" runat="server" Text='<%# Bind("3rdAnalysisText") %>'></asp:Label>
                                                                                         </ItemTemplate>
                                                                                     </asp:TemplateField>
-                                                                                    <asp:TemplateField HeaderText="4th Analysis Text">
+                                                                                    <asp:TemplateField HeaderText="4th Analysis">
                                                                                         <ItemTemplate>
                                                                                             <asp:Label ID="lbl4thAnalysisText" runat="server" Text='<%# Bind("4thAnalysisText") %>'></asp:Label>
                                                                                         </ItemTemplate>
                                                                                     </asp:TemplateField>
-                                                                                    <asp:TemplateField HeaderText="5th Analysis Text">
+                                                                                    <asp:TemplateField HeaderText="5th Analysis">
                                                                                         <ItemTemplate>
                                                                                             <asp:Label ID="lbl5thAnalysisText" runat="server" Text='<%# Bind("5thAnalysisText") %>'></asp:Label>
                                                                                         </ItemTemplate>
