@@ -35,7 +35,7 @@ public class clsDataManipulation
     }
     public static void StoredProcedureExecuteNonQueryRollBack(string connectionString, string storedProcedureCommandTest)
     {
-        using (SqlConnection connection = new SqlConnection(connectionString))
+        using (var connection = new SqlConnection(connectionString))
         {
             connection.Open();
 

@@ -17,6 +17,7 @@ namespace ERPWebApplication.AppClass.CommonClass
         public static string GYouAreAt = GFullStop+ "You are at ";
         public static string GNoDataFound = "No data found";
         public static string GNoNewDataFound = "No new data found";
+        public static string GExist = "Already exist";
         
     }
 }

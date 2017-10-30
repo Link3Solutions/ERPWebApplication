@@ -178,6 +178,7 @@ namespace ERPWebApplication
                     LoginUserInformation.EmployeeCode = "ADM";
                     LoginUserInformation.EmployeeFullName = "Administrator";
                     LoginUserInformation.UserName = "ADM";
+                    LoginUserInformation.BranchID = 0;
                     return _objUserList.UserType = 1;
                 }
 
@@ -193,6 +194,7 @@ namespace ERPWebApplication
                     LoginUserInformation.EmployeeCode = null;
                     LoginUserInformation.EmployeeFullName = rowNo["FullName"].ToString();
                     LoginUserInformation.UserName = _objUserList.UserName;
+                    LoginUserInformation.BranchID = 0;
                     return _objUserList.UserType = 2;
 
                 }

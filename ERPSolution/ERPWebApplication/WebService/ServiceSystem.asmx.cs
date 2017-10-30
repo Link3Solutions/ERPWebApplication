@@ -459,5 +459,41 @@ namespace ERPWebApplication.WebService
             }
         }
 
+        [WebMethod]
+        public List<string> GetVoucherNo(string prefixText, int count, string contextKey)
+        {
+            try
+            {
+                _objCompanySetup = new CompanySetup();
+                _objCompanySetup.CompanyID = Convert.ToInt32(contextKey);
+                List<string> voucherNoList = new List<string>();
+                DataTable dtVoucherNo = new DataTable();
+                string sqlString = "";
+                if (prefixText == "*")
+                {
+                    sqlString = "SELECT UserVoucherNo FROM accVoucherHeader WHERE CompanyID = " + _objCompanySetup.CompanyID + " ORDER BY UserVoucherNo";
+
+                }
+                else
+                {
+                    sqlString = "SELECT UserVoucherNo FROM accVoucherHeader WHERE CompanyID = " + _objCompanySetup.CompanyID + " AND (UserVoucherNo like '%" + prefixText + "%' ) ORDER BY UserVoucherNo";
+
+                }
+
+                dtVoucherNo = clsDataManipulation.GetData(_connectionString, sqlString);
+                foreach (DataRow dr in dtVoucherNo.Rows)
+                {
+                    voucherNoList.Add(dr["UserVoucherNo"].ToString());
+                }
+                return voucherNoList;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
     }
 }

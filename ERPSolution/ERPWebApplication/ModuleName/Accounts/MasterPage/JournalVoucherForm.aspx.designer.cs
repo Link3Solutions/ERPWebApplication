@@ -85,6 +85,15 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage {
         protected global::System.Web.UI.WebControls.TextBox txtReferenceJournal;
         
         /// <summary>
+        /// txtReferenceJournal_AutoCompleteExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.AutoCompleteExtender txtReferenceJournal_AutoCompleteExtender;
+        
+        /// <summary>
         /// Label17 control.
         /// </summary>
         /// <remarks>
@@ -101,6 +110,24 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTransactionType;
+        
+        /// <summary>
+        /// Label34 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label34;
+        
+        /// <summary>
+        /// txtUserVoucherNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUserVoucherNo;
         
         /// <summary>
         /// Label9 control.
@@ -166,24 +193,6 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage {
         protected global::AjaxControlToolkit.AutoCompleteExtender txtAccCode_AutoCompleteExtender;
         
         /// <summary>
-        /// Label22 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label22;
-        
-        /// <summary>
-        /// txtAmount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAmount;
-        
-        /// <summary>
         /// Label26 control.
         /// </summary>
         /// <remarks>
@@ -218,6 +227,33 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCurrencyRate;
+        
+        /// <summary>
+        /// btnUpdateCurrencyRate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdateCurrencyRate;
+        
+        /// <summary>
+        /// Label22 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label22;
+        
+        /// <summary>
+        /// txtAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAmount;
         
         /// <summary>
         /// Label25 control.
@@ -265,6 +301,15 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage {
         protected global::System.Web.UI.WebControls.Button btnSave;
         
         /// <summary>
+        /// btnUnpost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUnpost;
+        
+        /// <summary>
         /// grdVoucher control.
         /// </summary>
         /// <remarks>
@@ -292,6 +337,15 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage {
         protected global::System.Web.UI.WebControls.Panel PanelAnalysis;
         
         /// <summary>
+        /// Label35 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label35;
+        
+        /// <summary>
         /// Label29 control.
         /// </summary>
         /// <remarks>
@@ -310,24 +364,6 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage {
         protected global::System.Web.UI.WebControls.Label lblAccountCode;
         
         /// <summary>
-        /// Label2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-        
-        /// <summary>
-        /// lblAccountName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAccountName;
-        
-        /// <summary>
         /// Label31 control.
         /// </summary>
         /// <remarks>
@@ -344,6 +380,24 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txttotalamt;
+        
+        /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+        
+        /// <summary>
+        /// lblAccountName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAccountName;
         
         /// <summary>
         /// lblSkip control.
@@ -508,15 +562,6 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage {
         protected global::System.Web.UI.WebControls.TextBox txtbalamt;
         
         /// <summary>
-        /// btnRemoveAnalysis control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRemoveAnalysis;
-        
-        /// <summary>
         /// btnInsertAnalysis control.
         /// </summary>
         /// <remarks>
@@ -524,33 +569,6 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnInsertAnalysis;
-        
-        /// <summary>
-        /// btnApplyAnalysis control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnApplyAnalysis;
-        
-        /// <summary>
-        /// txtSearchAnalysis control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSearchAnalysis;
-        
-        /// <summary>
-        /// btnSearchAnalysis control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSearchAnalysis;
         
         /// <summary>
         /// grdAnalysis control.

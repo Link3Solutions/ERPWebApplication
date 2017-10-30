@@ -163,7 +163,15 @@
                                             <td>:</td>
                                             <td>
                                                 <asp:TextBox ID="txtUserCode" runat="server" AutoPostBack="True" OnTextChanged="txtUserCode_TextChanged"></asp:TextBox>
-                                                <ajaxToolkit:AutoCompleteExtender ID="txtUserCode_AutoCompleteExtender" runat="server" BehaviorID="_content_txtUserCode_AutoCompleteExtender" CompletionListCssClass="autocomplete_completionListElement" CompletionListHighlightedItemCssClass="autocomplete_highlightedListItem" CompletionListItemCssClass="autocomplete_listItem2" DelimiterCharacters="" MinimumPrefixLength="1" ServiceMethod="GetUserId" ServicePath="~/WebService/ServiceSystem.asmx" TargetControlID="txtUserCode">
+                                                <ajaxToolkit:AutoCompleteExtender ID="txtUserCode_AutoCompleteExtender" runat="server" 
+                                                    BehaviorID="_content_txtUserCode_AutoCompleteExtender"
+                                                     CompletionListCssClass="autocomplete_completionListElement" 
+                                                    CompletionListHighlightedItemCssClass="autocomplete_highlightedListItem"
+                                                     CompletionListItemCssClass="autocomplete_listItem2"
+                                                     DelimiterCharacters="" 
+                                                    MinimumPrefixLength="1" 
+                                                    ServiceMethod="GetUserId" 
+                                                    ServicePath="~/WebService/ServiceSystem.asmx" TargetControlID="txtUserCode">
                                                 </ajaxToolkit:AutoCompleteExtender>
                                             </td>
                                         </tr>

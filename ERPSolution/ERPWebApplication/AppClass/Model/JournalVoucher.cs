@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Web;
@@ -52,26 +53,56 @@ namespace ERPWebApplication.AppClass.Model
                 } _voucherTypeID = value;
             }
         }
-        private DateTime _voucherDate;
+        private DateTime? _voucherDate;
 
-        public DateTime VoucherDate
+        public DateTime? VoucherDate
         {
             get { return _voucherDate; }
-            set { _voucherDate = value; }
+            set
+            {
+                if (value == null)
+                {
+                    throw new Exception(" Journal date is required ");
+                } _voucherDate = value;
+            }
         }
-        private decimal _transactionCurrencyAmount;
 
-        public decimal TransactionCurrencyAmount
+
+        private decimal? _transactionCurrencyAmount;
+
+        public decimal? TransactionCurrencyAmount
         {
             get { return _transactionCurrencyAmount; }
-            set { _transactionCurrencyAmount = value; }
+            set
+            {
+                if (value == null)
+                {
+                    throw new Exception("Transaction amount	is required ");
+
+                } _transactionCurrencyAmount = value;
+            }
         }
+
+
         private decimal _subLegerAmount;
 
         public decimal SubLegerAmount
         {
             get { return _subLegerAmount; }
-            set { _subLegerAmount = value; }
+            set
+            {
+                if (value < 0)
+                {
+                    throw new Exception("Sub leger amount is not correct");
+
+                }
+
+                if (value > this._balanceAmount)
+                {
+                    throw new Exception("Sub leger amount can not greater than balance amount");
+                }
+                _subLegerAmount = value;
+            }
         }
         private decimal _currencyRate;
 
@@ -225,7 +256,260 @@ namespace ERPWebApplication.AppClass.Model
             get { return _analysisText5th; }
             set { _analysisText5th = value; }
         }
+        private decimal _balanceAmount;
+
+        public decimal BalanceAmount
+        {
+            get { return _balanceAmount; }
+            set { _balanceAmount = value; }
+        }
+        private string _userVoucherNo;
+
+        public string UserVoucherNo
+        {
+            get { return _userVoucherNo; }
+            set { _userVoucherNo = value; }
+        }
+        private int? _pointNumber;
 
 
+        public int? PointNumber
+        {
+            get { return _pointNumber; }
+            set { _pointNumber = value; }
+        }
+        private string _computerName;
+
+        public string ComputerName
+        {
+            get { return _computerName; }
+            set { _computerName = value; }
+        }
+        private int? _anyRefVoucherNo;
+
+        public int? AnyRefVoucherNo
+        {
+            get { return _anyRefVoucherNo; }
+            set { _anyRefVoucherNo = value; }
+        }
+        private string _anyReferenceNo;
+
+        public string AnyReferenceNo
+        {
+            get { return _anyReferenceNo; }
+            set { _anyReferenceNo = value; }
+        }
+        private DateTime? _valueDate;
+
+        public DateTime? ValueDate
+        {
+            get { return _valueDate; }
+            set { _valueDate = value; }
+        }
+
+
+        private string _receivedBy;
+
+        public string ReceivedBy
+        {
+            get { return _receivedBy; }
+            set { _receivedBy = value; }
+        }
+        private string _paymentBy;
+
+        public string PaymentBy
+        {
+            get { return _paymentBy; }
+            set { _paymentBy = value; }
+        }
+        private string _remark;
+
+        public string Remark
+        {
+            get { return _remark; }
+            set { _remark = value; }
+        }
+        private string _dataStatusID;
+
+        public string DataStatusID
+        {
+            get { return _dataStatusID; }
+            set { _dataStatusID = value; }
+        }
+        [DefaultValue(0)]
+        private int? _isBackedup;
+
+        [DefaultValue(0)]
+        public int? IsBackedup
+        {
+            get { return _isBackedup; }
+            set { _isBackedup = value; }
+        }
+        [DefaultValue(0)]
+        private int? _isSetToFS;
+
+        [DefaultValue(0)]
+        public int? IsSetToFS
+        {
+            get { return _isSetToFS; }
+            set { _isSetToFS = value; }
+        }
+
+        private DateTime _lastBackupDate;
+        [DefaultValue(null)]
+        public DateTime LastBackupDate
+        {
+            get { return _lastBackupDate; }
+            set { _lastBackupDate = value; }
+        }
+        private string _voucherNo;
+
+        public string VoucherNo
+        {
+            get { return _voucherNo; }
+            set { _voucherNo = value; }
+        }
+        private int _transactionNo;
+
+        public int TransactionNo
+        {
+            get { return _transactionNo; }
+            set { _transactionNo = value; }
+        }
+        private int? _tranactionLineNo;
+
+        public int? TranactionLineNo
+        {
+            get { return _tranactionLineNo; }
+            set { _tranactionLineNo = value; }
+        }
+        private int? _tranactionLineNoSubLedger;
+
+        public int? TranactionLineNoSubLedger
+        {
+            get { return _tranactionLineNoSubLedger; }
+            set { _tranactionLineNoSubLedger = value; }
+        }
+        private int? _transactionMediaID;
+
+        public int? TransactionMediaID
+        {
+            get { return _transactionMediaID; }
+            set { _transactionMediaID = value; }
+        }
+        private string _tranactionLineStatus;
+
+        public string TranactionLineStatus
+        {
+            get { return _tranactionLineStatus; }
+            set { _tranactionLineStatus = value; }
+        }
+        private string _tranactionLineCalcStatus;
+
+        public string TranactionLineCalcStatus
+        {
+            get { return _tranactionLineCalcStatus; }
+            set { _tranactionLineCalcStatus = value; }
+        }
+        private int? _showInRpt;
+
+        public int? ShowInRpt
+        {
+            get { return _showInRpt; }
+            set { _showInRpt = value; }
+        }
+        private double? _rpCashAmount;
+
+        public double? RpCashAmount
+        {
+            get { return _rpCashAmount; }
+            set { _rpCashAmount = value; }
+        }
+        private double? _rpChequeAmount;
+
+        public double? RpChequeAmount
+        {
+            get { return _rpChequeAmount; }
+            set { _rpChequeAmount = value; }
+        }
+        private DataTable _dtVoucherJournalDetails;
+
+        public DataTable DtVoucherJournalDetails
+        {
+            get { return _dtVoucherJournalDetails; }
+            set { _dtVoucherJournalDetails = value; }
+        }
+
+
+        private DataTable _dtVoucherSubLedger;
+
+        public DataTable DtVoucherSubLedger
+        {
+            get { return _dtVoucherSubLedger; }
+            set { _dtVoucherSubLedger = value; }
+        }
+        private int _subLineNo;
+
+        public int SubLineNo
+        {
+            get { return _subLineNo; }
+            set { _subLineNo = value; }
+        }
+        private string _subLedgerNarration;
+
+        public string SubLedgerNarration
+        {
+            get { return _subLedgerNarration; }
+            set { _subLedgerNarration = value; }
+        }
+        private string _subLedgerTypeID1;
+
+        public string SubLedgerTypeID1
+        {
+            get { return _subLedgerTypeID1; }
+            set { _subLedgerTypeID1 = value; }
+        }
+        private string _subLedgerTypeID2;
+
+        public string SubLedgerTypeID2
+        {
+            get { return _subLedgerTypeID2; }
+            set { _subLedgerTypeID2 = value; }
+        }
+        private string _subLedgerTypeID3;
+
+        public string SubLedgerTypeID3
+        {
+            get { return _subLedgerTypeID3; }
+            set { _subLedgerTypeID3 = value; }
+        }
+        private string _subLedgerTypeID4;
+
+
+        public string SubLedgerTypeID4
+        {
+            get { return _subLedgerTypeID4; }
+            set { _subLedgerTypeID4 = value; }
+        }
+        private string _subLedgerTypeID5;
+
+        public string SubLedgerTypeID5
+        {
+            get { return _subLedgerTypeID5; }
+            set { _subLedgerTypeID5 = value; }
+        }
+        private int? _currencyID;
+
+        public int? CurrencyID
+        {
+            get { return _currencyID; }
+            set
+            {
+                if (value == null)
+                {
+                    throw new Exception(" Currency is required ");
+                } _currencyID = value;
+            }
+        }
     }
 }
