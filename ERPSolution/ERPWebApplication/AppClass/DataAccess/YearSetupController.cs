@@ -13,10 +13,10 @@ namespace ERPWebApplication.AppClass.DataAccess
         {
             try
             {
-                objYearSetup.UseChartOfAccNo = this.GetChartOfAccNo();
+                objYearSetup.UseChartOfAccNo = this.GetChartOfAccNo(objYearSetup);
                 objYearSetup.YearOpen = 1;
 
-                objYearSetup.YearOpeningID = Convert.ToInt32(objYearSetup.CompanyID.ToString() + objYearSetup.BranchID.ToString() + Convert.ToDateTime( objYearSetup.BeginningYear).ToString("yy") + objYearSetup.UseChartOfAccNo.ToString("00"));
+                objYearSetup.YearOpeningID = Convert.ToInt32(objYearSetup.CompanyID.ToString() + objYearSetup.BranchID.ToString() + Convert.ToDateTime(objYearSetup.BeginningYear).ToString("yy") + objYearSetup.UseChartOfAccNo.ToString("00"));
                 var storedProcedureComandText = "INSERT INTO [xSysYearSetup] ([YearOpeningID],[CompanyID],[BranchID],[BeginningYear],[EndingYear],[YearOpenBy],[YearOpen] " +
                                                 " ,[UseChartOfAccNo],[EntryDate],[EntryUserID],[Dataused]) VALUES ( " +
                 " " + objYearSetup.YearOpeningID + "," +
@@ -40,12 +40,13 @@ namespace ERPWebApplication.AppClass.DataAccess
             }
         }
 
-        private int GetChartOfAccNo()
+        private int GetChartOfAccNo(YearSetup objTempYearSetup)
         {
             try
             {
                 int chartOfAccNo = 0;
-                var storedProcedureComandText = "SELECT ISNULL( MAX( UseChartOfAccNo),0) +1  FROM xSysYearSetup";
+                var storedProcedureComandText = "SELECT ISNULL( MAX( UseChartOfAccNo),0) +1  FROM xSysYearSetup WHERE CompanyID = " + objTempYearSetup.CompanyID + " "
+                + " AND BranchID = " + objTempYearSetup.BranchID + "";
                 chartOfAccNo = clsDataManipulation.GetMaximumValueUsingSQL(this.ConnectionString, storedProcedureComandText);
                 return chartOfAccNo;
             }
@@ -56,20 +57,21 @@ namespace ERPWebApplication.AppClass.DataAccess
             }
         }
 
-        internal DataTable GetLastOpenYearData()
+        internal DataTable GetLastOpenYearData(YearSetup objYearSetup)
         {
             try
             {
                 var sqlString = @"  SELECT BeginningYear,EndingYear FROM xSysYearSetup  WHERE YearOpen = 1 AND Dataused = 'A' AND 
-                    UseChartOfAccNo = (SELECT MAX(UseChartOfAccNo) FROM xSysYearSetup WHERE YearOpen = 1 AND Dataused = 'A')";
+                    UseChartOfAccNo = (SELECT MAX(UseChartOfAccNo) FROM xSysYearSetup WHERE YearOpen = 1 AND Dataused = 'A') "
+                    + " AND CompanyID = " + objYearSetup.CompanyID + " AND BranchID = " + objYearSetup.BranchID + " ";
                 var dtLastOpenYear = clsDataManipulation.GetData(this.ConnectionString, sqlString);
                 return dtLastOpenYear;
 
             }
             catch (Exception msgException)
             {
-                
-                throw msgException; 
+
+                throw msgException;
             }
         }
     }

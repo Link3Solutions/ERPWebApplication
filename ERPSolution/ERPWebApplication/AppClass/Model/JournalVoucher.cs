@@ -511,5 +511,61 @@ namespace ERPWebApplication.AppClass.Model
                 } _currencyID = value;
             }
         }
+        private DataTable _dtSubmittedJournal;
+
+        public DataTable DtSubmittedJournal
+        {
+            get { return _dtSubmittedJournal; }
+            set { _dtSubmittedJournal = value; }
+        }
+        private DateTime? _journalDateFrom;
+
+        public DateTime? JournalDateFrom
+        {
+            get { return _journalDateFrom; }
+            set { _journalDateFrom = value; }
+        }
+        private DateTime? _JournalDateTo;
+
+        public DateTime? JournalDateTo
+        {
+            get { return _JournalDateTo; }
+            set { _JournalDateTo = value; }
+        }
+        private decimal? _baseAmountSearch;
+
+        public decimal? BaseAmountSearch
+        {
+            get { return _baseAmountSearch; }
+            set { _baseAmountSearch = value; }
+        }
+        private DataTable _dtVoucherHeader;
+
+        public DataTable DtVoucherHeader
+        {
+            get { return _dtVoucherHeader; }
+            set { _dtVoucherHeader = value; }
+        }
+        private string _searchVoucherNo;
+
+        public string SearchVoucherNo
+        {
+            get { return _searchVoucherNo; }
+            set { _searchVoucherNo = value; }
+        }
+        private string _searchUserVoucherNo;
+
+        public string SearchUserVoucherNo
+        {
+            get { return _searchUserVoucherNo; }
+            set { _searchUserVoucherNo = value; }
+        }
+        private decimal _subLegerAmountApart;
+
+        public decimal SubLegerAmountApart
+        {
+            get { return _subLegerAmountApart; }
+            set { _subLegerAmountApart = value; }
+        }
     }
 }

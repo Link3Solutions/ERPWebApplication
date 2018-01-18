@@ -31,7 +31,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                 else
                 {
                     objNodeList.NodeTypeID = Convert.ToInt32(objNodeList.NodeTypeID.ToString() + GetSeqNoForModule(connectionString).ToString());
-                    objNodeList.ShowPosition = 0;
+                    objNodeList.ShowPosition = objNodeList.ShowPosition == -1 ? 1 : objNodeList.ShowPosition;//need to be check
 
                 }
 

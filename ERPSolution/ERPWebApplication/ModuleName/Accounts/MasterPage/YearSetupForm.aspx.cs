@@ -38,8 +38,11 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
         {
             try
             {
+                _objYearSetup = new YearSetup();
+                _objYearSetup.CompanyID = LoginUserInformation.CompanyID;
+                _objYearSetup.BranchID = LoginUserInformation.BranchID;
                 _YearSetupController = new YearSetupController();
-                DataTable dtLastOpenYear =  _YearSetupController.GetLastOpenYearData();
+                DataTable dtLastOpenYear =  _YearSetupController.GetLastOpenYearData(_objYearSetup);
                 if (dtLastOpenYear.Rows.Count > 0)
                 {
                     PanelLastOpenYear.Visible = true;
@@ -100,8 +103,7 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
             try
             {
                 _objYearSetup = new YearSetup();
-                _objYearSetup.CompanyID = LoginUserInformation.CompanyID;
-                //_objYearSetup.BranchID = LoginUserInformation.BranchID;
+                _objYearSetup.CompanyID = LoginUserInformation.CompanyID;                
                 if (txtNewYearStartDate.Text == string.Empty)
                 {
                     _objYearSetup.BeginningYear =  null;

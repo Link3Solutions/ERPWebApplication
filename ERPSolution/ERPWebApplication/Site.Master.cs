@@ -22,6 +22,7 @@ namespace ERPWebApplication
         private ProjectSetup _objProjectSetup;
         private UserList _objUserList;
         private UserListController _objUserListController;
+        private NodeList _objNodeList;
 
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -134,17 +135,19 @@ namespace ERPWebApplication
             try
             {
                 DataTable table = new DataTable();
+                _objNodeList = new NodeList();
+                _objNodeList.ShowPosition = 1;
                 _objUserPermissionController = new UserPermissionController();
                 if (LoginUserInformation.UserID == "160ea939-7633-46a8-ae49-f661d12abfd5")
                 {
-                    table = _objUserPermissionController.GetData();
+                    table = _objUserPermissionController.GetData( _objNodeList);
                 }
                 else
                 {
                     EmployeeSetup objEmployeeSetup = new EmployeeSetup();
                     objEmployeeSetup.CompanyID = LoginUserInformation.CompanyID;
                     objEmployeeSetup.EntryUserName = LoginUserInformation.UserID;
-                    table = _objUserPermissionController.GetData(objEmployeeSetup);
+                    table = _objUserPermissionController.GetData(objEmployeeSetup,_objNodeList);
                     
                 }
                 

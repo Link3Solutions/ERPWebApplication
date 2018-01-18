@@ -22,21 +22,77 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            try
             {
-                _objJournalVoucherController = new JournalVoucherController();
-                _objJournalVoucherController.LoadJournalTypeDDL(ddlJournalType);
-                _objJournalVoucherController.LoadTransactionTypeDDL(ddlTransactionType);
-                _objJournalVoucherController.LoadVoucherTypeDDL(ddlVoucherType);
-                grdVoucher.DataSource = ViewState["voucherInformation"];
-                grdVoucher.DataBind();
-                txtAccCode_AutoCompleteExtender.ContextKey = LoginUserInformation.CompanyID.ToString();
-                txtReferenceJournal_AutoCompleteExtender.ContextKey = LoginUserInformation.CompanyID.ToString();
-                btnSave.Visible = false;
-                LoadCurrencyDDL();
+                if (!Page.IsPostBack)
+                {
+                    _objJournalVoucherController = new JournalVoucherController();
+                    _objJournalVoucherController.LoadJournalTypeDDL(ddlJournalType);
+                    _objJournalVoucherController.LoadTransactionTypeDDL(ddlTransactionType);
+                    _objJournalVoucherController.LoadVoucherTypeDDL(ddlVoucherType);
+                    grdVoucher.DataSource = ViewState["voucherInformation"];
+                    grdVoucher.DataBind();
+                    txtAccCode_AutoCompleteExtender.ContextKey = LoginUserInformation.CompanyID.ToString();
+                    txtReferenceJournal_AutoCompleteExtender.ContextKey = LoginUserInformation.CompanyID.ToString();
+                    btnSubmit.Visible = false;
+                    btnPost.Visible = false;
+                    LoadCurrencyDDL();
+                    btnSave.Visible = false;
+                    panelForTotal.Visible = false;
+                    _objJournalVoucherController.LoadTransactionTypeDDL(ddlTransactionTypeSearchTab2);
+                    txtAccountCodeSearchTab2_AutoCompleteExtender.ContextKey = LoginUserInformation.CompanyID.ToString();
+                    PanelAdvancedSearch.Visible = false;
+                    btnPostTab2.Visible = false;
+                    btnClearTab2.Visible = false;
+                    LoadSubmitteVoucherAll();
+                    txtVoucherNoSearchTab2_AutoCompleteExtender.ContextKey = LoginUserInformation.CompanyID.ToString();
+                    txtSearchTab1_AutoCompleteExtender.ContextKey = LoginUserInformation.CompanyID.ToString() + ":" + LoginUserInformation.UserID.ToString();
+                }
+            }
+            catch (Exception msgException)
+            {
 
+                clsTopMostMessageBox.Show(msgException.Message);
             }
 
+        }
+
+        private void LoadSubmitteVoucherAll()
+        {
+            try
+            {
+                _objJournalVoucher = new JournalVoucher();
+                _objBranchSetup = new BranchSetup();
+                _objJournalVoucherController = new JournalVoucherController();
+                _objBranchSetup.CompanyID = LoginUserInformation.CompanyID;
+                _objJournalVoucher.DtSubmittedJournal = _objJournalVoucherController.GetSubmittedJournal(_objBranchSetup);
+                LoadSubmittedVoucher(_objJournalVoucher);
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        private void LoadSubmittedVoucher(JournalVoucher objJournalVoucher)
+        {
+            try
+            {
+                grdUnpostedVoucher.DataSource = null;
+                grdUnpostedVoucher.DataBind();
+                if (objJournalVoucher.DtSubmittedJournal != null)
+                {
+                    grdUnpostedVoucher.DataSource = objJournalVoucher.DtSubmittedJournal;
+                    grdUnpostedVoucher.DataBind();
+
+                }
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
         }
 
         private void LoadCurrencyDDL()
@@ -79,6 +135,7 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
                 txtBaseAmount.Text = string.Empty;
                 txtNarration.Text = string.Empty;
                 btnAdd.Text = "Add";
+                ddlVoucherType.SelectedValue = "-1";
             }
             catch (Exception msgException)
             {
@@ -163,8 +220,8 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
                     ClearSubledgerRecords();
                     ModalPopupExtender1.Show();
                     lblAccountCode.Text = _objCoaHead.AccountNo.ToString();
-                    lblAccountName.Text = _objCoaHead.AccountName;
-                    txttotalamt.Text = _objJournalVoucher.BaseAmount.ToString();
+                    lblAccountName.Text = ":" + _objCoaHead.AccountName;
+                    lbltotalamt.Text = _objJournalVoucher.BaseAmount.ToString();
                     txtbalamt.Text = this.GetBalanceAmount();
 
                     if (ViewState["analysisInformation"] != null)
@@ -417,7 +474,6 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
                     DataTable dtTemp = (DataTable)ViewState["voucherInformation"];
                     dtTemp.DefaultView.Sort = "SlNo DESC";
                     dtTemp = dtTemp.DefaultView.ToTable();
-                    //grdVoucher.DataSource = ViewState["voucherInformation"];
                     grdVoucher.DataSource = dtTemp;
                     grdVoucher.DataBind();
                 }
@@ -443,6 +499,8 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
             {
                 if (grdVoucher.Rows.Count > 0)
                 {
+                    btnSave.Visible = true;
+                    panelForTotal.Visible = true;
                     decimal countDebit = 0;
                     decimal countCredit = 0;
                     foreach (GridViewRow rowNo in grdVoucher.Rows)
@@ -455,17 +513,22 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
 
                     if (countDebit == countCredit)
                     {
-                        btnSave.Visible = true;
+                        btnSubmit.Visible = true;
+                        btnPost.Visible = true;
                     }
                     else
                     {
-                        btnSave.Visible = false;
+                        btnSubmit.Visible = false;
+                        btnPost.Visible = false;
                     }
 
                 }
                 else
                 {
+                    btnSubmit.Visible = false;
+                    btnPost.Visible = false;
                     btnSave.Visible = false;
+                    panelForTotal.Visible = false;
                 }
 
             }
@@ -478,21 +541,7 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
 
         protected void grdVoucher_Sorting(object sender, GridViewSortEventArgs e)
         {
-            // If you want to only switch default for some column, disable comment
-            //switch (e.SortExpression)
-            //{
-            //    case "MyDataField01":
-            //    case "MyDataField03":
-
-            //if (e.SortExpression != ((GridView)sender).SortExpression)
-            //{
-            //    e.SortDirection = SortDirection.Descending;
-            //}
-
-            //        break;
-            //    default:
-            //        break;
-            //}
+            
         }
 
         protected void grdVoucher_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -559,10 +608,24 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
         {
 
         }
-
+        double debitAmount = 0;
+        double creditAmount = 0;
         protected void grdVoucher_RowDataBound(object sender, GridViewRowEventArgs e)
         {
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                e.Row.Cells[10].ColumnSpan = 2;
+            }
 
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                Label lblDebitGrid = (e.Row.FindControl("lblDebit") as Label);
+                Label lblCreditGrid = (e.Row.FindControl("lblCredit") as Label);
+                debitAmount += Convert.ToDouble(lblDebitGrid.Text);
+                creditAmount += Convert.ToDouble(lblCreditGrid.Text);
+                lblDebit.Text = string.Format("{0:n2}", debitAmount);
+                lblCredit.Text = string.Format("{0:n2}", creditAmount);
+            }
         }
 
         protected void btnInsertAnalysis_Click(object sender, EventArgs e)
@@ -599,7 +662,7 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
                 _objCoaHead = new CoaHead();
                 _objCoaHead.AccountNo = Convert.ToInt32(lblAccountCode.Text);
                 _objJournalVoucher = new JournalVoucher();
-                _objJournalVoucher.TransactionCurrencyAmount = Convert.ToDecimal(txttotalamt.Text);
+                _objJournalVoucher.TransactionCurrencyAmount = Convert.ToDecimal(lbltotalamt.Text);
 
                 if (ddl1st.Items.Count > 1)
                 {
@@ -675,7 +738,7 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
                         if (btnInsertAnalysis.Text == "Edit")
                         {
                             string lblSlNoSubledger = ((Label)rowNo.FindControl("lblSlNo")).Text;
-                            if (Convert.ToInt32( Session["slNoSubledgerAlign"].ToString()) == Convert.ToInt32( lblSlNoSubledger))
+                            if (Convert.ToInt32(Session["slNoSubledgerAlign"].ToString()) == Convert.ToInt32(lblSlNoSubledger))
                             {
                                 continue;
                             }
@@ -733,22 +796,26 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
         {
             try
             {
-                var dtSubledger = (DataTable)ViewState["analysisInformation"];
-                dtSubledger.DefaultView.Sort = "SlNo DESC";
-                dtSubledger = dtSubledger.DefaultView.ToTable();
-
-                for (int rowSubledger = dtSubledger.Rows.Count - 1; rowSubledger >= 0; rowSubledger--)
+                DataTable dtSubledger = (DataTable)ViewState["analysisInformation"];
+                if (dtSubledger != null)
                 {
-                    if (dtSubledger.Rows[rowSubledger]["TranactionLineNoSubLedger"].ToString().Trim().Contains(objJournalVoucher.TranactionLineNo.ToString()))
-                    {
-                        dtSubledger.Rows[rowSubledger].Delete();
-                    }
-                    dtSubledger.AcceptChanges();
-                }
+                    dtSubledger.DefaultView.Sort = "SlNo DESC";
+                    dtSubledger = dtSubledger.DefaultView.ToTable();
 
-                dtSubledger.DefaultView.Sort = "SlNo DESC";
-                dtSubledger = dtSubledger.DefaultView.ToTable();
-                ViewState["analysisInformation"] = dtSubledger;
+                    for (int rowSubledger = dtSubledger.Rows.Count - 1; rowSubledger >= 0; rowSubledger--)
+                    {
+                        if (dtSubledger.Rows[rowSubledger]["TranactionLineNoSubLedger"].ToString().Trim().Contains(objJournalVoucher.TranactionLineNo.ToString()))
+                        {
+                            dtSubledger.Rows[rowSubledger].Delete();
+                        }
+                        dtSubledger.AcceptChanges();
+                    }
+
+                    dtSubledger.DefaultView.Sort = "SlNo DESC";
+                    dtSubledger = dtSubledger.DefaultView.ToTable();
+                    ViewState["analysisInformation"] = dtSubledger;
+
+                }
             }
             catch (Exception msgException)
             {
@@ -865,6 +932,13 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
             e.Row.Cells[13].Visible = false;
             e.Row.Cells[14].Visible = false;
 
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                grdAnalysis.Columns[15].HeaderText = "";
+                e.Row.Cells[15].Text = e.Row.Cells[15].Text + e.Row.Cells[16].Text;
+                e.Row.Cells[15].ColumnSpan = 2;
+            }
+
 
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
@@ -898,7 +972,7 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
 
                 }
 
-                balanceAmount = (Convert.ToDecimal(txttotalamt.Text) - assignedAmount).ToString();
+                balanceAmount = (Convert.ToDecimal(lbltotalamt.Text) - assignedAmount).ToString();
                 return balanceAmount;
             }
             catch (Exception msgException)
@@ -908,12 +982,16 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
             }
         }
 
-        protected void btnSave_Click(object sender, EventArgs e)
+        protected void btnSubmit_Click(object sender, EventArgs e)
         {
             try
             {
+                Session["dataStatusID"] = "U";
                 AddValuesSaveMode();
                 ClearControlAfterSave();
+                txtSearchTab1.Text = string.Empty;
+                ClearControlAfterAdd();
+                LoadSubmitteVoucherAll();
                 clsTopMostMessageBox.Show(clsMessages.GProcessSuccess);
             }
             catch (Exception msgException)
@@ -927,18 +1005,29 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
         {
             try
             {
+                btnSubmit.Visible = false;
+                btnPost.Visible = false;
                 btnSave.Visible = false;
+                panelForTotal.Visible = false;
+                lblDebit.Text = string.Empty;
+                lblCredit.Text = string.Empty;
                 ViewState["voucherInformation"] = null;
                 grdVoucher.DataSource = null;
                 grdVoucher.DataBind();
-                ViewState["analysisInformation"] = null;                
+                ViewState["analysisInformation"] = null;
                 grdAnalysis.DataSource = null;
                 grdAnalysis.DataBind();
+                lblVoucherNo.Text = string.Empty;
 
+                ddlJournalType.SelectedValue = "-1";
+                ddlTransactionType.SelectedValue = "-1";
+                txtReferenceJournal.Text = string.Empty;
+                txtUserVoucherNo.Text = string.Empty;
+                txtJournalDate.Text = string.Empty;
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }
@@ -973,7 +1062,7 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
                     _objJournalVoucher.JournalTypeID = Convert.ToInt32(ddlJournalType.SelectedValue);
                 }
 
-                _objJournalVoucher.DataStatusID = "S";
+                _objJournalVoucher.DataStatusID = Session["dataStatusID"].ToString();
                 _objBranchSetup.EntryUserName = LoginUserInformation.UserID;
                 if (txtJournalDate.Text == string.Empty)
                 {
@@ -1021,6 +1110,8 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
                 _objJournalVoucher.RpChequeAmount = 0;
 
                 _objJournalVoucher.ComputerName = Environment.MachineName;
+                _objJournalVoucher.SearchUserVoucherNo = txtSearchTab1.Text == string.Empty ? null : txtSearchTab1.Text;
+                _objJournalVoucher.SearchVoucherNo = lblVoucherNo.Text == string.Empty ? null : lblVoucherNo.Text;
                 _objJournalVoucherController.Save(_objBranchSetup, _objCoaHead, _objJournalVoucher);
 
             }
@@ -1175,6 +1266,494 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage
             {
 
                 clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Session["dataStatusID"] = "S";
+                AddValuesSaveMode();
+                ClearControlAfterSave();
+                txtSearchTab1.Text = string.Empty;
+                ClearControlAfterAdd();
+                LoadSubmitteVoucherAll();
+                clsTopMostMessageBox.Show(clsMessages.GProcessSuccess);
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+
+        }
+
+        protected void btnPost_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Session["dataStatusID"] = "P";
+                AddValuesSaveMode();
+                ClearControlAfterSave();
+                txtSearchTab1.Text = string.Empty;
+                ClearControlAfterAdd();
+                LoadSubmitteVoucherAll();
+                clsTopMostMessageBox.Show(clsMessages.GProcessSuccess);
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        protected void btnAdvancedSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (PanelAdvancedSearch.Visible == true)
+                {
+                    PanelAdvancedSearch.Visible = false;
+                }
+                else
+                {
+                    PanelAdvancedSearch.Visible = true;
+                }
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        protected void btnShow_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GetSubmittedVoucherAdvancedSearch();
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        private void GetSubmittedVoucherAdvancedSearch()
+        {
+            try
+            {
+                _objJournalVoucher = new JournalVoucher();
+                _objJournalVoucher.VoucherNo = txtVoucherNoSearchTab2.Text == string.Empty ? null : txtVoucherNoSearchTab2.Text;
+                _objJournalVoucher.TransactionTypeID = Convert.ToInt32(ddlTransactionTypeSearchTab2.SelectedValue);
+                _objCoaHead = new CoaHead();
+                _objCoaHead.AccountNo = txtAccountCodeSearchTab2.Text.Split(':')[0].Trim() == string.Empty ? 0 : Convert.ToInt32(txtAccountCodeSearchTab2.Text.Split(':')[0].Trim());
+                if (txtJournalDateFromSearchTab2.Text == string.Empty)
+                {
+                    _objJournalVoucher.JournalDateFrom = null;
+                }
+                else
+                {
+                    _objJournalVoucher.JournalDateFrom = Convert.ToDateTime(txtJournalDateFromSearchTab2.Text);
+                }
+
+                if (txtJournalDateToSearchTab2.Text == string.Empty)
+                {
+                    _objJournalVoucher.JournalDateTo = null;
+                }
+                else
+                {
+                    _objJournalVoucher.JournalDateTo = Convert.ToDateTime(txtJournalDateToSearchTab2.Text);
+                }
+
+                if (txtAmountSearchTab2.Text == string.Empty)
+                {
+                    _objJournalVoucher.BaseAmountSearch = null;
+                }
+                else
+                {
+                    _objJournalVoucher.BaseAmountSearch = Convert.ToDecimal(txtAmountSearchTab2.Text);
+                }
+
+                _objBranchSetup = new BranchSetup();
+                _objBranchSetup.CompanyID = LoginUserInformation.CompanyID;
+                _objJournalVoucherController = new JournalVoucherController();
+                _objJournalVoucher.DtSubmittedJournal = _objJournalVoucherController.GetSubmittedJournalAdvancedSearch(_objJournalVoucher, _objBranchSetup, _objCoaHead);
+                this.LoadSubmittedVoucher(_objJournalVoucher);
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        protected void grdUnpostedVoucher_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            e.Row.Cells[3].Visible = false;
+        }
+
+        protected void CheckBoxUnpostedVoucher_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                ControlPostButtonTab2();
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        private void ControlPostButtonTab2()
+        {
+            try
+            {
+                int countSelectedRow = 0;
+                foreach (GridViewRow rowNo in grdUnpostedVoucher.Rows)
+                {
+                    CheckBox CheckBoxUnpostedVoucher = ((CheckBox)rowNo.FindControl("CheckBoxUnpostedVoucher"));
+                    if (CheckBoxUnpostedVoucher.Checked == true)
+                    {
+                        countSelectedRow++;
+
+                    }
+                }
+
+                if (countSelectedRow == 0)
+                {
+                    btnPostTab2.Visible = false;
+
+                }
+                else
+                {
+                    btnPostTab2.Visible = true;
+                }
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        protected void CheckBoxUnpostedVoucherHeader_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                CheckBox CheckBoxUnpostedVoucherHeader = ((CheckBox)grdUnpostedVoucher.HeaderRow.FindControl("CheckBoxUnpostedVoucherHeader"));
+                if (CheckBoxUnpostedVoucherHeader.Checked == true)
+                {
+                    foreach (GridViewRow rowNo in grdUnpostedVoucher.Rows)
+                    {
+                        CheckBox CheckBoxUnpostedVoucher = ((CheckBox)rowNo.FindControl("CheckBoxUnpostedVoucher"));
+                        CheckBoxUnpostedVoucher.Checked = true;
+                    }
+
+                }
+                else
+                {
+                    foreach (GridViewRow rowNo in grdUnpostedVoucher.Rows)
+                    {
+                        CheckBox CheckBoxUnpostedVoucher = ((CheckBox)rowNo.FindControl("CheckBoxUnpostedVoucher"));
+                        CheckBoxUnpostedVoucher.Checked = false;
+                    }
+                }
+
+                this.ControlPostButtonTab2();
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        protected void btnPostTab2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach (GridViewRow rowNo in grdUnpostedVoucher.Rows)
+                {
+                    CheckBox CheckBoxUnpostedVoucher = ((CheckBox)rowNo.FindControl("CheckBoxUnpostedVoucher"));
+                    if (CheckBoxUnpostedVoucher.Checked == true)
+                    {
+                        string lblVoucherNo = ((Label)rowNo.FindControl("lblVoucherNo")).Text;
+                        _objJournalVoucher = new JournalVoucher();
+                        _objJournalVoucher.VoucherNo = lblVoucherNo;
+                        _objBranchSetup = new BranchSetup();
+                        _objBranchSetup.EntryUserName = LoginUserInformation.UserID;
+                        _objJournalVoucherController = new JournalVoucherController();
+                        _objJournalVoucherController.PostUnpostedVoucher(_objJournalVoucher, _objBranchSetup);
+
+                    }
+                }
+
+                this.LoadSubmitteVoucherAll();
+                btnPostTab2.Visible = false;
+                clsTopMostMessageBox.Show(clsMessages.GProcessSuccess);
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        protected void grdUnpostedVoucher_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            try
+            {
+                var selectedIndex = Convert.ToInt32(e.CommandArgument.ToString());
+
+                if (e.CommandName.Equals("Select"))
+                {
+                    string lblVoucherNo = ((Label)grdUnpostedVoucher.Rows[selectedIndex].FindControl("lblVoucherNo")).Text;
+                    Session["voucherNoSubledgerPopup"] = lblVoucherNo;
+                    _objJournalVoucher = new JournalVoucher();
+                    _objJournalVoucher.VoucherNo = lblVoucherNo;
+                    _objJournalVoucherController = new JournalVoucherController();
+                    _objJournalVoucher.DtVoucherJournalDetails = _objJournalVoucherController.GetVoucherDetails(_objJournalVoucher);
+                    LoadUnpostedVoucherDetailsGridView(_objJournalVoucher.DtVoucherJournalDetails);
+                }
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        private void LoadUnpostedVoucherDetailsGridView(DataTable dataTableVoucherDetails)
+        {
+            try
+            {
+                grdUnpostedVoucherDetails.DataSource = null;
+                grdUnpostedVoucherDetails.DataBind();
+                if (dataTableVoucherDetails != null)
+                {
+                    grdUnpostedVoucherDetails.DataSource = dataTableVoucherDetails;
+                    grdUnpostedVoucherDetails.DataBind();
+                    grdUnpostedVoucherSubLedger.DataSource = null;
+                    grdUnpostedVoucherSubLedger.DataBind();
+                    lblSubledgerTitle.Visible = false;
+                    PanelUnpostedVoucherRecord_ModalPopupExtender.Show();
+                }
+                else
+                {
+                    PanelUnpostedVoucherRecord_ModalPopupExtender.Hide();
+                }
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        double debitAmountDetails = 0;
+        double creditAmountDetails = 0;
+        protected void grdUnpostedVoucherDetails_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    Label lblDebitGrid = (e.Row.FindControl("lblDebit") as Label);
+                    Label lblCreditGrid = (e.Row.FindControl("lblCredit") as Label);
+                    debitAmountDetails += Convert.ToDouble(lblDebitGrid.Text);
+                    creditAmountDetails += Convert.ToDouble(lblCreditGrid.Text);
+                    lblDebit.Text = string.Format("{0:n2}", debitAmountDetails);
+                    lblCredit.Text = string.Format("{0:n2}", creditAmountDetails);
+                }
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        protected void grdUnpostedVoucherDetails_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            try
+            {
+                var selectedIndex = Convert.ToInt32(e.CommandArgument.ToString());
+
+                if (e.CommandName.Equals("Select"))
+                {
+                    string lblSlNoAlign = ((Label)grdUnpostedVoucherDetails.Rows[selectedIndex].FindControl("lblSlNoAlign")).Text;
+                    _objJournalVoucher = new JournalVoucher();
+                    _objJournalVoucher.VoucherNo = Session["voucherNoSubledgerPopup"].ToString();
+                    Session["slNoAlignVoucher"] = Convert.ToInt32(lblSlNoAlign);
+                    _objJournalVoucherController = new JournalVoucherController();
+                    _objJournalVoucher.DtVoucherSubLedger = _objJournalVoucherController.GetVoucherSubLedger(_objJournalVoucher);
+                    LoadUnpostedVoucherSubLedgerGridView(_objJournalVoucher.DtVoucherSubLedger);
+                    PanelUnpostedVoucherRecord_ModalPopupExtender.Show();
+                }
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        private void LoadUnpostedVoucherSubLedgerGridView(DataTable dataTableSubLedger)
+        {
+            try
+            {
+                grdUnpostedVoucherSubLedger.DataSource = null;
+                grdUnpostedVoucherSubLedger.DataBind();
+                lblSubledgerTitle.Visible = false;
+                if (dataTableSubLedger != null)
+                {
+                    grdUnpostedVoucherSubLedger.DataSource = dataTableSubLedger;
+                    grdUnpostedVoucherSubLedger.DataBind();
+                    lblSubledgerTitle.Visible = true;
+                }
+            }
+            catch (Exception msgExceptin)
+            {
+
+                throw msgExceptin;
+            }
+        }
+
+        protected void grdUnpostedVoucherSubLedger_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                e.Row.Cells[1].Visible = false;
+                e.Row.Cells[2].Visible = false;
+                e.Row.Cells[3].Visible = false;
+                e.Row.Cells[4].Visible = false;
+                e.Row.Cells[5].Visible = false;
+                e.Row.Cells[6].Visible = false;
+                e.Row.Cells[13].Visible = false;
+                e.Row.Cells[14].Visible = false;
+
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    Label lblSlNo = (e.Row.FindControl("lblSlNo") as Label);
+                    if (Session["slNoAlignVoucher"].ToString().Trim() == lblSlNo.Text.ToString().Trim())
+                    {
+                        e.Row.Visible = true;
+                    }
+                    else
+                    {
+                        e.Row.Visible = false;
+                    }
+                }
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        protected void txtSearchTab1_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                ClearControlAfterSave();
+                _objJournalVoucher = new JournalVoucher();
+                _objJournalVoucher.UserVoucherNo = txtSearchTab1.Text;
+                ShowVoucherHeader(_objJournalVoucher);
+                ShowVoucherDetails(_objJournalVoucher);
+                ShowVoucherSubLedger(_objJournalVoucher);
+                this.ControlButtonVisible();
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        private void ShowVoucherSubLedger(JournalVoucher objJournalVoucher)
+        {
+            try
+            {
+                _objJournalVoucherController = new JournalVoucherController();                
+                _objJournalVoucher.DtVoucherSubLedger = _objJournalVoucherController.GetVoucherSubLedgerUserVoucherNo(objJournalVoucher);
+                ViewState["analysisInformation"] = null;
+                grdAnalysis.DataSource = null;
+                grdAnalysis.DataBind();
+                Session["SubLedgerTypeID1"] = string.Empty;
+                Session["SubLedgerTypeID2"] = string.Empty;
+                Session["SubLedgerTypeID3"] = string.Empty;
+                Session["SubLedgerTypeID4"] = string.Empty;
+                Session["SubLedgerTypeID5"] = string.Empty;
+                if (_objJournalVoucher.DtVoucherSubLedger != null)
+                {
+                    _objJournalVoucher.DtVoucherSubLedger.DefaultView.Sort = "SlNo DESC";
+                    _objJournalVoucher.DtVoucherSubLedger = _objJournalVoucher.DtVoucherSubLedger.DefaultView.ToTable();
+                    grdAnalysis.DataSource = _objJournalVoucher.DtVoucherSubLedger;
+                    grdAnalysis.DataBind();
+                    ViewState["analysisInformation"] = _objJournalVoucher.DtVoucherSubLedger;
+
+                    foreach (DataRow rowNo in _objJournalVoucher.DtVoucherSubLedger.Rows)
+                    {
+                        Session["SubLedgerTypeID1"] = rowNo["SubLedgerTypeID1"].ToString();
+                        Session["SubLedgerTypeID2"] = rowNo["SubLedgerTypeID2"].ToString();
+                        Session["SubLedgerTypeID3"] = rowNo["SubLedgerTypeID3"].ToString();
+                        Session["SubLedgerTypeID4"] = rowNo["SubLedgerTypeID4"].ToString();
+                        Session["SubLedgerTypeID5"] = rowNo["SubLedgerTypeID5"].ToString();
+                        break;
+                    }
+                }
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
+        }
+
+        private void ShowVoucherDetails(JournalVoucher objJournalVoucher)
+        {
+            _objJournalVoucherController = new JournalVoucherController();            
+            _objJournalVoucher.DtVoucherJournalDetails = _objJournalVoucherController.GetVoucherDetailsUserVoucherNo(objJournalVoucher);
+            ViewState["voucherInformation"] = null;
+            grdVoucher.DataSource = null;
+            grdVoucher.DataBind();
+            if (_objJournalVoucher.DtVoucherJournalDetails != null)
+            {
+                _objJournalVoucher.DtVoucherJournalDetails.DefaultView.Sort = "SlNo DESC";
+                _objJournalVoucher.DtVoucherJournalDetails = _objJournalVoucher.DtVoucherJournalDetails.DefaultView.ToTable();
+                grdVoucher.DataSource = _objJournalVoucher.DtVoucherJournalDetails;
+                grdVoucher.DataBind();
+                ViewState["voucherInformation"] = _objJournalVoucher.DtVoucherJournalDetails;
+            }
+        }
+
+        private void ShowVoucherHeader(JournalVoucher objJournalVoucher)
+        {
+            try
+            {
+                _objJournalVoucherController = new JournalVoucherController();
+                _objJournalVoucher.DtVoucherHeader = _objJournalVoucherController.GetVoucherHeader(objJournalVoucher);
+                foreach (DataRow rowNo in _objJournalVoucher.DtVoucherHeader.Rows)
+                {
+                    ddlJournalType.SelectedValue = rowNo["JournalTypeID"].ToString();
+                    ddlTransactionType.SelectedValue = rowNo["TransactionTypeID"].ToString();
+                    txtReferenceJournal.Text = rowNo["AnyRefVoucherNo"].ToString() == "0" ? string.Empty : rowNo["AnyRefVoucherNo"].ToString();
+                    txtUserVoucherNo.Text = rowNo["UserVoucherNo"].ToString();
+                    txtJournalDate.Text = Convert.ToDateTime( rowNo["VoucherDate"].ToString()).ToString("yyyy-MM-dd");
+                    lblVoucherNo.Text = rowNo["VoucherNo"].ToString();
+                }
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
             }
         }
 

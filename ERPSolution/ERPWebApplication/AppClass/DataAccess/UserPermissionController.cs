@@ -30,6 +30,22 @@ namespace ERPWebApplication.AppClass.DataAccess
             }
 
         }
+        internal DataTable GetData(NodeList objNodeList)
+        {
+            try
+            {
+                string sqlString = "SELECT [NodeTypeID], [ActivityName], [FormDescription], [FormName],[PNodeTypeID] FROM [uDefaultNodeList] WHERE ShowPosition = " + objNodeList.ShowPosition + " ";
+                var dtEntityDetails = clsDataManipulation.GetData(this.ConnectionString, sqlString);
+                return dtEntityDetails;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+
+        }
 
         internal void PopulateRootLevel(TreeView TreeViewAllNode)
         {
@@ -73,6 +89,23 @@ namespace ERPWebApplication.AppClass.DataAccess
             try
             {
                 var sqlString = @"select NodeTypeID,ActivityName,(select count(*) FROM UDefaultNodeList WHERE PNodeTypeID=e.NodeTypeID) childnodecount FROM UDefaultNodeList e where PNodeTypeID= " + parentid + "";
+                var dt = clsDataManipulation.GetData(this.ConnectionString, sqlString);
+                PopulateNodes(dt, parentNode.ChildNodes);
+                parentNode.CollapseAll();
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+        public void PopulateSubLevelReport(int parentid, TreeNode parentNode, EmployeeSetup objEmployeeSetup)
+        {
+            try
+            {
+                var sqlString = @"select NodeTypeID,ActivityName,(select count(*) FROM [uDefaultNodeListTemp] WHERE PNodeTypeID=e.NodeTypeID) childnodecount " +
+                    " FROM [uDefaultNodeListTemp] e where PNodeTypeID= " + parentid + " AND EntryUserID = '" + objEmployeeSetup.EntryUserName + "'";
                 var dt = clsDataManipulation.GetData(this.ConnectionString, sqlString);
                 PopulateNodes(dt, parentNode.ChildNodes);
                 parentNode.CollapseAll();
@@ -298,6 +331,26 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
         }
+        internal DataTable GetData(EmployeeSetup objEmployeeSetup, NodeList objNodeList)
+        {
+            try
+            {
+                string sqlString = @"SELECT DISTINCT D.[NodeTypeID], D.[ActivityName], D.[FormDescription], D.[FormName],D.[PNodeTypeID] FROM uUsersInRoles A
+                INNER JOIN uRoleSetup B ON A.RoleID = B.RoleID AND A.RoleTypeID = B.RoleTypeID
+                INNER JOIN uRoleSetupDetails C ON B.RoleID = C.RoleID
+                INNER JOIN [uDefaultNodeList] D ON C.NodeID = D.NodeTypeID
+                WHERE A.DataUsed = 'A' AND B.DataUsed = 'A' AND C.DataUsed = 'A' AND D.DataUsed = 'A' AND A.CompanyID = " + objEmployeeSetup.CompanyID + " " +
+                " AND A.UserProfileID = '" + objEmployeeSetup.EntryUserName + "' AND D.ShowPosition = " + objNodeList.ShowPosition + "";
+                var dtEntityDetails = clsDataManipulation.GetData(this.ConnectionString, sqlString);
+                return dtEntityDetails;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
 
         internal void GetUserRoleRecord(EmployeeSetup objEmployeeSetup, UserPermission objUserPermission, ListBox targetListBox)
         {
@@ -493,6 +546,99 @@ namespace ERPWebApplication.AppClass.DataAccess
                 CompanySetupController objCompanySetupController = new CompanySetupController();
                 objCompanySetupController.LoadCompany(ddlCompany);
 
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal void PopulateRootLevel(TreeView TreeViewReportNode, EmployeeSetup objEmployeeSetup, NodeList objNodeList)
+        {
+            try
+            {
+                ManageTempTable(objEmployeeSetup, objNodeList);
+                TreeViewReportNode.Nodes.Clear();
+                TreeViewReportNode.ExpandAll();
+                string sqlString = @"SELECT " + ClsFixedValue.ReportRootID + " as NodeTypeID,'Report' as ActivityName,childnodecount =     " +
+                " (SELECT Count(*) FROM [uDefaultNodeListTemp] WHERE PNodeTypeID = " + ClsFixedValue.ReportRootID + " AND EntryUserID ='" + objEmployeeSetup.EntryUserName + "') ";
+                var dt = clsDataManipulation.GetData(this.ConnectionString, sqlString);
+                PopulateNodes(dt, TreeViewReportNode.Nodes);
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        private void ManageTempTable(EmployeeSetup objEmployeeSetup, NodeList objNodeList)
+        {
+            try
+            {
+                DeleteGarbageData(objEmployeeSetup);
+                DataTable dtEntityDetails = null;
+                string sqlString = @"SELECT DISTINCT D.[NodeTypeID], D.[ActivityName], D.[FormDescription], D.[FormName],D.[PNodeTypeID] FROM uUsersInRoles A
+                INNER JOIN uRoleSetup B ON A.RoleID = B.RoleID AND A.RoleTypeID = B.RoleTypeID
+                INNER JOIN uRoleSetupDetails C ON B.RoleID = C.RoleID
+                INNER JOIN [uDefaultNodeList] D ON C.NodeID = D.NodeTypeID
+                WHERE A.DataUsed = 'A' AND B.DataUsed = 'A' AND C.DataUsed = 'A' AND D.DataUsed = 'A' AND A.CompanyID = " + objEmployeeSetup.CompanyID + " " +
+                " AND A.UserProfileID = '" + objEmployeeSetup.EntryUserName + "' AND D.ShowPosition IN " + "(1,2)" + "" +
+                " AND D.ActivityID = " + objNodeList.ActivityID + "";
+                dtEntityDetails = clsDataManipulation.GetData(this.ConnectionString, sqlString);
+                if (dtEntityDetails != null)
+                {
+                    foreach (DataRow rowNO in dtEntityDetails.Rows)
+                    {
+                        NodeList objNodeListTemp = new NodeList();
+                        objNodeListTemp.NodeTypeID = Convert.ToInt32(rowNO["NodeTypeID"].ToString());
+                        objNodeListTemp.ActivityName = rowNO["ActivityName"].ToString();
+                        objNodeListTemp.FormDescription = rowNO["FormDescription"].ToString();
+                        objNodeListTemp.FormName = rowNO["FormName"].ToString();
+                        objNodeListTemp.ParentNodeTypeID = Convert.ToInt32(rowNO["PNodeTypeID"].ToString());
+                        SaveTemp(objEmployeeSetup, objNodeListTemp);
+                    }
+
+                }
+
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        private void SaveTemp(EmployeeSetup objEmployeeSetup, NodeList objNodeListTemp)
+        {
+            try
+            {
+                var storedProcedureComandTextNode = @"INSERT INTO [uDefaultNodeListTemp] ([ActivityName],[NodeTypeID],[PNodeTypeID],[FormDescription],[FormName]
+           ,[EntryUserID]) VALUES ( '" + objNodeListTemp.ActivityName + "' " +
+                                       "," + objNodeListTemp.NodeTypeID + "" +
+                                       "," + objNodeListTemp.ParentNodeTypeID + "" +
+                                       ",'" + objNodeListTemp.FormDescription + "'" +
+                                       ",'" + objNodeListTemp.FormName + "'" +
+                                        ",'" + objEmployeeSetup.EntryUserName + "' );";
+                clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandTextNode);
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        private void DeleteGarbageData(EmployeeSetup objEmployeeSetup)
+        {
+            try
+            {
+                string sql = null;
+                sql = @"DELETE FROM [uDefaultNodeListTemp] WHERE EntryUserID = '" + objEmployeeSetup.EntryUserName + "'";
+                clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, sql);
             }
             catch (Exception msgException)
             {

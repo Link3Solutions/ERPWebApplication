@@ -106,8 +106,22 @@
                                         <asp:ListItem Selected="True" Value="-1">--- Please Select ---</asp:ListItem>
                                         <asp:ListItem Value="1">Module Name</asp:ListItem>
                                         <asp:ListItem Value="2">Setup Page</asp:ListItem>
-                                        <asp:ListItem Value="3">TransactionPage</asp:ListItem>
+                                        <asp:ListItem Value="3">Transaction Page</asp:ListItem>
                                         <asp:ListItem Value="4">Form</asp:ListItem>
+                                        <asp:ListItem Value="5">Report</asp:ListItem>
+                                    </asp:DropDownList>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:Label ID="Label7" runat="server" Text="Position"></asp:Label>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <asp:DropDownList ID="ddlShowPosition" runat="server" Width="320px">
+                                        <asp:ListItem Selected="True" Value="-1">--- Please Select ---</asp:ListItem>
+                                        <asp:ListItem Value="1">Menu</asp:ListItem>
+                                        <asp:ListItem Value="2">Dashboard</asp:ListItem>
                                     </asp:DropDownList>
                                 </td>
                             </tr>
@@ -127,16 +141,10 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <asp:Label ID="Label7" runat="server" Text="Position"></asp:Label>
-                                                </td>
-                                                <td>:</td>
+                                                    &nbsp;</td>
+                                                <td>&nbsp;</td>
                                                 <td>
-                                                    <asp:DropDownList ID="ddlShowPosition" runat="server" Width="320px">
-                                                        <asp:ListItem Selected="True" Value="-1">--- Please Select ---</asp:ListItem>
-                                                        <asp:ListItem Value="1">Menu</asp:ListItem>
-                                                        <asp:ListItem Value="2">Dashboard</asp:ListItem>
-                                                    </asp:DropDownList>
-                                                </td>
+                                                    &nbsp;</td>
                                             </tr>
                                             <tr>
                                                 <td>&nbsp;</td>
