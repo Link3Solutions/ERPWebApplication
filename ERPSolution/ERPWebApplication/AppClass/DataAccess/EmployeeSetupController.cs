@@ -47,8 +47,8 @@ namespace ERPWebApplication.AppClass.DataAccess
                 foreach (DataRow rowNo in objEmployeeDetailsSetup.dtEmployeeChart.Rows)
                 {
                     OrganizationalChartSetup objOrganizationalChartSetup = new OrganizationalChartSetup();
-                    objOrganizationalChartSetup.EntityTypeID = Convert.ToInt32( rowNo["EntityTypeID"].ToString());
-                    objOrganizationalChartSetup.EntityID = Convert.ToInt32( rowNo["EntityID"].ToString());
+                    objOrganizationalChartSetup.EntityTypeID = Convert.ToInt32(rowNo["EntityTypeID"].ToString());
+                    objOrganizationalChartSetup.EntityID = Convert.ToInt32(rowNo["EntityID"].ToString());
                     storedProcedureComandTextChart += "INSERT INTO [orgEmployeeChart] ([ReferenceID],[EntityTypeID],[EntityID],[LastPosition],[DataUsed],[EntryUserID],[EntryDate] " +
                     ") VALUES( " + objEmployeeDetailsSetup.EmployeeSerialNo + "," +
                     objOrganizationalChartSetup.EntityTypeID + "," +
@@ -61,7 +61,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                 if (storedProcedureComandTextChart != null)
                 {
                     clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandTextChart);
-                    
+
                 }
 
             }
@@ -231,6 +231,34 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
 
+        }
+
+        internal DataTable GetEmployee(DepartmentSetup objDepartmentSetup)
+        {
+            try
+            {
+                DataTable dtEmployee = null;
+                var storedProcedureComandText = @"SELECT DISTINCT A.EmployeeID,A.FullName,B.DesignationID,D.FieldOfName FROM hrEmployeeSetup A
+                LEFT JOIN empDesignation B ON A.ReferenceID = B.ReferenceID
+                LEFT JOIN orgEmployeeChart C ON A.ReferenceID = C.ReferenceID
+                LEFT JOIN orgDesignation D ON B.DesignationID = D.FieldOfID
+                WHERE A.DataUsed = 'A' AND B.DataUsed = 'A' AND A.CompanyID = " + objDepartmentSetup.CompanyID + "";
+
+                if (objDepartmentSetup.DepartmentID != -1)
+                {
+                    storedProcedureComandText += " AND C.EntityID = " + objDepartmentSetup.DepartmentID + "";
+                }
+
+                storedProcedureComandText += " ORDER BY A.EmployeeID";
+
+                dtEmployee = clsDataManipulation.GetData(this.ConnectionString, storedProcedureComandText);
+                return dtEmployee;
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
         }
     }
 }

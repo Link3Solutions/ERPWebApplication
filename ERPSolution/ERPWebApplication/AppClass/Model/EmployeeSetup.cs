@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -13,6 +14,13 @@ namespace ERPWebApplication.AppClass.Model
         {
             get { return _employeeID; }
             set { _employeeID = value; }
+        }
+        private DataTable dtEmployee;
+
+        public DataTable DtEmployee
+        {
+            get { return dtEmployee; }
+            set { dtEmployee = value; }
         }
     }
 }

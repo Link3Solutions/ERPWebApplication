@@ -25,7 +25,7 @@ namespace ERPWebApplication.AppClass.DataAccess
             try
             {
                 
-                var storedProcedureComandText = "INSERT INTO [ItemRequisitionHeader] ([CompanyID], [BranchID], [ItemRequisitionNo],[RequisitionBy],[RequisitionDate],[RequiredDate],[RequestedDepartmentID],[UserTypeID],[UserIdentifierID],[LocationOfUse],[LocationAddress],[PriorityID],[PurposeID],[ReferenceTypeID],[ReferenceNumber],[ProjectID],[RequisitionCurrentStatus],[RequisitionComments],[CompletionStatus],[EntryDate],[EntryUserID],[ModifiedDate],[ModifiedUserID]) VALUES (" + hdr.CompanyID + ", " + hdr.BranchID + ", '" + hdr.ItemRequisitionNo + "','" + hdr.RequisitionBy + "',convert(datetime,'" + hdr.RequisitionDate + "',103),convert(datetime,'" + hdr.RequiredDate + "',103),'" + hdr.RequestedDepartment + "'," + hdr.UserType + ",'" + hdr.UserID + "'," + hdr.LocationOfUse + ",'" + hdr.LocationAddress + "'," + hdr.PriorityID + "," + hdr.PurposeID + "," + hdr.ReferenceTypeID + ",'" + hdr.ReferenceNumber + "','" + hdr.ProjectID + "'," + hdr.RequisitionCurrentStatus + ",'" + hdr.RequisitionComments + "'," + hdr.CompletionStatus + ",convert(datetime,'" + hdr.EntryDate + "',103),'" + hdr.EntryUserID + "',convert(datetime,'" + Convert.ToDateTime(hdr.ModifiedDate) + "',103),'" + hdr.ModifiedUserID + "')";
+                var storedProcedureComandText = "INSERT INTO [ItemRequisitionHeader] ([CompanyID], [BranchID], [ItemRequisitionNo],[RequisitionBy],[RequisitionDate],[RequiredDate],[RequestedDepartmentID],[UserTypeID],[UserID],[LocationOfUse],[LocationAddress],[PriorityID],[PurposeID],[ReferenceTypeID],[ReferenceNumber],[ProjectID],[RequisitionCurrentStatus],[RequisitionComments],[CompletionStatus],[EntryDate],[EntryUserID],[ModifiedDate],[ModifiedUserID]) VALUES (" + hdr.CompanyID + ", " + hdr.BranchID + ", '" + hdr.ItemRequisitionNo + "','" + hdr.RequisitionBy + "',convert(datetime,'" + hdr.RequisitionDate + "',103),convert(datetime,'" + hdr.RequiredDate + "',103),'" + hdr.RequestedDepartment + "'," + hdr.UserType + ",'" + hdr.UserID + "'," + hdr.LocationOfUse + ",'" + hdr.LocationAddress + "'," + hdr.PriorityID + "," + hdr.PurposeID + "," + hdr.ReferenceTypeID + ",'" + hdr.ReferenceNumber + "','" + hdr.ProjectID + "'," + hdr.RequisitionCurrentStatus + ",'" + hdr.RequisitionComments + "'," + hdr.CompletionStatus + ",convert(datetime,'" + hdr.EntryDate + "',103),'" + hdr.EntryUserID + "',convert(datetime,'" + Convert.ToDateTime(hdr.ModifiedDate) + "',103),'" + hdr.ModifiedUserID + "')";
                 if (clsDataManipulation.ExecuteSqlCommand(cmd, storedProcedureComandText) == false)
                 {
                     return flg = false;
@@ -49,9 +49,6 @@ namespace ERPWebApplication.AppClass.DataAccess
                     
         }
 
-
-    
-
         public static string GetDataRequisitionHdr(string refNo)
         {
             return "SELECT * FROM  ItemRequisitionHeader where ItemRequisitionNo='" + refNo + "'";
@@ -74,6 +71,9 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
         }
+
+
+
 
 
         public string ShowRequisitionHeader(int companyID,int branchID)
@@ -244,7 +244,7 @@ namespace ERPWebApplication.AppClass.DataAccess
 
         public static string SqlFileAttachmentHdr(RequisitionHeader hdr)
         {
-            string sql = "INSERT INTO [ItemRequisitionHeader] ([CompanyID], [BranchID], [ItemRequisitionNo],[RequisitionBy],[RequisitionDate],[RequiredDate],[RequestedDepartment],[UserType],[UserIdentifierID],[LocationOfUse],[LocationAddress],[PriorityID],[PurposeID],[ReferenceTypeID],[ReferenceNumber],[ProjectID],[RequisitionCurrentStatus],[EntryDate],[EntryUserID],[ModifiedDate],[ModifiedUserID]) VALUES (" + hdr.CompanyID + ", " + hdr.BranchID + ", '" + hdr.ItemRequisitionNo + "','" + hdr.RequisitionBy + "',convert(datetime,'" + hdr.RequisitionDate + "',103),convert(datetime,'" + hdr.RequiredDate + "',103),'" + hdr.RequestedDepartment + "'," + hdr.UserType + ",'" + hdr.UserID + "'," + hdr.LocationOfUse + ",'" + hdr.LocationAddress + "'," + hdr.PriorityID + "," + hdr.PurposeID + "," + hdr.ReferenceTypeID + ",'" + hdr.ReferenceNumber + "','" + hdr.ProjectID + "'," + hdr.RequisitionCurrentStatus + ",convert(datetime,'" + hdr.EntryDate + "',103),'" + hdr.EntryUserID + "',convert(datetime,'" + Convert.ToDateTime(hdr.ModifiedDate) + "',103),'" + hdr.ModifiedUserID + "')";
+            string sql = "INSERT INTO [ItemRequisitionHeader] ([CompanyID], [BranchID], [ItemRequisitionNo],[RequisitionBy],[RequisitionDate],[RequiredDate],[RequestedDepartment],[UserType],[UserID],[LocationOfUse],[LocationAddress],[PriorityID],[PurposeID],[ReferenceTypeID],[ReferenceNumber],[ProjectID],[RequisitionCurrentStatus],[EntryDate],[EntryUserID],[ModifiedDate],[ModifiedUserID]) VALUES (" + hdr.CompanyID + ", " + hdr.BranchID + ", '" + hdr.ItemRequisitionNo + "','" + hdr.RequisitionBy + "',convert(datetime,'" + hdr.RequisitionDate + "',103),convert(datetime,'" + hdr.RequiredDate + "',103),'" + hdr.RequestedDepartment + "'," + hdr.UserType + ",'" + hdr.UserID + "'," + hdr.LocationOfUse + ",'" + hdr.LocationAddress + "'," + hdr.PriorityID + "," + hdr.PurposeID + "," + hdr.ReferenceTypeID + ",'" + hdr.ReferenceNumber + "','" + hdr.ProjectID + "'," + hdr.RequisitionCurrentStatus + ",convert(datetime,'" + hdr.EntryDate + "',103),'" + hdr.EntryUserID + "',convert(datetime,'" + Convert.ToDateTime(hdr.ModifiedDate) + "',103),'" + hdr.ModifiedUserID + "')";
             return sql;
         }
 

@@ -38,8 +38,6 @@ namespace ERPWebApplication.AppClass.DataAccess
 
         }
 
-  
-
         internal DataTable GetDataFileDet(string requisitionNo, int companyID, int branchID)
         {
             try
@@ -79,13 +77,10 @@ namespace ERPWebApplication.AppClass.DataAccess
 
         }
 
-
-
         public bool DeleteFileUploadDetByRequisitionNo(SqlCommand cmd, FileUploadDetail det)
         {
             string sql = "";
             bool retflag = true;
-
 
             sql = "Delete from  [FileUploadDetail] where ReferenceNo= '" + det.ReferenceNo + "'";
 
@@ -94,7 +89,6 @@ namespace ERPWebApplication.AppClass.DataAccess
                 retflag = false;
                 goto errorhand;
             }
-
 
         errorhand:
             return retflag;

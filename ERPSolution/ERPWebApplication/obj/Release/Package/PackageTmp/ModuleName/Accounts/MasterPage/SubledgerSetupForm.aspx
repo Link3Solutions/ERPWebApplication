@@ -6,7 +6,7 @@
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             
-    <ajaxToolkit:TabContainer ID="TabContainer2" runat="server" ActiveTabIndex="2"
+    <ajaxToolkit:TabContainer ID="TabContainer2" runat="server" ActiveTabIndex="0"
         Width="763" AutoPostBack="True" CssClass="tab" CssTheme="None">
         <ajaxToolkit:TabPanel runat="server" HeaderText="Subledger Type" ID="TabPanel1">
             <ContentTemplate>

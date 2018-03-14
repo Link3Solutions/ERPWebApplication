@@ -182,6 +182,40 @@ namespace ERPWebApplication.AppClass.DataAccess
             return sqlString;
         }
 
+        public string GenerateTemporaryItemRefNo(string connectionString, string companyID, string branchID, DateTime requisitionDate)
+        {
+            try
+            {
+                DateTime dt = Convert.ToDateTime(requisitionDate);
+                string refno;
+                string RefFormat = "";
+
+                int sl = DataProcess.GetMaximumValueUsingSQL(connectionString, "select ISNULL( MAX(InventoryItemID),0) from ItemRequisitionDetail where InventoryItemID like '109%'");
+
+                if (sl == 0)
+                {
+                    sl = sl + 1;
+                    RefFormat = companyID + branchID + "9" + string.Format("{0:00}", requisitionDate.Month) + string.Format("{0:00}", requisitionDate.Year.ToString().Substring(2, 2));
+                    return refno = RefFormat + string.Format("{0:00}", sl);
+                }
+
+                else
+                {
+                    sl = sl + 1;
+                    return refno = sl.ToString();
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+
+        }
+
+
 
 
         public string GenerateTemporaryItemRefNo(string connectionString, string companyID, string branchID, DateTime requisitionDate, int refNoFor,int sl)

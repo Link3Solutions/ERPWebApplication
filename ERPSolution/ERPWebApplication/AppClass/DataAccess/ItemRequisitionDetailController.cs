@@ -95,16 +95,12 @@ namespace ERPWebApplication.AppClass.DataAccess
 
         public string ShowRequisitionItems(int companyID, int branchID)
         {
-
             string sql = " SELECT * FROM ItemRequisitionDetail";
-
             return sql;
-
         }
 
         public DataTable  GetDataByItemDet(int itemId,int companyID,int branchID)
-        {
-          
+        {       
             DataTable dtItemDet = null;
             try
             {
@@ -117,8 +113,25 @@ namespace ERPWebApplication.AppClass.DataAccess
             {
 
                 throw msgException;
+            }          
+        }
+        public DataTable GetrequisitionDetailByReqNoAnditemID(string reqNo,int itemId)
+        {
+
+            DataTable dtItemDet = null;
+            try
+            {
+                var storedProcedureComandText = " SELECT * FROM ItemRequisitionDetail where  InventoryItemID  =" + itemId + " and  ItemRequisitionNo='"+ reqNo +"'";
+                dtItemDet = clsDataManipulation.GetData(this.ConnectionString, storedProcedureComandText);
+                return dtItemDet;
             }
-           
+
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+          
         }
 
 
@@ -142,7 +155,13 @@ namespace ERPWebApplication.AppClass.DataAccess
         }
 
 
-       
-  
+        public static string GetDataByTempItemId(int tempItmId)
+        {
+            string sql = " SELECT * FROM ItemRequisitionDetail where InventoryItemID=" + tempItmId + "";
+            return sql;
+        }
+
+
+      
     }
 }

@@ -94,6 +94,29 @@ namespace ERPWebApplication.AppClass.CommonClass
                 throw new Exception("Error occurred during access the server !");
             }
         }
+        public static void LoadCheckBoxListExceptConcatenation(string connectionString, string sqlQueryString, CheckBoxList checkBoxName, string displayMember, string valueMember)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection connection = new SqlConnection(connectionString);
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter(sqlQueryString, connection);
+                adapter.Fill(ds);
+                DataTable dt = ds.Tables[0];
+                checkBoxName.Items.Clear();
+                foreach (DataRow dr in dt.Rows)
+                {
+                    ListItem lst = new ListItem();
+                    lst.Value = dr[valueMember].ToString();
+                    lst.Text = dr[displayMember].ToString();
+                    checkBoxName.Items.Add(lst);
+                }
+            }
+            catch (SqlException msgException)
+            {
+                throw msgException;
+            }
+        }
         public static void LoadDropDownListFromStoredProcedure(string connectionString, string storedProcedureCommandTest, DropDownList dropDownListName, string displayMember, string valueMember)
         {
             try

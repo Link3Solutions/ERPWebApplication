@@ -1001,10 +1001,10 @@
     <Content Include="ModuleName\Accounts\MasterPage\SubledgerSetupForm.aspx" />
     <Content Include="ModuleName\Accounts\MasterPage\YearSetupForm.aspx" />
     <Content Include="ModuleName\Accounts\Report\ReportForm\ActionInDevelopmentForm.aspx" />
-    <Content Include="ModuleName\Approval\frmProcessDetail.aspx" />
     <Content Include="ModuleName\HRMS\MasterPage\CompanySetupForm.aspx" />
     <Content Include="ModuleName\HRMS\MasterPage\EmployeeSetupForm.aspx" />
     <Content Include="ModuleName\HRMS\MasterPage\OrganizationalChartForm.aspx" />
+    <Content Include="ModuleName\HRMS\SelfService\LeaveApplicationForm.aspx" />
     <Content Include="ModuleName\HRMS\SelfService\ProcessDetailsForm.aspx" />
     <Content Include="ModuleName\Inventory\MasterPage\ItemCategorySetupForm.aspx" />
     <Content Include="ModuleName\Inventory\MasterPage\TemplateForm.aspx" />
@@ -1144,10 +1144,13 @@
     <Compile Include="AppClass\DataAccess\ItemUsageSetupController.cs" />
     <Compile Include="AppClass\DataAccess\JournalVoucherController.cs" />
     <Compile Include="AppClass\DataAccess\MailServiceController.cs" />
+    <Compile Include="AppClass\DataAccess\MatItemTransactionWithAllController.cs" />
+    <Compile Include="AppClass\DataAccess\matMaterialTransactionDetailsController.cs" />
     <Compile Include="AppClass\DataAccess\NodeListController.cs" />
     <Compile Include="AppClass\DataAccess\OrganizationalChartSetupController.cs" />
     <Compile Include="AppClass\DataAccess\PersonTypeSetupController.cs" />
     <Compile Include="AppClass\DataAccess\ProcessDetailsController.cs" />
+    <Compile Include="AppClass\DataAccess\ProcessFlowController.cs" />
     <Compile Include="AppClass\DataAccess\ProjectSetupController.cs" />
     <Compile Include="AppClass\DataAccess\ProritySetupController.cs" />
     <Compile Include="AppClass\DataAccess\PurposeSetupController.cs" />
@@ -1168,7 +1171,6 @@
     <Compile Include="AppClass\DataAccess\YearSetupController.cs" />
     <Compile Include="AppClass\Model\BranchSetup.cs" />
     <Compile Include="AppClass\Model\BusinessType.cs" />
-    <Compile Include="AppClass\Model\ClsCompanySetup.cs" />
     <Compile Include="AppClass\Model\ClsFileUploadDetail.cs" />
     <Compile Include="AppClass\Model\ClsFileUploadHeader.cs" />
     <Compile Include="AppClass\Model\clsMaterialSetup.cs" />
@@ -1193,10 +1195,13 @@
     <Compile Include="AppClass\Model\ItemSetup.cs" />
     <Compile Include="AppClass\Model\JournalVoucher.cs" />
     <Compile Include="AppClass\Model\MailServiceSetup.cs" />
+    <Compile Include="AppClass\Model\MatItemTransactionWithAll.cs" />
+    <Compile Include="AppClass\Model\matMaterialTransactionDetails.cs" />
     <Compile Include="AppClass\Model\NodeList.cs" />
     <Compile Include="AppClass\Model\OrganizationalChartSetup.cs" />
     <Compile Include="AppClass\Model\OwnershipType.cs" />
     <Compile Include="AppClass\Model\ProcessDetails.cs" />
+    <Compile Include="AppClass\Model\ProcessFlow.cs" />
     <Compile Include="AppClass\Model\ProjectSetup.cs" />
     <Compile Include="AppClass\Model\RequisitionDetail.cs" />
     <Compile Include="AppClass\Model\RequisitionHeader.cs" />
@@ -1278,13 +1283,6 @@
     <Compile Include="ModuleName\Accounts\Report\ReportForm\ActionInDevelopmentForm.aspx.designer.cs">
       <DependentUpon>ActionInDevelopmentForm.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ModuleName\Approval\frmProcessDetail.aspx.cs">
-      <DependentUpon>frmProcessDetail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ModuleName\Approval\frmProcessDetail.aspx.designer.cs">
-      <DependentUpon>frmProcessDetail.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ModuleName\HRMS\MasterPage\CompanySetupForm.aspx.cs">
       <DependentUpon>CompanySetupForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1305,6 +1303,13 @@
     </Compile>
     <Compile Include="ModuleName\HRMS\MasterPage\OrganizationalChartForm.aspx.designer.cs">
       <DependentUpon>OrganizationalChartForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleName\HRMS\SelfService\LeaveApplicationForm.aspx.cs">
+      <DependentUpon>LeaveApplicationForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuleName\HRMS\SelfService\LeaveApplicationForm.aspx.designer.cs">
+      <DependentUpon>LeaveApplicationForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModuleName\HRMS\SelfService\ProcessDetailsForm.aspx.cs">
       <DependentUpon>ProcessDetailsForm.aspx</DependentUpon>
