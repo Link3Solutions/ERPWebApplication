@@ -241,7 +241,7 @@
                                         <table style="width: 100%; text-align: left;">
                                             <tr>
                                                 <td colspan="3" style="margin-top: -5px">
-                                                    <div style="position: fixed; width: 345px; background-color: white; height: 60px; text-align: center">
+                                                    <div style="position: fixed; width: 345px; background-color: white; height: 60px; text-align: center;margin-top:-37px">
                                                         <table style="width: 90%; margin-left: 5px">
                                                             <tr>
                                                                 <td style="text-align: right">

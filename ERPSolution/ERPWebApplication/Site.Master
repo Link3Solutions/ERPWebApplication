@@ -36,7 +36,7 @@
         }
 
     </script>
-
+    
 </head>
 <body>
     <form runat="server">
@@ -75,7 +75,7 @@
                     <div style="float: right; padding-right: 10px">
                         <div class="content-wrapper">
                             <section style="padding-top: 15px" id="login">
-                                <asp:LinkButton ID="lnkbtnChangeCompany" runat="server" OnClick="lnkbtnChangeCompany_Click" >Change Company</asp:LinkButton><asp:LinkButton ID="lnkbtnLoginoff" runat="server" OnClick="lnkbtnLoginoff_Click">Log off</asp:LinkButton>
+                                <asp:LinkButton ID="lnkbtnMyAccount" runat="server" CssClass="logoutHover" BackColor="White" OnClick="lnkbtnMyAccount_Click">My Account</asp:LinkButton><asp:LinkButton ID="lnkbtnChangeCompany" runat="server" OnClick="lnkbtnChangeCompany_Click" CssClass="logoutHover" BackColor="White" >Change Company</asp:LinkButton><asp:LinkButton ID="lnkbtnLoginoff" runat="server" OnClick="lnkbtnLoginoff_Click" CssClass="logoutHover" BackColor="White" Font-Underline="False">Log off</asp:LinkButton>
                             </section>
                         </div>
                     </div>
@@ -115,8 +115,7 @@
                     <p>&copy; <%--<li><a id="registerLink" runat="server" href="~/Account/Register.aspx">Register</a></li>--%>- My ASP.NET Application</p>
                 </div>
             </div>
-                
-        </footer>
+             </footer>
     </form>
 </body>
 </html>

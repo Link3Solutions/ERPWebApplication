@@ -8,7 +8,7 @@
             <table style="width: 100%; text-align: left">
                 <tr>
                     <td colspan="3">
-                        <ajaxToolkit:TabContainer ID="TabContainerOrgChart" Height="100%" Width="100%" runat="server" ActiveTabIndex="0" CssClass="tab" CssTheme="None" EnableTheming="True" ToolTip="Organizational Chart">
+                        <ajaxToolkit:TabContainer ID="TabContainerOrgChart" Height="100%" Width="100%" runat="server" ActiveTabIndex="1" CssClass="tab" CssTheme="None" EnableTheming="True" ToolTip="Organizational Chart">
 
                             <ajaxToolkit:TabPanel runat="server" HeaderText="Organization Elements" ID="TabPanel1">
                                 <ContentTemplate>

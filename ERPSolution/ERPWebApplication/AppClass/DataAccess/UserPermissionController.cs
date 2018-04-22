@@ -646,5 +646,34 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
         }
+
+        internal void PopulateDashBoard(GridView grdFormDashboard, EmployeeSetup objEmployeeSetup, NodeList objNodeList)
+        {
+            try
+            {
+                DataTable dtEntityDetails = null;
+                string sqlString = @"SELECT DISTINCT D.[NodeTypeID], D.[ActivityName], D.[FormDescription], D.[FormName],D.[PNodeTypeID] FROM uUsersInRoles A
+                INNER JOIN uRoleSetup B ON A.RoleID = B.RoleID AND A.RoleTypeID = B.RoleTypeID
+                INNER JOIN uRoleSetupDetails C ON B.RoleID = C.RoleID
+                INNER JOIN [uDefaultNodeList] D ON C.NodeID = D.NodeTypeID
+                WHERE A.DataUsed = 'A' AND B.DataUsed = 'A' AND C.DataUsed = 'A' AND D.DataUsed = 'A' AND A.CompanyID = " + objEmployeeSetup.CompanyID + " " +
+                " AND A.UserProfileID = '" + objEmployeeSetup.EntryUserName + "' AND D.ShowPosition IN " + "(2)" + "" +
+                " AND D.ActivityID = " + objNodeList.ActivityID + "";
+                dtEntityDetails = clsDataManipulation.GetData(this.ConnectionString, sqlString);
+                grdFormDashboard.DataSource = null;
+                grdFormDashboard.DataBind();
+                if (dtEntityDetails != null)
+                {
+                    grdFormDashboard.DataSource = dtEntityDetails;
+                    grdFormDashboard.DataBind();
+                    
+                }
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
     }
 }

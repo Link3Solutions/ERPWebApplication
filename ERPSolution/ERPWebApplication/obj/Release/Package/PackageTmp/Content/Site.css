@@ -272,7 +272,8 @@ ul#menu {
     background-image: -webkit-linear-gradient(left, #3e93bf 0%, #a4d4e6 100%);
     background-image: linear-gradient(left, #3e93bf 0%, #a4d4e6 1content-wrapperHeadercontent-wrapperHeader00%);
     color: #3e5667;
-    padding: 0px 0px 0px 165px;
+    /*padding: 0px 0px 0px 165px;*/
+    padding: 0px 0px 0px 157px;
     height:31px;
 }
 

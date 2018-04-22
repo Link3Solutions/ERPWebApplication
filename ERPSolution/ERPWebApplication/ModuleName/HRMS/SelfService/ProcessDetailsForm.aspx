@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ProcessDetailsForm.aspx.cs" Inherits="ERPWebApplication.ModuleName.HRMS.SelfService.ProcessDetailsForm" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    <style type="text/css">
+        .bottomBorderControl {
+            border-bottom-style:none;
+            
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -9,7 +15,7 @@
                 <tr>
                     <td colspan="3">
                         <ajaxToolkit:TabContainer ID="TabContainerProcessDetails" runat="server" Width="100%" Height="100%" ActiveTabIndex="4" CssClass="tab" CssTheme="None">
-                            <ajaxToolkit:TabPanel ID="TabPanelDescription" runat="server" HeaderText="Description">
+                            <ajaxToolkit:TabPanel ID="TabPanelDescription" runat="server" CssClass="bottomBorderControl" HeaderText="Description">
                                 <ContentTemplate>
                                     <table style="width: 100%;">
                                         <tr>
@@ -104,6 +110,21 @@
                                                     </Columns>
                                                 </asp:GridView>
                                             </td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td colspan="2">&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td colspan="2">&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td colspan="2">&nbsp;</td>
+                                            <td>&nbsp;</td>
                                         </tr>
                                         <tr>
                                             <td>&nbsp;</td>
@@ -247,6 +268,21 @@
                                             <td colspan="2">&nbsp;</td>
                                             <td>&nbsp;</td>
                                         </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td colspan="2">&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td colspan="2">&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td colspan="2">&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
                                     </table>
                                 </ContentTemplate>
                             </ajaxToolkit:TabPanel>
@@ -351,6 +387,21 @@
                                             <td colspan="2">&nbsp;</td>
                                             <td>&nbsp;</td>
                                         </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td colspan="2">&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td colspan="2">&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td colspan="2">&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
                                     </table>
                                 </ContentTemplate>
                             </ajaxToolkit:TabPanel>
@@ -449,6 +500,21 @@
                                                     </Columns>
                                                 </asp:GridView>
                                             </td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td colspan="2">&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td colspan="2">&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td colspan="2">&nbsp;</td>
+                                            <td>&nbsp;</td>
                                         </tr>
                                         <tr>
                                             <td>&nbsp;</td>
@@ -792,6 +858,21 @@
                                                     </tr>
                                                 </table>
                                             </td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td colspan="2">&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td colspan="2">&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td colspan="2">&nbsp;</td>
+                                            <td>&nbsp;</td>
                                         </tr>
                                         <tr>
                                             <td>&nbsp;</td>

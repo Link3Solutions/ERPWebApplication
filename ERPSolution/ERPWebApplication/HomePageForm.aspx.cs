@@ -231,6 +231,8 @@ namespace ERPWebApplication
                 _objUserList.UserName = txtLoginUserName.Text == string.Empty ? null : txtLoginUserName.Text;
                 if (_objUserList.UserName == "ADM")
                 {
+                    lblCompanyText.Visible = false;
+                    ddlCompany.Visible = false;
                     lblLoginPassword.Visible = true;
                     txtLoginPassword.Visible = true;
                     btnLogin.Visible = true;

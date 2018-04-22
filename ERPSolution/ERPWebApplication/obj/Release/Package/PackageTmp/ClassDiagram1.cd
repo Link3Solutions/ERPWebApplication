@@ -45,21 +45,21 @@
   <Class Name="ERPWebApplication.SiteMaster" Collapsed="true">
     <Position X="13.25" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAABAQKBAAAAAQAEABABAAAAAAIAAAA=</HashCode>
+      <HashCode>gQCSAABAACAAAAgBAQKBBAQAAQAEABQBAQAIAIJAAEQ=</HashCode>
       <FileName>Site.Master.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ERPWebApplication.AppClass.CommonClass.AutoTableData" Collapsed="true">
     <Position X="16.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IVABAAAAAACAAIAgAAAAAAAALIAkIAAAAEAAAAAAIgA=</HashCode>
+      <HashCode>IVgBAAAAAACAAIAgAAAIAAAALIAkIAAAAEAAAAAAIgA=</HashCode>
       <FileName>AppClass\CommonClass\AutoTableData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ERPWebApplication.AppClass.CommonClass.clsMessages" Collapsed="true">
     <Position X="9.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAABAAAAAAAAICAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAABAAQAACABICAAAAAAAACAABAAAAAAAAAUAAAAIA=</HashCode>
       <FileName>AppClass\CommonClass\CGlobalMeaage.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -80,7 +80,7 @@
   <Class Name="clsDataManipulation" Collapsed="true">
     <Position X="11.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IoABAAAAEAAIAAAAAgAgAAAAAAABAAoAAAAIAAAAAAA=</HashCode>
+      <HashCode>IoABAAAAEAAIAAAAAgAgAAQUAAABAAoEAAAIAAAAAAA=</HashCode>
       <FileName>AppClass\CommonClass\clsDataManipulation.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -119,24 +119,10 @@
       <FileName>AppClass\CommonClass\DocumentUploadController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ClsCompanySetup" Collapsed="true">
-    <Position X="9.75" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>QGAIBIBQoIBEKQAAQAQgEIgkCQAAAAigASwAYAIQAAA=</HashCode>
-      <FileName>AppClass\Model\ClsCompanySetup.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ERPWebApplication.CommonClass.ClsDropDownListController" Collapsed="true">
-    <Position X="15" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAIAACAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>AppClass\CommonClass\ClsDropDownListController.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ERPWebApplication.CommonClass.ClsGridViewLoad" Collapsed="true">
+  <Class Name="ERPWebApplication.AppClass.CommonClass.ClsGridViewLoad" Collapsed="true">
     <Position X="20.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAIAAAAAAAAAAAgAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>AppClass\CommonClass\ClsGridViewLoad.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -157,7 +143,7 @@
   <Class Name="ERPWebApplication.CommonClass.current" Collapsed="true">
     <Position X="15" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAQAAAAAACAAAAAAACCAgkAAAAAAAAAQAQCEAAAAA=</HashCode>
+      <HashCode>AAEAQAAAAAACAAAAAAACCAgkAAAAAAAAAQIQCEAAAAA=</HashCode>
       <FileName>AppClass\CommonClass\ClsStatic.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -185,14 +171,14 @@
   <Class Name="ERPWebApplication.AppClass.DataAccess.CoaHeadController" Collapsed="true">
     <Position X="23.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAIAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAIAAAQAAAAAAAAACAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>AppClass\DataAccess\CoaHeadController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ERPWebApplication.AppClass.DataAccess.CompanySetupController" Collapsed="true">
     <Position X="5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAIABAAAAEQAAAAAAAAgAAAEBAAAAAIACAAAAAAA=</HashCode>
+      <HashCode>AAZAAIABAAAAUQAAQACAAAgAAQEBAAAAAIQCAAAAAAA=</HashCode>
       <FileName>AppClass\DataAccess\CompanySetupController.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -210,17 +196,10 @@
       <FileName>AppClass\DataAccess\DataAccessBase.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ERPWebApplication.AppClass.DataAccess.DepartmentSetupController" Collapsed="true">
-    <Position X="18.5" Y="4.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>AppClass\DataAccess\DepartmentSetupController.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="ERPWebApplication.AppClass.DataAccess.EmployeeInformationController">
     <Position X="9.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CAAAAAAAAAAAAAAAAAAEAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>CAAAAAAgAAAAAAAAAAAEAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>AppClass\DataAccess\EmployeeInformationController.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -248,7 +227,7 @@
   <Class Name="ERPWebApplication.AppClass.DataAccess.ItemSetupController" Collapsed="true">
     <Position X="15" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACQAAIAAAAAAAQAAAAAAAAAAAAAAAAAFAAAAQAAAAAA=</HashCode>
+      <HashCode>ACQAAIAAAAAAAQAAAAAAAAAAAAAAAAAFAAAAQgAAAAA=</HashCode>
       <FileName>AppClass\DataAccess\ItemSetupController.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -290,7 +269,7 @@
   <Class Name="ERPWebApplication.AppClass.DataAccess.ProritySetupController" Collapsed="true">
     <Position X="16.75" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAQAAABAAAAAAAAAA=</HashCode>
       <FileName>AppClass\DataAccess\ProritySetupController.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -311,21 +290,21 @@
   <Class Name="ERPWebApplication.AppClass.DataAccess.TwoColumnsTableDataAutoController" Collapsed="true">
     <Position X="0.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAAIAAAAAAAAAAAAAAAAgAQAAAAAAQAAAAFEAAAAA=</HashCode>
+      <HashCode>QAAAAIAAAAAAAAAAAAAAAAgAQAAQAAAQAAAAFEAAAAA=</HashCode>
       <FileName>AppClass\DataAccess\TwoColumnsTableDataAutoController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ERPWebApplication.AppClass.DataAccess.TwoColumnsTableDataController" Collapsed="true">
     <Position X="2.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAIBAAAAAAAAABAAACAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>CAQAAIBAAAIAAAAABQAAKAAAAIkAAAAAAgAQEEBAAAA=</HashCode>
       <FileName>AppClass\DataAccess\TwoColumnsTableDataController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ERPWebApplication.AppClass.DataAccess.TwoColumnTablesController" Collapsed="true">
     <Position X="11.5" Y="9.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAIBAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAIBAAAAACAAAAAAAAAAAAAEAAAAAAAAAAgBAAAA=</HashCode>
       <FileName>AppClass\DataAccess\TwoColumnTablesController.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -430,7 +409,7 @@
   <Class Name="ERPWebApplication.AppClass.Model.TwoColumnsTableData" Collapsed="true">
     <Position X="18.5" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AiAAAAABgQIAAAoAAAAAAAAAQAAkQAAAAEAAAAABAAA=</HashCode>
+      <HashCode>AiAAAAABgQIAAAoAAAAAAAAAQAAkQAAAAEAAAQABAAA=</HashCode>
       <FileName>AppClass\Model\TwoColumnsTableData.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -514,14 +493,14 @@
   <Class Name="ERPWebApplication.ModuleName.Accounts.CoaHeadSetup" Collapsed="true">
     <Position X="9.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACgAAoFgAREiIQAABAgoCJCKhwAZTpISABIAoOgAI=</HashCode>
+      <HashCode>AAACgAAIFgAREiIQAABAgoCJCKhwAZTpISABIAoOgAI=</HashCode>
       <FileName>ModuleName\Accounts\CoaHeadSetup.aspx.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ERPWebApplication.ModuleName.HRMS.MasterPage.CompanySetupForm" Collapsed="true">
     <Position X="11.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABWEwQMwHCDjZPyEQOABAToKDDCINJwMEAsboApDYIU=</HashCode>
+      <HashCode>ABXEwQMwHCDjZPyEQOABAToKDDCINJwMEAsboApDYIU=</HashCode>
       <FileName>ModuleName\HRMS\MasterPage\CompanySetupForm.aspx.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -542,7 +521,7 @@
   <Class Name="ERPWebApplication.ModuleName.Inventory.Report.ReportFile.ReportItemRequisition" Collapsed="true">
     <Position X="20.25" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAgAAAAJAAAQAAAAAAAIAAAAAAAAAAAACAABAAAABAA=</HashCode>
+      <HashCode>AAgAAABJAAAQAAAAAAAIAAAAAAAAAAAADAABAAAABAA=</HashCode>
       <FileName>ModuleName\Inventory\Report\ReportFile\ReportItemRequisition.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -564,7 +543,7 @@
   <Class Name="ERPWebApplication.ModuleName.Inventory.TransactionPage.frmItemRequisition" Collapsed="true">
     <Position X="16.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>xO/bFfDcUTBRaFEQCRghwD91mfz/8LPvkaAvQO9C9KM=</HashCode>
+      <HashCode>xP/bFfDY2TBRKFUAKRgBwD/0mfj/tLP/04wPQO5C9Ls=</HashCode>
       <FileName>ModuleName\Inventory\TransactionPage\frmItemRequisition.aspx.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -606,14 +585,14 @@
   <Class Name="ERPWebApplication.WebService.ServiceSystem" Collapsed="true">
     <Position X="11.5" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BAAAAACAABAAAAAAAAAAAAAAAAAIAAgAAAAgACgAAAQ=</HashCode>
+      <HashCode>BAQAAACAAAAAAAAAAAAAAgIAAACIAAgIIAQgAihAgAQ=</HashCode>
       <FileName>WebService\ServiceSystem.asmx.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ERPWebApplication.AppClass.Model.DesignationSetup">
     <Position X="9.75" Y="10.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAgAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
       <FileName>AppClass\Model\DesignationSetup.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -635,7 +614,7 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAEAAEAAAAIAAAAAAQEQAAAAAACAAAAgAAAAAAAAAAg=</HashCode>
+      <HashCode>AAEAAEAAACIAAAAAAUEYAAAAAACAAAAgAAAAAAAQAAk=</HashCode>
       <FileName>AppClass\Model\EmployeeDetailsSetup.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -647,7 +626,7 @@
   <Class Name="ERPWebApplication.AppClass.Model.EmployeeSetup" Collapsed="true">
     <Position X="4.75" Y="8.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAIAACQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>AppClass\Model\EmployeeSetup.cs</FileName>
     </TypeIdentifier>
   </Class>

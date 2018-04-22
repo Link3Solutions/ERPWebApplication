@@ -229,6 +229,19 @@ namespace ERPWebApplication.AppClass.Model
             get { return _dtProcessAction; }
             set { _dtProcessAction = value; }
         }
-        
+        private DataTable _dtPendingProcessCount;
+
+        public DataTable DtPendingProcessCount
+        {
+            get { return _dtPendingProcessCount; }
+            set { _dtPendingProcessCount = value; }
+        }
+        private DataTable _dttblInboxData;
+
+        public DataTable DttblInboxData
+        {
+            get { return _dttblInboxData; }
+            set { _dttblInboxData = value; }
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace ERPWebApplication.AppClass.CommonClass
         {
             get { return HttpContext.Current.Session["@#$$%@)userProfileID(@^&^&%"].ToString(); }
             set { HttpContext.Current.Session["@#$$%@)userProfileID(@^&^&%"] = value; }
- 
+
         }
         public static string UserName
         {
@@ -30,8 +30,17 @@ namespace ERPWebApplication.AppClass.CommonClass
         }
         public static string EmployeeCode
         {
-            get { return HttpContext.Current.Session["@#$$%@)employeeCode(@^&^&%"].ToString(); }
+            get
+            {
+                if (HttpContext.Current.Session["@#$$%@)employeeCode(@^&^&%"] == null) { return ""; }
+
+                return HttpContext.Current.Session["@#$$%@)employeeCode(@^&^&%"].ToString();
+            }
             set { HttpContext.Current.Session["@#$$%@)employeeCode(@^&^&%"] = value; }
+
+
+            //get { return HttpContext.Current.Session["@#$$%@)employeeCode(@^&^&%"].ToString(); }
+            //set { HttpContext.Current.Session["@#$$%@)employeeCode(@^&^&%"] = value; }
 
         }
         public static string EmployeeFullName

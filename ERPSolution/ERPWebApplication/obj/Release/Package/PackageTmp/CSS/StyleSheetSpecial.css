@@ -2,16 +2,27 @@
     display: block;
     font-size: 1.0em;
     font-weight: 700;
-    padding-top:5px;
-    padding-bottom:5px;
-    background-color:#0ff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #0ff;
 }
 
 .labelasHeader2 {
-    
     font-size: 1.0em;
     font-weight: bold;
-    padding-top:5px;
-    padding-bottom:5px;  
-      
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
+
+.logoutHover {
+    color: black !important;
+    font-size: 1.1em;
+}
+
+    .logoutHover:hover {
+        color: black !important;
+        font-size: 1.1em;
+        border-bottom: solid;
+        border-bottom-color: black;
+        border-bottom-width: 1px;
+    }

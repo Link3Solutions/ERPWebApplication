@@ -23,6 +23,7 @@
     <link href="CSS/GridViewCSS.css" rel="stylesheet" />
     <link href="CSS/StyleSheetGridView.css" rel="stylesheet" />
     <link href="CSS/menuStyle.css" rel="stylesheet" />
+    <link href="CSS/StyleSheetSpecial.css" rel="stylesheet" />
     <script type="text/javascript">
         function isNumberKey(evt) {
             var charCode = (evt.which) ? evt.which : event.keyCode
@@ -48,6 +49,7 @@
     padding-top:5px;
     padding-bottom:5px;
 }
+        
     </style>
 
 </head>
@@ -90,7 +92,7 @@
                     <div style="float: right; padding-right: 10px">
                         <div class="content-wrapper">
                             <section style="padding-top: 15px" id="login">
-                                <asp:LinkButton ID="lnkbtnRegister" runat="server" OnClick="lnkbtnRegister_Click">Register</asp:LinkButton><asp:LinkButton ID="lnkbtnLogin" runat="server" OnClick="lnkbtnLogin_Click">Log in</asp:LinkButton>
+                                <asp:LinkButton ID="lnkbtnRegister" runat="server" Font-Underline="False" CssClass="logoutHover" BackColor="White" OnClick="lnkbtnRegister_Click">Register</asp:LinkButton><asp:LinkButton ID="lnkbtnLogin" runat="server" Font-Underline="False" CssClass="logoutHover" BackColor="White" OnClick="lnkbtnLogin_Click">Log in</asp:LinkButton>
                             </section>
                         </div>
                     </div>
@@ -123,7 +125,7 @@
 
             </div>
 
-            <section class="content-wrapper main-content clear-fix">
+            <section class="content-wrapper main-content clear-fix" style="min-height:470px">
                 <table style="width: 100%;">
                     <tr>
                         <td>&nbsp;</td>
@@ -192,10 +194,10 @@
                                             <ol style="list-style-type: none">
                                                 <li>
                                                     <asp:Label  ID="Label5" runat="server" AssociatedControlID="txtLoginUserName" CssClass="labelView" >User name</asp:Label>
-                                                    <asp:TextBox runat="server" ID="txtLoginUserName" />
+                                                    <asp:TextBox runat="server" ID="txtLoginUserName" />&nbsp;<asp:LinkButton ID="lnkbtnCompany" runat="server" OnClick="lnkbtnCompany_Click" Font-Underline="False" CssClass="logoutHover" BackColor="White" Font-Italic="False">Next</asp:LinkButton>
                                                 </li>
                                                 <li style="padding-left: 170px">
-                                                    <asp:LinkButton ID="lnkbtnCompany" runat="server" OnClick="lnkbtnCompany_Click" CssClass="labelView">Show Company</asp:LinkButton>
+                                                    
                                                 </li>
                                                 <li>
                                                     

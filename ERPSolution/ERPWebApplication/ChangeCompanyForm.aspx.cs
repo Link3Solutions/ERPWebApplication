@@ -27,6 +27,8 @@ namespace ERPWebApplication
                     lblLoginPassword.Visible = false;
                     txtLoginPassword.Visible = false;
                     btnLogin.Visible = false;
+                    txtLoginUserName.Text = LoginUserInformation.UserName;
+                    LoadAssignCompanyDDL();
 
                 }
 
@@ -38,19 +40,7 @@ namespace ERPWebApplication
             }
 
         }
-        protected void lnkbtnCompany_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                LoadAssignCompanyDDL();
 
-            }
-            catch (Exception msgException)
-            {
-
-                clsTopMostMessageBox.Show(msgException.Message);
-            }
-        }
 
         private void LoadAssignCompanyDDL()
         {
@@ -121,7 +111,7 @@ namespace ERPWebApplication
                 _objUserList = new UserList();
                 _objUserList.UserName = txtLoginUserName.Text == string.Empty ? null : txtLoginUserName.Text;
                 _objUserList.UserPassword = txtLoginPassword.Text == string.Empty ? null : txtLoginPassword.Text;
-                
+
                 DataTable dtUserInformation = new DataTable();
                 _objUserListController = new UserListController();
                 _objCompanySetup = new CompanySetup();
@@ -146,5 +136,21 @@ namespace ERPWebApplication
                 throw msgException;
             }
         }
+
+        protected void btnCancelChangeCompany_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/Default.aspx");
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+
+        }
+
+
     }
 }

@@ -243,5 +243,18 @@ namespace ERPWebApplication
                 throw msgException;
             }
         }
+
+        protected void lnkbtnMyAccount_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("~/MyAccountForm.aspx");
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
     }
 }

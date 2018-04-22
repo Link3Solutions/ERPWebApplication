@@ -103,15 +103,6 @@ namespace ERPWebApplication {
         protected global::System.Web.UI.WebControls.TextBox txtLoginUserName;
         
         /// <summary>
-        /// lnkbtnCompany control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkbtnCompany;
-        
-        /// <summary>
         /// lblCompanyText control.
         /// </summary>
         /// <remarks>
@@ -155,5 +146,14 @@ namespace ERPWebApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnLogin;
+        
+        /// <summary>
+        /// btnCancelChangeCompany control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelChangeCompany;
     }
 }

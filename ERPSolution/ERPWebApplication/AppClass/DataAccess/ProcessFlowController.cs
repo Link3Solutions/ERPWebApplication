@@ -9,6 +9,7 @@ namespace ERPWebApplication.AppClass.DataAccess
 {
     public class ProcessFlowController : DataAccessBase
     {
+        #region ProcessFlowInitiate
         public void UseProcessFlow(List<ProcessFlow> objListProcessFlow)
         {
             try
@@ -40,6 +41,8 @@ namespace ERPWebApplication.AppClass.DataAccess
             }
 
         }
+        #endregion ProcessFlowInitiate
+        #region GetAllPendingProcess
         public DataTable GetPendingProcess(ProcessFlow objProcessFlow)
         {
             try
@@ -58,6 +61,8 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
         }
+        #endregion GetAllPendingProcess
+        #region ShowFlowSequence
         internal DataTable GetApprovalFlowSequence(ProcessFlow objProcessFlow)
         {
             try
@@ -69,6 +74,58 @@ namespace ERPWebApplication.AppClass.DataAccess
                   " order by a.ProcessLevelid";
                 dtFlowSequence = clsDataManipulation.GetData(this.ConnectionString, storedProcedureComandText);
                 return dtFlowSequence;
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+        #endregion ShowFlowSequence
+        public string GetTransactionNoProcess()
+        {
+            try
+            {
+                string transactionNo = null;
+                string sql = " exec [spProcessGetTransactionNo] ; ";
+                clsDataManipulation objclsDataManipulation = new clsDataManipulation();
+                return transactionNo = objclsDataManipulation.GetSingleValueAsString(this.ConnectionString, sql);
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal DataTable GetPendingApplicationCount(ProcessDetails objProcessDetails)
+        {
+            try
+            {
+                DataTable dtPendingProcessCount = null;
+                var storedProcedureComandText = @"exec [spProcessGetPendingApplicationCount] " +
+                            objProcessDetails.CompanyID + "," +
+                            objProcessDetails.BranchID + ",'" +
+                            objProcessDetails.AccessId + "','" +                            
+                            objProcessDetails.ProcessId + "'";
+                dtPendingProcessCount = clsDataManipulation.GetData(this.ConnectionString, storedProcedureComandText);
+                return dtPendingProcessCount;
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal DataTable GettblInboxData()
+        {
+            try
+            {
+                DataTable dtDatatblInbox = null;
+                var storedProcedureComandText = @" select * from [tblInbox] where TaskType='TaskPending' and Status=1 order by ID";
+                dtDatatblInbox = clsDataManipulation.GetData(this.ConnectionString, storedProcedureComandText);
+                return dtDatatblInbox;
             }
             catch (Exception msgException)
             {

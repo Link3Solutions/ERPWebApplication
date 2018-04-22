@@ -33,8 +33,8 @@ namespace ERPWebApplication.ModuleName.Inventory.MasterPage
             {
                 if (!Page.IsPostBack)
                 {
-                    Session["company"] = 1;
-                    Session["branch"] = 1;
+                    Session["company"] = LoginUserInformation.CompanyID;
+                    Session["branch"] = LoginUserInformation.BranchID;
                     Session["entryUserCode"] = "ADM";
                     PanelItemSetup.Visible = false;
                     PopulateRootLevel();

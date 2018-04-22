@@ -23,6 +23,7 @@
     <link href="CSS/GridViewCSS.css" rel="stylesheet" />
     <link href="CSS/StyleSheetGridView.css" rel="stylesheet" />
     <link href="CSS/menuStyle.css" rel="stylesheet" />
+    <link href="CSS/StyleSheetSpecial.css" rel="stylesheet" />
     <script type="text/javascript">
         function isNumberKey(evt) {
             var charCode = (evt.which) ? evt.which : event.keyCode
@@ -148,10 +149,10 @@
                                             <ol style="list-style-type: none">
                                                 <li>
                                                     <asp:Label  ID="Label5" runat="server" AssociatedControlID="txtLoginUserName" CssClass="labelView" >User name</asp:Label>
-                                                    <asp:TextBox runat="server" ID="txtLoginUserName" />
+                                                    <asp:TextBox runat="server" ID="txtLoginUserName" />&nbsp;<asp:LinkButton ID="lnkbtnCompany" runat="server" OnClick="lnkbtnCompany_Click" Font-Underline="False" CssClass="logoutHover" BackColor="White">Show Company</asp:LinkButton>
                                                 </li>
                                                 <li style="padding-left: 170px">
-                                                    <asp:LinkButton ID="lnkbtnCompany" runat="server" OnClick="lnkbtnCompany_Click" CssClass="labelView">Show Company</asp:LinkButton>
+                                                    
                                                 </li>
                                                 <li>
                                                     

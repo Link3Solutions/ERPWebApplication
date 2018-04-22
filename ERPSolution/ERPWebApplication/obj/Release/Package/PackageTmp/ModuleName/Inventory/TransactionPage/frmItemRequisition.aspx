@@ -21,7 +21,7 @@
                                                     <td style="padding: 2px">
                                                         <asp:ImageButton ID="header_ToggleImage1" runat="server" ImageUrl="~/images/collapse.jpg" Width="15px" />
                                                     </td>
-                                                    <td>&nbsp;<asp:Label ID="Label11" runat="server" Font-Size="20px" ForeColor="#034EA2" Text="Search Requisition" Width="456px"></asp:Label>
+                                                    <td>&nbsp;<asp:Label ID="Label11" runat="server" Font-Size="20px" ForeColor="#034EA2" Text="Requisition Search" Width="456px"></asp:Label>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -36,9 +36,9 @@
                                             <table style="margin-top: 0px">
                                                 <tr>
                                                     <td style="width: 33px">&nbsp;</td>
-                                                    <td style="width: 101px">&nbsp;</td>
+                                                    <td style="width: 106px">&nbsp;</td>
                                                     <td style="text-align: right; margin-left: 160px;">
-                                                        <asp:TextBox ID="txtSearch" runat="server" Width="350px"></asp:TextBox>
+                                                        <asp:TextBox ID="txtSearch" runat="server" Width="340px"></asp:TextBox>
                                                         <ajaxToolkit:AutoCompleteExtender ID="AutoCompleteForReq" runat="server"
                                                             BehaviorID="AutoCompleteReq" CompletionInterval="1000"
                                                             CompletionListCssClass="autocomplete_completionListElement"
@@ -57,7 +57,9 @@
                                                         <asp:Button ID="btnAdvSearch" runat="server" OnClick="btnAdvSearch_Click" Text="Advanced Search" Width="147px" />
                                                     </td>
                                                     <td></td>
-                                                    <td>&nbsp;</td>
+                                                    <td>
+                                                        <asp:Button ID="Button2" runat="server" Text="Test" OnClick="Button2_Click1" Visible="false" />
+                                                    </td>
                                                 </tr>
                                             </table>
                                         </asp:Panel>
@@ -85,18 +87,20 @@
                                     <td>
 
                                        
-                                            <table id="tbladvsearch" runat="server" style="margin-top:0px">
+                                            <table id="tbladvsearch" runat="server" style="margin-top:0px; width:100%">
                                                 <tr>
                                                     <td style="width: 12px">&nbsp;</td>
-                                                    <td style="text-align:left; width: 117px;">
+                                                    <td style="text-align:left; width: 131px;">
                                                         <asp:Label ID="Label2" runat="server" Text="Priority "></asp:Label>
-                                                        :</td>
-                                                    <td style="width: 333px">
-                                                        <asp:DropDownList ID="ddlPrioritySearch" runat="server">
+                                                        </td>
+                                                    <td style="width: 356px">
+                                                        <asp:DropDownList ID="ddlPrioritySearch" runat="server" Width="100%">
                                                         </asp:DropDownList>
                                                     </td>
-                                                    <td style="width: 128px">
-                                                        <asp:Label ID="Label5" runat="server" Text="From Date:"></asp:Label>
+                                                    <td style="width: 18px">
+                                                        &nbsp;</td>
+                                                    <td style="width: 110px">
+                                                        <asp:Label ID="Label5" runat="server" Text="From Date"></asp:Label>
                                                     </td>
                                                     <td style=" margin-top:0px">
                                                         <asp:TextBox ID="txtFrmDate" runat="server" ></asp:TextBox>
@@ -107,15 +111,17 @@
                                                 </tr>
                                                 <tr>
                                                     <td style="width: 12px"></td>
-                                                    <td style="text-align:left; width: 117px;">
-                                                        <asp:Label ID="Label16" runat="server" Text="Department: "></asp:Label>
+                                                    <td style="text-align:left; width: 131px;">
+                                                        <asp:Label ID="Label16" runat="server" Text="Department "></asp:Label>
                                                     </td>
-                                                    <td style="width: 333px">
-                                                        <asp:DropDownList ID="ddldepartment" runat="server">
+                                                    <td style="width: 356px">
+                                                        <asp:DropDownList ID="ddldepartment" runat="server" Width="100%">
                                                         </asp:DropDownList>
                                                     </td>
-                                                    <td style="width: 128px">
-                                                        <asp:Label ID="Label6" runat="server" Text="To Date:"></asp:Label>
+                                                    <td style="width: 18px">
+                                                        &nbsp;</td>
+                                                    <td style="width: 110px">
+                                                        <asp:Label ID="Label6" runat="server" Text="To Date"></asp:Label>
                                                     </td>
                                                     <td>
                                                         <asp:TextBox ID="txtToDate" runat="server" ></asp:TextBox>
@@ -125,33 +131,36 @@
                                                 </tr>
                                                 <tr>
                                                     <td style="width: 12px">&nbsp;</td>
-                                                    <td style="text-align:left; width: 117px;">
-                                                        <asp:Label ID="Label17" runat="server" Text="Purpose: "></asp:Label>
+                                                    <td style="text-align:left; width: 131px;">
+                                                        <asp:Label ID="Label17" runat="server" Text="Purpose "></asp:Label>
                                                     </td>
-                                                    <td style="width: 333px">
-                                                        <asp:DropDownList ID="ddlPurposeSearch" runat="server">
+                                                    <td style="width: 356px">
+                                                        <asp:DropDownList ID="ddlPurposeSearch" runat="server" Width="100%">
                                                         </asp:DropDownList>
                                                     </td>
-                                                    <td style="width: 128px">
-                                                        <asp:Label ID="Label15" runat="server" Text="Employee:"></asp:Label>
+                                                    <td style="width: 18px">
+                                                        &nbsp;</td>
+                                                    <td style="width: 110px">
+                                                        <asp:Label ID="Label15" runat="server" Text="Employee"></asp:Label>
                                                     </td>
                                                     <td>
-                                                        <asp:TextBox ID="txtEmployeeSearch" runat="server"></asp:TextBox>
+                                                        <asp:TextBox ID="txtEmployeeSearch" runat="server" Width="100%"></asp:TextBox>
                                                         <ajaxToolkit:AutoCompleteExtender ID="AutoCompleteadempserch" runat="server" BehaviorID="AutoCompleteEmployeeadser" CompletionInterval="1000" CompletionListCssClass="autocomplete_completionListElement" CompletionListHighlightedItemCssClass="autocomplete_highlightedListItem" CompletionListItemCssClass="autocomplete_listItem" CompletionSetCount="20" DelimiterCharacters="," EnableCaching="false" MinimumPrefixLength="3" ServiceMethod="GetEmployeeList" ServicePath="~/WebService/ServiceSystem.asmx" ShowOnlyCurrentWordInCompletionListItem="true" TargetControlID="txtEmployeeSearch">
                                                         </ajaxToolkit:AutoCompleteExtender>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td style="width: 12px">&nbsp;</td>
-                                                    <td style="text-align:left; width: 117px;">
-                                                        <asp:Label ID="Label18" runat="server" Text="Item: "></asp:Label>
+                                                    <td style="text-align:left; width: 131px;">
+                                                        <asp:Label ID="Label18" runat="server" Text="Item "></asp:Label>
                                                     </td>
-                                                    <td style="width: 333px">
-                                                        <asp:TextBox ID="txtItemSearch" runat="server"></asp:TextBox>
+                                                    <td style="width: 356px">
+                                                        <asp:TextBox ID="txtItemSearch" runat="server" Width="98%"></asp:TextBox>
                                                         <ajaxToolkit:AutoCompleteExtender ID="AutoCompleteItemSearch" runat="server" BehaviorID="AutoCompleteSearch" CompletionInterval="1000" CompletionListCssClass="autocomplete_completionListElement" CompletionListHighlightedItemCssClass="autocomplete_highlightedListItem" CompletionListItemCssClass="autocomplete_listItem" CompletionSetCount="20" DelimiterCharacters="," EnableCaching="false" MinimumPrefixLength="1" ServiceMethod="GetItemList" ServicePath="~/WebService/ServiceSystem.asmx" ShowOnlyCurrentWordInCompletionListItem="true" TargetControlID="txtItemSearch">
                                                         </ajaxToolkit:AutoCompleteExtender>
                                                     </td>
-                                                    <td style="width: 128px">&nbsp;</td>
+                                                    <td style="width: 18px">&nbsp;</td>
+                                                    <td style="width: 110px">&nbsp;</td>
                                                     <td>
                                                         <asp:Button ID="btnshow" runat="server" OnClick="btnShow_Click" Text="Show" Width="75px" />
                                                         <asp:Button ID="btnClearAdSearch" runat="server" OnClick="btnClearAdSearch_Click" Text="Clear" Width="75px" />
@@ -172,23 +181,25 @@
                                     <td colspan="4">
                                         <asp:Panel ID="Panel1" runat="server" Height="150px" ScrollBars="Vertical" Style="overflow: auto; width: 100%; text-align: center;">
 
-                                            
-                                           <asp:GridView ID="gdvSearchResult" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" CssClass="gradient-light-radial" OnSelectedIndexChanged="gdvSearchResult_SelectedIndexChanged" Style="text-align: left" Width="100%">
-                                                            <FooterStyle BackColor="White" ForeColor="#000066" />
-                                                            <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
-                                                            <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
-                                                            <RowStyle ForeColor="#000066" />
-                                                            <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
-                                                            <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                                                            <SortedAscendingHeaderStyle BackColor="#007DBB" />
-                                                            <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                                                            <SortedDescendingHeaderStyle BackColor="#00547E" />
-                                                            <Columns>
-                                                                <asp:CommandField SelectText="Select" ShowSelectButton="True">
-                                                                <ItemStyle ForeColor="Red" />
-                                                                </asp:CommandField>
-                                                            </Columns>
-                                                        </asp:GridView>
+
+                                            <asp:GridView ID="gdvSearchResult" runat="server" GridLines="Vertical" OnSelectedIndexChanged="gdvSearchResult_SelectedIndexChanged" Style="text-align: left;font-family:Tahoma; font-size:10px" Width="100%" CellPadding="4" ForeColor="#333333">
+                                                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                                                <Columns>
+                                                    <asp:CommandField SelectText="Select" ShowSelectButton="True">
+                                                        <ItemStyle ForeColor="Red" />
+                                                    </asp:CommandField>
+                                                </Columns>
+                                                <EditRowStyle BackColor="#999999" />
+                                                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                                <HeaderStyle BackColor="#98CEE2" Font-Bold="True" ForeColor="White" />
+                                                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                                <RowStyle BackColor="#F7F6F3" ForeColor="#333333"  Font-Size="12px"/>
+                                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                                            </asp:GridView>
                                         </asp:Panel>
                                     </td>
                                     <td style="width: 1%">&nbsp;</td>
@@ -205,14 +216,15 @@
                                         <table id="tblheader" style="margin-top: 0px; width:100%">
                                             <tr>
                                                 <td style="width: 1%">&nbsp;</td>
-                                                <td style="width: 10%">
+                                                <td style="width: 12%">
                                                     <br />
                                                     <asp:Label ID="lblStatusforlabel" runat="server" Text="Status: "></asp:Label>
                                                 </td>
-                                                <td style="width: 25%">
+                                                <td style="width: 29%">
                                                     <br />
                                                     <asp:Label ID="lblstatus" runat="server" Style="font-weight: 700;" Text=""></asp:Label>
                                                 </td>
+                                                <td style="width: 2%">&nbsp;</td>
                                                 <td style="width: 11%">&nbsp;</td>
                                                 <td style="width: 32%">
                                                     <asp:Button ID="btnNewReq" runat="server" OnClick="btnNewReq_Click" Text="New Requisition" Width="130px" />
@@ -221,108 +233,120 @@
                                             </tr>
                                             <tr>
                                                 <td style="width: 1%">&nbsp;</td>
-                                                <td style="width: 10%">
-                                                    <asp:Label ID="Label36" runat="server" Text="Reference Type: "></asp:Label>
+                                                <td style="width: 12%">
+                                                    <asp:Label ID="Label36" runat="server" Text="Reference Type "></asp:Label>
                                                 </td>
-                                                <td style="width: 25%">
-                                                    <asp:DropDownList ID="ddlRefType" runat="server">
+                                                <td style="width: 29%" >
+                                                    <asp:DropDownList ID="ddlRefType" runat="server" Width="100%">
                                                     </asp:DropDownList>
                                                 </td>
+                                                <td style="width: 2%">
+                                                    &nbsp;</td>
                                                 <td style="width: 11%">
-                                                    <asp:Label ID="Label38" runat="server" Text="Request Date: "></asp:Label>
+                                                    <asp:Label ID="Label38" runat="server" Text="Request Date "></asp:Label>
                                                 </td>
                                                 <td style="width: 32%">
-                                                    <asp:TextBox ID="txtrequestedDate" runat="server"    ></asp:TextBox>
+                                                    <asp:TextBox ID="txtrequestedDate" runat="server" Width="250px"   ></asp:TextBox>
                                                     <ajaxToolkit:CalendarExtender ID="CalendarExtRequestedDate" runat="server" BehaviorID="txtRequested" CssClass="Calendar" Format="dd/MM/yyyy" TargetControlID="txtrequestedDate" />
 
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td style="width: 1%; height: 41px;"></td>
-                                                <td style="width: 10%; height: 41px;">
-                                                    <asp:Label ID="Label19" runat="server" Text="Request By: "></asp:Label>
+                                                <td style="width: 12%; height: 41px;">
+                                                    <asp:Label ID="Label19" runat="server" Text="Request By "></asp:Label>
                                                 </td>
-                                                <td style="width: 25%; height: 41px;">
-                                                    <asp:TextBox ID="txtRequestedBy" runat="server"></asp:TextBox>
+                                                <td style="width: 29%" >
+                                                    <asp:TextBox ID="txtRequestedBy" runat="server" Width="98%"></asp:TextBox>
                                                     <ajaxToolkit:AutoCompleteExtender ID="AutoCompleteforEmployee" runat="server" BehaviorID="AutoCompleteEmployee" CompletionInterval="1000" CompletionListCssClass="autocomplete_completionListElement" CompletionListHighlightedItemCssClass="autocomplete_highlightedListItem" CompletionListItemCssClass="autocomplete_listItem" CompletionSetCount="20" DelimiterCharacters="," EnableCaching="false" MinimumPrefixLength="3" ServiceMethod="GetEmployeeList" ServicePath="~/WebService/ServiceSystem.asmx" ShowOnlyCurrentWordInCompletionListItem="true" TargetControlID="txtRequestedBy">
                                                     </ajaxToolkit:AutoCompleteExtender>
                                                 </td>
+                                                <td style="width: 2%; height: 41px;">
+                                                    &nbsp;</td>
                                                 <td style="width: 11%; height: 41px;">
-                                                    <asp:Label ID="Label39" runat="server" Text="Required Date: "></asp:Label>
+                                                    <asp:Label ID="Label39" runat="server" Text="Required Date "></asp:Label>
                                                 </td>
                                                 <td style="width: 32%; height: 41px;">
-                                                    <asp:TextBox ID="txtDateNeed" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtDateNeed" runat="server" Width="250px"></asp:TextBox>
                                                     <ajaxToolkit:CalendarExtender ID="CalendarExDateNeed" runat="server" BehaviorID="txtRequested" CssClass="Calendar" Format="dd/MM/yyyy" TargetControlID="txtDateNeed" />
 
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td style="width: 1%; height: 35px;"></td>
-                                                <td style="width: 10%; height: 35px;">
-                                                    <asp:Label ID="Label21" runat="server" Text="Requesting Dept: "></asp:Label>
+                                                <td style="width: 12%; height: 35px;">
+                                                    <asp:Label ID="Label21" runat="server" Text="Requesting Dept "></asp:Label>
                                                 </td>
-                                                <td style="width: 25%; height: 35px;">
-                                                    <asp:DropDownList ID="ddlRequestedDept" runat="server" OnSelectedIndexChanged="ddlRequestedDept_SelectedIndexChanged">
+                                                <td>
+                                                    <asp:DropDownList ID="ddlRequestedDept" Width="100%" runat="server" OnSelectedIndexChanged="ddlRequestedDept_SelectedIndexChanged">
                                                     </asp:DropDownList>
                                                 </td>
+                                                <td style="width: 2%; height: 35px;">
+                                                    &nbsp;</td>
                                                 <td style="width: 11%; height: 35px;">
-                                                    <asp:Label ID="Label40" runat="server" Text="Priority: "></asp:Label>
+                                                    <asp:Label ID="Label40" runat="server" Text="Priority "></asp:Label>
                                                 </td>
-                                                <td style="width: 32%; height: 35px;">
-                                                    <asp:DropDownList ID="ddlPriority" runat="server">
+                                                <td >
+                                                    <asp:DropDownList ID="ddlPriority" runat="server" Width="100%">
                                                     </asp:DropDownList>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td style="width: 1%; height: 37px;"></td>
-                                                <td style="width: 10%; height: 37px;">
-                                                    <asp:Label ID="Label23" runat="server" Text="Item User Type: "></asp:Label>
+                                                <td style="width: 12%; height: 37px;">
+                                                    <asp:Label ID="Label23" runat="server" Text="Item User Type "></asp:Label>
                                                 </td>
-                                                <td style="width: 25%; height: 37px;">
-                                                    <asp:DropDownList ID="ddlItemUserType" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlItemUserType_SelectedIndexChanged">
+                                                <td>
+                                                    <asp:DropDownList ID="ddlItemUserType" Width="100%" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlItemUserType_SelectedIndexChanged">
                                                     </asp:DropDownList>
                                                 </td>
+                                                <td style="width: 2%; height: 37px;">
+                                                    &nbsp;</td>
                                                 <td style="width: 11%; height: 37px;">
-                                                    <asp:Label ID="Label41" runat="server" Text="Purpose: "></asp:Label>
+                                                    <asp:Label ID="Label41" runat="server" Text="Purpose "></asp:Label>
                                                 </td>
-                                                <td style="width: 32%; height: 37px;">
-                                                    <asp:DropDownList ID="ddlPurpose" runat="server">
+                                                <td >
+                                                    <asp:DropDownList ID="ddlPurpose" runat="server" Width="100%">
                                                     </asp:DropDownList>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td style="width: 1%; "></td>
-                                                <td style="width: 10%;">
-                                                    <asp:Label ID="Label24" runat="server" Text="User Name: "></asp:Label>
+                                                <td style="width: 12%;">
+                                                    <asp:Label ID="Label24" runat="server" Text="User Name "></asp:Label>
                                                 </td>
-                                                <td style="width: 25%; ">
-                                                    <asp:TextBox ID="txtUserName" runat="server" AutoPostBack="True" OnTextChanged="txtUserName_TextChanged"></asp:TextBox>
+                                                <td style="width: 29%; ">
+                                                    <asp:TextBox ID="txtUserName" runat="server" Width="98%" AutoPostBack="True" OnTextChanged="txtUserName_TextChanged"></asp:TextBox>
                                                     <ajaxToolkit:AutoCompleteExtender ID="AutoUserName" runat="server" BehaviorID="AutoCompleteUserName" CompletionInterval="1000" CompletionListCssClass="autocomplete_completionListElement" CompletionListHighlightedItemCssClass="autocomplete_highlightedListItem" CompletionListItemCssClass="autocomplete_listItem" CompletionSetCount="20" DelimiterCharacters="," EnableCaching="false" MinimumPrefixLength="3" ServiceMethod="GetUserList" ServicePath="~/WebService/ServiceSystem.asmx" ShowOnlyCurrentWordInCompletionListItem="true" TargetControlID="txtUserName">
                                                     </ajaxToolkit:AutoCompleteExtender>
                                                 </td>
+                                                <td style="width: 2%;">
+                                                    &nbsp;</td>
                                                 <td style="width: 11%;">
                                                     <asp:Label ID="lblisproject" runat="server" Text="Project Related?"></asp:Label>
                                                 </td>
-                                                <td style="width: 32%; ">
-                                                    <asp:CheckBox ID="chkproject" runat="server" AutoPostBack="True" Checked="true" OnCheckedChanged="chkproject_CheckedChanged1" CssClass="checkbox" />
-                                                    <asp:DropDownList ID="ddlProject" runat="server" Visible="true" Width="250px">
+                                                <td >
+                                                    <asp:CheckBox ID="chkproject" runat="server" AutoPostBack="True" Checked="true" OnCheckedChanged="chkproject_CheckedChanged1" />
+                                                    <asp:DropDownList ID="ddlProject" runat="server" Visible="true" Width="95%">
                                                     </asp:DropDownList>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td style="width: 1%; height: 29px;"></td>
-                                                <td style="width: 10%; " >
-                                                    <asp:Label ID="Label34" runat="server" Text="Location Address: "></asp:Label>
+                                                <td style="width: 12%; " >
+                                                    <asp:Label ID="Label34" runat="server" Text="Location Address "></asp:Label>
                                                 </td>
-                                                <td style="width: 25%; text-align: left;" rowspan="2" >
-                                                    <asp:TextBox ID="txtLocAddress" runat="server" TextMode="MultiLine" Width="250px" Height="76px"></asp:TextBox>
+                                                <td style="width: 29%; text-align: left;" rowspan="2" >
+                                                    <asp:TextBox ID="txtLocAddress" runat="server" TextMode="MultiLine" Width="98%" ></asp:TextBox>
                                                 </td>
+                                                <td style="width: 2%; ">
+                                                    &nbsp;</td>
                                                 <td style="width: 11%; ">
-                                                    <asp:Label ID="Label32" runat="server" Text="Comments: "></asp:Label>
+                                                    <asp:Label ID="Label32" runat="server" Text="Comments "></asp:Label>
                                                 </td>
                                                 <td style="width: 32%;" rowspan="2">
                                                     
-                                                    <asp:TextBox ID="txtComments" runat="server" Height="72px" TextMode="MultiLine" Width="250px"></asp:TextBox>
+                                                    <asp:TextBox ID="txtComments" runat="server"  TextMode="MultiLine" Width="98%"></asp:TextBox>
                                                     
                                                 </td>
                                             </tr>
@@ -331,25 +355,25 @@
                                             </tr>
                                             <tr>
                                                 <td style="width: 1%">&nbsp;</td>
-                                                <td style="width: 10%">&nbsp;</td>
-                                                <td colspan="3">
+                                                <td style="width: 12%">&nbsp;</td>
+                                                <td colspan="4">
                                                     <asp:Label ID="lblref" runat="server" Text="" Visible="false"></asp:Label>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td colspan="5">
+                                                <td colspan="6">
                                                     <hr id="fileaatachtop" runat="server" style="border: 0; height: 1px; background: #333; background-image: linear-gradient(to right, #ccc, #333, #ccc)" />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td style="width: 1%">&nbsp;</td>
-                                                <td colspan="4">
+                                                <td colspan="5">
                                                     <table id="tblattach" runat="server" style="width: 100%; margin-top:0px">
                                                         <tr>
                                                             <td>
                                                                 <table style="width: 100%">
                                                                     <tr>
-                                                                        <td style="width: 893px">
+                                                                        <td >
                                                                             <table style="width: 100%">
                                                                                 <tr>
                                                                                     <td style="width: 123px">
@@ -357,6 +381,8 @@
                                                                                     </td>
                                                                                     <td >
                                                                                         <asp:FileUpload ID="flAttachmentInBill" runat="server" Width="217px" />
+
+                                                                                       
                                                                                     </td>
                                                                                     <td style="width: 175px">
                                                                                         <asp:Button ID="btnAttachFile" runat="server"  OnClick="btnAttachFile_Click" Text="Attach" Width="65px" />
@@ -369,7 +395,7 @@
                                                                                 <tr>
                                                                                     <td style="width: 123px">&nbsp;</td>
                                                                                     <td style="width: 320px">
-                                                                                        <asp:ListBox ID="FileList" runat="server" AutoPostBack="True" Height="120px" OnSelectedIndexChanged="FileList_SelectedIndexChanged" Width="320px"></asp:ListBox>
+                                                                                        <asp:ListBox ID="FileList" runat="server" AutoPostBack="True"  OnSelectedIndexChanged="FileList_SelectedIndexChanged" Width="320px"></asp:ListBox>
                                                                                     </td>
                                                                                     <td style="width: 175px">&nbsp;</td>
                                                                                     <td>&nbsp;</td>
@@ -419,22 +445,26 @@
                                                                     </tr>
                                                                     <tr id="trItemDetail" runat="server">
                                                                         <td colspan="2">
-                                                                            <asp:Panel ID="pnl" runat="server" Height="150px" ScrollBars="Vertical" Style="overflow: auto; width: 100%; text-align: center;">
-                                                                                <asp:GridView ID="gdvItemDetail" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" CssClass="myGridClass" OnRowDataBound="gdvItemDetail_RowDataBound" OnSelectedIndexChanged="gdvItemDetail_SelectedIndexChanged" ShowFooter="true" Style="text-align: left; width: 100%;">
-                                                                                    <FooterStyle BackColor="White" ForeColor="#000066" />
-                                                                                    <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
-                                                                                    <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
-                                                                                    <RowStyle ForeColor="#000066" />
-                                                                                    <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
-                                                                                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                                                                                    <SortedAscendingHeaderStyle BackColor="#007DBB" />
-                                                                                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                                                                                    <SortedDescendingHeaderStyle BackColor="#00547E" />
+                                                                            <asp:Panel ID="pnl" runat="server" Height="100px" ScrollBars="Vertical" Style="overflow: auto; width: 100%; text-align: center;">
+                                                                                <asp:GridView ID="gdvItemDetail"   runat="server" OnRowDataBound="gdvItemDetail_RowDataBound" OnSelectedIndexChanged="gdvItemDetail_SelectedIndexChanged"  Style="text-align: left; width: 100%; font-family:Tahoma; font-size:10px" OnRowCreated="gdvItemDetail_RowCreated" CellPadding="4">
+                                                                                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                                                                     <Columns>
                                                                                         <asp:CommandField SelectText="Remove" ShowSelectButton="True">
                                                                                         <ItemStyle ForeColor="Red" />
                                                                                         </asp:CommandField>
                                                                                     </Columns>
+
+                                                                                    <EditRowStyle BackColor="#999999" />
+
+                                                                                    <footerstyle backcolor="#5D7B9D" ForeColor="White" Font-Bold="True" />
+                                                                                    <HeaderStyle BackColor="#98CEE2" Font-Bold="True" ForeColor="White" />
+                                                                                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                                                                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" Font-Size="12px" />
+                                                                                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                                                                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                                                                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                                                                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                                                                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                                                                                 </asp:GridView>
                                                                             </asp:Panel>
                                                                         </td>
@@ -462,91 +492,84 @@
                                                         </tr>
                                                         <tr>
                                                             <td  >
-                                                                 <asp:Panel ID="header_ContentPanel" runat="server" style="width:98%">
+                                                                 <asp:Panel ID="header_ContentPanel" runat="server" style="width:100%">
                                                                     <table style=" Width:100%; margin-top:0px">
                                                                         <tr>
-                                                                            <td style="width: 114px;">
-                                                                                <asp:Label ID="lblreqstatus6" runat="server" Text="Item Name:" Width="80px"></asp:Label>
+                                                                            <td style="width: 112px;">
+                                                                                <asp:Label ID="lblreqstatus6" runat="server" Text="Item Name" Width="80px"></asp:Label>
                                                                             </td>
-                                                                            <td style="width: 284px">
-                                                                                <asp:TextBox ID="txtItem" runat="server" AutoPostBack="True" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" OnTextChanged="txtItem_TextChanged" Width="250px"></asp:TextBox>
+                                                                            <td style="width: 397px">
+                                                                                <asp:TextBox ID="txtItem" runat="server" AutoPostBack="True" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" OnTextChanged="txtItem_TextChanged" Width="95%"></asp:TextBox>
                                                                                 <ajaxToolkit:TextBoxWatermarkExtender ID="TBWE2" runat="server" TargetControlID="txtItem" WatermarkCssClass="watermark" WatermarkText="Please type item name" />
                                                                                 <ajaxToolkit:AutoCompleteExtender ID="autoCompleteforItemDeat" runat="server" BehaviorID="AutoCompleteEx2" CompletionInterval="1000" CompletionListCssClass="autocomplete_completionListElement" CompletionListHighlightedItemCssClass="autocomplete_highlightedListItem" CompletionListItemCssClass="autocomplete_listItem" CompletionSetCount="20" DelimiterCharacters="," EnableCaching="false" MinimumPrefixLength="1" ServiceMethod="GetItemList" ServicePath="~/WebService/ServiceSystem.asmx" ShowOnlyCurrentWordInCompletionListItem="true" TargetControlID="txtItem">
                                                                                 </ajaxToolkit:AutoCompleteExtender>
                                                                             </td>
                                                                             <td>&nbsp;</td>
                                                                             <td style="text-align:left; width: 76px;">
-                                                                                <asp:Label ID="lblreqstatus9" runat="server" Text="Specification:"></asp:Label>
+                                                                                <asp:Label ID="lblreqstatus9" runat="server" Text="Specification"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtSpec" runat="server"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtSpec" runat="server" Width="98%"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td style="width: 114px">
-                                                                                <asp:Label ID="lblreqstatus7" runat="server" Text="Unit:"></asp:Label>
+                                                                            <td style="width: 112px">
+                                                                                <asp:Label ID="lblreqstatus7" runat="server" Text="Unit"></asp:Label>
                                                                             </td>
-                                                                            <td style=" width: 284px;">
-                                                                                <table style="width: 54%; margin-top:0px">
+                                                                            <td style=" width: 397px;">
+                                                                                <table style="width: 100%; margin-top:0px">
                                                                                     <tr>
-                                                                                        <td>
-                                                                                            <asp:DropDownList ID="ddlunit" runat="server" Width="260px">
+                                                                                        <td style="width:100%">
+                                                                                            <asp:DropDownList ID="ddlunit" runat="server" Width="100%">
                                                                                             </asp:DropDownList>
                                                                                         </td>
-                                                                                        <td>&nbsp;</td>
                                                                                     </tr>
                                                                                 </table>
                                                                             </td>
                                                                             <td>&nbsp;</td>
                                                                             <td style="text-align:left; width: 76px;">
-                                                                                <asp:Label ID="lblreqstatus10" runat="server" Text="Brand:"></asp:Label>
+                                                                                <asp:Label ID="lblreqstatus10" runat="server" Text="Brand"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtBrand" runat="server"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtBrand" runat="server" Width="98%"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td style="width: 114px">
-                                                                                <asp:Label ID="Unit" runat="server" Text="Quantity:"></asp:Label>
+                                                                            <td style="width: 112px">
+                                                                                <asp:Label ID="Unit" runat="server" Text="Quantity"></asp:Label>
                                                                             </td>
-                                                                            <td style="width: 284px">
-                                                                                <table style="margin-top:0px">
+                                                                            <td>
+                                                                                <table style="margin-top:0px; width:100%">
                                                                                     <tr>
-                                                                                        <td>
-                                                                                            <asp:TextBox ID="txtQuantity" runat="server" Width="90px"></asp:TextBox>
+                                                                                        <td >
+                                                                                            <asp:TextBox ID="txtQuantity"  runat="server" Width="96%"></asp:TextBox>
                                                                                             <ajaxToolkit:FilteredTextBoxExtender ID="FilteredTextBoxqTY" runat="server" FilterType="Numbers,  Custom" TargetControlID="txtQuantity" ValidChars="." />
                                                                                         </td>
-                                                                                        <td>&nbsp;</td>
-                                                                                        <td>Rate:</td>
-                                                                                        <td>
-                                                                                            <asp:TextBox ID="txtRate" runat="server" Width="90px"></asp:TextBox>
-                                                                                            <ajaxToolkit:FilteredTextBoxExtender ID="txtQuantity0_FilteredTextBoxExtender" runat="server" FilterType="Numbers,  Custom" TargetControlID="txtRate" ValidChars="." />
-                                                                                        </td>
                                                                                     </tr>
                                                                                 </table>
                                                                             </td>
                                                                             <td>&nbsp;</td>
                                                                             <td style="text-align:left; width: 76px;">
-                                                                                <asp:Label ID="lblreqstatus11" runat="server" Text="Origin:"></asp:Label>
+                                                                                <asp:Label ID="lblreqstatus11" runat="server" Text="Origin"></asp:Label>
                                                                             </td>
                                                                             <td>
-                                                                                <asp:TextBox ID="txtOrigin" runat="server"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtOrigin" runat="server" Width="98%"></asp:TextBox>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td style="width: 114px">&nbsp;</td>
-                                                                            <td style="width: 284px">&nbsp;</td>
+                                                                            <td style="width: 112px">&nbsp;</td>
+                                                                            <td style="width: 397px">&nbsp;</td>
                                                                             <td>&nbsp;</td>
                                                                             <td style="width: 76px;">&nbsp;</td>
                                                                             <td>
-                                                                                <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" />
-                                                                                &nbsp;<asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear" />
+                                                                                <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" Width="100px" />
+                                                                                &nbsp;<asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear" Width="100px"/>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td style="width: 114px">&nbsp;</td>
+                                                                            <td style="width: 112px">&nbsp;</td>
                                                                             <td colspan="4">
-                                                                                <asp:Panel ID="Panel4" runat="server" BorderStyle="Solid" BorderWidth="2px" CssClass="tbl" DefaultButton="btncancel" Height="200px" HorizontalAlign="Center" ScrollBars="Auto" Style="border-right: black 2px solid; padding-right: 20px; border-top: black 2px solid; text-align: center; padding-left: 20px; display:none; padding-bottom: 20px; border-left: black 2px solid; padding-top: 20px; border-bottom: black 2px solid; background-color: white" Width="354px">
+                                                                                <asp:Panel ID="Panel4" runat="server" BorderStyle="Solid" BorderWidth="2px" CssClass="tbl" DefaultButton="btncancel" Height="200px" HorizontalAlign="Center" ScrollBars="Auto" Style="border-right: black 2px solid; padding-right: 20px; border-top: black 2px solid; text-align: center; padding-left: 20px; display:no; padding-bottom: 20px; border-left: black 2px solid; padding-top: 20px; border-bottom: black 2px solid; background-color: white" Width="354px">
                                                                                     <div style="border-color: #e6e6fa; border-width: 1px; text-align: center; filter: progid:dximagetransform.microsoft.gradient(endcolorstr='#FFCC0A', startcolorstr='#32A545', gradienttype='0'); width: 98%; height: 177px; text-align: center;">
                                                                                         &nbsp;&nbsp;&nbsp;<table id="tblmsg" runat="server" align="center" style="width: 95%">
                                                                                             <tr>
@@ -629,11 +652,11 @@
 
              
                 <asp:PostBackTrigger ControlID="btnAttachFile" />
-                <asp:PostBackTrigger ControlID="btnDownLoad" />
-                <asp:PostBackTrigger ControlID="btnPrintRequisition" />               
-                <asp:AsyncPostBackTrigger ControlID="btnNewReq"  EventName="Click"/>
-                <asp:AsyncPostBackTrigger ControlID="btnAdd"  EventName="Click"/>
-                   <asp:AsyncPostBackTrigger ControlID="btnSubmit"  EventName="Click"/>
+                           
+               <%-- <asp:AsyncPostBackTrigger ControlID="ddlPendint"  EventName="SelectedIndexChanged"/>--%>
+
+
+               <asp:PostBackTrigger ControlID="btnPrintRequisition" />
 
 
             </Triggers>
@@ -641,8 +664,6 @@
 
 
 </asp:Content>
-
-
 
 
 <asp:Content ID="Content1" runat="server" contentplaceholderid="HeadContent">
@@ -704,7 +725,9 @@
         }
 
         .autocomplete_highlightedListItem {
-            background-color:#808080;
+          /*background-color:#808080;*/
+              background-color:#8ECAE0;
+              
             color:white;
             padding: 1px;
             cursor: pointer;
@@ -725,7 +748,7 @@
             background-color: White;
             color: #32A545;
             cursor: pointer;
-           text-align:center;
+            text-align: center;
             font: 9pt verdana;
         }
 

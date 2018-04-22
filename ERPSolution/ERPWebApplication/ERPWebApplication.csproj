@@ -35,7 +35,7 @@
         <ObjectGroup Name="DefaultConnection-Deployment" Order="1">
           <Destination Path="Data Source=%28local%29%3bInitial Catalog=dbERPSolution%3bUser ID=sa%3bPassword=123" />
           <Object Type="DbFullSql">
-            <PreSource Path="Data Source=%28LocalDb%29\v11.0%3bInitial Catalog=aspnet-ERPWebApplication-20160821124514%3bIntegrated Security=SSPI%3bAttachDBFilename=|DataDirectory|\aspnet-ERPWebApplication-20160821124514.mdf" ScriptSchema="True" ScriptData="True" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <PreSource Path="Data Source=27.147.194.140%3bInitial Catalog=dbERPSolution%3bUser ID=sa%3bPassword=adm%4012345" ScriptSchema="True" ScriptData="True" CopyAllFullTextCatalogs="False" DriDefaults="True" />
             <Source Path="obj\Debug\AutoScripts\DefaultConnection-Deployment_SchemaAndData.sql" Transacted="True" />
           </Object>
         </ObjectGroup>
@@ -1006,6 +1006,7 @@
     <Content Include="ModuleName\HRMS\MasterPage\OrganizationalChartForm.aspx" />
     <Content Include="ModuleName\HRMS\SelfService\LeaveApplicationForm.aspx" />
     <Content Include="ModuleName\HRMS\SelfService\ProcessDetailsForm.aspx" />
+    <Content Include="ModuleName\HRMS\TransactionPage\AttendanceRecordForm.aspx" />
     <Content Include="ModuleName\Inventory\MasterPage\ItemCategorySetupForm.aspx" />
     <Content Include="ModuleName\Inventory\MasterPage\TemplateForm.aspx" />
     <Content Include="ModuleName\Inventory\Report\ReportForm\ReportViewer.aspx" />
@@ -1033,6 +1034,7 @@
     <Content Include="ModuleName\Organization\MasterPage\UserPermissionForm.aspx" />
     <Content Include="ModuleName\Organization\MasterPage\UserProfileForm.aspx" />
     <Content Include="ModuleName\Organization\MasterPage\UserSecurityCodeForm.aspx" />
+    <Content Include="MyAccountForm.aspx" />
     <Content Include="packages.config" />
     <Content Include="CSS\CSSstyleTheme\CommonCSS\default.skin" />
     <Content Include="CSS\CSSstyleTheme\Fonts\glyphicons-halflings-regular.eot" />
@@ -1046,6 +1048,8 @@
     <Content Include="ClassDiagram1.cd" />
     <Content Include="WebUserControls\OrganizationalChartControl.ascx" />
     <Content Include="App_Themes\Site\Site.skin" />
+    <Content Include="WebUserControls\SelfServiceControl.ascx" />
+    <Content Include="WebUserControls\TasksToDoControl.ascx" />
     <None Include="Properties\PublishProfiles\ERPApplicationPublish.pubxml" />
     <Content Include="README.docx" />
     <Content Include="Properties\Settings.settings">
@@ -1318,6 +1322,13 @@
     <Compile Include="ModuleName\HRMS\SelfService\ProcessDetailsForm.aspx.designer.cs">
       <DependentUpon>ProcessDetailsForm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ModuleName\HRMS\TransactionPage\AttendanceRecordForm.aspx.cs">
+      <DependentUpon>AttendanceRecordForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuleName\HRMS\TransactionPage\AttendanceRecordForm.aspx.designer.cs">
+      <DependentUpon>AttendanceRecordForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ModuleName\Inventory\MasterPage\ItemCategorySetupForm.aspx.cs">
       <DependentUpon>ItemCategorySetupForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1425,6 +1436,13 @@
     <Compile Include="ModuleName\Organization\MasterPage\UserSecurityCodeForm.aspx.designer.cs">
       <DependentUpon>UserSecurityCodeForm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MyAccountForm.aspx.cs">
+      <DependentUpon>MyAccountForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyAccountForm.aspx.designer.cs">
+      <DependentUpon>MyAccountForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1448,6 +1466,20 @@
     </Compile>
     <Compile Include="WebUserControls\OrganizationalChartControl.ascx.designer.cs">
       <DependentUpon>OrganizationalChartControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUserControls\SelfServiceControl.ascx.cs">
+      <DependentUpon>SelfServiceControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUserControls\SelfServiceControl.ascx.designer.cs">
+      <DependentUpon>SelfServiceControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUserControls\TasksToDoControl.ascx.cs">
+      <DependentUpon>TasksToDoControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUserControls\TasksToDoControl.ascx.designer.cs">
+      <DependentUpon>TasksToDoControl.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
