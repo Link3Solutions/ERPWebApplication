@@ -6,10 +6,13 @@
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             <ajaxToolkit:TabContainer ID="TabContainer2" runat="server" CssClass="tab" ActiveTabIndex="0"
-                Width="100%" CssTheme="None">
+                Width="1160px" CssTheme="None">
                 <ajaxToolkit:TabPanel ID="TabPanel1" runat="server" HeaderText="YEAR SETUP">
                     <ContentTemplate>
                         <table style="width: 100%;">
+                            <tr>
+                                <td style="width:1025px">
+                                    <table style="width: 100%;">
                             <tr>
                                 <td colspan="3">
                                     <asp:Label ID="Label22" runat="server" Text="Last Open Year :"></asp:Label>
@@ -18,7 +21,7 @@
                             <tr>
                                 <td colspan="3">
                                     <asp:Panel ID="PanelLastOpenYear" runat="server">
-                                        <table style="width: 65%;margin-left:100px;">
+                                        <table style="width: 70%;margin-left:100px;">
                                             <tr>
                                                 <td>
                                                     <asp:Label ID="Label23" runat="server" Text="Start Date"></asp:Label>
@@ -60,7 +63,7 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="3">
-                                                    <table style="width: 65%;margin-left:100px;">
+                                                    <table style="width: 70%;margin-left:100px;">
                                                         <tr>
                                                             <td>
                                                                 <asp:Label ID="Label27" runat="server" Text="Start Date"></asp:Label>
@@ -99,8 +102,6 @@
                                                             <td>&nbsp;</td>
                                                             <td>&nbsp;</td>
                                                             <td colspan="4">
-                                                                <asp:Button ID="btnYearOpen" runat="server" OnClick="btnYearOpen_Click" Text="Year Open" Width="100px" />
-                                                                <asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear" Width="100px" />
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -126,7 +127,22 @@
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                             </tr>
+                        </table></td>
+                                <td style=" width:126px;text-align: right; float: right;padding-left:25px;padding-top:1px;padding-right:1px;">
+                                    <div style="position: fixed; background-color: white">
+                                        <table style="width: 100%;">
+                                            <tr>
+                                                <td><asp:Button ID="btnYearOpen" runat="server" OnClick="btnYearOpen_Click" Text="Year Open" Width="100px" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td><asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear" Width="100px" /></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
                         </table>
+                        
                     </ContentTemplate>
                 </ajaxToolkit:TabPanel>
                 <ajaxToolkit:TabPanel ID="TabPanel2" runat="server" HeaderText="YEAR CLOSING">

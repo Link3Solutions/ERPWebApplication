@@ -994,6 +994,7 @@
     <Content Include="Images\btnYes.jpg" />
     <Content Include="Images\header.png" />
     <Content Include="Images\imageup.jpg" />
+    <Content Include="Images\next.png" />
     <Content Include="Images\Remove.png" />
     <Content Include="MicrosoftMenuHtmlPage.html" />
     <Content Include="ModuleName\Accounts\CoaHeadSetup.aspx" />

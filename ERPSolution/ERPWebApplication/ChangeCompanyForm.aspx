@@ -179,7 +179,7 @@
                 </table>
             </section>
         </div>
-        <footer>
+        <footer style="height:31px">
             <div class="content-wrapper">
                 <div class="float-left">
                     <p>&copy; <%--<li><a id="registerLink" runat="server" href="~/Account/Register.aspx">Register</a></li>--%>- My ASP.NET Application</p>

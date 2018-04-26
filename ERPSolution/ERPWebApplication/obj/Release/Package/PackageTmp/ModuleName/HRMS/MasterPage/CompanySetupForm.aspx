@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Company Setup" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CompanySetupForm.aspx.cs" Inherits="ERPWebApplication.ModuleName.HRMS.MasterPage.CompanySetupForm"  %>
+﻿<%@ Page Title="Company Setup" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CompanySetupForm.aspx.cs" Inherits="ERPWebApplication.ModuleName.HRMS.MasterPage.CompanySetupForm" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
@@ -8,10 +8,10 @@
             <table style="width: 100%; text-align: left">
                 <tr>
                     <td colspan="3">
-                        <asp:Panel ID="PanelDetails" runat="server">
+                        <asp:Panel ID="PanelDetails" runat="server" Width="1200px">
                             <table style="width: 100%;">
                                 <tr>
-                                    <td colspan="2" style="width: 675px; float: left; text-align: left">
+                                    <td  style="width: 675px; float: left; text-align: left">
                                         <table style="width: 100%;">
                                             <tr>
                                                 <td rowspan="7">
@@ -206,11 +206,11 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td style="width:300px">&nbsp;</td>
-                                                <td >
+                                                <td style="width: 300px">&nbsp;</td>
+                                                <td>
                                                     <asp:Label ID="Label117" runat="server" Text="Fax"></asp:Label>
                                                 </td>
-                                                <td >:</td>
+                                                <td>:</td>
                                                 <td>
                                                     <asp:TextBox ID="txtFax" runat="server"></asp:TextBox>
                                                 </td>
@@ -237,39 +237,8 @@
                                             </tr>
                                         </table>
                                     </td>
-                                    <td style="text-align: left; float: left;padding-left:40px">
+                                    <td style="width:275px ;text-align: left; float: left;padding-left:25px">
                                         <table style="width: 100%; text-align: left;">
-                                            <tr>
-                                                <td colspan="3" style="margin-top: -5px">
-                                                    <div style="position: fixed; width: 345px; background-color: white; height: 60px; text-align: center">
-                                                        <table style="width: 90%; margin-left: 5px">
-                                                            <tr>
-                                                                <td style="text-align: right">
-                                                                    <asp:Button ID="btnSave" runat="server" Text="Save" Width="100px" OnClick="btnSave_Click" /></td>
-                                                                <td style="text-align: center">
-                                                                    <asp:Button ID="btnClear" runat="server" Text="Clear" Width="100px" OnClick="btnClear_Click" /></td>
-                                                                <td style="text-align: left">
-                                                                    <asp:Button ID="btnPrint" runat="server" Text="Print" Width="100px" /></td>
-                                                            </tr>
-                                                        </table>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                            </tr>
-                                            <tr>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                            </tr>
-                                            <tr>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                            </tr>
                                             <tr>
                                                 <td>
                                                     <asp:Label ID="Label100" runat="server" Text="Business Type"></asp:Label>
@@ -417,6 +386,21 @@
                                             </tr>
                                         </table>
                                     </td>
+                                    <td style="width:100px;text-align: right; float: right;padding-left:25px;padding-top:1px;padding-right:1px">
+                                        <div style="position: fixed; background-color: white;">
+                                            <table style="width: 100%;">
+                                                <tr>
+                                                    <td><asp:Button ID="btnSave" runat="server" Text="Save" Width="70px" OnClick="btnSave_Click" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><asp:Button ID="btnClear" runat="server" Text="Clear" Width="70px" OnClick="btnClear_Click" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><asp:Button ID="btnPrint" runat="server" Text="Print" Width="70px" /></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>&nbsp;</td>
@@ -429,7 +413,7 @@
                 </tr>
                 <tr>
                     <td colspan="3">
-                        <asp:GridView ID="grdCompany" runat="server" AutoGenerateColumns="False" Width="100%" OnRowCommand="grdCompany_RowCommand" OnRowDataBound="grdCompany_RowDataBound" OnRowDeleting="grdCompany_RowDeleting">
+                        <asp:GridView ID="grdCompany" runat="server" AutoGenerateColumns="False" Width="1050px" OnRowCommand="grdCompany_RowCommand" OnRowDataBound="grdCompany_RowDataBound" OnRowDeleting="grdCompany_RowDeleting">
                             <Columns>
                                 <asp:TemplateField HeaderText="SL">
                                     <ItemTemplate>
@@ -469,9 +453,9 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:CommandField ShowSelectButton="True">
-                                    <controlstyle cssclass="cssSelect" />
-                                </asp:CommandField >
-                                    
+                                    <ControlStyle CssClass="cssSelect" />
+                                </asp:CommandField>
+
 
                             </Columns>
                             <HeaderStyle />

@@ -2,7 +2,7 @@
 <table style="width: 100%;">
     <tr>
         <td colspan="3">
-            <asp:GridView ID="GridViewOrganizationalChart" runat="server" AutoGenerateColumns="False" ShowHeader="False" Width="395px" OnRowDataBound="GridViewOrganizationalChart_RowDataBound">
+            <asp:GridView ID="GridViewOrganizationalChart" runat="server" AutoGenerateColumns="False" ShowHeader="False" Width="330px" OnRowDataBound="GridViewOrganizationalChart_RowDataBound">
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>

@@ -148,15 +148,6 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage {
         protected global::System.Web.UI.WebControls.RadioButtonList rdoConvert;
         
         /// <summary>
-        /// btnSubledgerTypeSave control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubledgerTypeSave;
-        
-        /// <summary>
         /// gdvAccountsGroup control.
         /// </summary>
         /// <remarks>
@@ -164,6 +155,15 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gdvAccountsGroup;
+        
+        /// <summary>
+        /// btnSubledgerTypeSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSubledgerTypeSave;
         
         /// <summary>
         /// TabPanel2 control.
@@ -256,15 +256,6 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage {
         protected global::System.Web.UI.WebControls.TextBox txtDescription;
         
         /// <summary>
-        /// btnSaveSubLedger control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveSubLedger;
-        
-        /// <summary>
         /// gdvSubHead control.
         /// </summary>
         /// <remarks>
@@ -272,6 +263,15 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gdvSubHead;
+        
+        /// <summary>
+        /// btnSaveSubLedger control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSaveSubLedger;
         
         /// <summary>
         /// TabPanel3 control.
@@ -310,15 +310,6 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage {
         protected global::System.Web.UI.WebControls.DropDownList ddlSubLedgerTypeConvertible;
         
         /// <summary>
-        /// btnConvertSubledger control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnConvertSubledger;
-        
-        /// <summary>
         /// gdvConvertedLedger control.
         /// </summary>
         /// <remarks>
@@ -326,5 +317,14 @@ namespace ERPWebApplication.ModuleName.Accounts.MasterPage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gdvConvertedLedger;
+        
+        /// <summary>
+        /// btnConvertSubledger control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnConvertSubledger;
     }
 }

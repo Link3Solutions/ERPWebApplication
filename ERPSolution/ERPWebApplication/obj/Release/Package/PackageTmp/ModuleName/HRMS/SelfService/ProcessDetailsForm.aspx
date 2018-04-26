@@ -3,7 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
         .bottomBorderControl {
-            border-bottom:none;
+            border-bottom-style:none;
+            
         }
     </style>
 </asp:Content>

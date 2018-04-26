@@ -67,6 +67,15 @@ namespace ERPWebApplication.ModuleName.HRMS.SelfService {
         protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonListStatus;
         
         /// <summary>
+        /// grdProcessDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdProcessDescription;
+        
+        /// <summary>
         /// btnSave control.
         /// </summary>
         /// <remarks>
@@ -83,15 +92,6 @@ namespace ERPWebApplication.ModuleName.HRMS.SelfService {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnClear;
-        
-        /// <summary>
-        /// grdProcessDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdProcessDescription;
         
         /// <summary>
         /// TabPanelFlowDefinition control.
@@ -157,6 +157,15 @@ namespace ERPWebApplication.ModuleName.HRMS.SelfService {
         protected global::System.Web.UI.WebControls.TextBox txtFlowDescription;
         
         /// <summary>
+        /// grdFlowDefinition control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdFlowDefinition;
+        
+        /// <summary>
         /// btnSaveFlowDefinition control.
         /// </summary>
         /// <remarks>
@@ -173,15 +182,6 @@ namespace ERPWebApplication.ModuleName.HRMS.SelfService {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnClearFlowDefinition;
-        
-        /// <summary>
-        /// grdFlowDefinition control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdFlowDefinition;
         
         /// <summary>
         /// TabPanelLevelDescription control.
@@ -229,6 +229,15 @@ namespace ERPWebApplication.ModuleName.HRMS.SelfService {
         protected global::System.Web.UI.WebControls.TextBox txtLevelDescription;
         
         /// <summary>
+        /// grdLevelDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdLevelDescription;
+        
+        /// <summary>
         /// btnSaveLevelDescription control.
         /// </summary>
         /// <remarks>
@@ -245,15 +254,6 @@ namespace ERPWebApplication.ModuleName.HRMS.SelfService {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnClearLevelDescription;
-        
-        /// <summary>
-        /// grdLevelDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdLevelDescription;
         
         /// <summary>
         /// TabPanelActionType control.
@@ -301,6 +301,15 @@ namespace ERPWebApplication.ModuleName.HRMS.SelfService {
         protected global::System.Web.UI.WebControls.TextBox txtActionType;
         
         /// <summary>
+        /// grdActionType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdActionType;
+        
+        /// <summary>
         /// btnSaveActionType control.
         /// </summary>
         /// <remarks>
@@ -317,15 +326,6 @@ namespace ERPWebApplication.ModuleName.HRMS.SelfService {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnClearActionType;
-        
-        /// <summary>
-        /// grdActionType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdActionType;
         
         /// <summary>
         /// TabPanelConfiguration control.
@@ -425,24 +425,6 @@ namespace ERPWebApplication.ModuleName.HRMS.SelfService {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEffectiveDate;
-        
-        /// <summary>
-        /// btnSaveConfiguration control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveConfiguration;
-        
-        /// <summary>
-        /// btnClearConfiguration control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClearConfiguration;
         
         /// <summary>
         /// grdProcessTeam control.
@@ -614,5 +596,23 @@ namespace ERPWebApplication.ModuleName.HRMS.SelfService {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdEmployes;
+        
+        /// <summary>
+        /// btnSaveConfiguration control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSaveConfiguration;
+        
+        /// <summary>
+        /// btnClearConfiguration control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnClearConfiguration;
     }
 }

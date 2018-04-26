@@ -10,6 +10,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
+            <div style="width:1190px">
             <table style="width: 100%;">
                 <tr>
                     <td colspan="2" style="width: 635px; float: left">
@@ -120,35 +121,20 @@
                             </tr>
                         </table>
                     </td>
-                    <td colspan="2" style="text-align: left; float: left">
-                        <table style="width: 100%;">
-                            <tr>
-                                <td colspan="3" style="margin-top: -5px">
-                                    <div style="position: fixed; width: 425px; background-color: white; height: 50px">
-                                        <table style="width: 70%; margin-left: 5px">
-                                            <tr>
-                                                <td>
-                                                    <asp:Button ID="btnSave" runat="server" Text="Save" Width="100px" OnClick="btnSave_Click" /></td>
-                                                <td>
-                                                    <asp:Button ID="btnClear" runat="server" Text="Clear" Width="100px" OnClick="btnClear_Click" /></td>
-                                                <td>
-                                                    <asp:Button ID="btnPrint" runat="server" Text="Print" Width="100px" /></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                            </tr>
-                        </table>
+                    <td colspan="2" style=" width:100px;text-align: right; float: right;padding-left:25px;padding-top:1px;padding-right:1px;">
+                        <div style="position: fixed; background-color: white">
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td><asp:Button ID="btnSave" runat="server" Text="Save" Width="70px" OnClick="btnSave_Click" /></td>
+                                </tr>
+                                <tr>
+                                    <td><asp:Button ID="btnClear" runat="server" Text="Clear" Width="70px" OnClick="btnClear_Click" /></td>
+                                </tr>
+                                <tr>
+                                    <td><asp:Button ID="btnPrint" runat="server" Text="Print" Width="70px" /></td>
+                                </tr>
+                            </table>
+                        </div>
                     </td>
                 </tr>
                 <tr>
@@ -163,7 +149,7 @@
                 </tr>
                 <tr>
                     <td colspan="4">
-                        <asp:GridView ID="grdCompany" runat="server" AutoGenerateColumns="False" Width="100%" OnRowCommand="grdCompany_RowCommand" OnRowDataBound="grdCompany_RowDataBound" OnRowDeleting="grdCompany_RowDeleting">
+                        <asp:GridView ID="grdCompany" runat="server" AutoGenerateColumns="False" Width="1050px" OnRowCommand="grdCompany_RowCommand" OnRowDataBound="grdCompany_RowDataBound" OnRowDeleting="grdCompany_RowDeleting">
                             <Columns>
                                 <asp:TemplateField HeaderText="SL">
                                     <ItemTemplate>
@@ -214,6 +200,7 @@
                     <td>&nbsp;</td>
                 </tr>
             </table>
+                </div>
         </ContentTemplate>
         <Triggers>
             <asp:PostBackTrigger ControlID="btnCompanyLogo" />

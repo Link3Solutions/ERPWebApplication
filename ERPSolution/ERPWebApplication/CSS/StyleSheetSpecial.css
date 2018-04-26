@@ -26,3 +26,28 @@
         border-bottom-color: black;
         border-bottom-width: 1px;
     }
+
+.nextHover {
+    background-color: blue;
+    color: white !important;
+    font-size: 1.0em;
+    padding-top:3px;
+    padding-bottom:4px;
+    border-bottom: 4px solid blue;
+    border-radius: 4px;    
+    text-align:center;
+}
+
+    .nextHover:hover {
+        /*background-color: #1F1F1F;*/
+        background-color: blue;
+        color: white !important;
+        padding-top:3px;
+        padding-bottom:4px;
+        border-radius: 4px;
+        font-size: 1.0em;
+        border-bottom: 4px solid blue;
+        border-bottom-color: blue;
+        border-bottom-width: 4px;        
+        text-align:center;
+    }

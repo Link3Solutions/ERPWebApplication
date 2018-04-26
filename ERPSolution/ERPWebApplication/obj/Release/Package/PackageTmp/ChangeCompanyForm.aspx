@@ -37,9 +37,6 @@
     </script>
 
     <style type="text/css">
-        .auto-style1 {
-            height: 222px;
-        }
         .labelView{
     font-family: Tahoma;
     font-size: 0.9em;
@@ -52,13 +49,7 @@
     </style>
 
 </head>
-<%--<body>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
-    </form>
-</body>--%>
+
 <body>
     <form id="Form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server">
@@ -124,7 +115,7 @@
 
             </div>
 
-            <section class="content-wrapper main-content clear-fix">
+            <section class="content-wrapper main-content clear-fix" style="min-height:470px">
                 <table style="width: 100%;">
                     <tr>
                         <td>&nbsp;</td>
@@ -134,14 +125,11 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>
-                            <asp:Panel ID="PanelLogin" runat="server">
+                        <td><asp:Panel ID="PanelLogin" runat="server">
                                 <table style="width: 100%;">
                                     <tr>
                                         <td colspan="3">
-                                            <h2>Use an account to Change Company.</h2>
+                                            <h2>You are Changing Your Operational Company.</h2>
                                         </td>
                                     </tr>
                                     <tr>
@@ -149,7 +137,7 @@
                                             <ol style="list-style-type: none">
                                                 <li>
                                                     <asp:Label  ID="Label5" runat="server" AssociatedControlID="txtLoginUserName" CssClass="labelView" >User name</asp:Label>
-                                                    <asp:TextBox runat="server" ID="txtLoginUserName" />&nbsp;<asp:LinkButton ID="lnkbtnCompany" runat="server" OnClick="lnkbtnCompany_Click" Font-Underline="False" CssClass="logoutHover" BackColor="White">Show Company</asp:LinkButton>
+                                                    <asp:TextBox runat="server" ID="txtLoginUserName" ReadOnly="True" />
                                                 </li>
                                                 <li style="padding-left: 170px">
                                                     
@@ -172,13 +160,16 @@
                                     </tr>
                                     <tr>
                                         <td style="padding-left: 40px">
-                                            <asp:Button ID="btnLogin" runat="server" Text="Log in" Width="100px" OnClick="btnLogin_Click" /></td>
+                                            <asp:Button ID="btnLogin" runat="server" Text="Log in" Width="100px" OnClick="btnLogin_Click" />
+                                            <asp:Button ID="btnCancelChangeCompany" runat="server" Text="Cancel" Width="100px" OnClick="btnCancelChangeCompany_Click" />
+                                        </td>
                                         <td>&nbsp;</td>
                                         <td>&nbsp;</td>
                                     </tr>
                                 </table>
-                            </asp:Panel>
-                        </td>
+                            </asp:Panel></td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
                     </tr>
                     <tr>
                         <td>&nbsp;</td>
@@ -188,7 +179,7 @@
                 </table>
             </section>
         </div>
-        <footer>
+        <footer style="height:31px">
             <div class="content-wrapper">
                 <div class="float-left">
                     <p>&copy; <%--<li><a id="registerLink" runat="server" href="~/Account/Register.aspx">Register</a></li>--%>- My ASP.NET Application</p>

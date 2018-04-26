@@ -7,36 +7,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
+            <div style="width:1200px;">
             <table style="width: 100%; text-align: left">
-                <tr>
+                <tr >
                     <td style="text-align: left; float: left;width:192px">
                         <asp:Panel ID="Panel11" runat="server" Height="250px" Width="190px">
                         </asp:Panel>
                     </td>
-                    <td style="text-align: left; float: left;width:412px">
+                    <td style="text-align: left; float: left;width:375px">
                         <table style="width: 410px;">
-                            <tr>
-                                <td>
-                                    &nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>
-                                    &nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                            </tr>
                             <tr>
                                 <td>
                                     <asp:Label ID="Label3" runat="server" Text="Employee ID"></asp:Label>
@@ -148,43 +127,13 @@
                             </tr>
                         </table>
                     </td>
-                    <td style="text-align: left; float: right;width:400px">
+                    <td style="text-align: left; float: left;width:275px;padding-left:50px">
                         <table style="width: 100%;">
-                            <tr>
+                            <tr >
                                 <td colspan="3">
-                                    <table style="width: 100%;">
-                                        <tr>
-                                            <td colspan="3" style="margin-top: -5px">
-                                                <div style="position: fixed; width: 400px; background-color: white; height: 50px">
-                                                    <table style="width: 70%; margin-left: 5px">
-                                                        <tr>
-                                                            <td>
-                                                                <asp:Button ID="btnSave" runat="server" Text="Save" Width="100px" OnClick="btnSave_Click" /></td>
-                                                            <td>
-                                                                <asp:Button ID="btnClear" runat="server" Text="Clear" Width="100px" /></td>
-                                                            <td>
-                                                                <asp:Button ID="btnPrint" runat="server" Text="Print" Width="100px" /></td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                        </tr>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">
+                                    <div style="margin-top:-25px">
                                     <uc1:OrganizationalChartControl ID="OrganizationalChartControl1" runat="server" />
+                                        </div>
                                 </td>
                             </tr>
                             <tr>
@@ -224,37 +173,24 @@
                             </tr>
                         </table>
                     </td>
-                </tr>
-                <tr>
-                    <td colspan="3">
-                        &nbsp;</td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td style=" width:100px;text-align: right; float: right;padding-left:25px;padding-top:1px;padding-right:1px;">
+                        <div style="position: fixed; background-color: white">
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td><asp:Button ID="btnSave" runat="server" Text="Save" Width="70px" OnClick="btnSave_Click" /></td>
+                                </tr>
+                                <tr>
+                                    <td><asp:Button ID="btnClear" runat="server" Text="Clear" Width="70px" /></td>
+                                </tr>
+                                <tr>
+                                    <td><asp:Button ID="btnPrint" runat="server" Text="Print" Width="70px" /></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
                 </tr>
             </table>
+            </div>
         </ContentTemplate>
         <Triggers>
         </Triggers>

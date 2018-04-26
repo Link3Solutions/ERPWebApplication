@@ -8,8 +8,8 @@
             <table style="width: 100%;">
                 <tr>
                     <td>
-                        <ajaxToolkit:TabContainer ID="TabContainerUserPermission" runat="server" Width="100%" Height="100%" ActiveTabIndex="0" CssClass="tab" CssTheme="None">
-                            <ajaxToolkit:TabPanel ID="TabPanelRoleSetup" runat="server" HeaderText="Role Setup">
+                        <ajaxToolkit:TabContainer ID="TabContainerUserPermission" runat="server" Width="1160px" Height="100%" ActiveTabIndex="1" CssClass="tab" CssTheme="None">
+                            <ajaxToolkit:TabPanel ID="TabPanelRoleSetup" runat="server" HeaderText="Role Setup" Width="1160px">
                                 <ContentTemplate>
                                     <table style="width: 100%;">
                                         <tr>
@@ -22,37 +22,8 @@
                                                 </div>
                                             </td>
                                             <td style="text-align: left; float: left; width: 435px">
+                                                <div style="height:450px">
                                                 <table style="width: 100%;">
-                                                    <tr>
-                                                        <td colspan="3">
-                                                            <div style="position: fixed; width: 425px; background-color: white; height: 50px">
-                                                                <table style="width: 50%;">
-                                                                    <tr>
-                                                                        <td>
-                                                                            <asp:Button ID="btnRoleSave" runat="server" Width="100px" Text="Save" OnClick="btnRoleSave_Click" /></td>
-                                                                        <td>
-                                                                            <asp:Button ID="btnRoleClear" runat="server" Width="100px" Text="Clear" OnClick="btnRoleClear_Click" /></td>
-                                                                        <td>&nbsp;</td>
-                                                                    </tr>
-                                                                </table>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>&nbsp;</td>
-                                                        <td>&nbsp;</td>
-                                                        <td>&nbsp;</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>&nbsp;</td>
-                                                        <td>&nbsp;</td>
-                                                        <td>&nbsp;</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>&nbsp;</td>
-                                                        <td>&nbsp;</td>
-                                                        <td>&nbsp;</td>
-                                                    </tr>
                                                     <tr>
                                                         <td>
                                                             <asp:Label ID="Label7" runat="server" Text="Company"></asp:Label>
@@ -124,80 +95,119 @@
                                                         <td>&nbsp;</td>
                                                     </tr>
                                                 </table>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </ContentTemplate>
-                            </ajaxToolkit:TabPanel>
-                            <ajaxToolkit:TabPanel ID="TabPanelUserPermission" runat="server" HeaderText="User Permission">
-                                <ContentTemplate>
-                                    <table style="width: 100%;">
-                                        <tr>
-                                            <td>
-                                                <asp:Label ID="Label6" runat="server" Text="Company"></asp:Label>
-                                            </td>
-                                            <td>:</td>
-                                            <td>
-                                                <asp:DropDownList ID="ddlCompany" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCompany_SelectedIndexChanged">
-                                                </asp:DropDownList>
-                                            </td>
-                                            <td rowspan="4" style="text-align: right; float: right; width: 435px">
-                                                <div style="position: fixed; width: 425px; background-color: white; height: 50px">
-                                                    <table style="width: 70%; margin-left: 5px">
+                                                    </div>
+                                            </td >
+                                            <td style="text-align: right; float: right; width: 150px;">
+                                                <div style="height: 450px;width:150px;position: fixed;margin-top:-1px;margin-right:-1px;">
+                                                    <table style="width: 100%;">
                                                         <tr>
-                                                            <td>
-                                                                <asp:Button ID="btnSave" runat="server" Text="Save" Width="100px" OnClick="btnSave_Click" /></td>
-                                                            <td>
-                                                                <asp:Button ID="btnClear" runat="server" Text="Clear" Width="100px" OnClick="btnClear_Click" /></td>
-                                                            <td>
-                                                                <asp:Button ID="btnPrint" runat="server" Text="Print" Width="100px" /></td>
+                                                            <td><asp:Button ID="btnRoleSave" runat="server" Width="70px" Text="Save" OnClick="btnRoleSave_Click" /></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><asp:Button ID="btnRoleClear" runat="server" Width="70px" Text="Clear" OnClick="btnRoleClear_Click" /></td>
                                                         </tr>
                                                     </table>
                                                 </div>
                                             </td>
                                         </tr>
+                                    </table>
+                                </ContentTemplate>
+                            </ajaxToolkit:TabPanel>
+                            <ajaxToolkit:TabPanel ID="TabPanelUserPermission" runat="server" HeaderText="User Permission" Width="1160px">
+                                <ContentTemplate>
+                                    <table style="width: 100%;">
                                         <tr>
-                                            <td>
-                                                <asp:Label ID="Label3" runat="server" Text="User Code"></asp:Label>
-                                            </td>
-                                            <td>:</td>
-                                            <td>
-                                                <asp:TextBox ID="txtUserCode" runat="server" AutoPostBack="True" OnTextChanged="txtUserCode_TextChanged"></asp:TextBox>
-                                                <ajaxToolkit:AutoCompleteExtender ID="txtUserCode_AutoCompleteExtender" runat="server" 
-                                                    BehaviorID="_content_txtUserCode_AutoCompleteExtender"
-                                                     CompletionListCssClass="autocomplete_completionListElement" 
-                                                    CompletionListHighlightedItemCssClass="autocomplete_highlightedListItem"
-                                                     CompletionListItemCssClass="autocomplete_listItem2"
-                                                     DelimiterCharacters="" 
-                                                    MinimumPrefixLength="1" 
-                                                    ServiceMethod="GetUserId" 
-                                                    ServicePath="~/WebService/ServiceSystem.asmx" TargetControlID="txtUserCode">
-                                                </ajaxToolkit:AutoCompleteExtender>
-                                            </td>
-                                        </tr>
+                                            <td colspan="2">
+                                                 <div style="width:400px">
+                                                 <table style="width: 100%;">
+                                                     <tr>
+                                                         <td>
+                                                             <asp:Label ID="Label6" runat="server" Text="Company"></asp:Label>
+                                                         </td>
+                                                         <td>:</td>
+                                                         <td>
+                                                             <asp:DropDownList ID="ddlCompany" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCompany_SelectedIndexChanged">
+                                                             </asp:DropDownList>
+                                                         </td>
+                                                     </tr>
+                                                     <tr>
+                                                         <td>
+                                                             <asp:Label ID="Label3" runat="server" Text="User Code"></asp:Label>
+                                                         </td>
+                                                         <td>:</td>
+                                                         <td>
+                                                             <asp:TextBox ID="txtUserCode" runat="server" AutoPostBack="True" OnTextChanged="txtUserCode_TextChanged"></asp:TextBox>
+                                                             <ajaxToolkit:AutoCompleteExtender ID="txtUserCode_AutoCompleteExtender" runat="server" BehaviorID="_content_txtUserCode_AutoCompleteExtender" CompletionListCssClass="autocomplete_completionListElement" CompletionListHighlightedItemCssClass="autocomplete_highlightedListItem" CompletionListItemCssClass="autocomplete_listItem2" DelimiterCharacters="" MinimumPrefixLength="1" ServiceMethod="GetUserId" ServicePath="~/WebService/ServiceSystem.asmx" TargetControlID="txtUserCode">
+                                                             </ajaxToolkit:AutoCompleteExtender>
+                                                         </td>
+                                                     </tr>
+                                                     <tr>
+                                                         <td>
+                                                             <asp:Label ID="Label5" runat="server" Text="Role Type" Width="60px"></asp:Label>
+                                                         </td>
+                                                         <td>:</td>
+                                                         <td>
+                                                             <asp:DropDownList ID="ddlRoleTypeUser" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlRoleTypeUser_SelectedIndexChanged">
+                                                             </asp:DropDownList>
+                                                         </td>
+                                                     </tr>
+                                                     <tr>
+                                                         <td>
+                                                             <asp:Label ID="Label4" runat="server" Font-Underline="False" Text="Role list"></asp:Label>
+                                                         </td>
+                                                         <td>:</td>
+                                                         <td>&nbsp;</td>
+                                                     </tr>
+                                                 </table>
+                                                     </div>
+                                                 </td>
+                                             <td colspan="3">
+                                                 <div style="width:600px">
+                                                     <table style="width: 100%;">
+                                                         <tr>
+                                                             <td>&nbsp;</td>
+                                                             <td>&nbsp;</td>
+                                                             <td>&nbsp;</td>
+                                                         </tr>
+                                                         <tr>
+                                                             <td>&nbsp;</td>
+                                                             <td>&nbsp;</td>
+                                                             <td>&nbsp;</td>
+                                                         </tr>
+                                                         <tr>
+                                                             <td>&nbsp;</td>
+                                                             <td>&nbsp;</td>
+                                                             <td>&nbsp;</td>
+                                                         </tr>
+                                                     </table>
+                                                 </div>
+                                             </td>
+                                             <td colspan="2" style="width:95px">
+                                                 <div style="width:85px;float:right;position: fixed; background-color: white; height: 120px;margin-top:-15px;margin-right:1px">
+                                                    <table style="width: 100%; margin-left: 5px">
+                                                        <tr>
+                                                            <td>
+                                                                <asp:Button ID="btnSave" runat="server" Text="Save" Width="70px" OnClick="btnSave_Click" /></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <asp:Button ID="btnClear" runat="server" Text="Clear" Width="70px" OnClick="btnClear_Click" /></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <asp:Button ID="btnPrint" runat="server" Text="Print" Width="70px" /></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                             </td>
+                                            </tr>
                                         <tr>
-                                            <td>
-                                                <asp:Label ID="Label5" runat="server" Text="Role Type"></asp:Label>
-                                            </td>
-                                            <td>:</td>
-                                            <td>
-                                                <asp:DropDownList ID="ddlRoleTypeUser" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlRoleTypeUser_SelectedIndexChanged">
-                                                </asp:DropDownList>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <asp:Label ID="Label4" runat="server" Font-Underline="False" Text="Role list"></asp:Label>
-                                            </td>
-                                            <td>:</td>
-                                            <td>&nbsp;</td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="4">
+                                             <td colspan="7">
+                                                 <div style="width:950px">
                                                 <table style="width: 100%;">
                                                     <tr>
                                                         <td>
-                                                            <asp:ListBox ID="ListBoxRoles" runat="server" Height="300px" Width="250px"></asp:ListBox>
+                                                            <asp:ListBox ID="ListBoxRoles" runat="server" Height="300px" Width="200px"></asp:ListBox>
                                                         </td>
                                                         <td>
                                                             <table style="width: 100%;">
@@ -227,12 +237,12 @@
                                                             </table>
                                                         </td>
                                                         <td>
-                                                            <asp:ListBox ID="ListBoxSelectedRoles" runat="server" AutoPostBack="True" Height="300px" Width="250px"></asp:ListBox>
+                                                            <asp:ListBox ID="ListBoxSelectedRoles" runat="server" AutoPostBack="True" Height="300px" Width="200px"></asp:ListBox>
                                                         </td>
                                                         <td>
                                                             &nbsp;</td>
                                                         <td>
-                                                            <asp:ListBox ID="ListBoxRelatedUserRole" Height="300px" Width="250px" runat="server"></asp:ListBox>
+                                                            <asp:ListBox ID="ListBoxRelatedUserRole" Height="300px" Width="200px" runat="server"></asp:ListBox>
                                                         </td>
                                                         <td>
                                                             <table style="width:100%;">
@@ -262,7 +272,7 @@
                                                             </table>
                                                         </td>
                                                         <td>
-                                                            <asp:ListBox ID="ListBoxSelectedRelatedUserRole" Height="300px" Width="250px" runat="server"></asp:ListBox>
+                                                            <asp:ListBox ID="ListBoxSelectedRelatedUserRole" Height="300px" Width="200px" runat="server"></asp:ListBox>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -276,8 +286,8 @@
                                                         <td colspan="3">&nbsp;</td>
                                                     </tr>
                                                 </table>
+                                                     </div>
                                             </td>
-                                            
                                         </tr>
                                     </table>
                                 </ContentTemplate>

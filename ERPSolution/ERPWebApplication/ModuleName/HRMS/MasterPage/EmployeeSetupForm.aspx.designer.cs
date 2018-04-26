@@ -211,6 +211,15 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage {
         protected global::System.Web.UI.WebControls.DropDownList ddlUserPermission;
         
         /// <summary>
+        /// OrganizationalChartControl1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ERPWebApplication.WebUserControls.OrganizationalChartControl OrganizationalChartControl1;
+        
+        /// <summary>
         /// btnSave control.
         /// </summary>
         /// <remarks>
@@ -236,14 +245,5 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnPrint;
-        
-        /// <summary>
-        /// OrganizationalChartControl1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ERPWebApplication.WebUserControls.OrganizationalChartControl OrganizationalChartControl1;
     }
 }

@@ -85,7 +85,7 @@
             <div id="container" style="width: 100%; height: 100px; position: fixed; background-color: #fff; border-top: solid 10px #000">
                 <div id="div1">
                     <div style="float: left">
-                        <%--<asp:Image ID="Image1" runat="server" ImageUrl="~/Images/logo_120_100.png" />--%>
+                        <%--Framework Scripts--%>
                     </div>
                     <div style="float: left; padding-left: 60px; margin-top: 31px">
                     </div>
@@ -125,13 +125,10 @@
 
             </div>
 
-            <section class="content-wrapper main-content clear-fix">
+            <section class="content-wrapper main-content clear-fix" style="min-height:470px">
                 <table style="width: 100%;">
                     <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>
-                            <asp:Panel ID="PanelRegister" runat="server">
+                        <td><asp:Panel ID="PanelRegister" runat="server">
                                 <table style="width: 100%;">
                                     <tr>
                                         <td colspan="3">
@@ -175,14 +172,13 @@
                                         <td>&nbsp;</td>
                                     </tr>
                                 </table>
-                            </asp:Panel>
+                            </asp:Panel></td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;
                         </td>
                     </tr>
                     <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>
-                            <asp:Panel ID="PanelLogin" runat="server">
+                        <td><asp:Panel ID="PanelLogin" runat="server">
                                 <table style="width: 100%;">
                                     <tr>
                                         <td colspan="3">
@@ -194,7 +190,7 @@
                                             <ol style="list-style-type: none">
                                                 <li>
                                                     <asp:Label  ID="Label5" runat="server" AssociatedControlID="txtLoginUserName" CssClass="labelView" >User name</asp:Label>
-                                                    <asp:TextBox runat="server" ID="txtLoginUserName" />&nbsp;<asp:LinkButton ID="lnkbtnCompany" runat="server" OnClick="lnkbtnCompany_Click" Font-Underline="False" CssClass="logoutHover" BackColor="White">Select Company</asp:LinkButton>
+                                                    <asp:TextBox runat="server" ID="txtLoginUserName" />&nbsp;<asp:LinkButton ID="lnkbtnCompany" runat="server" OnClick="lnkbtnCompany_Click" Font-Underline="False" CssClass="nextHover" Font-Italic="False" Width="85px" Height="15px">Next</asp:LinkButton>
                                                 </li>
                                                 <li style="padding-left: 170px">
                                                     
@@ -222,7 +218,9 @@
                                         <td>&nbsp;</td>
                                     </tr>
                                 </table>
-                            </asp:Panel>
+                            </asp:Panel></td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;
                         </td>
                     </tr>
                     <tr>
@@ -233,7 +231,7 @@
                 </table>
             </section>
         </div>
-        <footer>
+        <footer style="height:31px">
             <div class="content-wrapper">
                 <div class="float-left">
                     <p>&copy; <%--<li><a id="registerLink" runat="server" href="~/Account/Register.aspx">Register</a></li>--%>- My ASP.NET Application</p>

@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ReportVenueForm.aspx.cs" Inherits="ERPWebApplication.ModuleName.Organization.MasterPage.ReportVenueForm" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -6,37 +7,18 @@
         <ContentTemplate>
             <table style="width: 100%;">
                 <tr>
-                    <td colspan="2">
+                    <td>
                         <asp:Panel ID="PanelReportNode" runat="server" Height="430px" Width="450px">
                             <asp:TreeView ID="TreeViewReportNode" runat="server" OnTreeNodePopulate="TreeViewReportNode_TreeNodePopulate" ShowLines="True">
                             </asp:TreeView>
                         </asp:Panel>
                     </td>
-                    <td colspan="2">
+                    <td>
                         <asp:Panel ID="PanelReportInput" runat="server" Height="430px" Width="450px">
                             <table style="width: 100%;">
                                 <tr>
-                                    <td colspan="3" style="text-align:right">
-                                        <div style="position: fixed; background-color: white; width: 360px;  float: right;">    
-                                        <asp:Button ID="btnShow" runat="server" Text="Print" Width="100px" /><asp:Button ID="btnClear" runat="server" Text="Clear" Width="100px" />
-                                            </div>
-                                    </td>
-                                </tr>
-                                <tr>
                                     <td colspan="3">
                                         <table style="width: 100%;">
-                                            <tr>
-                                                <td>
-                                                    &nbsp;</td>
-                                                <td>&nbsp;</td>
-                                                <td>
-                                                    &nbsp;</td>
-                                            </tr>
-                                            <tr>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                            </tr>
                                             <tr>
                                                 <td>
                                                     <asp:Label ID="Label1" runat="server" Text="Report"></asp:Label>
@@ -115,16 +97,18 @@
                             </table>
                         </asp:Panel>
                     </td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td colspan="2">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td colspan="2">&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td style=" width:250px;text-align: right; float: right;padding-left:175px;padding-top:1px;padding-right:1px;">
+                        <div style="position: fixed; background-color: white">
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <td><asp:Button ID="btnShow" runat="server" Text="Print" Width="70px" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><asp:Button ID="btnClear" runat="server" Text="Clear" Width="70px"  /></td>
+                                    </tr>
+                                </table>
+                            </div>
+                    </td>
                 </tr>
             </table>
         </ContentTemplate>

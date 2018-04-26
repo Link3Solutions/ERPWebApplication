@@ -220,7 +220,9 @@ namespace ERPWebApplication
             {
 
                 clsTopMostMessageBox.Show(msgException.Message);
+                
             }
+
         }
 
         private void LoadAssignCompanyDDL()
@@ -258,7 +260,7 @@ namespace ERPWebApplication
                         txtLoginPassword.Visible = false;
                         btnLogin.Visible = false;
                         _objUserListController.CheckUser(_objUserList);
-                        
+
                     }
                 }
             }
@@ -268,5 +270,23 @@ namespace ERPWebApplication
                 throw msgException;
             }
         }
+
+        protected void ibtnNext_Click(object sender, ImageClickEventArgs e)
+        {
+            try
+            {
+                LoadAssignCompanyDDL();
+
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+
+            }
+
+        }
+
+
     }
 }
