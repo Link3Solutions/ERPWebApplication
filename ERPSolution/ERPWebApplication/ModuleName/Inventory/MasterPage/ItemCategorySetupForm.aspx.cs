@@ -244,8 +244,8 @@ namespace ERPWebApplication.ModuleName.Inventory.MasterPage
                 ClsDropDownListController.LoadDropDownList(_connectionString, objSuppliersController.SQLGetAllSuppliers(_objCompanySetup, _objBranchSetup), targetDDRelatedSupplier, "FullName", "ContactID");
                 _objItemSetupController = new ItemSetupController();
                 _objItemCategorySetup = new ItemCategorySetup();
-                _objItemCategorySetup.CompanyID = _objCompanySetup.CompanyID;
-                _objItemCategorySetup.BranchID = _objBranchSetup.BranchID;
+                _objItemCategorySetup.CompanyID = LoginUserInformation.CompanyID;
+                _objItemCategorySetup.BranchID = LoginUserInformation.BranchID;
 
                 _objItemCategorySetup.KnownValueID = Convert.ToInt32(EnumCollections.eTransactionType.eSalesTrans);
                 ClsDropDownListController.LoadDropDownList(_connectionString, _objItemSetupController.SQLForAccountType(_objItemCategorySetup), targetDDSalesAccountNo, "AccountName", "AccountNo");
@@ -652,6 +652,15 @@ namespace ERPWebApplication.ModuleName.Inventory.MasterPage
 
                 throw msgException;
             }
+        }
+
+        protected void btnskip_Click(object sender, EventArgs e)
+        {
+            PanelBody.Visible = true;
+            PanelLeft.Visible = true;
+            PanelRight.Visible = true;
+            PanelItemSetup.Visible = false;
+            CheckBoxAddItem.Checked = false;
         }
     }
 }

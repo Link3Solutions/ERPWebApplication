@@ -11,13 +11,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-            <table style="width: 100%;">
-                <tr>
-                    <td colspan="3">
-                        <ajaxToolkit:TabContainer ID="TabContainerProcessDetails" runat="server" Width="100%" Height="100%" ActiveTabIndex="4" CssClass="tab" CssTheme="None">
+            <ajaxToolkit:TabContainer ID="TabContainerProcessDetails" runat="server" Width="1160px" Height="100%" ActiveTabIndex="4" CssClass="tab" CssTheme="None">
                             <ajaxToolkit:TabPanel ID="TabPanelDescription" runat="server" CssClass="bottomBorderControl" HeaderText="Description">
                                 <ContentTemplate>
                                     <table style="width: 100%;">
+                                        <tr>
+                                            <td style="width: 1025px">
+                                                <table style="width: 100%;">
                                         <tr>
                                             <td colspan="2" style="width: 400px">
                                                 <table style="width: 100%;">
@@ -46,10 +46,7 @@
                                                 <table style="width: 100%; margin-top: -25px">
                                                     <tr>
                                                         <td colspan="3" style="text-align: right">
-                                                            <div style="position: fixed; background-color: white; width: 360px; float: right;">
-                                                                <asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save" Width="100px" />
-                                                                <asp:Button ID="btnClear" runat="server" Text="Clear" Width="100px" OnClick="btnClear_Click" />
-                                                            </div>
+                                                            
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -132,11 +129,30 @@
                                             <td>&nbsp;</td>
                                         </tr>
                                     </table>
+                                            </td>
+                                            <td style="width: 100px; text-align: right; float: right; padding-left: 25px; padding-top: 1px; padding-right: 1px;">
+                                                <div style="position: fixed; background-color: white">
+                                                    <table style="width: 100%;">
+                                                        <tr>
+                                                            <td><asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save" Width="70px" /></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><asp:Button ID="btnClear" runat="server" Text="Clear" Width="70px" OnClick="btnClear_Click" /></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    
                                 </ContentTemplate>
                             </ajaxToolkit:TabPanel>
                             <ajaxToolkit:TabPanel ID="TabPanelFlowDefinition" runat="server" HeaderText="Flow Definition">
                                 <ContentTemplate>
                                     <table style="width: 100%;">
+                                        <tr>
+                                            <td style="width: 1025px">
+                                                <table style="width: 100%;">
                                         <tr>
                                             <td colspan="2" style="width: 400px">
                                                 <table style="width: 100%;">
@@ -183,11 +199,7 @@
                                                 <table style="width: 100%; margin-top: -19px">
                                                     <tr>
                                                         <td colspan="3" style="text-align: right">
-                                                            <div style="position: fixed; background-color: white; width: 360px; float: right;">
-                                                                <asp:Button ID="btnSaveFlowDefinition" runat="server" Text="Save" Width="100px" OnClick="btnSaveFlowDefinition_Click" />
-                                                                <asp:Button ID="btnClearFlowDefinition" runat="server" Text="Clear" Width="100px" OnClick="btnClearFlowDefinition_Click" />
-                                                            </div>
-                                                        </td>
+                                                             </td>
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp;</td>
@@ -284,11 +296,30 @@
                                             <td>&nbsp;</td>
                                         </tr>
                                     </table>
+                                            </td>
+                                            <td style="width: 100px; text-align: right; float: right; padding-left: 25px; padding-top: 1px; padding-right: 1px;">
+                                                <div style="position: fixed; background-color: white">
+                                                    <table style="width: 100%;">
+                                                        <tr>
+                                                            <td><asp:Button ID="btnSaveFlowDefinition" runat="server" Text="Save" Width="70px" OnClick="btnSaveFlowDefinition_Click" /></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><asp:Button ID="btnClearFlowDefinition" runat="server" Text="Clear" Width="70px" OnClick="btnClearFlowDefinition_Click" /></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    
                                 </ContentTemplate>
                             </ajaxToolkit:TabPanel>
                             <ajaxToolkit:TabPanel ID="TabPanelLevelDescription" runat="server" HeaderText="Level Description">
                                 <ContentTemplate>
                                     <table style="width: 100%;">
+                                        <tr>
+                                            <td style="width: 1025px">
+                                                <table style="width: 100%;">
                                         <tr>
                                             <td colspan="2" style="width: 400px">
                                                 <table style="width: 100%;">
@@ -322,10 +353,7 @@
                                                 <table style="width: 100%; margin-top: -26px">
                                                     <tr>
                                                         <td colspan="3" style="text-align: right">
-                                                            <div style="position: fixed; background-color: white; width: 360px; float: right;">
-                                                                <asp:Button ID="btnSaveLevelDescription" runat="server" Text="Save" Width="100px" OnClick="btnSaveLevelDescription_Click" />
-                                                                <asp:Button ID="btnClearLevelDescription" runat="server" Text="Clear" Width="100px" OnClick="btnClearLevelDescription_Click" />
-                                                            </div>
+                                                            
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -403,11 +431,30 @@
                                             <td>&nbsp;</td>
                                         </tr>
                                     </table>
+                                            </td>
+                                            <td style="width: 100px; text-align: right; float: right; padding-left: 25px; padding-top: 1px; padding-right: 1px;">
+                                                <div style="position: fixed; background-color: white">
+                                                    <table style="width: 100%;">
+                                                        <tr>
+                                                            <td><asp:Button ID="btnSaveLevelDescription" runat="server" Text="Save" Width="70px" OnClick="btnSaveLevelDescription_Click" /></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><asp:Button ID="btnClearLevelDescription" runat="server" Text="Clear" Width="70px" OnClick="btnClearLevelDescription_Click" /></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    
                                 </ContentTemplate>
                             </ajaxToolkit:TabPanel>
                             <ajaxToolkit:TabPanel ID="TabPanelActionType" runat="server" HeaderText="Action Type">
                                 <ContentTemplate>
                                     <table style="width: 100%;">
+                                        <tr>
+                                            <td style="width: 1025px">
+                                                <table style="width: 100%;">
                                         <tr>
                                             <td colspan="2" style="width: 400px">
                                                 <table style="width: 100%;">
@@ -441,10 +488,7 @@
                                                 <table style="width: 100%; margin-top: -26px">
                                                     <tr>
                                                         <td colspan="3" style="text-align: right">
-                                                            <div style="position: fixed; background-color: white; width: 360px; float: right;">
-                                                                <asp:Button ID="btnSaveActionType" runat="server" Text="Save" Width="100px" OnClick="btnSaveActionType_Click" />
-                                                                <asp:Button ID="btnClearActionType" runat="server" Text="Clear" Width="100px" OnClick="btnClearActionType_Click" />
-                                                            </div>
+                                                            
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -522,13 +566,31 @@
                                             <td>&nbsp;</td>
                                         </tr>
                                     </table>
+                                            </td>
+                                            <td style="width: 100px; text-align: right; float: right; padding-left: 25px; padding-top: 1px; padding-right: 1px;">
+                                                <div style="position: fixed; background-color: white">
+                                                    <table style="width: 100%;">
+                                                        <tr>
+                                                            <td><asp:Button ID="btnSaveActionType" runat="server" Text="Save" Width="70px" OnClick="btnSaveActionType_Click" /></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><asp:Button ID="btnClearActionType" runat="server" Text="Clear" Width="70px" OnClick="btnClearActionType_Click" /></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                         </table>
                                 </ContentTemplate>
                             </ajaxToolkit:TabPanel>
                             <ajaxToolkit:TabPanel ID="TabPanelConfiguration" runat="server" HeaderText="Configuration">
                                 <ContentTemplate>
                                     <table style="width: 100%;">
                                         <tr>
-                                            <td colspan="2" style="width: 400px">
+                                            <td style="width: 1025px">
+                                                <table style="width: 100%;">
+                                        <tr>
+                                            <td colspan="2" style="width: 375px">
                                                 <div style="height: 190px">
                                                     <table style="width: 100%;">
                                                         <tr>
@@ -582,15 +644,12 @@
                                                     </table>
                                                 </div>
                                             </td>
-                                            <td colspan="2" style="width: 550px">
+                                            <td colspan="2" style="width: 525px">
                                                 <div style="height: 190px">
                                                     <table style="width: 100%; margin-top: -10px">
                                                         <tr>
                                                             <td colspan="3" style="text-align: right">
-                                                                <div style="position: fixed; background-color: white; width: 360px; float: right;">
-                                                                    <asp:Button ID="btnSaveConfiguration" runat="server" Text="Save" Width="100px" OnClick="btnSaveConfiguration_Click" />
-                                                                    <asp:Button ID="btnClearConfiguration" runat="server" Text="Clear" Width="100px" OnClick="btnClearConfiguration_Click" />
-                                                                </div>
+                                                                
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -685,28 +744,28 @@
                                                     </tr>
                                                     <tr style="background-color:#9FD1E4">
                                                         <td>
-                                                            <asp:Label ID="Label5" runat="server" Text="Level" Width="150px"></asp:Label>
+                                                            <asp:Label ID="Label5" runat="server" Text="Level" Width="130px"></asp:Label>
                                                         </td>
                                                         <td colspan="4">
-                                                            <asp:Label ID="Label6" runat="server" Text="Access ID" Width="150px"></asp:Label>
+                                                            <asp:Label ID="Label6" runat="server" Text="Access ID" Width="130px"></asp:Label>
                                                         </td>
                                                         <td>
-                                                            <asp:Label ID="Label7" runat="server" Text="Access Permission" Width="300px"></asp:Label>
+                                                            <asp:Label ID="Label7" runat="server" Text="Access Permission" Width="280px"></asp:Label>
                                                         </td>
                                                         <td colspan="4">
-                                                            <asp:Label ID="Label8" runat="server" Text="SubAccess ID" Width="150px"></asp:Label>
+                                                            <asp:Label ID="Label8" runat="server" Text="SubAccess ID" Width="130px"></asp:Label>
                                                         </td>
                                                         <td>
-                                                            <asp:Label ID="Label24" runat="server" Text="Access Permission" Width="300px"></asp:Label>
+                                                            <asp:Label ID="Label24" runat="server" Text="Access Permission" Width="280px"></asp:Label>
                                                         </td>
                                                     </tr>
                                                     <tr style="height:30px">
                                                         <td colspan="2">
-                                                            <asp:DropDownList ID="ddlLevelConfiguration" runat="server" Width="150px">
+                                                            <asp:DropDownList ID="ddlLevelConfiguration" runat="server" Width="130px">
                                                             </asp:DropDownList>
                                                         </td>
                                                         <td colspan="2">
-                                                            <asp:TextBox ID="txtAccessId" runat="server" AutoPostBack="True" Style="height: 22px" Width="150px"></asp:TextBox>
+                                                            <asp:TextBox ID="txtAccessId" runat="server" AutoPostBack="True" Style="height: 22px" Width="130px"></asp:TextBox>
                                                             <ajaxToolkit:AutoCompleteExtender ID="txtAccessId_AutoCompleteExtender" runat="server"
                                                                 BehaviorID="txtAccessId_AutoCompleteExtender" DelimiterCharacters=""
                                                                 MinimumPrefixLength="1"
@@ -719,11 +778,11 @@
                                                             </ajaxToolkit:AutoCompleteExtender>
                                                         </td>
                                                         <td colspan="3">
-                                                            <asp:CheckBoxList ID="ChkLisBoxAccessPermission" runat="server" RepeatDirection="Horizontal" Width="300px">
+                                                            <asp:CheckBoxList ID="ChkLisBoxAccessPermission" runat="server" RepeatDirection="Horizontal" Width="280px">
                                                             </asp:CheckBoxList>
                                                         </td>
                                                         <td colspan="2">
-                                                            <asp:TextBox ID="txtSubAccessId0" runat="server" AutoPostBack="True" Style="margin-left: 0px" Width="150px"></asp:TextBox>
+                                                            <asp:TextBox ID="txtSubAccessId0" runat="server" AutoPostBack="True" Style="margin-left: 0px" Width="130px"></asp:TextBox>
                                                             <ajaxToolkit:AutoCompleteExtender ID="txtSubAccessId0_AutoCompleteExtender" runat="server"
                                                                 BehaviorID="txtSubAccessId0_AutoCompleteExtender" DelimiterCharacters=""
                                                                 MinimumPrefixLength="1"
@@ -737,7 +796,7 @@
                                                         </td>
                                                         <td colspan="2">
 
-                                                            <asp:CheckBoxList ID="chklistboxSubAccessPermission" runat="server" RepeatDirection="Horizontal" Width="300px">
+                                                            <asp:CheckBoxList ID="chklistboxSubAccessPermission" runat="server" RepeatDirection="Horizontal" Width="280px">
                                                             </asp:CheckBoxList>
                                                         </td>
                                                     </tr>
@@ -880,22 +939,27 @@
                                             <td>&nbsp;</td>
                                         </tr>
                                     </table>
+                                            </td>
+                                            <td style="width: 100px; text-align: right; float: right; padding-left: 25px; padding-top: 1px; padding-right: 1px;">
+                                                <div style="position: fixed; background-color: white">
+                                                    <table style="width: 100%;">
+                                                        <tr>
+                                                            <td><asp:Button ID="btnSaveConfiguration" runat="server" Text="Save" Width="70px" OnClick="btnSaveConfiguration_Click" /></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><asp:Button ID="btnClearConfiguration" runat="server" Text="Clear" Width="70px" OnClick="btnClearConfiguration_Click" /></td>
+                                                        </tr>
+                                                        
+                                                    </table>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                    </table>
+                                    
                                 </ContentTemplate>
                             </ajaxToolkit:TabPanel>
                         </ajaxToolkit:TabContainer>
-                    </td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-            </table>
         </ContentTemplate>
         <Triggers></Triggers>
     </asp:UpdatePanel>

@@ -8,7 +8,7 @@
         }
 
         .auto-style2 {
-            width: 97px;
+            width: 103px;
         }
     </style>
 
@@ -18,8 +18,8 @@
         <ContentTemplate>
             <table style="width: 99%">
                 <tr>
-                    <td>
-                        <table style="width: 50%; text-align: left">
+                    <td colspan="3">
+                        <table style="width: 35%; text-align: left">
                                 <tr>
                                     <td>&nbsp;</td>
                                     <td>
@@ -39,71 +39,34 @@
 
                             </table>
                     </td>
-                    <td>
-                        <div style="position: fixed; width: 350px; background-color: white; height: 100px">
-                            <table style="width: 100%; text-align: left;margin-left:5px">
-                                <tr>
-                                    <td colspan="2">
-                                        <asp:Button ID="btnAddNew" runat="server" Text="Add New" Width="125px" OnClick="btnAddNew_Click" /></td>
-                                    <td colspan="2">
-                                        <asp:Button ID="btnEdit" runat="server" Text="Edit" Width="120px" OnClick="btnEdit_Click" /></td>
-                                    <td>
-                                        <asp:Button ID="btnPrintSummery" runat="server" Text="Print" Width="55px" /></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save" Width="60px" />
-                                    </td>
-                                    <td>
-                                        <asp:Button ID="btnCancelAdd" runat="server" Text="Cancel" Width="60px" OnClick="btnCancelAdd_Click" />
-                                    </td>
-                                    <td>
-                                        <asp:Button ID="btnUpdate" runat="server" Text="Update" Width="60px" OnClick="btnUpdate_Click" /></td>
-                                    <td>
-                                        <asp:Button ID="btnCancelEdit" runat="server" Text="Cancel" Width="60px" OnClick="btnCancelEdit_Click" /></td>
-                                    <td>&nbsp;</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </td>
                 </tr>
                 <tr>
-                    <td>
-                        <hr id="searchbottom" runat="server" style="border:0; height: 1px; background: #333;  background-image: linear-gradient(to right, #ccc, #333, #ccc); width: 665px;" />
+                    <td colspan="3"> 
+                        <hr id="searchbottom" runat="server" style="border:0; height: 1px; background: #333;  background-image: linear-gradient(to right, #ccc, #333, #ccc); width: 1175px;" />
                         </td>
-                    <td>
-                        &nbsp;</td>
+                    
                 </tr>
                 <tr>
                     <td>
-                        <div style="text-align: left; padding-top: 1px; height: 900px; width: 665px">
-                            <div style="height: 415px; width: 600px">
-                                <asp:Panel ID="Panel5" runat="server" Height="100%" ScrollBars="Auto"
+                        <div style="text-align: left;height: 500px; width: 500px;">
+                            <div style="height:32px">
+                                <asp:Button ID="btnAddNew" runat="server" Text="Add New" Width="100px" OnClick="btnAddNew_Click" /><asp:Button ID="btnEdit" runat="server" Text="Edit" Width="100px" OnClick="btnEdit_Click" />
+                                </div>
+                            <div style="overflow:auto; height:425px;padding-top:5px">    
+                            <asp:Panel ID="Panel5" runat="server" Height="100%" 
                                     Width="100%">
                                     <asp:TreeView ID="treeCOAHead" runat="server" 
                                         OnTreeNodePopulate="treeCOAHead_TreeNodePopulate"
                                         OnSelectedNodeChanged="treeCOAHead_SelectedNodeChanged">
                                     </asp:TreeView>
                                 </asp:Panel>
+                                </div>
                             </div>
-                        </div>
                     </td>
                     <td>
-                        <div style="text-align: left; padding-top: -1px; height: 900px; width: 350px">
+                        <div style="text-align:left;height: 500px; width: 425px">
                             <asp:Panel ID="Panel1" runat="server" Height="100%" BackColor="Silver" Width="100%">
                                 <table style="width: 99%; text-align: left; margin-left: 5px">
-                                    <tr>
-                                        <td colspan="4"></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4"></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4"></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4">&nbsp;</td>
-                                    </tr>
                                     <tr>
                                         <td colspan="4">
                                             <table style="width: 99%;">
@@ -137,7 +100,7 @@
                                         </td>
                                         <td>:</td>
                                         <td colspan="2">
-                                            <asp:TextBox ID="txtAccountHead" runat="server" Width="200px"></asp:TextBox>
+                                            <asp:TextBox ID="txtAccountHead" runat="server" Width="205px"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>
@@ -161,7 +124,7 @@
                                         </td>
                                         <td>:</td>
                                         <td colspan="2">
-                                            <asp:TextBox ID="txtAccountDescription" runat="server" Height="100px" TextMode="MultiLine" Width="200px"></asp:TextBox>
+                                            <asp:TextBox ID="txtAccountDescription" runat="server" Height="100px" TextMode="MultiLine" Width="205px"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>
@@ -200,7 +163,7 @@
                                                         </td>
                                                         <td>:</td>
                                                         <td>
-                                                            <asp:TextBox ID="txtSubledgerTypeID" runat="server" Width="200px"></asp:TextBox>
+                                                            <asp:TextBox ID="txtSubledgerTypeID" runat="server" Width="205px"></asp:TextBox>
                                                             <cc1:AutoCompleteExtender ID="txtSubledgerTypeID_AutoCompleteExtender" runat="server"
                                                                 CompletionListCssClass="autocomplete_completionListElement"
                                                                 CompletionListHighlightedItemCssClass="autocomplete_highlightedListItem"
@@ -219,7 +182,7 @@
                                                         </td>
                                                         <td>:</td>
                                                         <td>
-                                                            <asp:TextBox ID="txtSubledgerTypeID0" runat="server" Width="200px"></asp:TextBox>
+                                                            <asp:TextBox ID="txtSubledgerTypeID0" runat="server" Width="205px"></asp:TextBox>
                                                             <cc1:AutoCompleteExtender ID="txtSubledgerTypeID0_AutoCompleteExtender" runat="server"
                                                                 CompletionListCssClass="autocomplete_completionListElement"
                                                                 CompletionListHighlightedItemCssClass="autocomplete_highlightedListItem"
@@ -238,7 +201,7 @@
                                                         </td>
                                                         <td>:</td>
                                                         <td>
-                                                            <asp:TextBox ID="txtSubledgerTypeID1" runat="server" Width="200px"></asp:TextBox>
+                                                            <asp:TextBox ID="txtSubledgerTypeID1" runat="server" Width="205px"></asp:TextBox>
                                                             <cc1:AutoCompleteExtender ID="txtSubledgerTypeID1_AutoCompleteExtender" runat="server"
                                                                 CompletionListCssClass="autocomplete_completionListElement"
                                                                 CompletionListHighlightedItemCssClass="autocomplete_highlightedListItem"
@@ -257,7 +220,7 @@
                                                         </td>
                                                         <td>:</td>
                                                         <td>
-                                                            <asp:TextBox ID="txtSubledgerTypeID2" runat="server" Width="200px"></asp:TextBox>
+                                                            <asp:TextBox ID="txtSubledgerTypeID2" runat="server" Width="205px"></asp:TextBox>
                                                             <cc1:AutoCompleteExtender ID="txtSubledgerTypeID2_AutoCompleteExtender" runat="server"
                                                                 CompletionListCssClass="autocomplete_completionListElement"
                                                                 CompletionListHighlightedItemCssClass="autocomplete_highlightedListItem"
@@ -276,7 +239,7 @@
                                                         </td>
                                                         <td>:</td>
                                                         <td>
-                                                            <asp:TextBox ID="txtSubledgerTypeID3" runat="server" Width="200px"></asp:TextBox>
+                                                            <asp:TextBox ID="txtSubledgerTypeID3" runat="server" Width="205px"></asp:TextBox>
                                                             <cc1:AutoCompleteExtender ID="txtSubledgerTypeID3_AutoCompleteExtender" runat="server"
                                                                 CompletionListCssClass="autocomplete_completionListElement"
                                                                 CompletionListHighlightedItemCssClass="autocomplete_highlightedListItem"
@@ -307,6 +270,28 @@
                                     
                                 </table>
                             </asp:Panel>
+                        </div>
+                    </td>
+                    <td style="width:125px;float:left">
+                        <div style="height: 500px;position:fixed">
+                            <table>
+                                <tr>
+                                    <td><asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save" Width="70px" /></td>
+                                </tr>
+                                <tr>
+                                    <td><asp:Button ID="btnCancelAdd" runat="server" Text="Cancel" Width="70px" OnClick="btnCancelAdd_Click" /></td>
+                                </tr>
+                                <tr>
+                                    <td><asp:Button ID="btnPrintSummery" runat="server" Text="Print" Width="70px" /></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><asp:Button ID="btnUpdate" runat="server" Text="Update" Width="70px" OnClick="btnUpdate_Click" /></td>
+                                </tr>
+                                <tr>
+                                    <td><asp:Button ID="btnCancelEdit" runat="server" Text="Cancel" Width="70px" OnClick="btnCancelEdit_Click" /></td>
+                                </tr>
+                            </table>
                         </div>
                     </td>
                 </tr>

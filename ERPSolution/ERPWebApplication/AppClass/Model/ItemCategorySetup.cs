@@ -26,15 +26,23 @@ namespace ERPWebApplication.AppClass.Model
         public int BranchID
         {
             get { return _branchID; }
-            set
-            {
-                if (value == 0)
-                {
-                    throw new Exception(" Branch id is required");
-
-                } _branchID = value;
-            }
+            set { _branchID = value; }
         }
+
+        //public int BranchID
+        //{
+        //    get { return _branchID; }
+        //    set
+        //    {
+        //        if (value == 0)
+        //        {
+        //            throw new Exception(" Branch id is required");
+
+        //        } _branchID = value;
+        //    }
+        //}
+
+        
         private int _categoryTypeID;
 
         public int CategoryTypeID

@@ -9,8 +9,8 @@
             width: 110px;
         }
 
-        .auto-style3 {
-            width: 142px;
+        .auto-style4 {
+            height: 18px;
         }
     </style>
 </asp:Content>
@@ -20,9 +20,8 @@
         <ContentTemplate>
             <table style="width: 100%; text-align: left">
                 <tr>
-                    <td colspan="2">
-                        <asp:Panel ID="Panel1" Width="430px" runat="server">
-                            <table style="width: 100%; text-align: left">
+                    <td colspan="4" style="float: left;">
+                        <table style="width: 88%; text-align: left">
                                 <tr>
                                     <td>&nbsp;</td>
                                     <td>
@@ -41,50 +40,26 @@
                                 </tr>
 
                             </table>
-                        </asp:Panel>
-
                     </td>
-                    <td colspan="2" style="float: right; margin-right: 430px">
-                        <div style="position: fixed; width: 425px; background-color: white; height: 50px">
-                            <table style="width: 100%;">
+                    
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <hr id="searchbottom" runat="server" style="border:0; height: 1px; background: #333;  background-image: linear-gradient(to right, #ccc, #333, #ccc); width: 1175px;" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="3">
+                        <asp:Panel ID="PanelBody"  runat="server">
+                             <table style="width: 100%;">
                                 <tr>
-                                    <td>&nbsp;<asp:CheckBox runat="server" ID="CheckBoxAddItem" CssClass="checkbox" ForeColor="Gray" AutoPostBack="True" OnCheckedChanged="CheckBoxAddItem_CheckedChanged" />
+                                    <td style="width:500px;float:left;">
+                                        <div style="min-height: 500px; width: 500px;">
+                                            <asp:CheckBox runat="server" ID="CheckBoxAddItem" CssClass="checkbox" ForeColor="Gray" AutoPostBack="True" OnCheckedChanged="CheckBoxAddItem_CheckedChanged" />
                                         <asp:Label ID="Label3" runat="server" AssociatedControlID="CheckBoxAddItem" CssClass="checkbox" ForeColor="Gray">Add Item?</asp:Label>
-                                    </td>
-                                    <td style="text-align: right">
-                                        <asp:Button ID="btnSave" CssClass="CssBtnSave" runat="server" Text="Save" Width="75px" OnClick="btnSave_Click" />
-                                    </td>
-                                    <td style="text-align: center">
-                                        <asp:Button ID="btnUpdate" runat="server" Text="Update" Width="115px" OnClick="btnUpdate_Click" />
-                                    </td>
-                                    <td style="text-align: left">
-
-                                        <asp:Button ID="Button3" runat="server" Text="Print" Width="75px" />
-
-                                    </td>
-
-                                </tr>
-                            </table>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="4">
-                        <hr id="searchbottom" runat="server" style="border:0; height: 1px; background: #333;  background-image: linear-gradient(to right, #ccc, #333, #ccc); width: 1010px;" />
-                    </td>
-                </tr>
-
-                <tr>
-                    <td colspan="4">
-
-                        <asp:Panel ID="PanelBody" runat="server">
-
-                            <table style="width: 100%;">
-                                <tr>
-                                    <td>
-                                        <div style="height: 1015px; width: 600px">
-                                            <div style="height: 415px; width: 600px">
-                                                <asp:Panel ID="PanelLeft" runat="server" Height="100%" Width="100%" ScrollBars="Auto">
+                                            <div style="overflow:auto; height:425px;padding-top:5px">  
+                                            <asp:Panel ID="PanelLeft" runat="server" Height="100%" Width="100%" >
                                                     <table style="width: 100%;">
                                                         <tr>
                                                             <td colspan="3">
@@ -137,11 +112,11 @@
                                                         </tr>
                                                     </table>
                                                 </asp:Panel>
-                                            </div>
+                                                </div>
                                         </div>
                                     </td>
-                                    <td>
-                                        <div style="height: 1015px; width: 425px">
+                                    <td style="width:490px;float:left">
+                                        <div style="min-height: 500px; width: 425px">
                                             <asp:Panel ID="PanelRight" runat="server" BackColor="#E0E0E0" Width="100%">
                                                 <table style="width: 99%; margin-left: 5px; text-align: left">
 
@@ -152,7 +127,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <asp:Label ID="Label1" runat="server" Text="Category Name"></asp:Label>
+                                                            <asp:Label ID="Label1" runat="server" Text="Category Name" Width="125px"></asp:Label>
                                                         </td>
                                                         <td>:</td>
                                                         <td>
@@ -181,7 +156,7 @@
                                                                 <table style="width: 100%">
 
                                                                     <tr>
-                                                                        <td class="auto-style1">&nbsp;<asp:Label ID="Label4" runat="server" Text="Product Type"></asp:Label>
+                                                                        <td class="auto-style1">&nbsp;<asp:Label ID="Label4" runat="server" Text="Product Type" Width="125px"></asp:Label>
                                                                         </td>
                                                                         <td>:</td>
                                                                         <td>
@@ -209,7 +184,7 @@
                                                                 <table style="width: 100%;">
                                                                     <tr>
                                                                         <td>
-                                                                            <asp:Label ID="Label39" runat="server" Text="Item Code"></asp:Label>
+                                                                            <asp:Label ID="Label39" runat="server" Text="Item Code" Width="125px"></asp:Label>
                                                                         </td>
                                                                         <td>:</td>
                                                                         <td>
@@ -391,31 +366,60 @@
                                             </asp:Panel>
                                         </div>
                                     </td>
+                                    <td  >
+                                        
+                                    </td>
                                 </tr>
                             </table>
-
                         </asp:Panel>
-
+                    </td>
+                    <td style="width:125px;float:left">
+                        <div style="min-height: 500px;position:fixed">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <asp:Button ID="btnSave" CssClass="CssBtnSave" runat="server" Text="Save" Width="70px" OnClick="btnSave_Click" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <asp:Button ID="btnUpdate" runat="server" Text="Update" Width="70px" OnClick="btnUpdate_Click" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <asp:Button ID="Button3" runat="server" Text="Print" Width="70px" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
                     </td>
                 </tr>
-
                 <tr>
-                    <td colspan="4">
-
-                        <asp:Panel ID="PanelItemSetup" BackColor="#DDEFF9" Width="100%" runat="server">
+                    <td colspan="3">
+                        <asp:Panel ID="PanelItemSetup" BackColor="#DDEFF9" Width="90%" runat="server">
                             <table style="width: 100%;">
                                 <tr>
-                                    <td colspan="4">
+                                    <td colspan="4" >
                                         <asp:Panel ID="PanelGetCategory" BackColor="#E0E0E0" BorderStyle="Solid" BorderWidth="3px" BorderColor="#E0E0E0" runat="server">
                                             <table style="width: 40%;">
                                                 <tr>
                                                     <td>
                                                         <asp:Label ID="Label9" Style="text-align: center" runat="server" Text="Category" BackColor="#FE817F" Width="65px" ForeColor="White" Font-Bold="True"></asp:Label>
+                                                        
                                                     </td>
                                                     <td>:</td>
                                                     <td>
                                                         <asp:DropDownList ID="ddlCategory" runat="server">
                                                         </asp:DropDownList>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td colspan="3">
+                                                        <asp:Label ID="lblSkip" runat="server" ForeColor="#0072B0"> (Click </asp:Label>
+                                                                    <asp:LinkButton ID="btnskip" runat="server" OnClick="btnskip_Click" >Cancel</asp:LinkButton>
+                                                                    <asp:Label ID="lblSkip0" runat="server" ForeColor="#0072B0">if you want to close item entry)</asp:Label>
                                                     </td>
                                                 </tr>
 
@@ -430,7 +434,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="2">
-                                        <div style="padding-top: 0px; width: 500px">
+                                        <div style="width: 500px;min-height:235px">
                                             <table style="width: 100%; text-align: left">
                                                 <tr>
                                                     <td>
@@ -501,72 +505,63 @@
                                                 </tr>
                                                 <tr>
                                                     <td colspan="3">
-                                                        <table style="width: 50%; text-align: left">
-                                                            <tr>
-                                                                <td colspan="4">
-                                                                    <asp:Label ID="Label27" runat="server" Text="Enter Account Information" ForeColor="#793F19" Width="500px"></asp:Label>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <asp:Label ID="Label28" runat="server" Text="Sales Account No"></asp:Label>
-                                                                </td>
-                                                                <td>:</td>
-                                                                <td>
-                                                                    <asp:DropDownList ID="ddlSalesAccountNo" runat="server">
-                                                                    </asp:DropDownList>
-                                                                </td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <asp:Label ID="Label29" runat="server" Text="Stock Account No"></asp:Label>
-                                                                </td>
-                                                                <td>:</td>
-                                                                <td>
-                                                                    <asp:DropDownList ID="ddlStockAccountNo" runat="server">
-                                                                    </asp:DropDownList>
-                                                                </td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <asp:Label ID="Label30" runat="server" Text="COGS Account No"></asp:Label>
-                                                                </td>
-                                                                <td>:</td>
-                                                                <td>
-                                                                    <asp:DropDownList ID="ddlCOGSAccountNo" runat="server">
-                                                                    </asp:DropDownList>
-                                                                </td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <asp:Label ID="Label31" runat="server" Text="Sales Return Account"></asp:Label>
-                                                                </td>
-                                                                <td>:</td>
-                                                                <td>
-                                                                    <asp:DropDownList ID="ddlSalesReturnAccount" runat="server">
-                                                                    </asp:DropDownList>
-                                                                </td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td colspan="2">
-                                                                    <asp:CheckBox ID="CheckBoxSameAccount" runat="server" CssClass="checkbox" />
-                                                                    <asp:Label ID="Label32" runat="server" AssociatedControlID="CheckBoxSameAccount" CssClass="checkbox"> Same Account for all items</asp:Label>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
+                                                        <asp:Label ID="Label27" runat="server" Font-Underline="True" ForeColor="#793F19" Text="Enter Account Information"></asp:Label>
                                                     </td>
                                                 </tr>
+                                                <tr>
+                                                    <td>
+                                                        <asp:Label ID="Label28" runat="server" Text="Sales Account No"></asp:Label>
+                                                    </td>
+                                                    <td>:</td>
+                                                    <td>
+                                                        <asp:DropDownList ID="ddlSalesAccountNo" runat="server">
+                                                        </asp:DropDownList>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <asp:Label ID="Label29" runat="server" Text="Stock Account No"></asp:Label>
+                                                    </td>
+                                                    <td>:</td>
+                                                    <td>
+                                                        <asp:DropDownList ID="ddlStockAccountNo" runat="server">
+                                                        </asp:DropDownList>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <asp:Label ID="Label30" runat="server" Text="COGS Account No"></asp:Label>
+                                                    </td>
+                                                    <td>:</td>
+                                                    <td>
+                                                        <asp:DropDownList ID="ddlCOGSAccountNo" runat="server">
+                                                        </asp:DropDownList>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <asp:Label ID="Label31" runat="server" Text="Sales Return Account"></asp:Label>
+                                                    </td>
+                                                    <td>:</td>
+                                                    <td>
+                                                        <asp:DropDownList ID="ddlSalesReturnAccount" runat="server">
+                                                        </asp:DropDownList>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>
+                                                        <asp:CheckBox ID="CheckBoxSameAccount" runat="server" CssClass="checkbox" />
+                                                                    <asp:Label ID="Label32" runat="server" AssociatedControlID="CheckBoxSameAccount" CssClass="checkbox"> Same Account for all items</asp:Label>
+                                                    </td>
+                                                </tr>
+                                                
                                             </table>
                                         </div>
                                     </td>
                                     <td colspan="2">
-                                        <div style="padding-top: 0px; width: 500px">
+                                        <div style="width: 500px;min-height:235px">
                                             <table style="width: 98%;">
                                                 <tr>
                                                     <td>
@@ -588,51 +583,45 @@
                                                 </tr>
                                                 <tr>
                                                     <td colspan="3">
-                                                        <table style="width: 100%; text-align: left">
-                                                            <tr>
-                                                                <td colspan="3">
-                                                                    <asp:Label ID="Label35" runat="server" ForeColor="#793F19" Text="Unit Information"></asp:Label>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="auto-style3">
-                                                                    <asp:Label ID="Label17" runat="server" Text="Opening Balance"></asp:Label>
-                                                                </td>
-                                                                <td>:</td>
-                                                                <td>
-                                                                    <asp:TextBox ID="txtOpeningBalance" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="auto-style3">
-                                                                    <asp:Label ID="Label12" runat="server" Text="Unit"></asp:Label>
-                                                                </td>
-                                                                <td>:</td>
-                                                                <td>
-                                                                    <asp:DropDownList ID="ddlUnit" runat="server">
-                                                                    </asp:DropDownList>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="auto-style3">
-                                                                    <asp:Label ID="Label36" runat="server" Text="Break Up Quantity"></asp:Label>
-                                                                </td>
-                                                                <td>:</td>
-                                                                <td>
-                                                                    <asp:TextBox ID="txtBreakUpQuantity" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="auto-style3">
-                                                                    <asp:Label ID="Label37" runat="server" Text="Break Up Unit"></asp:Label>
-                                                                </td>
-                                                                <td>:</td>
-                                                                <td>
-                                                                    <asp:DropDownList ID="ddlBreakupUnit" runat="server">
-                                                                    </asp:DropDownList>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
+                                                        <asp:Label ID="Label35" runat="server" ForeColor="#793F19" Text="Unit Information" Font-Underline="True"></asp:Label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="auto-style4">
+                                                        <asp:Label ID="Label17" runat="server" Text="Opening Balance"></asp:Label>
+                                                    </td>
+                                                    <td class="auto-style4">:</td>
+                                                    <td class="auto-style4">
+                                                        <asp:TextBox ID="txtOpeningBalance" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <asp:Label ID="Label12" runat="server" Text="Unit"></asp:Label>
+                                                    </td>
+                                                    <td>:</td>
+                                                    <td>
+                                                        <asp:DropDownList ID="ddlUnit" runat="server">
+                                                        </asp:DropDownList>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <asp:Label ID="Label36" runat="server" Text="Break Up Quantity"></asp:Label>
+                                                    </td>
+                                                    <td>:</td>
+                                                    <td>
+                                                        <asp:TextBox ID="txtBreakUpQuantity" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <asp:Label ID="Label37" runat="server" Text="Break Up Unit"></asp:Label>
+                                                    </td>
+                                                    <td>:</td>
+                                                    <td>
+                                                        <asp:DropDownList ID="ddlBreakupUnit" runat="server">
+                                                        </asp:DropDownList>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -657,23 +646,9 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td colspan="2"></td>
-                                    <td colspan="2"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4"></td>
-                                </tr>
-
-                            </table>
+                                 </table>
                         </asp:Panel>
-
                     </td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td colspan="2"></td>
                     <td></td>
                 </tr>
             </table>
