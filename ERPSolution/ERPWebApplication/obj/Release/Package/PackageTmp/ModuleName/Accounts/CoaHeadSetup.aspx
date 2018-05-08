@@ -31,7 +31,7 @@
                                         CompletionListItemCssClass="autocomplete_listItem2"
                                         DelimiterCharacters=""
                                         Enabled="True"
-                                        MinimumPrefixLength="1" ServiceMethod="GetItemName" ServicePath="~/WebService/ServiceSystem.asmx" TargetControlID="txtSearch">
+                                        MinimumPrefixLength="1" ServiceMethod="GetCOAHeadName" ServicePath="~/WebService/ServiceSystem.asmx" TargetControlID="txtSearch">
                                     </ajaxToolkit:AutoCompleteExtender>
                                     <td>
                                         <asp:Button ID="btnSearch" runat="server" Text="Search" Height="30px" Width="100px" OnClick="btnSearch_Click" /></td>
@@ -55,9 +55,15 @@
                             <div style="overflow:auto; height:425px;padding-top:5px">    
                             <asp:Panel ID="Panel5" runat="server" Height="100%" 
                                     Width="100%">
-                                    <asp:TreeView ID="treeCOAHead" runat="server" 
+                                    <asp:TreeView ID="treeCOAHead" runat="server" ImageSet="Simple" NodeIndent="15"
                                         OnTreeNodePopulate="treeCOAHead_TreeNodePopulate"
                                         OnSelectedNodeChanged="treeCOAHead_SelectedNodeChanged">
+                                        <HoverNodeStyle Font-Underline="True" ForeColor="#6666AA" />
+                                    <NodeStyle Font-Names="Tahoma" Font-Size="10pt" ForeColor="Black" HorizontalPadding="2px"
+                                        NodeSpacing="0px" VerticalPadding="2px"></NodeStyle>
+                                    <ParentNodeStyle Font-Bold="False" />
+                                    <SelectedNodeStyle BackColor="#B5B5B5" Font-Underline="False" HorizontalPadding="0px"
+                                        VerticalPadding="0px" />
                                     </asp:TreeView>
                                 </asp:Panel>
                                 </div>
@@ -72,6 +78,7 @@
                                             <table style="width: 99%;">
                                                 <tr>
                                                     <td>
+                                                        <div style="margin-top:-12px">
                                                         <asp:RadioButtonList ID="rblAccountType" runat="server" RepeatDirection="Horizontal" AutoPostBack="True"
                                                             OnSelectedIndexChanged="rblAccountType_SelectedIndexChanged" Width="100%">
                                                             <asp:ListItem Value="0" Selected="True">Asset</asp:ListItem>
@@ -79,6 +86,7 @@
                                                             <asp:ListItem Value="2">Revenue</asp:ListItem>
                                                             <asp:ListItem Value="3">Expense</asp:ListItem>
                                                         </asp:RadioButtonList>
+                                                            </div>
                                                     </td>
                                                 </tr>
                                             </table>

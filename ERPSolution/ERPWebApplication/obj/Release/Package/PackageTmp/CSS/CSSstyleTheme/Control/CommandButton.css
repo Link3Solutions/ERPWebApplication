@@ -112,13 +112,13 @@ font-family:Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
 
 .CssBtnSave
 {
-background-color:blue;     
+background-color:skyblue;     
 width:98px;
 font-size: 10pt;
 border: none;
 height :30px;
 /*color:#fff;*/
-color:red;
+color:black;
 text-decoration:none;
 cursor:pointer;
 /*background:blue;*/
@@ -135,7 +135,7 @@ height :30px;
 color:#fff;
 text-decoration:none;
 cursor:pointer;
-background:red;
+background:#3e93bf;
 font-family:Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
 }
 

@@ -31,6 +31,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                     Session["lastPositionNo"] = 1;
                     Session["branchID"] = 1;
                     ShowsysTwoColumnTables();
+                    
                 }
 
             }
@@ -59,9 +60,9 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 {
                     grdTableName.DataSource = dtTablesName;
                     grdTableName.DataBind();
-
                 }
 
+                ControlVisibleTrue(dtTablesName);
             }
             catch (Exception msgException)
             {
@@ -69,6 +70,25 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 throw msgException;
             }
 
+        }
+
+        private void ControlVisibleTrue(DataTable dtTablesNameTemp)
+        {
+            if (dtTablesNameTemp.Rows.Count > 0)
+            {
+                PanelForInputControl.Visible = true;
+                btnSave.Visible = true;
+                btnClear.Visible = true;
+                lblStatus.Visible = false;
+            }
+            else
+            {
+
+                PanelForInputControl.Visible = false;
+                btnSave.Visible = false;
+                btnClear.Visible = false;
+                lblStatus.Visible = true;
+            }
         }
 
         protected void grdTableName_RowDataBound(object sender, GridViewRowEventArgs e)

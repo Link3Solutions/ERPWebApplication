@@ -7,71 +7,16 @@
         <ContentTemplate>
             <table style="width: 100%; text-align: left">
                 <tr>
-                    <td colspan="2" style="width: 600px; float: left">
-                        <div style="overflow:auto; height:500px;">
+                    <td  style="float: left">
+                        <div style="height:32px;width:500px"><asp:Button ID="btnAddNew" runat="server" Text="AddNew" Width="100px" OnClick="btnAddNew_Click" /><asp:Button ID="btnEdit" runat="server" Text="Edit" Width="100px" OnClick="btnEdit_Click" /></div>
+                        <div style="overflow:auto; height:475px;width:500px">
                         <asp:TreeView ID="treeNodeList" runat="server" ImageSet="Msdn" OnSelectedNodeChanged="treeNodeList_SelectedNodeChanged" OnTreeNodePopulate="treeNodeList_TreeNodePopulate">
                         </asp:TreeView>
                             </div>
                     </td>
-                    <td colspan="2" style="text-align: left; float: left">
+                    <td  style="text-align: left; float: left;">
+                        <div style="height: 475px;width:475px;padding-left:5px">
                         <table style="width: 100%;">
-                            <tr>
-                                <td colspan="3" style="margin-top: -5px">
-                                    <div style="position: fixed; width: 425px; background-color: white; height: 85px">
-                                        <table style="width: 100%; margin-left: 5px">
-                                            <tr>
-                                                <td colspan="2">
-                                                    <asp:Button ID="btnAddNew" runat="server" Text="AddNew" Width="150px" OnClick="btnAddNew_Click" />
-                                                </td>
-                                                <td colspan="2">
-                                                    <asp:Button ID="btnEdit" runat="server" Text="Edit" Width="150px" OnClick="btnEdit_Click" />
-                                                </td>
-                                                <td>
-                                                    <asp:Button ID="btnPrint" runat="server" Text="Print" Width="95px" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <asp:Button ID="btnSave" runat="server" Text="Save" Width="70px" OnClick="btnSave_Click" />
-                                                </td>
-                                                <td>
-                                                    <asp:Button ID="btnCancelAddNew" runat="server" Text="Cancel" Width="70px" OnClick="btnCancelAddNew_Click" />
-                                                </td>
-                                                <td>
-                                                    <asp:Button ID="btnUpdate" runat="server" Text="Update" Width="70px" OnClick="btnUpdate_Click" />
-                                                </td>
-                                                <td>
-                                                    <asp:Button ID="btnCancelEdit" runat="server" Text="Cancel" Width="70px" OnClick="btnCancelEdit_Click" />
-                                                </td>
-                                                <td>
-                                                    &nbsp;</td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">
-                                    &nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">
-                                    &nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">
-                                    &nbsp;</td>
-                            </tr>
                             <tr>
                                 <td colspan="3">
                                     <asp:Label ID="lblParentText" runat="server"></asp:Label>
@@ -80,7 +25,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:Label ID="Label5" runat="server" Text="Title"></asp:Label>
+                                    <asp:Label ID="Label5" runat="server" Text="Title" Width="65px"></asp:Label>
                                 </td>
                                 <td>:</td>
                                 <td>
@@ -118,7 +63,7 @@
                                 </td>
                                 <td>:</td>
                                 <td>
-                                    <asp:DropDownList ID="ddlShowPosition" runat="server" Width="320px">
+                                    <asp:DropDownList ID="ddlShowPosition" runat="server" Width="310px">
                                         <asp:ListItem Selected="True" Value="-1">--- Please Select ---</asp:ListItem>
                                         <asp:ListItem Value="1">Menu</asp:ListItem>
                                         <asp:ListItem Value="2">Dashboard</asp:ListItem>
@@ -131,43 +76,32 @@
                                         <table style="width:100%;">
                                             <tr>
                                                 <td>
-                                                    <asp:Label ID="Label6" runat="server" Text="Form URL"></asp:Label>
+                                                    <asp:Label ID="Label6" runat="server" Text="Form URL" Width="65px"></asp:Label>
                                                 </td>
                                                 <td>:</td>
                                                 <td>
-                                                    <asp:DropDownList ID="ddlFormURL" runat="server" Width="320px">
+                                                    <asp:DropDownList ID="ddlFormURL" runat="server" Width="310px">
                                                     </asp:DropDownList>
                                                 </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    &nbsp;</td>
-                                                <td>&nbsp;</td>
-                                                <td>
-                                                    &nbsp;</td>
-                                            </tr>
-                                            <tr>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                            </tr>
-                                            <tr>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
                                             </tr>
                                         </table>
                                     </asp:Panel>
                                 </td>
                             </tr>
                         </table>
-
+                            </div>
                     </td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td colspan="2">&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td style="float:left">
+                        <div style="height: 475px;width:125px;position:fixed">
+                            <table>
+                                <tr><td><asp:Button ID="btnSave" runat="server" Text="Save" Width="70px" OnClick="btnSave_Click" /></td></tr>
+                                <tr><td><asp:Button ID="btnCancelAddNew" runat="server" Text="Cancel" Width="70px" OnClick="btnCancelAddNew_Click" /></td></tr>
+                                <tr><td><asp:Button ID="btnPrint" runat="server" Text="Print" Width="70px" /></td></tr>
+                                <tr><td><asp:Button ID="btnUpdate" runat="server" Text="Update" Width="70px" OnClick="btnUpdate_Click" /></td></tr>
+                                <tr><td><asp:Button ID="btnCancelEdit" runat="server" Text="Cancel" Width="70px" OnClick="btnCancelEdit_Click" /></td></tr>
+                            </table>
+                        </div>
+                    </td>
                 </tr>
             </table>
         </ContentTemplate>

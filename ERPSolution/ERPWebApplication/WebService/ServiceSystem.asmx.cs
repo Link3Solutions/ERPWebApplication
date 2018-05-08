@@ -460,6 +460,42 @@ namespace ERPWebApplication.WebService
         }
 
         [WebMethod]
+        public List<string> GetCOAHeadName(string prefixText, int count, string contextKey)
+        {
+            try
+            {
+                _objCompanySetup = new CompanySetup();
+                _objCompanySetup.CompanyID = Convert.ToInt32(contextKey);
+                List<string> ItemList = new List<string>();
+                DataTable dtCOAHead = new DataTable();
+                string sqlString = "";
+                if (prefixText == "*")
+                {
+                    sqlString = "SELECT AccountName FROM accCOAHeadSetup WHERE CompanyID = " + _objCompanySetup.CompanyID + " ORDER BY AccountName";
+
+                }
+                else
+                {
+                    sqlString = "SELECT AccountName FROM accCOAHeadSetup WHERE CompanyID = " + _objCompanySetup.CompanyID + " AND (AccountNo like '%" + prefixText + "%'  or (AccountName like '%" + prefixText + "%')) ORDER BY AccountName";
+
+                }
+
+                dtCOAHead = clsDataManipulation.GetData(_connectionString, sqlString);
+                foreach (DataRow dr in dtCOAHead.Rows)
+                {
+                    ItemList.Add(dr["AccountName"].ToString());
+                }
+                return ItemList;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        [WebMethod]
         public List<string> GetVoucherNo(string prefixText, int count, string contextKey)
         {
             try

@@ -41,6 +41,7 @@ namespace ERPWebApplication.ModuleName.Accounts
                     btnUpdate.Visible = false;
                     btnCancelAdd.Visible = false;
                     btnCancelEdit.Visible = false;
+                    txtSearch_AutoCompleteExtender.ContextKey = LoginUserInformation.CompanyID.ToString();
                 }
 
             }
@@ -521,29 +522,20 @@ namespace ERPWebApplication.ModuleName.Accounts
                     {
                         if (t.Text.ToUpper() == valueForSearch.ToUpper())
                         {
-                            t.Text = "<div style='color:orange;hight:15px'>" + t.Text + "</div>";
-
-                            t.Selected = true;
-
-
+                            t.Select();
                         }
                         for (int iParent = 0; iParent < t.ChildNodes.Count; iParent++)
                         {
                             if (t.ChildNodes[iParent].Text.ToUpper() == valueForSearch.ToUpper())
                             {
-                                t.ChildNodes[iParent].Text = "<div style='color:orange;hight:15px'>" + t.ChildNodes[iParent].Text + "</div>";
-
-                                t.ChildNodes[iParent].Selected = true;
-
-
+                                t.ChildNodes[iParent].Select();
                             }
                             for (int iChild = 0; iChild < t.ChildNodes[iParent].ChildNodes.Count; iChild++)
                             {
                                 if (t.ChildNodes[iParent].ChildNodes[iChild].Text.ToUpper() == valueForSearch.ToUpper())
                                 {
-                                    t.ChildNodes[iParent].ChildNodes[iChild].Text = "<div style='color:orange;hight:15px'>" + t.ChildNodes[iParent].ChildNodes[iChild].Text + "</div>";
+                                    t.ChildNodes[iParent].ChildNodes[iChild].Select();
 
-                                    t.ChildNodes[iParent].ChildNodes[iChild].Selected = true;
                                 }
                             }
                         }
@@ -557,7 +549,6 @@ namespace ERPWebApplication.ModuleName.Accounts
                 clsTopMostMessageBox.Show(msgException.Message);
             }
         }
-
 
     }
 }

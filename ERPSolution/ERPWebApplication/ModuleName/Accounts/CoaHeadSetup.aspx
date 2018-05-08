@@ -4,7 +4,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
         .auto-style1 {
-            width: 93px;
         }
 
         .auto-style2 {
@@ -31,7 +30,7 @@
                                         CompletionListItemCssClass="autocomplete_listItem2"
                                         DelimiterCharacters=""
                                         Enabled="True"
-                                        MinimumPrefixLength="1" ServiceMethod="GetItemName" ServicePath="~/WebService/ServiceSystem.asmx" TargetControlID="txtSearch">
+                                        MinimumPrefixLength="1" ServiceMethod="GetCOAHeadName" ServicePath="~/WebService/ServiceSystem.asmx" TargetControlID="txtSearch">
                                     </ajaxToolkit:AutoCompleteExtender>
                                     <td>
                                         <asp:Button ID="btnSearch" runat="server" Text="Search" Height="30px" Width="100px" OnClick="btnSearch_Click" /></td>
@@ -55,9 +54,15 @@
                             <div style="overflow:auto; height:425px;padding-top:5px">    
                             <asp:Panel ID="Panel5" runat="server" Height="100%" 
                                     Width="100%">
-                                    <asp:TreeView ID="treeCOAHead" runat="server" 
+                                    <asp:TreeView ID="treeCOAHead" runat="server" ImageSet="Simple" NodeIndent="15" 
                                         OnTreeNodePopulate="treeCOAHead_TreeNodePopulate"
                                         OnSelectedNodeChanged="treeCOAHead_SelectedNodeChanged">
+                                        <HoverNodeStyle Font-Underline="True" ForeColor="#6666AA" />
+                                    <NodeStyle Font-Names="Tahoma" Font-Size="10pt" ForeColor="Black" HorizontalPadding="0px"
+                                        NodeSpacing="0px" VerticalPadding="0px" ></NodeStyle>
+                                    <ParentNodeStyle Font-Bold="False"  />
+                                    <SelectedNodeStyle BackColor="#B5B5B5" Font-Underline="False" HorizontalPadding="0px"
+                                        VerticalPadding="0px" />
                                     </asp:TreeView>
                                 </asp:Panel>
                                 </div>
@@ -65,20 +70,22 @@
                     </td>
                     <td>
                         <div style="text-align:left;height: 500px; width: 425px">
-                            <asp:Panel ID="Panel1" runat="server" Height="100%" BackColor="Silver" Width="100%">
-                                <table style="width: 99%; text-align: left; margin-left: 5px">
+                            <asp:Panel ID="Panel1" runat="server" Height="100%" BackColor="#cccccc" Width="95%">
+                                <table style="width: 93%; text-align: left; margin-left: 15px">
                                     <tr>
                                         <td colspan="4">
                                             <table style="width: 99%;">
                                                 <tr>
                                                     <td>
+                                                        <div style="margin-top:-12px;height:50px">
                                                         <asp:RadioButtonList ID="rblAccountType" runat="server" RepeatDirection="Horizontal" AutoPostBack="True"
-                                                            OnSelectedIndexChanged="rblAccountType_SelectedIndexChanged" Width="100%">
+                                                            OnSelectedIndexChanged="rblAccountType_SelectedIndexChanged" Width="345px" Font-Names="Tahoma" Font-Size="10pt">
                                                             <asp:ListItem Value="0" Selected="True">Asset</asp:ListItem>
                                                             <asp:ListItem Value="1">Liability</asp:ListItem>
                                                             <asp:ListItem Value="2">Revenue</asp:ListItem>
                                                             <asp:ListItem Value="3">Expense</asp:ListItem>
                                                         </asp:RadioButtonList>
+                                                            </div>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -119,7 +126,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td style="margin-left:0px;margin-top:0px">
                                             <asp:Label ID="Label7" runat="server" Text="A/C Description"></asp:Label>
                                         </td>
                                         <td>:</td>
@@ -131,25 +138,16 @@
                                         <td colspan="4">
                                             <table style="width: 99%; text-align: left">
                                                 <tr>
-                                                    <td class="auto-style1">
-                                                        <asp:Label ID="Label8" runat="server"></asp:Label>
-                                                    </td>
-                                                    <td>&nbsp;</td>
-                                                    <td>
+                                                    <td class="auto-style1" colspan="3">
                                                         <asp:CheckBox ID="CheckBoxIsBudgetRelated" runat="server" CssClass="checkbox" />
-                                                        <asp:Label ID="Label2" runat="server" AssociatedControlID="CheckBoxIsBudgetRelated" CssClass="checkbox">Is Budget Related</asp:Label>
-
-                                                    </td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td class="auto-style1">&nbsp;</td>
-                                                    <td>&nbsp;</td>
-                                                    <td>
+                                                        <asp:Label ID="Label2" runat="server" AssociatedControlID="CheckBoxIsBudgetRelated" CssClass="checkbox" Font-Names="Tahoma" Font-Size="10pt">Is Budget Related</asp:Label>
                                                         <asp:CheckBox ID="CheckBoxAnalysisRequired" runat="server" CssClass="checkbox"
                                                             AutoPostBack="True" OnCheckedChanged="CheckBoxAnalysisRequired_CheckedChanged" />
-                                                        <asp:Label ID="Label3" runat="server" AssociatedControlID="CheckBoxAnalysisRequired" CssClass="checkbox">Analysis Required</asp:Label></td>
+                                                        <asp:Label ID="Label3" runat="server" AssociatedControlID="CheckBoxAnalysisRequired" CssClass="checkbox" Font-Names="Tahoma" Font-Size="10pt">Analysis Required</asp:Label>
+                                                    </td>
+
                                                 </tr>
+                                                
                                             </table>
                                         </td>
                                     </tr>

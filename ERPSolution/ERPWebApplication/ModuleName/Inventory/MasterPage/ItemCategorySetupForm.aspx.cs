@@ -558,28 +558,18 @@ namespace ERPWebApplication.ModuleName.Inventory.MasterPage
                     {
                         if (t.Text.ToUpper() == valueForSearch.ToUpper())
                         {
-                            t.Text = "<div style='color:orange;hight:15px'>" + t.Text + "</div>";
-
                             t.Selected = true;
-
-
                         }
                         for (int iParent = 0; iParent < t.ChildNodes.Count; iParent++)
                         {
                             if (t.ChildNodes[iParent].Text.ToUpper() == valueForSearch.ToUpper())
                             {
-                                t.ChildNodes[iParent].Text = "<div style='color:orange;hight:15px'>" + t.ChildNodes[iParent].Text + "</div>";
-
                                 t.ChildNodes[iParent].Selected = true;
-
-
                             }
                             for (int iChild = 0; iChild < t.ChildNodes[iParent].ChildNodes.Count; iChild++)
                             {
                                 if (t.ChildNodes[iParent].ChildNodes[iChild].Text.ToUpper() == valueForSearch.ToUpper())
                                 {
-                                    t.ChildNodes[iParent].ChildNodes[iChild].Text = "<div style='color:orange;hight:15px'>" + t.ChildNodes[iParent].ChildNodes[iChild].Text + "</div>";
-
                                     t.ChildNodes[iParent].ChildNodes[iChild].Selected = true;
                                 }
                             }

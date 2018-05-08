@@ -8,7 +8,8 @@
             <div style="width:1200px">
             <table style="width: 100%; text-align: left">
                 <tr>
-                    <td style="width: 450px; float: left;margin-left:1px;margin-top:1px">
+                    <td style="width: 430px; float: left;margin-left:1px;margin-top:1px">
+                        <asp:Label ID="lblStatus" runat="server" Text="NO DATA FOUND !" Visible="false"></asp:Label>
                         <asp:GridView ID="grdTableName" runat="server" AutoGenerateColumns="False" OnRowDataBound="grdTableName_RowDataBound" OnSelectedIndexChanged="grdTableName_SelectedIndexChanged">
                             <Columns>
                                 <asp:TemplateField HeaderText="SL">
@@ -33,6 +34,7 @@
                         </asp:GridView>
                     </td>
                     <td  style="width:425px;text-align: left; float: left">
+                        <asp:Panel ID="PanelForInputControl" runat="server">
                         <table style="width: 100%;">
                             <tr>
                                 <td colspan="3">
@@ -41,14 +43,14 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:Label ID="Label3" runat="server" Text="Name"></asp:Label></td>
+                                    <asp:Label ID="lblOptionalName" runat="server" Text="Name"></asp:Label></td>
                                 <td>:</td>
                                 <td>
                                     <asp:TextBox ID="txtFieldOfName" runat="server"></asp:TextBox></td>
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:Label ID="Label4" runat="server" Text="Description"></asp:Label></td>
+                                    <asp:Label ID="lblOptionalDescription" runat="server" Text="Description"></asp:Label></td>
                                 <td>:</td>
                                 <td>
                                     <asp:TextBox ID="txtFieldDescription" runat="server"></asp:TextBox></td>
@@ -89,6 +91,7 @@
                         </asp:GridView>
                                  </td></tr>
                         </table>
+                            </asp:Panel>
                     </td>
                     <td  style=" width:100px;text-align: right; float: right;padding-left:25px;padding-top:1px;padding-right:1px;">
                         <div style="position: fixed; background-color: white">

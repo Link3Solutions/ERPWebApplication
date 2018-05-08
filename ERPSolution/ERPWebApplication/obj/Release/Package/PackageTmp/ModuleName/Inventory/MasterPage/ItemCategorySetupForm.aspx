@@ -64,9 +64,15 @@
                                                         <tr>
                                                             <td colspan="3">
                                                                 <asp:TreeView ID="TreeViewCategory"
-                                                                    runat="server" OnTreeNodePopulate="TreeViewCategory_TreeNodePopulate"
+                                                                    runat="server" ImageSet="Simple" NodeIndent="15" OnTreeNodePopulate="TreeViewCategory_TreeNodePopulate"
                                                                     OnSelectedNodeChanged="TreeViewCategory_SelectedNodeChanged"
                                                                      Width="80%">
+                                                                    <HoverNodeStyle Font-Underline="True" ForeColor="#6666AA" />
+                                                            <NodeStyle Font-Names="Tahoma" Font-Size="10pt" ForeColor="Black" HorizontalPadding="2px"
+                                                                NodeSpacing="0px" VerticalPadding="2px"></NodeStyle>
+                                                            <ParentNodeStyle Font-Bold="False" />
+                                                            <SelectedNodeStyle BackColor="#B5B5B5" Font-Underline="False" HorizontalPadding="0px"
+                                                                VerticalPadding="0px" />
                                                                 </asp:TreeView>
                                                             </td>
                                                         </tr>
