@@ -33,7 +33,7 @@
                                         MinimumPrefixLength="1" ServiceMethod="GetCOAHeadName" ServicePath="~/WebService/ServiceSystem.asmx" TargetControlID="txtSearch">
                                     </ajaxToolkit:AutoCompleteExtender>
                                     <td>
-                                        <asp:Button ID="btnSearch" runat="server" Text="Search" Height="30px" Width="100px" OnClick="btnSearch_Click" /></td>
+                                        <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="CssBtnSearch" Height="30px" Width="100px" OnClick="btnSearch_Click" /></td>
                                 </tr>
 
                             </table>
@@ -49,7 +49,7 @@
                     <td>
                         <div style="text-align: left;height: 500px; width: 500px;">
                             <div style="height:32px">
-                                <asp:Button ID="btnAddNew" runat="server" Text="Add New" Width="100px" OnClick="btnAddNew_Click" /><asp:Button ID="btnEdit" runat="server" Text="Edit" Width="100px" OnClick="btnEdit_Click" />
+                                <asp:Button ID="btnAddNew" runat="server" CssClass="CssBtnAddNew" Text="Add New" Width="70px" OnClick="btnAddNew_Click" /><asp:Button ID="btnEdit" runat="server" CssClass="CssBtnUpdate" Text="Edit" Width="70px" OnClick="btnEdit_Click" />
                                 </div>
                             <div style="overflow:auto; height:425px;padding-top:5px">    
                             <asp:Panel ID="Panel5" runat="server" Height="100%" 
@@ -69,7 +69,7 @@
                             </div>
                     </td>
                     <td>
-                        <div style="text-align:left;height: 500px; width: 425px">
+                        <div style="text-align:left;height: 512px; width: 425px">
                             <asp:Panel ID="Panel1" runat="server" Height="100%" BackColor="#cccccc" Width="95%">
                                 <table style="width: 93%; text-align: left; margin-left: 15px">
                                     <tr>
@@ -77,10 +77,10 @@
                                             <table style="width: 99%;">
                                                 <tr>
                                                     <td>
-                                                        <div style="margin-top:-12px;height:50px">
+                                                        <div style="margin-top:-17px;height:50px">
                                                         <asp:RadioButtonList ID="rblAccountType" runat="server" RepeatDirection="Horizontal" AutoPostBack="True"
                                                             OnSelectedIndexChanged="rblAccountType_SelectedIndexChanged" Width="345px" Font-Names="Tahoma" Font-Size="10pt">
-                                                            <asp:ListItem Value="0" Selected="True">Asset</asp:ListItem>
+                                                            <asp:ListItem Value="0" Selected="True" >Asset</asp:ListItem>
                                                             <asp:ListItem Value="1">Liability</asp:ListItem>
                                                             <asp:ListItem Value="2">Revenue</asp:ListItem>
                                                             <asp:ListItem Value="3">Expense</asp:ListItem>
@@ -126,10 +126,10 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="margin-left:0px;margin-top:0px">
+                                        <td style="vertical-align:top">
                                             <asp:Label ID="Label7" runat="server" Text="A/C Description"></asp:Label>
                                         </td>
-                                        <td>:</td>
+                                        <td style="vertical-align:top">:</td>
                                         <td colspan="2">
                                             <asp:TextBox ID="txtAccountDescription" runat="server" Height="100px" TextMode="MultiLine" Width="205px"></asp:TextBox>
                                         </td>
@@ -254,18 +254,6 @@
                                             </asp:Panel>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td align="right">
-                                            <asp:Button ID="btnRemove" runat="server" Text="Remove" Width="85px"
-                                                OnClick="btnRemove_Click" Visible="False" />
-                                        </td>
-                                        <td>&nbsp;</td>
-                                        <td align="left"></td>
-                                        <td>
-                                            
-                                        </td>
-                                    </tr>
-                                    
                                 </table>
                             </asp:Panel>
                         </div>
@@ -274,21 +262,23 @@
                         <div style="height: 500px;position:fixed">
                             <table>
                                 <tr>
-                                    <td><asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save" Width="70px" /></td>
+                                    <td><asp:Button ID="btnSave" runat="server" CssClass="CssBtnSave" OnClick="btnSave_Click" Text="Save" Width="70px" /></td>
                                 </tr>
                                 <tr>
-                                    <td><asp:Button ID="btnCancelAdd" runat="server" Text="Cancel" Width="70px" OnClick="btnCancelAdd_Click" /></td>
+                                    <td><asp:Button ID="btnCancelAdd" runat="server" Text="Cancel" CssClass="CssBtnCancel" Width="70px" OnClick="btnCancelAdd_Click" /></td>
                                 </tr>
                                 <tr>
-                                    <td><asp:Button ID="btnPrintSummery" runat="server" Text="Print" Width="70px" /></td>
+                                    <td><asp:Button ID="btnPrintSummery" runat="server" Text="Print" CssClass="CssBtnPrint" Width="70px" /></td>
                                 </tr>
                                 
                                 <tr>
-                                    <td><asp:Button ID="btnUpdate" runat="server" Text="Update" Width="70px" OnClick="btnUpdate_Click" /></td>
+                                    <td><asp:Button ID="btnUpdate" runat="server" Text="Update" Width="70px" CssClass="CssBtnUpdate" OnClick="btnUpdate_Click" /></td>
                                 </tr>
                                 <tr>
-                                    <td><asp:Button ID="btnCancelEdit" runat="server" Text="Cancel" Width="70px" OnClick="btnCancelEdit_Click" /></td>
+                                    <td><asp:Button ID="btnCancelEdit" runat="server" Text="Cancel" Width="70px" CssClass="CssBtnCancel" OnClick="btnCancelEdit_Click" />
+                                    </td>
                                 </tr>
+                                <tr><td><asp:Button ID="btnRemove" runat="server" OnClick="btnRemove_Click" Text="Remove" CssClass="CssBtnDelete" Visible="False" Width="70px" /></td></tr>
                             </table>
                         </div>
                     </td>

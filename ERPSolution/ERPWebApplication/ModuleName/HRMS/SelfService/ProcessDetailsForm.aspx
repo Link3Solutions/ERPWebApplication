@@ -134,10 +134,10 @@
                                                 <div style="position: fixed; background-color: white">
                                                     <table style="width: 100%;">
                                                         <tr>
-                                                            <td><asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save" Width="70px" /></td>
+                                                            <td><asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save" CssClass="CssBtnSave" Width="70px" /></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><asp:Button ID="btnClear" runat="server" Text="Clear" Width="70px" OnClick="btnClear_Click" /></td>
+                                                            <td><asp:Button ID="btnClear" runat="server" Text="Clear" Width="70px" CssClass="CssBtnClear" OnClick="btnClear_Click" /></td>
                                                         </tr>
                                                     </table>
                                                 </div>
@@ -301,10 +301,10 @@
                                                 <div style="position: fixed; background-color: white">
                                                     <table style="width: 100%;">
                                                         <tr>
-                                                            <td><asp:Button ID="btnSaveFlowDefinition" runat="server" Text="Save" Width="70px" OnClick="btnSaveFlowDefinition_Click" /></td>
+                                                            <td><asp:Button ID="btnSaveFlowDefinition" runat="server" CssClass="CssBtnSave" Text="Save" Width="70px" OnClick="btnSaveFlowDefinition_Click" /></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><asp:Button ID="btnClearFlowDefinition" runat="server" Text="Clear" Width="70px" OnClick="btnClearFlowDefinition_Click" /></td>
+                                                            <td><asp:Button ID="btnClearFlowDefinition" runat="server" CssClass="CssBtnClear" Text="Clear" Width="70px" OnClick="btnClearFlowDefinition_Click" /></td>
                                                         </tr>
                                                     </table>
                                                 </div>
@@ -436,10 +436,10 @@
                                                 <div style="position: fixed; background-color: white">
                                                     <table style="width: 100%;">
                                                         <tr>
-                                                            <td><asp:Button ID="btnSaveLevelDescription" runat="server" Text="Save" Width="70px" OnClick="btnSaveLevelDescription_Click" /></td>
+                                                            <td><asp:Button ID="btnSaveLevelDescription" runat="server" CssClass="CssBtnSave" Text="Save" Width="70px" OnClick="btnSaveLevelDescription_Click" /></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><asp:Button ID="btnClearLevelDescription" runat="server" Text="Clear" Width="70px" OnClick="btnClearLevelDescription_Click" /></td>
+                                                            <td><asp:Button ID="btnClearLevelDescription" runat="server" CssClass="CssBtnClear" Text="Clear" Width="70px" OnClick="btnClearLevelDescription_Click" /></td>
                                                         </tr>
                                                     </table>
                                                 </div>
@@ -571,10 +571,10 @@
                                                 <div style="position: fixed; background-color: white">
                                                     <table style="width: 100%;">
                                                         <tr>
-                                                            <td><asp:Button ID="btnSaveActionType" runat="server" Text="Save" Width="70px" OnClick="btnSaveActionType_Click" /></td>
+                                                            <td><asp:Button ID="btnSaveActionType" runat="server" CssClass="CssBtnSave" Text="Save" Width="70px" OnClick="btnSaveActionType_Click" /></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><asp:Button ID="btnClearActionType" runat="server" Text="Clear" Width="70px" OnClick="btnClearActionType_Click" /></td>
+                                                            <td><asp:Button ID="btnClearActionType" runat="server" CssClass="CssBtnClear" Text="Clear" Width="70px" OnClick="btnClearActionType_Click" /></td>
                                                         </tr>
                                                     </table>
                                                 </div>
@@ -802,7 +802,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td colspan="11" style="text-align: left">
-                                                            <asp:Button ID="btnAdd" runat="server" Text="Add" Width="100px" OnClick="btnAdd_Click" />
+                                                            <asp:Button ID="btnAdd" runat="server" Text="Add" CssClass="CssBtnAddNew" Width="70px" OnClick="btnAdd_Click" />
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -944,10 +944,10 @@
                                                 <div style="position: fixed; background-color: white">
                                                     <table style="width: 100%;">
                                                         <tr>
-                                                            <td><asp:Button ID="btnSaveConfiguration" runat="server" Text="Save" Width="70px" OnClick="btnSaveConfiguration_Click" /></td>
+                                                            <td><asp:Button ID="btnSaveConfiguration" runat="server" CssClass="CssBtnSave" Text="Save" Width="70px" OnClick="btnSaveConfiguration_Click" /></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><asp:Button ID="btnClearConfiguration" runat="server" Text="Clear" Width="70px" OnClick="btnClearConfiguration_Click" /></td>
+                                                            <td><asp:Button ID="btnClearConfiguration" runat="server" CssClass="CssBtnClear" Text="Clear" Width="70px" OnClick="btnClearConfiguration_Click" /></td>
                                                         </tr>
                                                         
                                                     </table>

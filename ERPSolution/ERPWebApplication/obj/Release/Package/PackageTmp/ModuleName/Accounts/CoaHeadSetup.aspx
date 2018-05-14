@@ -4,7 +4,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
         .auto-style1 {
-            width: 93px;
         }
 
         .auto-style2 {
@@ -34,7 +33,7 @@
                                         MinimumPrefixLength="1" ServiceMethod="GetCOAHeadName" ServicePath="~/WebService/ServiceSystem.asmx" TargetControlID="txtSearch">
                                     </ajaxToolkit:AutoCompleteExtender>
                                     <td>
-                                        <asp:Button ID="btnSearch" runat="server" Text="Search" Height="30px" Width="100px" OnClick="btnSearch_Click" /></td>
+                                        <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="CssBtnSearch" Height="30px" Width="100px" OnClick="btnSearch_Click" /></td>
                                 </tr>
 
                             </table>
@@ -50,18 +49,18 @@
                     <td>
                         <div style="text-align: left;height: 500px; width: 500px;">
                             <div style="height:32px">
-                                <asp:Button ID="btnAddNew" runat="server" Text="Add New" Width="100px" OnClick="btnAddNew_Click" /><asp:Button ID="btnEdit" runat="server" Text="Edit" Width="100px" OnClick="btnEdit_Click" />
+                                <asp:Button ID="btnAddNew" runat="server" CssClass="CssBtnAddNew" Text="Add New" Width="70px" OnClick="btnAddNew_Click" /><asp:Button ID="btnEdit" runat="server" CssClass="CssBtnUpdate" Text="Edit" Width="70px" OnClick="btnEdit_Click" />
                                 </div>
                             <div style="overflow:auto; height:425px;padding-top:5px">    
                             <asp:Panel ID="Panel5" runat="server" Height="100%" 
                                     Width="100%">
-                                    <asp:TreeView ID="treeCOAHead" runat="server" ImageSet="Simple" NodeIndent="15"
+                                    <asp:TreeView ID="treeCOAHead" runat="server" ImageSet="Simple" NodeIndent="15" 
                                         OnTreeNodePopulate="treeCOAHead_TreeNodePopulate"
                                         OnSelectedNodeChanged="treeCOAHead_SelectedNodeChanged">
                                         <HoverNodeStyle Font-Underline="True" ForeColor="#6666AA" />
-                                    <NodeStyle Font-Names="Tahoma" Font-Size="10pt" ForeColor="Black" HorizontalPadding="2px"
-                                        NodeSpacing="0px" VerticalPadding="2px"></NodeStyle>
-                                    <ParentNodeStyle Font-Bold="False" />
+                                    <NodeStyle Font-Names="Tahoma" Font-Size="10pt" ForeColor="Black" HorizontalPadding="0px"
+                                        NodeSpacing="0px" VerticalPadding="0px" ></NodeStyle>
+                                    <ParentNodeStyle Font-Bold="False"  />
                                     <SelectedNodeStyle BackColor="#B5B5B5" Font-Underline="False" HorizontalPadding="0px"
                                         VerticalPadding="0px" />
                                     </asp:TreeView>
@@ -70,18 +69,18 @@
                             </div>
                     </td>
                     <td>
-                        <div style="text-align:left;height: 500px; width: 425px">
-                            <asp:Panel ID="Panel1" runat="server" Height="100%" BackColor="Silver" Width="100%">
-                                <table style="width: 99%; text-align: left; margin-left: 5px">
+                        <div style="text-align:left;height: 512px; width: 425px">
+                            <asp:Panel ID="Panel1" runat="server" Height="100%" BackColor="#cccccc" Width="95%">
+                                <table style="width: 93%; text-align: left; margin-left: 15px">
                                     <tr>
                                         <td colspan="4">
                                             <table style="width: 99%;">
                                                 <tr>
                                                     <td>
-                                                        <div style="margin-top:-12px">
+                                                        <div style="margin-top:-17px;height:50px">
                                                         <asp:RadioButtonList ID="rblAccountType" runat="server" RepeatDirection="Horizontal" AutoPostBack="True"
-                                                            OnSelectedIndexChanged="rblAccountType_SelectedIndexChanged" Width="100%">
-                                                            <asp:ListItem Value="0" Selected="True">Asset</asp:ListItem>
+                                                            OnSelectedIndexChanged="rblAccountType_SelectedIndexChanged" Width="345px" Font-Names="Tahoma" Font-Size="10pt">
+                                                            <asp:ListItem Value="0" Selected="True" >Asset</asp:ListItem>
                                                             <asp:ListItem Value="1">Liability</asp:ListItem>
                                                             <asp:ListItem Value="2">Revenue</asp:ListItem>
                                                             <asp:ListItem Value="3">Expense</asp:ListItem>
@@ -127,10 +126,10 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td style="vertical-align:top">
                                             <asp:Label ID="Label7" runat="server" Text="A/C Description"></asp:Label>
                                         </td>
-                                        <td>:</td>
+                                        <td style="vertical-align:top">:</td>
                                         <td colspan="2">
                                             <asp:TextBox ID="txtAccountDescription" runat="server" Height="100px" TextMode="MultiLine" Width="205px"></asp:TextBox>
                                         </td>
@@ -139,25 +138,16 @@
                                         <td colspan="4">
                                             <table style="width: 99%; text-align: left">
                                                 <tr>
-                                                    <td class="auto-style1">
-                                                        <asp:Label ID="Label8" runat="server"></asp:Label>
-                                                    </td>
-                                                    <td>&nbsp;</td>
-                                                    <td>
+                                                    <td class="auto-style1" colspan="3">
                                                         <asp:CheckBox ID="CheckBoxIsBudgetRelated" runat="server" CssClass="checkbox" />
-                                                        <asp:Label ID="Label2" runat="server" AssociatedControlID="CheckBoxIsBudgetRelated" CssClass="checkbox">Is Budget Related</asp:Label>
-
-                                                    </td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td class="auto-style1">&nbsp;</td>
-                                                    <td>&nbsp;</td>
-                                                    <td>
+                                                        <asp:Label ID="Label2" runat="server" AssociatedControlID="CheckBoxIsBudgetRelated" CssClass="checkbox" Font-Names="Tahoma" Font-Size="10pt">Is Budget Related</asp:Label>
                                                         <asp:CheckBox ID="CheckBoxAnalysisRequired" runat="server" CssClass="checkbox"
                                                             AutoPostBack="True" OnCheckedChanged="CheckBoxAnalysisRequired_CheckedChanged" />
-                                                        <asp:Label ID="Label3" runat="server" AssociatedControlID="CheckBoxAnalysisRequired" CssClass="checkbox">Analysis Required</asp:Label></td>
+                                                        <asp:Label ID="Label3" runat="server" AssociatedControlID="CheckBoxAnalysisRequired" CssClass="checkbox" Font-Names="Tahoma" Font-Size="10pt">Analysis Required</asp:Label>
+                                                    </td>
+
                                                 </tr>
+                                                
                                             </table>
                                         </td>
                                     </tr>
@@ -264,18 +254,6 @@
                                             </asp:Panel>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td align="right">
-                                            <asp:Button ID="btnRemove" runat="server" Text="Remove" Width="85px"
-                                                OnClick="btnRemove_Click" Visible="False" />
-                                        </td>
-                                        <td>&nbsp;</td>
-                                        <td align="left"></td>
-                                        <td>
-                                            
-                                        </td>
-                                    </tr>
-                                    
                                 </table>
                             </asp:Panel>
                         </div>
@@ -284,21 +262,23 @@
                         <div style="height: 500px;position:fixed">
                             <table>
                                 <tr>
-                                    <td><asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save" Width="70px" /></td>
+                                    <td><asp:Button ID="btnSave" runat="server" CssClass="CssBtnSave" OnClick="btnSave_Click" Text="Save" Width="70px" /></td>
                                 </tr>
                                 <tr>
-                                    <td><asp:Button ID="btnCancelAdd" runat="server" Text="Cancel" Width="70px" OnClick="btnCancelAdd_Click" /></td>
+                                    <td><asp:Button ID="btnCancelAdd" runat="server" Text="Cancel" CssClass="CssBtnCancel" Width="70px" OnClick="btnCancelAdd_Click" /></td>
                                 </tr>
                                 <tr>
-                                    <td><asp:Button ID="btnPrintSummery" runat="server" Text="Print" Width="70px" /></td>
+                                    <td><asp:Button ID="btnPrintSummery" runat="server" Text="Print" CssClass="CssBtnPrint" Width="70px" /></td>
                                 </tr>
                                 
                                 <tr>
-                                    <td><asp:Button ID="btnUpdate" runat="server" Text="Update" Width="70px" OnClick="btnUpdate_Click" /></td>
+                                    <td><asp:Button ID="btnUpdate" runat="server" Text="Update" Width="70px" CssClass="CssBtnUpdate" OnClick="btnUpdate_Click" /></td>
                                 </tr>
                                 <tr>
-                                    <td><asp:Button ID="btnCancelEdit" runat="server" Text="Cancel" Width="70px" OnClick="btnCancelEdit_Click" /></td>
+                                    <td><asp:Button ID="btnCancelEdit" runat="server" Text="Cancel" Width="70px" CssClass="CssBtnCancel" OnClick="btnCancelEdit_Click" />
+                                    </td>
                                 </tr>
+                                <tr><td><asp:Button ID="btnRemove" runat="server" OnClick="btnRemove_Click" Text="Remove" CssClass="CssBtnDelete" Visible="False" Width="70px" /></td></tr>
                             </table>
                         </div>
                     </td>

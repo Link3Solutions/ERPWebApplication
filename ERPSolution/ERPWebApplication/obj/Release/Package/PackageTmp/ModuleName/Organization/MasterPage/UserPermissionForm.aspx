@@ -101,10 +101,10 @@
                                                 <div style="height: 450px;width:150px;position: fixed;margin-top:-1px;margin-right:-1px;">
                                                     <table style="width: 100%;">
                                                         <tr>
-                                                            <td><asp:Button ID="btnRoleSave" runat="server" Width="70px" Text="Save" OnClick="btnRoleSave_Click" /></td>
+                                                            <td><asp:Button ID="btnRoleSave" runat="server" CssClass="CssBtnSave" Width="70px" Text="Save" OnClick="btnRoleSave_Click" /></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><asp:Button ID="btnRoleClear" runat="server" Width="70px" Text="Clear" OnClick="btnRoleClear_Click" /></td>
+                                                            <td><asp:Button ID="btnRoleClear" runat="server" CssClass="CssBtnClear" Width="70px" Text="Clear" OnClick="btnRoleClear_Click" /></td>
                                                         </tr>
                                                     </table>
                                                 </div>
@@ -187,15 +187,15 @@
                                                     <table style="width: 100%; margin-left: 5px">
                                                         <tr>
                                                             <td>
-                                                                <asp:Button ID="btnSave" runat="server" Text="Save" Width="70px" OnClick="btnSave_Click" /></td>
+                                                                <asp:Button ID="btnSave" runat="server" CssClass="CssBtnSave" Text="Save" Width="70px" OnClick="btnSave_Click" /></td>
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <asp:Button ID="btnClear" runat="server" Text="Clear" Width="70px" OnClick="btnClear_Click" /></td>
+                                                                <asp:Button ID="btnClear" runat="server" CssClass="CssBtnClear" Text="Clear" Width="70px" OnClick="btnClear_Click" /></td>
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <asp:Button ID="btnPrint" runat="server" Text="Print" Width="70px" /></td>
+                                                                <asp:Button ID="btnPrint" runat="server" CssClass="CssBtnPrint" Text="Print" Width="70px" /></td>
                                                         </tr>
                                                     </table>
                                                 </div>
@@ -213,12 +213,12 @@
                                                             <table style="width: 100%;">
                                                                 <tr>
                                                                     <td>
-                                                                        <asp:Button ID="btnForword" runat="server" OnClick="btnForword_Click" Text="&gt;" Width="25px" />
+                                                                        <asp:ImageButton ID="ingbtnForword" runat="server"  Width="20px" Height="20px" ImageUrl="~/Images/forward.png" OnClick="ingbtnForword_Click" />
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
-                                                                        <asp:Button ID="btnForwordAll" runat="server" OnClick="btnForwordAll_Click" Text="&gt;&gt;" Width="25px" />
+                                                                        <asp:ImageButton ID="imgbtnForwordAll" runat="server" OnClick="imgbtnForwordAll_Click" Width="20px" Height="20px" ImageUrl="~/Images/forwardAll.png" />
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -226,12 +226,12 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
-                                                                        <asp:Button ID="btnBack" runat="server" OnClick="btnBack_Click" Text="&lt;" Width="25px" />
+                                                                        <asp:ImageButton ID="imgbtnBack" runat="server" Width="20px" Height="20px" ImageUrl="~/Images/backward.png" OnClick="imgbtnBack_Click" />
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
-                                                                        <asp:Button ID="btnBackAll" runat="server" OnClick="btnBackAll_Click" Text="&lt;&lt;" Width="25px" />
+                                                                        <asp:ImageButton ID="imgbtnBackAll" runat="server" Width="20px" Height="20px" ImageUrl="~/Images/backwardAll.png" OnClick="imgbtnBackAll_Click" />
                                                                     </td>
                                                                 </tr>
                                                             </table>
@@ -248,12 +248,12 @@
                                                             <table style="width:100%;">
                                                                 <tr>
                                                                     <td>
-                                                                        <asp:Button ID="btnForwordUserRole" runat="server" Text="&gt;" Width="25px" OnClick="btnForwordUserRole_Click" />
+                                                                        <asp:ImageButton ID="imgbtnForwordUserRole" Width="20px" Height="20px" runat="server" ImageUrl="~/Images/forward.png" OnClick="imgbtnForwordUserRole_Click" />
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
-                                                                        <asp:Button ID="btnForwordAllUserRole" runat="server" Text="&gt;&gt;" Width="25px" OnClick="btnForwordAllUserRole_Click" />
+                                                                        <asp:ImageButton ID="imgbtnForwordAllUserRole" runat="server" Width="20px" Height="20px" OnClick="imgbtnForwordAllUserRole_Click" ImageUrl="~/Images/forwardAll.png" />
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -261,12 +261,12 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
-                                                                        <asp:Button ID="btnBackUserRole" runat="server" Text="&lt;" Width="25px" OnClick="btnBackUserRole_Click" />
+                                                                        <asp:ImageButton ID="imgbtnBackUserRole" runat="server" Width="20px" Height="20px" OnClick="imgbtnBackUserRole_Click" ImageUrl="~/Images/backward.png" />
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
-                                                                        <asp:Button ID="btnBackAllUserRole" runat="server" Text="&lt;&lt;" Width="25px" OnClick="btnBackAllUserRole_Click" />
+                                                                        <asp:ImageButton ID="imgbtnBackAllUserRole" runat="server" Width="20px" Height="20px" ImageUrl="~/Images/backwardAll.png" OnClick="imgbtnBackAllUserRole_Click" />
                                                                     </td>
                                                                 </tr>
                                                             </table>

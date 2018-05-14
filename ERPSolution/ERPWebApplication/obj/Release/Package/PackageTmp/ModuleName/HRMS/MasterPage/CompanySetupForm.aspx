@@ -35,7 +35,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    <asp:FileUpload ID="ProfileImageUpload" runat="server" Width="95%" Height="24px" />
+                                                                    <asp:FileUpload ID="ProfileImageUpload" runat="server" Width="95%" CssClass="CssFile_Upload" Height="24px" />
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -390,13 +390,13 @@
                                         <div style="position: fixed; background-color: white;">
                                             <table style="width: 100%;">
                                                 <tr>
-                                                    <td><asp:Button ID="btnSave" runat="server" Text="Save" Width="70px" OnClick="btnSave_Click" /></td>
+                                                    <td><asp:Button ID="btnSave" runat="server" CssClass="CssBtnSave" Text="Save" Width="70px" OnClick="btnSave_Click" /></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><asp:Button ID="btnClear" runat="server" Text="Clear" Width="70px" OnClick="btnClear_Click" /></td>
+                                                    <td><asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="CssBtnClear" Width="70px" OnClick="btnClear_Click" /></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><asp:Button ID="btnPrint" runat="server" Text="Print" Width="70px" /></td>
+                                                    <td><asp:Button ID="btnPrint" runat="server" Text="Print" CssClass="CssBtnPrint" Width="70px" /></td>
                                                 </tr>
                                             </table>
                                         </div>

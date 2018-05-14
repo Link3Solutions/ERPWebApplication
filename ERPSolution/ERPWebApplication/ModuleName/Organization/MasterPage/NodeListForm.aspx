@@ -8,7 +8,7 @@
             <table style="width: 100%; text-align: left">
                 <tr>
                     <td  style="float: left">
-                        <div style="height:32px;width:500px"><asp:Button ID="btnAddNew" runat="server" Text="AddNew" Width="100px" OnClick="btnAddNew_Click" /><asp:Button ID="btnEdit" runat="server" Text="Edit" Width="100px" OnClick="btnEdit_Click" /></div>
+                        <div style="height:32px;width:500px"><asp:Button ID="btnAddNew" runat="server" CssClass="CssBtnAddNew" Text="AddNew" Width="100px" OnClick="btnAddNew_Click" /><asp:Button ID="btnEdit" runat="server" CssClass="CssBtnUpdate" Text="Edit" Width="100px" OnClick="btnEdit_Click" /></div>
                         <div style="overflow:auto; height:475px;width:500px">
                         <asp:TreeView ID="treeNodeList" runat="server" ImageSet="Msdn" OnSelectedNodeChanged="treeNodeList_SelectedNodeChanged" OnTreeNodePopulate="treeNodeList_TreeNodePopulate">
                         </asp:TreeView>
@@ -94,11 +94,11 @@
                     <td style="float:left">
                         <div style="height: 475px;width:125px;position:fixed">
                             <table>
-                                <tr><td><asp:Button ID="btnSave" runat="server" Text="Save" Width="70px" OnClick="btnSave_Click" /></td></tr>
-                                <tr><td><asp:Button ID="btnCancelAddNew" runat="server" Text="Cancel" Width="70px" OnClick="btnCancelAddNew_Click" /></td></tr>
-                                <tr><td><asp:Button ID="btnPrint" runat="server" Text="Print" Width="70px" /></td></tr>
-                                <tr><td><asp:Button ID="btnUpdate" runat="server" Text="Update" Width="70px" OnClick="btnUpdate_Click" /></td></tr>
-                                <tr><td><asp:Button ID="btnCancelEdit" runat="server" Text="Cancel" Width="70px" OnClick="btnCancelEdit_Click" /></td></tr>
+                                <tr><td><asp:Button ID="btnSave" runat="server" CssClass="CssBtnSave" Text="Save" Width="70px" OnClick="btnSave_Click" /></td></tr>
+                                <tr><td><asp:Button ID="btnCancelAddNew" runat="server" CssClass="CssBtnCancel" Text="Cancel" Width="70px" OnClick="btnCancelAddNew_Click" /></td></tr>
+                                <tr><td><asp:Button ID="btnPrint" runat="server" CssClass="CssBtnPrint" Text="Print" Width="70px" /></td></tr>
+                                <tr><td><asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="CssBtnUpdate" Width="70px" OnClick="btnUpdate_Click" /></td></tr>
+                                <tr><td><asp:Button ID="btnCancelEdit" runat="server" CssClass="CssBtnCancel"  Text="Cancel" Width="70px" OnClick="btnCancelEdit_Click" /></td></tr>
                             </table>
                         </div>
                     </td>

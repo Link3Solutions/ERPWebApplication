@@ -906,7 +906,6 @@
     <Content Include="CSS\CSSstyleTheme\CompanyLogo\1_Tulips.jpg" />
     <Content Include="CSS\CSSstyleTheme\CompanyLogo\images.png" />
     <Content Include="CSS\CSSstyleTheme\Control\Calendar.css" />
-    <Content Include="CSS\CSSstyleTheme\Control\CheckBox.css" />
     <Content Include="CSS\CSSstyleTheme\Control\CommandButton.css" />
     <Content Include="CSS\CSSstyleTheme\Control\DropDown.css" />
     <Content Include="CSS\CSSstyleTheme\Control\GridView.css" />
@@ -988,10 +987,14 @@
     <Content Include="CSS\StyleSheetGridView.css" />
     <Content Include="CSS\StyleSheetSpecial.css" />
     <Content Include="HomePageForm.aspx" />
+    <Content Include="Images\backward.png" />
+    <Content Include="Images\backwardAll.png" />
     <Content Include="Images\btnClose.jpg" />
     <Content Include="Images\btnNo.jpg" />
     <Content Include="Images\btnOK.jpg" />
     <Content Include="Images\btnYes.jpg" />
+    <Content Include="Images\forward.png" />
+    <Content Include="Images\forwardAll.png" />
     <Content Include="Images\header.png" />
     <Content Include="Images\imageup.jpg" />
     <Content Include="Images\next.png" />

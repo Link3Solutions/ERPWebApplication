@@ -132,10 +132,10 @@
                                     <div style="position: fixed; background-color: white">
                                         <table style="width: 100%;">
                                             <tr>
-                                                <td><asp:Button ID="btnYearOpen" runat="server" OnClick="btnYearOpen_Click" Text="Year Open" Width="100px" /></td>
+                                                <td><asp:Button ID="btnYearOpen" runat="server" CssClass="CssBtnSave" OnClick="btnYearOpen_Click" Text="Year Open" Width="100px" /></td>
                                             </tr>
                                             <tr>
-                                                <td><asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear" Width="100px" /></td>
+                                                <td><asp:Button ID="btnClear" runat="server" CssClass="CssBtnClear" OnClick="btnClear_Click" Text="Clear" Width="100px" /></td>
                                             </tr>
                                         </table>
                                     </div>

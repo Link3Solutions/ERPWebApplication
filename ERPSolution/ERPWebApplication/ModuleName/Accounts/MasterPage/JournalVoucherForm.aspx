@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-            <ajaxToolkit:TabContainer ID="TabContainer2" runat="server" CssClass="tab" ActiveTabIndex="0"
+            <ajaxToolkit:TabContainer ID="TabContainer2" runat="server" CssClass="tab" ActiveTabIndex="1"
                 Width="1150px" CssTheme="None">
                 <ajaxToolkit:TabPanel ID="TabPanel1" runat="server" HeaderText="Voucher Entry">
                     <ContentTemplate>
@@ -194,7 +194,7 @@
                                                                 <td>&nbsp;</td>
                                                                 <td>&nbsp;</td>
                                                                 <td colspan="4">
-                                                                    <asp:Button ID="btnAdd" runat="server" Text="Add" Width="100px" OnClick="btnAdd_Click" />
+                                                                    <asp:Button ID="btnAdd" runat="server" Text="Add" Width="100px" CssClass="CssBtnAddNew" OnClick="btnAdd_Click" />
                                                                 </td>
                                                             </tr>
                                                         </table>
@@ -209,11 +209,11 @@
                                                                         <table style="width: 50%;">
                                                                             <tr>
                                                                                 <td>
-                                                                                    <asp:Button ID="btnSave" runat="server" Text="Save" Width="100px" OnClick="btnSave_Click" /></td>
+                                                                                    <asp:Button ID="btnSave" runat="server" Text="Save" CssClass="CssBtnSave" Width="100px" OnClick="btnSave_Click" /></td>
                                                                                 <td>
-                                                                                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" Width="100px" OnClick="btnSubmit_Click" /></td>
+                                                                                    <asp:Button ID="btnSubmit" runat="server" CssClass="CssBtnSubmit" Text="Submit" Width="100px" OnClick="btnSubmit_Click" /></td>
                                                                                 <td>
-                                                                                    <asp:Button ID="btnPost" runat="server" Text="Post" Width="100px" OnClick="btnPost_Click" /></td>
+                                                                                    <asp:Button ID="btnPost" runat="server" CssClass="CssBtnPost" Text="Post" Width="100px" OnClick="btnPost_Click" /></td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <td colspan="3">
@@ -446,7 +446,7 @@
                                                                 <td colspan="3">
                                                                     <asp:Label ID="Label1st0" runat="server" ForeColor="#0072B0" Text="Add Subledger Amount"></asp:Label>
                                                                     <asp:Label ID="lblSkip" runat="server" ForeColor="#0072B0"> (Click </asp:Label>
-                                                                    <asp:LinkButton ID="btnskip" runat="server" OnClick="btnskip_Click">Skip</asp:LinkButton>
+                                                                    <asp:LinkButton ID="btnskip" CssClass="CssBtnCancel" runat="server" OnClick="btnskip_Click">Skip</asp:LinkButton>
                                                                     <asp:Label ID="lblSkip0" runat="server" ForeColor="#0072B0">if you dont want to add subledger now)</asp:Label>
                                                                 </td>
                                                             </tr>
@@ -527,7 +527,7 @@
                                                                 <td>&nbsp;</td>
                                                                 <td>&nbsp;</td>
                                                                 <td>
-                                                                    <asp:Button ID="btnInsertAnalysis" runat="server" OnClick="btnInsertAnalysis_Click" Text="Insert" Width="100px" />
+                                                                    <asp:Button ID="btnInsertAnalysis" runat="server" CssClass="CssBtnAddNew" OnClick="btnInsertAnalysis_Click" Text="Insert" Width="100px" />
                                                                 </td>
                                                             </tr>
                                                         </table>
@@ -694,7 +694,7 @@
                                                                         <asp:TextBox ID="txtSearchIntoGrid" runat="server" onkeyup="callForSearch();" Width="390px"></asp:TextBox>
                                                                     </td>
                                                                     <td>
-                                                                        <asp:Button ID="btnAdvancedSearch" runat="server" Text="Advanced Search" Width="150px" OnClick="btnAdvancedSearch_Click" />
+                                                                        <asp:Button ID="btnAdvancedSearch" runat="server" CssClass="CssBtnAdvancedSearch" Text="Advanced Search" Width="150px" OnClick="btnAdvancedSearch_Click" />
                                                                     </td>
                                                                     <td>&nbsp;</td>
                                                                 </tr>
@@ -789,8 +789,8 @@
                                                                     <td>&nbsp;</td>
                                                                     <td>&nbsp;</td>
                                                                     <td>
-                                                                        <asp:Button ID="btnShow" runat="server" Text="Show" Width="100px" OnClick="btnShow_Click" />
-                                                                        <asp:Button ID="btnClearSearch" runat="server" Text="Clear" Width="100px" />
+                                                                        <asp:Button ID="btnShow" runat="server" CssClass="CssBtnShow" Text="Show" Width="100px" OnClick="btnShow_Click" />
+                                                                        <asp:Button ID="btnClearSearch" runat="server" Text="Clear" CssClass="CssBtnClear" Width="100px" />
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -819,7 +819,7 @@
                                                 <td colspan="2">
                                                     <div style="position: fixed; background-color: white; width: 215px; float: right; margin-top: -15px">
 
-                                                        <asp:Button ID="btnPostTab2" runat="server" Text="Post" Width="100px" OnClick="btnPostTab2_Click" /><asp:Button ID="btnClearTab2" runat="server" Text="Clear" Width="100px" />
+                                                        <asp:Button ID="btnPostTab2" runat="server" Text="Post" CssClass="CssBtnPost" Width="100px" OnClick="btnPostTab2_Click" /><asp:Button ID="btnClearTab2" CssClass="CssBtnClear" runat="server" Text="Clear" Width="100px" />
 
                                                     </div>
                                                 </td>
@@ -885,7 +885,7 @@
                                                         <td colspan="3">
                                                             <asp:Label ID="Label45" runat="server" Text="Voucher Journal Details"></asp:Label>
                                                             <asp:Label ID="Label1" runat="server" ForeColor="#0072B0"> (Click </asp:Label>
-                                                            <asp:LinkButton ID="LinkButtonSkipDetails" runat="server">Skip</asp:LinkButton>
+                                                            <asp:LinkButton ID="LinkButtonSkipDetails" CssClass="CssBtnCancel" runat="server">Skip</asp:LinkButton>
                                                             <asp:Label ID="Label4" runat="server" ForeColor="#0072B0">if you want to close now)</asp:Label>
                                                         </td>
                                                     </tr>

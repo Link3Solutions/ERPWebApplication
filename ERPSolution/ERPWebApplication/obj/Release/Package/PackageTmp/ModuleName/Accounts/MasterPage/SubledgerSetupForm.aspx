@@ -103,7 +103,7 @@
                                         <table style="width: 100%;">
                                             <tr>
                                                 <td>
-                                                    <asp:Button ID="btnSubledgerTypeSave" runat="server" OnClick="btnSubledgerTypeSave_Click" Text="Save" Width="70px" /></td>
+                                                    <asp:Button ID="btnSubledgerTypeSave" runat="server" CssClass="CssBtnSave" OnClick="btnSubledgerTypeSave_Click" Text="Save" Width="70px" /></td>
                                             </tr>
                                             <tr>
                                                 <td>&nbsp;</td>
@@ -202,7 +202,7 @@
                                         <table style="width: 100%;">
                                             <tr>
                                                 <td>
-                                                    <asp:Button ID="btnSaveSubLedger" runat="server" Text="Save" Width="70px" OnClick="btnSaveSubLedger_Click" /></td>
+                                                    <asp:Button ID="btnSaveSubLedger" runat="server" CssClass="CssBtnSave" Text="Save" Width="70px" OnClick="btnSaveSubLedger_Click" /></td>
                                             </tr>
                                             <tr>
                                                 <td>&nbsp;</td>
@@ -277,7 +277,7 @@
                                         <table style="width: 100%;">
                                             <tr>
                                                 <td>
-                                                    <asp:Button ID="btnConvertSubledger" runat="server" Text="Convert" Width="70px" OnClick="btnConvertSubledger_Click" />
+                                                    <asp:Button ID="btnConvertSubledger" runat="server" CssClass="CssBtnSubmit" Text="Convert" Width="70px" OnClick="btnConvertSubledger_Click" />
                                                 </td>
                                             </tr>
                                             <tr>

@@ -247,40 +247,40 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage {
         protected global::System.Web.UI.WebControls.ListBox ListBoxRoles;
         
         /// <summary>
-        /// btnForword control.
+        /// ingbtnForword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnForword;
+        protected global::System.Web.UI.WebControls.ImageButton ingbtnForword;
         
         /// <summary>
-        /// btnForwordAll control.
+        /// imgbtnForwordAll control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnForwordAll;
+        protected global::System.Web.UI.WebControls.ImageButton imgbtnForwordAll;
         
         /// <summary>
-        /// btnBack control.
+        /// imgbtnBack control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBack;
+        protected global::System.Web.UI.WebControls.ImageButton imgbtnBack;
         
         /// <summary>
-        /// btnBackAll control.
+        /// imgbtnBackAll control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBackAll;
+        protected global::System.Web.UI.WebControls.ImageButton imgbtnBackAll;
         
         /// <summary>
         /// ListBoxSelectedRoles control.
@@ -301,40 +301,40 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage {
         protected global::System.Web.UI.WebControls.ListBox ListBoxRelatedUserRole;
         
         /// <summary>
-        /// btnForwordUserRole control.
+        /// imgbtnForwordUserRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnForwordUserRole;
+        protected global::System.Web.UI.WebControls.ImageButton imgbtnForwordUserRole;
         
         /// <summary>
-        /// btnForwordAllUserRole control.
+        /// imgbtnForwordAllUserRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnForwordAllUserRole;
+        protected global::System.Web.UI.WebControls.ImageButton imgbtnForwordAllUserRole;
         
         /// <summary>
-        /// btnBackUserRole control.
+        /// imgbtnBackUserRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBackUserRole;
+        protected global::System.Web.UI.WebControls.ImageButton imgbtnBackUserRole;
         
         /// <summary>
-        /// btnBackAllUserRole control.
+        /// imgbtnBackAllUserRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBackAllUserRole;
+        protected global::System.Web.UI.WebControls.ImageButton imgbtnBackAllUserRole;
         
         /// <summary>
         /// ListBoxSelectedRelatedUserRole control.

@@ -295,34 +295,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             }
         }
 
-        protected void btnForword_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                foreach (ListItem item in ListBoxRoles.Items)
-                {
-                    if (item.Selected)
-                    {
-                        if (ListBoxSelectedRoles.Items.Contains(item))
-                        {
-                            throw new Exception("this element already selected.");
-
-                        }
-
-                        ListBoxSelectedRoles.Items.Add(new ListItem(item.Text, item.Value));
-                        ListBoxSelectedRoles.AppendDataBoundItems = true;
-                    }
-                }
-
-            }
-            catch (Exception msgException)
-            {
-
-                clsTopMostMessageBox.Show(msgException.Message);
-            }
-        }
-
-        protected void btnForwordAll_Click(object sender, EventArgs e)
+        protected void imgbtnForwordAll_Click(object sender, EventArgs e)
         {
             try
             {
@@ -339,45 +312,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             }
         }
 
-        protected void btnBack_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                List<ListItem> deletedItems = new List<ListItem>();
-                foreach (ListItem item in ListBoxSelectedRoles.Items)
-                {
-                    if (item.Selected)
-                    {
-                        deletedItems.Add(item);
-                    }
-                }
-
-                foreach (ListItem item in deletedItems)
-                {
-                    ListBoxSelectedRoles.Items.Remove(item);
-                }
-
-            }
-            catch (Exception msgException)
-            {
-
-                clsTopMostMessageBox.Show(msgException.Message);
-            }
-        }
-
-        protected void btnBackAll_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ListBoxSelectedRoles.Items.Clear();
-
-            }
-            catch (Exception msgException)
-            {
-
-                clsTopMostMessageBox.Show(msgException.Message);
-            }
-        }
+        
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
@@ -597,36 +532,8 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 clsTopMostMessageBox.Show(msgException.Message);
             }
         }
-
-        protected void btnForwordUserRole_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                foreach (ListItem item in ListBoxRelatedUserRole.Items)
-                {
-                    if (item.Selected)
-                    {
-                        if (ListBoxSelectedRelatedUserRole.Items.Contains(item))
-                        {
-                            throw new Exception("this element already selected.");
-
-                        }
-
-                        ListBoxSelectedRelatedUserRole.Items.Add(new ListItem(item.Text, item.Value));
-                        ListBoxSelectedRelatedUserRole.AppendDataBoundItems = true;
-                    }
-                }
-
-            }
-            catch (Exception msgException)
-            {
-
-                clsTopMostMessageBox.Show(msgException.Message);
-            }
-
-        }
-
-        protected void btnForwordAllUserRole_Click(object sender, EventArgs e)
+        
+        protected void imgbtnForwordAllUserRole_Click(object sender, EventArgs e)
         {
             try
             {
@@ -644,7 +551,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
 
         }
 
-        protected void btnBackUserRole_Click(object sender, EventArgs e)
+        protected void imgbtnBackUserRole_Click(object sender, EventArgs e)
         {
             try
             {
@@ -671,7 +578,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
 
         }
 
-        protected void btnBackAllUserRole_Click(object sender, EventArgs e)
+        protected void imgbtnBackAllUserRole_Click(object sender, EventArgs e)
         {
             try
             {
@@ -711,6 +618,104 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
 
                 clsTopMostMessageBox.Show(msgException.Message);
             }
+        }
+
+        protected void ingbtnForword_Click(object sender, ImageClickEventArgs e)
+        {
+            try
+            {
+                foreach (ListItem item in ListBoxRoles.Items)
+                {
+                    if (item.Selected)
+                    {
+                        if (ListBoxSelectedRoles.Items.Contains(item))
+                        {
+                            throw new Exception("this element already selected.");
+
+                        }
+
+                        ListBoxSelectedRoles.Items.Add(new ListItem(item.Text, item.Value));
+                        ListBoxSelectedRoles.AppendDataBoundItems = true;
+                    }
+                }
+
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+
+        }
+
+        protected void imgbtnBack_Click(object sender, ImageClickEventArgs e)
+        {
+            try
+            {
+                List<ListItem> deletedItems = new List<ListItem>();
+                foreach (ListItem item in ListBoxSelectedRoles.Items)
+                {
+                    if (item.Selected)
+                    {
+                        deletedItems.Add(item);
+                    }
+                }
+
+                foreach (ListItem item in deletedItems)
+                {
+                    ListBoxSelectedRoles.Items.Remove(item);
+                }
+
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+
+        }
+
+        protected void imgbtnBackAll_Click(object sender, ImageClickEventArgs e)
+        {
+            try
+            {
+                ListBoxSelectedRoles.Items.Clear();
+
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+
+        }
+
+        protected void imgbtnForwordUserRole_Click(object sender, ImageClickEventArgs e)
+        {
+            try
+            {
+                foreach (ListItem item in ListBoxRelatedUserRole.Items)
+                {
+                    if (item.Selected)
+                    {
+                        if (ListBoxSelectedRelatedUserRole.Items.Contains(item))
+                        {
+                            throw new Exception("this element already selected.");
+
+                        }
+
+                        ListBoxSelectedRelatedUserRole.Items.Add(new ListItem(item.Text, item.Value));
+                        ListBoxSelectedRelatedUserRole.AppendDataBoundItems = true;
+                    }
+                }
+
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+
         }
     }
 }

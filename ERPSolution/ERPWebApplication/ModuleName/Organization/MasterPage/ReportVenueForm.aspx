@@ -101,10 +101,10 @@
                         <div style="position: fixed; background-color: white">
                                 <table style="width: 100%;">
                                     <tr>
-                                        <td><asp:Button ID="btnShow" runat="server" Text="Print" Width="70px" /></td>
+                                        <td><asp:Button ID="btnShow" runat="server" CssClass="CssBtnPrint" Text="Print" Width="70px" /></td>
                                     </tr>
                                     <tr>
-                                        <td><asp:Button ID="btnClear" runat="server" Text="Clear" Width="70px"  /></td>
+                                        <td><asp:Button ID="btnClear" runat="server" CssClass="CssBtnClear" Text="Clear" Width="70px"  /></td>
                                     </tr>
                                 </table>
                             </div>

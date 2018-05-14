@@ -36,7 +36,7 @@
                                         MinimumPrefixLength="1" ServiceMethod="GetItemName" ServicePath="~/WebService/ServiceSystem.asmx" TargetControlID="txtSearch">
                                     </ajaxToolkit:AutoCompleteExtender>
                                     <td>
-                                        <asp:Button ID="btnSearch" runat="server" Text="Search" Height="30px" Width="100px" OnClick="btnSearch_Click" /></td>
+                                        <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="CssBtnSearch" Height="30px" Width="100px" OnClick="btnSearch_Click" /></td>
                                 </tr>
 
                             </table>
@@ -122,17 +122,16 @@
                                         </div>
                                     </td>
                                     <td style="width:490px;float:left">
-                                        <div style="min-height: 500px; width: 425px">
+                                        <div style="min-height: 500px; width: 480px;padding-left:15px">
                                             <asp:Panel ID="PanelRight" runat="server" BackColor="#E0E0E0" Width="100%">
-                                                <table style="width: 99%; margin-left: 5px; text-align: left">
-
+                                                <table style="width: 99%; margin-left: 15px; text-align: left">
                                                     <tr>
                                                         <td>&nbsp;</td>
                                                         <td>&nbsp;</td>
                                                         <td>&nbsp;</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>
+                                                        <td style="padding-left:5px">
                                                             <asp:Label ID="Label1" runat="server" Text="Category Name" Width="125px"></asp:Label>
                                                         </td>
                                                         <td>:</td>
@@ -141,7 +140,7 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>
+                                                        <td style="padding-left:5px">
                                                             <asp:Label ID="Label2" runat="server" Text="Parent Category"></asp:Label>
                                                         </td>
                                                         <td>:</td>
@@ -157,12 +156,12 @@
                                                     </tr>
                                                     <tr>
                                                         <td colspan="3" style="margin-left: -5px">
-                                                            <asp:Panel ID="PanelProductType" Width="100%" BorderStyle="Solid" BorderWidth="1px" BorderColor="Gray" runat="server">
+                                                            <asp:Panel ID="PanelProductType" Width="99%" BorderStyle="Solid" BorderWidth="1px" BorderColor="Gray" runat="server">
 
-                                                                <table style="width: 100%">
+                                                                <table style="width: 100%;margin-left:5px">
 
                                                                     <tr>
-                                                                        <td class="auto-style1">&nbsp;<asp:Label ID="Label4" runat="server" Text="Product Type" Width="125px"></asp:Label>
+                                                                        <td >&nbsp;<asp:Label ID="Label4" runat="server" Text="Product Type" Width="140px"></asp:Label>
                                                                         </td>
                                                                         <td>:</td>
                                                                         <td>
@@ -187,7 +186,7 @@
                                                     <tr>
                                                         <td colspan="3">
                                                             <asp:Panel ID="PanelItemDetails" runat="server">
-                                                                <table style="width: 100%;">
+                                                                <table style="width: 100%;margin-left:5px">
                                                                     <tr>
                                                                         <td>
                                                                             <asp:Label ID="Label39" runat="server" Text="Item Code" Width="125px"></asp:Label>
@@ -389,12 +388,12 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <asp:Button ID="btnUpdate" runat="server" Text="Update" Width="70px" OnClick="btnUpdate_Click" />
+                                                        <asp:Button ID="btnUpdate" runat="server" CssClass="CssBtnUpdate" Text="Update" Width="70px" OnClick="btnUpdate_Click" />
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <asp:Button ID="Button3" runat="server" Text="Print" Width="70px" />
+                                                        <asp:Button ID="Button3" runat="server" CssClass="CssBtnPrint" Text="Print" Width="70px" />
                                                     </td>
                                                 </tr>
                                             </table>
@@ -424,7 +423,7 @@
                                                 <tr>
                                                     <td colspan="3">
                                                         <asp:Label ID="lblSkip" runat="server" ForeColor="#0072B0"> (Click </asp:Label>
-                                                                    <asp:LinkButton ID="btnskip" runat="server" OnClick="btnskip_Click" >Cancel</asp:LinkButton>
+                                                                    <asp:LinkButton ID="btnskip" runat="server" CssClass="CssBtnCancel" OnClick="btnskip_Click" >Cancel</asp:LinkButton>
                                                                     <asp:Label ID="lblSkip0" runat="server" ForeColor="#0072B0">if you want to close item entry)</asp:Label>
                                                     </td>
                                                 </tr>

@@ -8,7 +8,7 @@
             <table style="width: 100%; text-align: left">
                 <tr>
                     <td colspan="3">
-                        <ajaxToolkit:TabContainer ID="TabContainerOrgChart" Height="100%" Width="1160px" runat="server" ActiveTabIndex="0" CssClass="tab" CssTheme="None" EnableTheming="True" ToolTip="Organizational Chart">
+                        <ajaxToolkit:TabContainer ID="TabContainerOrgChart" Height="100%" Width="1160px" runat="server" ActiveTabIndex="1" CssClass="tab" CssTheme="None" EnableTheming="True" ToolTip="Organizational Chart">
 
                             <ajaxToolkit:TabPanel runat="server" HeaderText="Organization Elements" ID="TabPanel1">
                                 <ContentTemplate>
@@ -73,9 +73,9 @@
                                                         <td style="float:left">
                                                             <div style="width:370px;position:fixed;">
                                                                 <table style="margin-left:270px">
-                                                                    <tr><td><asp:Button ID="btnSave" runat="server" Text="Save" Width="70px" OnClick="btnSave_Click" /></td></tr>
-                                                                    <tr><td><asp:Button ID="btnClear" runat="server" Text="Clear" Width="70px" OnClick="btnClear_Click" /></td></tr>
-                                                                    <tr><td><asp:Button ID="btnPrint" runat="server" Text="Print" Width="70px" /></td></tr>
+                                                                    <tr><td><asp:Button ID="btnSave" runat="server" Text="Save" Width="70px" CssClass="CssBtnSave" OnClick="btnSave_Click" /></td></tr>
+                                                                    <tr><td><asp:Button ID="btnClear" runat="server" Text="Clear" Width="70px" CssClass="CssBtnClear" OnClick="btnClear_Click" /></td></tr>
+                                                                    <tr><td><asp:Button ID="btnPrint" runat="server" Text="Print" Width="70px" CssClass="CssBtnPrint" /></td></tr>
                                                                 </table>
                                                             </div>
                                                         </td>
@@ -283,11 +283,11 @@
                                             <td style="float:left">
                                                 <div style="height: 475px;width:110px;position:fixed;padding-left:50px">
                                                     <table >
-                                                        <tr><td><asp:Button ID="btnSaveChart" runat="server" OnClick="btnSaveChart_Click" Text="Save" Width="70px" CssClass="buttonCommand" /></td></tr>
-                                                        <tr><td><asp:Button ID="btnClearChart" runat="server" OnClick="btnClearChart_Click" Text="Clear" Width="70px" CssClass="buttonCancel" /></td></tr>
-                                                        <tr><td><asp:Button ID="Button3" runat="server" Text="Print" Width="70px" /></td></tr>
-                                                        <tr><td><asp:Button ID="btnUpdate" runat="server" Text="Update" Width="70px" OnClick="btnUpdate_Click" CssClass="buttonCommand" /></td></tr>
-                                                        <tr><td><asp:Button ID="btnClearUpdate" runat="server" Text="Clear" Width="70px" OnClick="btnClearUpdate_Click" CssClass="buttonCancel" /></td></tr>
+                                                        <tr><td><asp:Button ID="btnSaveChart" runat="server" OnClick="btnSaveChart_Click" Text="Save" Width="70px" CssClass="CssBtnSave" /></td></tr>
+                                                        <tr><td><asp:Button ID="btnClearChart" runat="server" OnClick="btnClearChart_Click" Text="Clear" Width="70px" CssClass="CssBtnClear" /></td></tr>
+                                                        <tr><td><asp:Button ID="Button3" runat="server" Text="Print" CssClass="CssBtnPrint" Width="70px" /></td></tr>
+                                                        <tr><td><asp:Button ID="btnUpdate" runat="server" Text="Update" Width="70px" OnClick="btnUpdate_Click" CssClass="CssBtnUpdate" /></td></tr>
+                                                        <tr><td><asp:Button ID="btnClearUpdate" runat="server" Text="Clear" Width="70px" OnClick="btnClearUpdate_Click" CssClass="CssBtnClear" /></td></tr>
                                                     </table>
                                                 </div>
                                             </td>
