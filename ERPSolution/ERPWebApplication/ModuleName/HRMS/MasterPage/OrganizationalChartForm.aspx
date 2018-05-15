@@ -93,7 +93,7 @@
                                     <table style="width: 100%;">
                                         <tr>
                                             <td  style="text-align: left; float: left; width: 500px">
-                                                <div style="height:32px;width:500px"><asp:Button ID="btnAddNew" runat="server" Text="Add New" Width="100px" OnClick="btnAddNew_Click" /><asp:Button ID="btnEdit" runat="server" Text="Edit" Width="100px" OnClick="btnEdit_Click" /></div>
+                                                <div style="height:32px;width:500px"><asp:Button ID="btnAddNew" runat="server" CssClass="CssBtnAddNew" Text="Add New" Width="100px" OnClick="btnAddNew_Click" /><asp:Button ID="btnEdit" runat="server" Text="Edit" CssClass="CssBtnUpdate" Width="100px" OnClick="btnEdit_Click" /></div>
                         <div style="overflow:auto; height:435px;width:500px">
                                                 <asp:TreeView ID="TreeViewCompanyChart" runat="server" OnTreeNodePopulate="TreeViewCompanyChart_TreeNodePopulate" OnSelectedNodeChanged="TreeViewCompanyChart_SelectedNodeChanged">
                                                 </asp:TreeView>

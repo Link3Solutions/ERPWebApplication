@@ -4,7 +4,7 @@
 
 .CssBtnSearch {
     font-size: 10pt;
-    border: none;
+    border: 1px #a5c8e5 !important;
     height: 30px;
     width: 40px;
     color: #fff;
@@ -18,7 +18,7 @@
     .CssBtnSearch:hover {
         width: 40px;
         font-size: 10pt;
-        border: none;
+        border: 1px #a5c8e5 !important;
         height: 30px;
         color: #fff;
         text-decoration: none;
@@ -128,8 +128,8 @@
 
 
 .CssBtnSave {
-    background-color: #2777B7;
-    border: 1px solid #2777B7;
+    border: 1px #297BC1 !important;
+    background-color: #297BC1;
     cursor: pointer;
     font-size: 1.2em;
     font-weight: 600;
@@ -146,12 +146,12 @@
     .CssBtnSave:hover {
         width: auto;
         font-size: 10pt;
-        border: none;
+        border: 1px #297BC1 !important;
         height: 30px;
         color: #fff;
         text-decoration: none;
         cursor: pointer;
-        background: #3e93bf;
+        background: #299BC1;
         font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
         border-radius: 3px;
     }
@@ -159,7 +159,7 @@
     
 .CssBtnSubmit {
     background-color: #2777B9;
-    border: 1px solid #2777B7;
+    border: 1px #2777B9 !important;
     cursor: pointer;
     font-size: 1.2em;
     font-weight: 600;
@@ -176,7 +176,7 @@
     .CssBtnSubmit:hover {
         width: auto;
         font-size: 10pt;
-        border: none;
+        border: 1px #2777B9 !important;
         height: 30px;
         color: #fff;
         text-decoration: none;
@@ -189,7 +189,7 @@
        
 .CssBtnPost {
     background-color: #2777B7;
-    border: 1px solid #2777B7;
+    border: 1px #2777B7 !important;    
     cursor: pointer;
     font-size: 1.2em;
     font-weight: 600;
@@ -206,7 +206,7 @@
     .CssBtnPost:hover {
         width: auto;
         font-size: 10pt;
-        border: none;
+        border: 1px #2777B7 !important;
         height: 30px;
         color: #fff;
         text-decoration: none;
@@ -218,58 +218,53 @@
 
 
 .CssBtnClear {
-    background-color: #aaa;
-    width: 98px;
     font-size: 10pt;
-    border: none;
-    height: 30px;
-    /*color:#fff;*/
-    color: black;
+    border: solid 0px #EB1357 !important;
+    border-bottom: solid 2px #EB1357 !important;
+    height: 30px;    
+    color: #F6978A;
     text-decoration: none;
-    cursor: pointer;
-    /*background:blue;*/
+    cursor: pointer;    
+    background-color: #FFFFFF;    
     font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
     border-radius: 3px;
 }
 
     .CssBtnClear:hover {
-        width: 98px;
         font-size: 10pt;
-        border: none;
+        border: solid 0px #EB1357;
+	    border-bottom: solid 2px #EB1357;
         height: 30px;
-        color: white;
+        color: #F1378A;
         text-decoration: none;
         cursor: pointer;
-        background: green;
+        background: #FFFAAA;
         font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
         border-radius: 3px;
     }
 
 
 .CssBtnUpdate {
-    background-color: green;
-    width: 98px;
+    background-color: #01B49E;    
     font-size: 10pt;
-    border: none;
+    border: 1px #01B49E !important;    
     height: 30px;
-    /*color:#fff;*/
-    color: black;
+    color:#fff;    
     text-decoration: none;
-    cursor: pointer;
-    /*background:blue;*/
+    cursor: pointer;    
     font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
     border-radius: 3px;
 }
 
     .CssBtnUpdate:hover {
-        width: 98px;
+        
         font-size: 10pt;
-        border: none;
+        border: 1px #01B49E !important;        
         height: 30px;
         color: white;
         text-decoration: none;
         cursor: pointer;
-        background: green;
+        background: #08B79E;
         font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
         border-radius: 3px;
     }
@@ -303,7 +298,7 @@
 .CssBtnDelete {
     width: 98px;
     font-size: 10pt;
-    border: none;
+    border: 1px #3e93bf !important;    
     height: 30px;
     color: white;
     text-decoration: none;
@@ -316,7 +311,7 @@
     .CssBtnDelete:hover {
         width: 98px;
         font-size: 10pt;
-        border: none;
+        border: 1px #3e93bf !important;    
         height: 30px;
         color: #fff;
         text-decoration: none;
@@ -329,12 +324,12 @@
 .CssBtnAddNew {
     
     font-size: 10pt;
-    border: none;
+    border: 1px #58626E !important;    
     height: 30px;
     color: white;
     text-decoration: none;
     cursor: pointer;
-    background: blue;
+    background: #58626E;
     font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
     border-radius: 3px;
 }
@@ -342,12 +337,12 @@
     .CssBtnAddNew:hover {
         
         font-size: 10pt;
-        border: none;
+        border: 1px #58626E !important;    
         height: 30px;
         color: #fff;
         text-decoration: none;
         cursor: pointer;
-        background: #3e93bf;
+        background: #51326E;
         font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
         border-radius: 3px;
     }
@@ -377,27 +372,27 @@
     }
 
 .CssBtnConfirm {
-    width: 98px;
+    
     font-size: 10pt;
-    border: none;
+    border: 1px #B7BCC2 !important;    
     height: 30px;
     color: white;
     text-decoration: none;
     cursor: pointer;
-    background: green;
+    background: #B7BCC2;
     font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
     border-radius: 3px;
 }
 
     .CssBtnConfirm:hover {
-        width: 98px;
+        
         font-size: 10pt;
-        border: none;
+        border: 1px #B7BCC2 !important;    
         height: 30px;
         color: #fff;
         text-decoration: none;
         cursor: pointer;
-        background: #3e93bf;
+        background: #B9BCC9;
         font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
         border-radius: 3px;
     }
@@ -430,53 +425,51 @@
 
 .CssBtnCancel {
     font-size: 10pt;
-    border: None;
-    background-color: #aaa;
+    border: 1px #EB6553 !important;
+    background-color: #EB6553;
     color: #fff;
     font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
     height: 30px;
     cursor: pointer;
-    margin-left: 0px;
-    width: 98px;
+    margin-left: 0px;    
     border-radius: 3px;
 }
 
     .CssBtnCancel:hover {
-        width: 98px;
         font-size: 10pt;
-        border: none;
+        border: 1px #EB6553 !important;
         height: 30px;
         color: #fff;
         text-decoration: none;
         cursor: pointer;
-        background: #3e93bf;
+        background: #EB9853;
         font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
         border-radius: 3px;
     }
 
 
 .CssBtnPrint {
-    width: 98px;
+    
     font-size: 10pt;
-    border: none;
+    border: 1px #9FD148 !important;
     height: 30px;
     color: #fff;
     text-decoration: none;
     cursor: pointer;
-    background: red url(../Images/print.png) no-repeat scroll 5px center;
+    background: #9FD148 url(../Images/print.png) no-repeat scroll 5px center;
     font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
     border-radius: 3px;
 }
 
     .CssBtnPrint:hover {
-        width: 98px;
+        
         font-size: 10pt;
-        border: none;
+        border: 1px #9FD148 !important;
         height: 30px;
         color: #fff;
         text-decoration: none;
         cursor: pointer;
-        background: #3e93bf url(../Images/print.png) no-repeat scroll 5px center;
+        background: #9FD518 url(../Images/print.png) no-repeat scroll 5px center;
         font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
         border-radius: 3px;
     }
@@ -507,27 +500,27 @@
 
 
 .CssBtnShow {
-    width: 98px;
+    
     font-size: 10pt;
-    border: none;
+    border: 1px #72D1FE !important;    
     height: 30px;
     color: #fff;
     text-decoration: none;
     cursor: pointer;
-    background: skyblue;
+    background: #72D1FE;
     font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
     border-radius: 3px;
 }
 
     .CssBtnShow:hover {
-        width: 98px;
+        
         font-size: 10pt;
-        border: none;
+        border: 1px #72D1FE !important;    
         height: 30px;
         color: #fff;
         text-decoration: none;
         cursor: pointer;
-        background: #3e93bf;
+        background: #79D8FE;
         font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
         border-radius: 3px;
     }
@@ -535,6 +528,7 @@
 
 .CssFile_Upload {
     height: 32px;
+    border: 1px #BDDAEA !important;    
     background-color: #BDDAEA;
 }
 .cssCheckBox 
