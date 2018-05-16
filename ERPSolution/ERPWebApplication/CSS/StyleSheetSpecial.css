@@ -28,26 +28,26 @@
     }
 
 .nextHover {
-    background-color: blue;
+
+    background-color: #363C43;
     color: white !important;
     font-size: 1.0em;
     padding-top:3px;
     padding-bottom:4px;
-    border-bottom: 4px solid blue;
+    border-bottom: 4px solid #363C43;
     border-radius: 4px;    
     text-align:center;
 }
 
     .nextHover:hover {
-        /*background-color: #1F1F1F;*/
-        background-color: blue;
+        background-color: #897C43;
         color: white !important;
         padding-top:3px;
         padding-bottom:4px;
         border-radius: 4px;
         font-size: 1.0em;
-        border-bottom: 4px solid blue;
-        border-bottom-color: blue;
+        border-bottom: 4px solid #363C43;
+        border-bottom-color: #363C43;
         border-bottom-width: 4px;        
         text-align:center;
     }

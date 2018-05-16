@@ -28,11 +28,11 @@
         border-radius: 3px;
     }
 
-    
+
 .CssBtnAdvancedSearch {
     font-size: 10pt;
     border: none;
-    height: 30px;    
+    height: 30px;
     color: #fff;
     text-decoration: none;
     cursor: pointer;
@@ -42,7 +42,6 @@
 }
 
     .CssBtnAdvancedSearch:hover {
-        
         font-size: 10pt;
         border: none;
         height: 30px;
@@ -127,6 +126,66 @@
     }
 
 
+.CssBtnLogin {
+    border: 1px #4BB1E1 !important;
+    background-color: #4BB1E1;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: 600;
+    padding: 7px;
+    margin-right: 8px;
+    width: auto;
+    border-radius: 3px;
+    color: white;
+    height: 27px;
+    text-decoration: none;
+    font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+}
+
+    .CssBtnLogin:hover {
+        width: auto;
+        font-size: 10pt;
+        border: 1px #4BB1E1 !important;
+        height: 27px;
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+        background: #9BB9E9;
+        font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+        border-radius: 3px;
+    }
+
+
+.CssBtnRegister {
+    border: 1px #4BB1E1 !important;
+    background-color: #4BB1E1;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: 600;
+    padding: 7px;
+    margin-right: 8px;
+    width: auto;
+    border-radius: 3px;
+    color: white;
+    height: 27px;
+    text-decoration: none;
+    font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+}
+
+    .CssBtnRegister:hover {
+        width: auto;
+        font-size: 10pt;
+        border: 1px #4BB1E1 !important;
+        height: 27px;
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+        background: #9BB9E9;
+        font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+        border-radius: 3px;
+    }
+
+
 .CssBtnSave {
     border: 1px #297BC1 !important;
     background-color: #297BC1;
@@ -156,7 +215,7 @@
         border-radius: 3px;
     }
 
-    
+
 .CssBtnSubmit {
     background-color: #2777B9;
     border: 1px #2777B9 !important;
@@ -186,10 +245,10 @@
         border-radius: 3px;
     }
 
-       
+
 .CssBtnPost {
     background-color: #2777B7;
-    border: 1px #2777B7 !important;    
+    border: 1px #2777B7 !important;
     cursor: pointer;
     font-size: 1.2em;
     font-weight: 600;
@@ -221,11 +280,11 @@
     font-size: 10pt;
     border: solid 0px #EB1357 !important;
     border-bottom: solid 2px #EB1357 !important;
-    height: 30px;    
+    height: 30px;
     color: #F6978A;
     text-decoration: none;
-    cursor: pointer;    
-    background-color: #FFFFFF;    
+    cursor: pointer;
+    background-color: #FFFFFF;
     font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
     border-radius: 3px;
 }
@@ -233,7 +292,7 @@
     .CssBtnClear:hover {
         font-size: 10pt;
         border: solid 0px #EB1357;
-	    border-bottom: solid 2px #EB1357;
+        border-bottom: solid 2px #EB1357;
         height: 30px;
         color: #F1378A;
         text-decoration: none;
@@ -245,26 +304,25 @@
 
 
 .CssBtnUpdate {
-    background-color: #01B49E;    
+    background-color: #01B49E;
     font-size: 10pt;
-    border: 1px #01B49E !important;    
+    border: 1px #01B49E !important;
     height: 30px;
-    color:#fff;    
+    color: #fff;
     text-decoration: none;
-    cursor: pointer;    
+    cursor: pointer;
     font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
     border-radius: 3px;
 }
 
     .CssBtnUpdate:hover {
-        
         font-size: 10pt;
-        border: 1px #01B49E !important;        
+        border: 1px #99B99E !important;
         height: 30px;
         color: white;
         text-decoration: none;
         cursor: pointer;
-        background: #08B79E;
+        background: #99B99E;
         font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
         border-radius: 3px;
     }
@@ -296,35 +354,34 @@
     }
 
 .CssBtnDelete {
-    width: 98px;
     font-size: 10pt;
-    border: 1px #3e93bf !important;    
+    border: solid 0px #98CE3B !important;
+    border-bottom: solid 2px #98CE3B !important;
     height: 30px;
-    color: white;
+    color: #BCDE7E;
     text-decoration: none;
     cursor: pointer;
-    background: #3e93bf;
+    background-color: #FFFFFF;
     font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
     border-radius: 3px;
 }
 
     .CssBtnDelete:hover {
-        width: 98px;
         font-size: 10pt;
-        border: 1px #3e93bf !important;    
+        border: solid 0px #98CE3B !important;
+        border-bottom: solid 2px #98CE3B !important;
         height: 30px;
-        color: #fff;
+        color: #BCDE7E;
         text-decoration: none;
         cursor: pointer;
-        background: #3e93bf;
+        background-color: #AAAFFF;
         font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
         border-radius: 3px;
     }
 
 .CssBtnAddNew {
-    
     font-size: 10pt;
-    border: 1px #58626E !important;    
+    border: 1px #58626E !important;
     height: 30px;
     color: white;
     text-decoration: none;
@@ -335,9 +392,8 @@
 }
 
     .CssBtnAddNew:hover {
-        
         font-size: 10pt;
-        border: 1px #58626E !important;    
+        border: 1px #58626E !important;
         height: 30px;
         color: #fff;
         text-decoration: none;
@@ -372,9 +428,8 @@
     }
 
 .CssBtnConfirm {
-    
     font-size: 10pt;
-    border: 1px #B7BCC2 !important;    
+    border: 1px #B7BCC2 !important;
     height: 30px;
     color: white;
     text-decoration: none;
@@ -385,9 +440,8 @@
 }
 
     .CssBtnConfirm:hover {
-        
         font-size: 10pt;
-        border: 1px #B7BCC2 !important;    
+        border: 1px #B7BCC2 !important;
         height: 30px;
         color: #fff;
         text-decoration: none;
@@ -431,7 +485,7 @@
     font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
     height: 30px;
     cursor: pointer;
-    margin-left: 0px;    
+    margin-left: 0px;
     border-radius: 3px;
 }
 
@@ -449,7 +503,6 @@
 
 
 .CssBtnPrint {
-    
     font-size: 10pt;
     border: 1px #9FD148 !important;
     height: 30px;
@@ -462,14 +515,13 @@
 }
 
     .CssBtnPrint:hover {
-        
         font-size: 10pt;
-        border: 1px #9FD148 !important;
+        border: 1px #9FD989 !important;
         height: 30px;
         color: #fff;
         text-decoration: none;
         cursor: pointer;
-        background: #9FD518 url(../Images/print.png) no-repeat scroll 5px center;
+        background: #9FD989 url(../Images/print.png) no-repeat scroll 5px center;
         font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
         border-radius: 3px;
     }
@@ -500,9 +552,8 @@
 
 
 .CssBtnShow {
-    
     font-size: 10pt;
-    border: 1px #72D1FE !important;    
+    border: 1px #72D1FE !important;
     height: 30px;
     color: #fff;
     text-decoration: none;
@@ -513,9 +564,8 @@
 }
 
     .CssBtnShow:hover {
-        
         font-size: 10pt;
-        border: 1px #72D1FE !important;    
+        border: 1px #72D1FE !important;
         height: 30px;
         color: #fff;
         text-decoration: none;
@@ -527,34 +577,48 @@
 
 
 .CssFile_Upload {
-    height: 32px;
-    border: 1px #BDDAEA !important;    
-    background-color: #BDDAEA;
+    font-size: 10pt;
+    border: solid 0px #9BD0E9 !important;
+    border-bottom: solid 2px #9BD0E9 !important;
+    height: 30px;
+    color: #F6978A;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+    border-radius: 3px;
 }
-.cssCheckBox 
-{
+
+    .CssFile_Upload:hover {
+        font-size: 10pt;
+        border: solid 0px #9BD0E9 !important;
+        border-bottom: solid 2px #9BD0E9 !important;
+        height: 30px;
+        color: #F6978A;
+        text-decoration: none;
+        cursor: pointer;
+        background-color: #FAAAFF;
+        font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+        border-radius: 3px;
+    }
+
+.cssCheckBox {
     font-family: 'Lao UI';
-    font-size:12pt;
+    font-size: 12pt;
     font-weight: normal;
     text-align: Left;
-    color:gray;   
-    display:ruby;
-    border-style:none;
-   
-   
+    color: gray;
+    display: ruby;
+    border-style: none;
 }
 
-.cssCheckListBox 
-{
+.cssCheckListBox {
     font-family: 'Lao UI';
-    font-size:12pt;
+    font-size: 12pt;
     font-weight: normal;
     text-align: Left;
-    color:gray;   
-    display:ruby;
-    border-style:none;
-    text-indent:15px;
-   
+    color: gray;
+    display: ruby;
+    border-style: none;
+    text-indent: 15px;
 }
-
-

@@ -142,7 +142,7 @@
                                             <ol style="list-style-type: none">
                                                 <li>
                                                     <asp:Label ID="Label1" runat="server" AssociatedControlID="txtUserName">User name</asp:Label>
-                                                    <asp:TextBox runat="server" ID="txtUserName" />
+                                                    <asp:TextBox runat="server" Height="18px" ID="txtUserName" />
                                                 </li>
                                                 <li>
                                                     <asp:Label ID="Label3" runat="server" AssociatedControlID="txtPassword">Password</asp:Label>
@@ -154,7 +154,7 @@
                                                 </li>
                                                 <li>
                                                     <asp:Label ID="Label2" runat="server" AssociatedControlID="txtSecurityCode">Security Code</asp:Label>
-                                                    <asp:TextBox runat="server" ID="txtSecurityCode" />
+                                                    <asp:TextBox runat="server" Height="18px" ID="txtSecurityCode" />
                                                 </li>
                                                 <li>
                                                     <asp:Label ID="Label7" runat="server" AssociatedControlID="txtEmail">Email</asp:Label>
@@ -167,7 +167,7 @@
                                     </tr>
                                     <tr>
                                         <td style="padding-left: 40px">
-                                            <asp:Button ID="btnRegister" runat="server" Text="Register" Width="100px" OnClick="btnRegister_Click" /></td>
+                                            <asp:Button ID="btnRegister" runat="server" Text="Register" CssClass="CssBtnRegister" Width="100px" OnClick="btnRegister_Click" /></td>
                                         <td>&nbsp;</td>
                                         <td>&nbsp;</td>
                                     </tr>
@@ -190,7 +190,7 @@
                                             <ol style="list-style-type: none">
                                                 <li>
                                                     <asp:Label  ID="Label5" runat="server" AssociatedControlID="txtLoginUserName" CssClass="labelView" >User name</asp:Label>
-                                                    <asp:TextBox runat="server" ID="txtLoginUserName" />&nbsp;<asp:LinkButton ID="lnkbtnCompany" runat="server" OnClick="lnkbtnCompany_Click" Font-Underline="False" CssClass="nextHover" Font-Italic="False" Width="85px" Height="15px">Next</asp:LinkButton>
+                                                    <asp:TextBox runat="server" Height="18px" ID="txtLoginUserName" />&nbsp;<asp:LinkButton ID="lnkbtnCompany" runat="server" OnClick="lnkbtnCompany_Click" Font-Underline="false"  CssClass="nextHover" Height="15px" Width="85px" >Next</asp:LinkButton>
                                                 </li>
                                                 <li style="padding-left: 170px">
                                                     
@@ -213,7 +213,7 @@
                                     </tr>
                                     <tr>
                                         <td style="padding-left: 40px">
-                                            <asp:Button ID="btnLogin" runat="server" Text="Log in" Width="100px" OnClick="btnLogin_Click" /></td>
+                                            <asp:Button ID="btnLogin" runat="server" Text="Log in" CssClass="CssBtnLogin" Width="100px" OnClick="btnLogin_Click" /></td>
                                         <td>&nbsp;</td>
                                         <td>&nbsp;</td>
                                     </tr>
