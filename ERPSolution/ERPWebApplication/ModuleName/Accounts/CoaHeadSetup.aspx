@@ -139,8 +139,8 @@
                                             <table style="width: 99%; text-align: left">
                                                 <tr>
                                                     <td class="auto-style1" colspan="3">
-                                                        <asp:CheckBox ID="CheckBoxIsBudgetRelated" runat="server" CssClass="checkbox" />
-                                                        <asp:Label ID="Label2" runat="server" AssociatedControlID="CheckBoxIsBudgetRelated" CssClass="checkbox" Font-Names="Tahoma" Font-Size="10pt">Is Budget Related</asp:Label>
+                                                        <asp:CheckBox ID="CheckBoxIsBudgetRelated"  CssClass="checkbox"  runat="server"  />
+                                                        <asp:Label ID="Label2" runat="server" AssociatedControlID="CheckBoxIsBudgetRelated"  CssClass="checkbox"  Font-Names="Tahoma" Font-Size="10pt">Is Budget Related</asp:Label>
                                                         <asp:CheckBox ID="CheckBoxAnalysisRequired" runat="server" CssClass="checkbox"
                                                             AutoPostBack="True" OnCheckedChanged="CheckBoxAnalysisRequired_CheckedChanged" />
                                                         <asp:Label ID="Label3" runat="server" AssociatedControlID="CheckBoxAnalysisRequired" CssClass="checkbox" Font-Names="Tahoma" Font-Size="10pt">Analysis Required</asp:Label>
