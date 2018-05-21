@@ -10,7 +10,7 @@
                     <td  style="float: left">
                         <div style="height:32px;width:500px"><asp:Button ID="btnAddNew" runat="server" CssClass="CssBtnAddNew" Text="AddNew" Width="100px" OnClick="btnAddNew_Click" /><asp:Button ID="btnEdit" runat="server" CssClass="CssBtnUpdate" Text="Edit" Width="100px" OnClick="btnEdit_Click" /></div>
                         <div style="overflow:auto; height:475px;width:500px">
-                        <asp:TreeView ID="treeNodeList" runat="server" ImageSet="Msdn" OnSelectedNodeChanged="treeNodeList_SelectedNodeChanged" OnTreeNodePopulate="treeNodeList_TreeNodePopulate">
+                        <asp:TreeView ID="treeNodeList" runat="server" ImageSet="Msdn" OnSelectedNodeChanged="treeNodeList_SelectedNodeChanged" OnTreeNodePopulate="treeNodeList_TreeNodePopulate" ShowLines="True">
                         </asp:TreeView>
                             </div>
                     </td>

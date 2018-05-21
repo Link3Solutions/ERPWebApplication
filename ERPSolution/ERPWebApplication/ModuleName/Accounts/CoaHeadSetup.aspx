@@ -56,7 +56,7 @@
                                     Width="100%">
                                     <asp:TreeView ID="treeCOAHead" runat="server" ImageSet="Simple" NodeIndent="15" 
                                         OnTreeNodePopulate="treeCOAHead_TreeNodePopulate"
-                                        OnSelectedNodeChanged="treeCOAHead_SelectedNodeChanged">
+                                        OnSelectedNodeChanged="treeCOAHead_SelectedNodeChanged" ShowLines="True">
                                         <HoverNodeStyle Font-Underline="True" ForeColor="#6666AA" />
                                     <NodeStyle Font-Names="Tahoma" Font-Size="10pt" ForeColor="Black" HorizontalPadding="0px"
                                         NodeSpacing="0px" VerticalPadding="0px" ></NodeStyle>

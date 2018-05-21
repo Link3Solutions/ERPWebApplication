@@ -503,8 +503,8 @@ input[type="checkbox"] {
 }*/
 
     input[type='checkbox']:after {
-        width: 15px;
-        height: 15px;        
+        width: 11px;
+        height: 11px;        
         top: -2px;
         left: -1px;        
         background-color: #FFFFFF;
@@ -518,14 +518,16 @@ input[type="checkbox"] {
     }
 
     input[type='checkbox']:checked:after {
-        width: 15px;
-        height: 15px;        
+        width: 10px;
+        height: 11px;        
         top: -2px;
         left: -1px;        
         /*content: '';
         display: inline-block;
         visibility: visible;*/
         content: '✔';
+        padding-left:3px;
+        padding-bottom:4px;
         display: inline-block;        
         transition: 0.5s ease;
         cursor: pointer;

@@ -8,14 +8,14 @@
             <table style="width: 100%;">
                 <tr>
                     <td>
-                        <ajaxToolkit:TabContainer ID="TabContainerUserPermission" runat="server" Width="1160px" Height="100%" ActiveTabIndex="1" CssClass="tab" CssTheme="None">
+                        <ajaxToolkit:TabContainer ID="TabContainerUserPermission" runat="server" Width="1160px" Height="100%" ActiveTabIndex="0" CssClass="tab" CssTheme="None">
                             <ajaxToolkit:TabPanel ID="TabPanelRoleSetup" runat="server" HeaderText="Role Setup" Width="1160px">
                                 <ContentTemplate>
                                     <table style="width: 100%;">
                                         <tr>
                                             <td style="text-align: left; float: left; width: 500px">
                                                 <div style="overflow: auto; height: 450px;">
-                                                    <asp:TreeView ID="TreeViewAllNode" runat="server" OnTreeNodePopulate="TreeViewAllNode_TreeNodePopulate" ShowCheckBoxes="All" NodeIndent="50" ShowExpandCollapse="False">
+                                                    <asp:TreeView ID="TreeViewAllNode" runat="server" OnTreeNodePopulate="TreeViewAllNode_TreeNodePopulate" ShowCheckBoxes="All" NodeIndent="15" ShowExpandCollapse="False" ShowLines="True">
                                                         <ParentNodeStyle Font-Bold="True" />
                                                         <RootNodeStyle Font-Bold="True" />
                                                     </asp:TreeView>
@@ -117,7 +117,7 @@
                                 <ContentTemplate>
                                     <table style="width: 100%;">
                                         <tr>
-                                            <td colspan="2">
+                                            <td>
                                                  <div style="width:400px">
                                                  <table style="width: 100%;">
                                                      <tr>
@@ -161,7 +161,7 @@
                                                  </table>
                                                      </div>
                                                  </td>
-                                             <td colspan="3">
+                                             <td>
                                                  <div style="width:600px">
                                                      <table style="width: 100%;">
                                                          <tr>
@@ -182,7 +182,7 @@
                                                      </table>
                                                  </div>
                                              </td>
-                                             <td colspan="2" style="width:95px">
+                                             <td style="width:95px">
                                                  <div style="width:85px;float:right;position: fixed; background-color: white; height: 120px;margin-top:-15px;margin-right:1px">
                                                     <table style="width: 100%; margin-left: 5px">
                                                         <tr>
@@ -202,7 +202,7 @@
                                              </td>
                                             </tr>
                                         <tr>
-                                             <td colspan="7">
+                                             <td colspan="3">
                                                  <div style="width:950px">
                                                 <table style="width: 100%;">
                                                     <tr>
@@ -213,12 +213,12 @@
                                                             <table style="width: 100%;">
                                                                 <tr>
                                                                     <td>
-                                                                        <asp:ImageButton ID="ingbtnForword" runat="server"  Width="20px" Height="20px" ImageUrl="~/Images/forward.png" OnClick="ingbtnForword_Click" />
+                                                                        <asp:ImageButton ID="ingbtnForword" runat="server"  Width="17px" Height="17px" ImageUrl="~/Images/forward.png" OnClick="ingbtnForword_Click" />
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
-                                                                        <asp:ImageButton ID="imgbtnForwordAll" runat="server" OnClick="imgbtnForwordAll_Click" Width="20px" Height="20px" ImageUrl="~/Images/forwardAll.png" />
+                                                                        <asp:ImageButton ID="imgbtnForwordAll" runat="server" OnClick="imgbtnForwordAll_Click" Width="17px" Height="17px" ImageUrl="~/Images/forwardAll.png" />
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -226,12 +226,12 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
-                                                                        <asp:ImageButton ID="imgbtnBack" runat="server" Width="20px" Height="20px" ImageUrl="~/Images/backward.png" OnClick="imgbtnBack_Click" />
+                                                                        <asp:ImageButton ID="imgbtnBack" runat="server" Width="17px" Height="17px" ImageUrl="~/Images/backward.png" OnClick="imgbtnBack_Click" />
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
-                                                                        <asp:ImageButton ID="imgbtnBackAll" runat="server" Width="20px" Height="20px" ImageUrl="~/Images/backwardAll.png" OnClick="imgbtnBackAll_Click" />
+                                                                        <asp:ImageButton ID="imgbtnBackAll" runat="server" Width="17px" Height="17px" ImageUrl="~/Images/backwardAll.png" OnClick="imgbtnBackAll_Click" />
                                                                     </td>
                                                                 </tr>
                                                             </table>
@@ -248,12 +248,12 @@
                                                             <table style="width:100%;">
                                                                 <tr>
                                                                     <td>
-                                                                        <asp:ImageButton ID="imgbtnForwordUserRole" Width="20px" Height="20px" runat="server" ImageUrl="~/Images/forward.png" OnClick="imgbtnForwordUserRole_Click" />
+                                                                        <asp:ImageButton ID="imgbtnForwordUserRole" Width="17px" Height="17px" runat="server" ImageUrl="~/Images/forward.png" OnClick="imgbtnForwordUserRole_Click" />
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
-                                                                        <asp:ImageButton ID="imgbtnForwordAllUserRole" runat="server" Width="20px" Height="20px" OnClick="imgbtnForwordAllUserRole_Click" ImageUrl="~/Images/forwardAll.png" />
+                                                                        <asp:ImageButton ID="imgbtnForwordAllUserRole" runat="server" Width="17px" Height="17px" OnClick="imgbtnForwordAllUserRole_Click" ImageUrl="~/Images/forwardAll.png" />
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -261,12 +261,12 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
-                                                                        <asp:ImageButton ID="imgbtnBackUserRole" runat="server" Width="20px" Height="20px" OnClick="imgbtnBackUserRole_Click" ImageUrl="~/Images/backward.png" />
+                                                                        <asp:ImageButton ID="imgbtnBackUserRole" runat="server" Width="17px" Height="17px" OnClick="imgbtnBackUserRole_Click" ImageUrl="~/Images/backward.png" />
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
-                                                                        <asp:ImageButton ID="imgbtnBackAllUserRole" runat="server" Width="20px" Height="20px" ImageUrl="~/Images/backwardAll.png" OnClick="imgbtnBackAllUserRole_Click" />
+                                                                        <asp:ImageButton ID="imgbtnBackAllUserRole" runat="server" Width="17px" Height="17px" ImageUrl="~/Images/backwardAll.png" OnClick="imgbtnBackAllUserRole_Click" />
                                                                     </td>
                                                                 </tr>
                                                             </table>
