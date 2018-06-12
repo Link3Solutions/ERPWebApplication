@@ -5,17 +5,31 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
+            <asp:Panel ID="Panel1" runat="server" Width="1160px">
             <table style="width: 100%; text-align: left">
+                <tr style="border-bottom: 1px solid gray ">
+                    <td style="text-align: left; float: left; width: 500px">
+                        <div style="height:32px;width:500px;margin-top:-10px">
+                            <asp:Button ID="btnAddNew" runat="server" CssClass="CssBtnAddNew" Text="AddNew" Width="100px" OnClick="btnAddNew_Click" /><asp:Button ID="btnEdit" runat="server" CssClass="CssBtnUpdate" Text="Edit" Width="100px" OnClick="btnEdit_Click" />
+
+                        </div>
+                    </td>
+                    <td style="text-align: left; float: left;width:485px; "></td>
+                    <td style="float:left">
+                        <div style="width:110px;position:fixed;padding-left:50px;margin-top:-10px">
+                            <asp:Button ID="btnPrint" runat="server" CssClass="CssBtnPrint" Text="Print" Width="70px" />
+                            </div>
+                    </td>
+                </tr>
                 <tr>
-                    <td  style="float: left">
-                        <div style="height:32px;width:500px"><asp:Button ID="btnAddNew" runat="server" CssClass="CssBtnAddNew" Text="AddNew" Width="100px" OnClick="btnAddNew_Click" /><asp:Button ID="btnEdit" runat="server" CssClass="CssBtnUpdate" Text="Edit" Width="100px" OnClick="btnEdit_Click" /></div>
-                        <div style="overflow:auto; height:475px;width:500px">
-                        <asp:TreeView ID="treeNodeList" runat="server" ImageSet="Msdn" OnSelectedNodeChanged="treeNodeList_SelectedNodeChanged" OnTreeNodePopulate="treeNodeList_TreeNodePopulate" ShowLines="True">
+                    <td  style="text-align: left; float: left; width: 500px">
+                        <div style="overflow:auto; height:433px;width:500px">
+                        <asp:TreeView ID="treeNodeList" runat="server" ImageSet="Msdn" OnSelectedNodeChanged="treeNodeList_SelectedNodeChanged" OnTreeNodePopulate="treeNodeList_TreeNodePopulate">
                         </asp:TreeView>
                             </div>
                     </td>
-                    <td  style="text-align: left; float: left;">
-                        <div style="height: 475px;width:475px;padding-left:5px">
+                    <td  style="text-align: left; float: left;width:485px; ">
+                        <div style="height: 433px;width:470px;padding-left:15px">
                         <table style="width: 100%;">
                             <tr>
                                 <td colspan="3">
@@ -92,11 +106,10 @@
                             </div>
                     </td>
                     <td style="float:left">
-                        <div style="height: 475px;width:125px;position:fixed">
+                        <div style="height: 433px;width:110px;position:fixed;padding-left:50px;margin-top:-5px">
                             <table>
                                 <tr><td><asp:Button ID="btnSave" runat="server" CssClass="CssBtnSave" Text="Save" Width="70px" OnClick="btnSave_Click" /></td></tr>
                                 <tr><td><asp:Button ID="btnCancelAddNew" runat="server" CssClass="CssBtnCancel" Text="Cancel" Width="70px" OnClick="btnCancelAddNew_Click" /></td></tr>
-                                <tr><td><asp:Button ID="btnPrint" runat="server" CssClass="CssBtnPrint" Text="Print" Width="70px" /></td></tr>
                                 <tr><td><asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="CssBtnUpdate" Width="70px" OnClick="btnUpdate_Click" /></td></tr>
                                 <tr><td><asp:Button ID="btnCancelEdit" runat="server" CssClass="CssBtnCancel"  Text="Cancel" Width="70px" OnClick="btnCancelEdit_Click" /></td></tr>
                             </table>
@@ -104,6 +117,7 @@
                     </td>
                 </tr>
             </table>
+                </asp:Panel>
         </ContentTemplate>
         <Triggers>
             

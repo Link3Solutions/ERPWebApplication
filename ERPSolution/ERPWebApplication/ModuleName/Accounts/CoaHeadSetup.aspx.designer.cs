@@ -76,6 +76,24 @@ namespace ERPWebApplication.ModuleName.Accounts {
         protected global::System.Web.UI.WebControls.Button btnEdit;
         
         /// <summary>
+        /// btnPrintSummery control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPrintSummery;
+        
+        /// <summary>
+        /// Hr1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Hr1;
+        
+        /// <summary>
         /// Panel5 control.
         /// </summary>
         /// <remarks>
@@ -380,15 +398,6 @@ namespace ERPWebApplication.ModuleName.Accounts {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelAdd;
-        
-        /// <summary>
-        /// btnPrintSummery control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPrintSummery;
         
         /// <summary>
         /// btnUpdate control.

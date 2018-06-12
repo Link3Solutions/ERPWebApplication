@@ -29,25 +29,25 @@
 
 .nextHover {
 
-    background-color: #363C43;
+    background-color: #297BC1;
     color: white !important;
     font-size: 1.0em;
     padding-top:3px;
     padding-bottom:4px;
-    border-bottom: 4px solid #363C43;
+    border-bottom: 4px solid #297BC1;
     border-radius: 4px;    
     text-align:center;
 }
 
     .nextHover:hover {
-        background-color: #897C43;
+        background-color: #72D1FE;
         color: white !important;
         padding-top:3px;
         padding-bottom:4px;
         border-radius: 4px;
         font-size: 1.0em;
-        border-bottom: 4px solid #363C43;
-        border-bottom-color: #363C43;
+        border-bottom: 4px solid #72D1FE;
+        border-bottom-color: #72D1FE;
         border-bottom-width: 4px;        
         text-align:center;
     }

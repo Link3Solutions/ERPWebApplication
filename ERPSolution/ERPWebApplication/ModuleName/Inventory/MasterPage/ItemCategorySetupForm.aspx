@@ -66,7 +66,7 @@
                                                                 <asp:TreeView ID="TreeViewCategory"
                                                                     runat="server" ImageSet="Simple" NodeIndent="15" OnTreeNodePopulate="TreeViewCategory_TreeNodePopulate"
                                                                     OnSelectedNodeChanged="TreeViewCategory_SelectedNodeChanged"
-                                                                     Width="80%" ShowLines="True">
+                                                                     Width="80%">
                                                                     <HoverNodeStyle Font-Underline="True" ForeColor="#6666AA" />
                                                             <NodeStyle Font-Names="Tahoma" Font-Size="10pt" ForeColor="Black" HorizontalPadding="2px"
                                                                 NodeSpacing="0px" VerticalPadding="2px"></NodeStyle>
@@ -132,7 +132,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td style="padding-left:5px">
-                                                            <asp:Label ID="Label1" runat="server" Text="Category Name" Width="125px"></asp:Label>
+                                                            <asp:Label ID="Label1" runat="server" Text="Category Name" Width="130px"></asp:Label>
                                                         </td>
                                                         <td>:</td>
                                                         <td>
@@ -161,7 +161,7 @@
                                                                 <table style="width: 100%;margin-left:5px">
 
                                                                     <tr>
-                                                                        <td >&nbsp;<asp:Label ID="Label4" runat="server" Text="Product Type" Width="140px"></asp:Label>
+                                                                        <td >&nbsp;<asp:Label ID="Label4" runat="server" Text="Product Type" Width="145px"></asp:Label>
                                                                         </td>
                                                                         <td>:</td>
                                                                         <td>
@@ -189,7 +189,7 @@
                                                                 <table style="width: 100%;margin-left:5px">
                                                                     <tr>
                                                                         <td>
-                                                                            <asp:Label ID="Label39" runat="server" Text="Item Code" Width="125px"></asp:Label>
+                                                                            <asp:Label ID="Label39" runat="server" Text="Item Code" Width="133px"></asp:Label>
                                                                         </td>
                                                                         <td>:</td>
                                                                         <td>

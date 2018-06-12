@@ -8,21 +8,21 @@
             <table style="width: 100%;">
                 <tr>
                     <td>
-                        <ajaxToolkit:TabContainer ID="TabContainerUserPermission" runat="server" Width="1160px" Height="100%" ActiveTabIndex="0" CssClass="tab" CssTheme="None">
+                        <ajaxToolkit:TabContainer ID="TabContainerUserPermission" runat="server" Width="1160px" Height="100%" ActiveTabIndex="1" CssClass="tab" CssTheme="None">
                             <ajaxToolkit:TabPanel ID="TabPanelRoleSetup" runat="server" HeaderText="Role Setup" Width="1160px">
                                 <ContentTemplate>
                                     <table style="width: 100%;">
                                         <tr>
                                             <td style="text-align: left; float: left; width: 500px">
                                                 <div style="overflow: auto; height: 450px;">
-                                                    <asp:TreeView ID="TreeViewAllNode" runat="server" OnTreeNodePopulate="TreeViewAllNode_TreeNodePopulate" ShowCheckBoxes="All" NodeIndent="15" ShowExpandCollapse="False" ShowLines="True">
+                                                    <asp:TreeView ID="TreeViewAllNode" runat="server" OnTreeNodePopulate="TreeViewAllNode_TreeNodePopulate" ShowCheckBoxes="All" NodeIndent="15" ShowExpandCollapse="False">
                                                         <ParentNodeStyle Font-Bold="True" />
                                                         <RootNodeStyle Font-Bold="True" />
                                                     </asp:TreeView>
                                                 </div>
                                             </td>
                                             <td style="text-align: left; float: left; width: 435px">
-                                                <div style="height:450px">
+                                                <div style="height:450px;padding-left:15px">
                                                 <table style="width: 100%;">
                                                     <tr>
                                                         <td>
@@ -183,8 +183,8 @@
                                                  </div>
                                              </td>
                                              <td style="width:95px">
-                                                 <div style="width:85px;float:right;position: fixed; background-color: white; height: 120px;margin-top:-15px;margin-right:1px">
-                                                    <table style="width: 100%; margin-left: 5px">
+                                                 <div style="width:85px;float:right;position: fixed; background-color: white;margin-top:-72px; margin-right:1px">
+                                                    <table style="width: 100%; margin-left: 13px">
                                                         <tr>
                                                             <td>
                                                                 <asp:Button ID="btnSave" runat="server" CssClass="CssBtnSave" Text="Save" Width="70px" OnClick="btnSave_Click" /></td>
@@ -207,7 +207,7 @@
                                                 <table style="width: 100%;">
                                                     <tr>
                                                         <td>
-                                                            <asp:ListBox ID="ListBoxRoles" runat="server" Height="300px" Width="200px"></asp:ListBox>
+                                                            <asp:ListBox ID="ListBoxRoles" runat="server" Height="220px" Width="200px"></asp:ListBox>
                                                         </td>
                                                         <td>
                                                             <table style="width: 100%;">
@@ -237,12 +237,12 @@
                                                             </table>
                                                         </td>
                                                         <td>
-                                                            <asp:ListBox ID="ListBoxSelectedRoles" runat="server" AutoPostBack="True" Height="300px" Width="200px"></asp:ListBox>
+                                                            <asp:ListBox ID="ListBoxSelectedRoles" runat="server" AutoPostBack="True" Height="220px" Width="200px"></asp:ListBox>
                                                         </td>
                                                         <td>
                                                             &nbsp;</td>
                                                         <td>
-                                                            <asp:ListBox ID="ListBoxRelatedUserRole" Height="300px" Width="200px" runat="server"></asp:ListBox>
+                                                            <asp:ListBox ID="ListBoxRelatedUserRole" Height="220px" Width="200px" runat="server"></asp:ListBox>
                                                         </td>
                                                         <td>
                                                             <table style="width:100%;">
@@ -272,13 +272,8 @@
                                                             </table>
                                                         </td>
                                                         <td>
-                                                            <asp:ListBox ID="ListBoxSelectedRelatedUserRole" Height="300px" Width="200px" runat="server"></asp:ListBox>
+                                                            <asp:ListBox ID="ListBoxSelectedRelatedUserRole" Height="220px" Width="200px" runat="server"></asp:ListBox>
                                                         </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td colspan="3">&nbsp;</td>
-                                                        <td>&nbsp;</td>
-                                                        <td colspan="3">&nbsp;</td>
                                                     </tr>
                                                     <tr>
                                                         <td colspan="3">&nbsp;</td>

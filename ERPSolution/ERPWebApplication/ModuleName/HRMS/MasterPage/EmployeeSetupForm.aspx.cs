@@ -140,6 +140,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                 _objEmployeeDetailsSetup.LastName = txtLastName.Text == string.Empty ? null : txtLastName.Text;
                 _objEmployeeDetailsSetup.Email = txtEmail.Text == string.Empty ? null : txtEmail.Text;
                 _objEmployeeDetailsSetup.EntryUserName = LoginUserInformation.UserID;
+                _objEmployeeDetailsSetup.EmpPhoto = (byte[])ViewState["profileImage"];
                 IsUser objIsUser = new IsUser();
                 objIsUser.UserPermission = Convert.ToInt32( ddlUserPermission.SelectedValue);
                 _objEmployeeSetupController = new EmployeeSetupController();
@@ -150,6 +151,49 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
             {
 
                 throw msgException;
+            }
+        }
+
+        protected void btnEmpPhoto_Click(object sender, ImageClickEventArgs e)
+        {
+            if (ProfileImageUpload.HasFile)
+            {
+                if (ProfileImageUpload.PostedFile.ContentType == "image/jpg" ||
+                    ProfileImageUpload.PostedFile.ContentType == "image/jpeg" ||
+                    ProfileImageUpload.PostedFile.ContentType == "image/gif" ||
+                    ProfileImageUpload.PostedFile.ContentType == "image/pjpeg" ||
+                    ProfileImageUpload.PostedFile.ContentType == "image/bmp" ||
+                    ProfileImageUpload.PostedFile.ContentType == "image/png")
+                {
+                    int filelenght = ProfileImageUpload.PostedFile.ContentLength;
+                    if (filelenght <= 524288)
+                    {
+                        byte[] imagebytes = new byte[filelenght];
+                        ProfileImageUpload.PostedFile.InputStream.Read(imagebytes, 0, filelenght);
+                        byte[] img = imagebytes;
+                        string base64string = Convert.ToBase64String(img, 0, img.Length);
+                        System.Drawing.Image im = System.Drawing.Image.FromStream(ProfileImageUpload.PostedFile.InputStream);
+                        double imageHight = im.PhysicalDimension.Height;
+                        double imageWidth = im.PhysicalDimension.Width;
+                        if (imageHight <= 150 && imageWidth <= 150)
+                        {
+                            lblImage.Text = "<img src='data:image/png;base64," + base64string +
+                                "' alt='<br />  Logo <br />  Not <br />  Available ' width='" + imageWidth + "' hight='" + imageHight + "' vspace='5px' hspace='5px' />";
+                            ViewState["profileImage"] = imagebytes;
+                        }
+                        else
+                        {
+                            clsTopMostMessageBox.Show(clsMessages.GImageSize);
+
+                        }
+                    }
+                    else
+                    {
+                        clsTopMostMessageBox.Show(clsMessages.GImageSizeBytes);
+
+                    }
+
+                }
             }
         }
     }

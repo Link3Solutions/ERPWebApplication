@@ -58,9 +58,9 @@
     <Reference Include="AjaxControlToolkit.HtmlEditor.Sanitizer">
       <HintPath>..\packages\AjaxControlToolkit.HtmlEditor.Sanitizer.16.1.1.0\lib\net40\AjaxControlToolkit.HtmlEditor.Sanitizer.dll</HintPath>
     </Reference>
-    <Reference Include="AspNet.ScriptManager.jQuery, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\AspNet.ScriptManager.jQuery.3.1.0\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    <Reference Include="AspNet.ScriptManager.jQuery, Version=3.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.3.3.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="CRVsPackageLib, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -984,6 +984,8 @@
     <Content Include="CSS\MasterPGBar.css" />
     <Content Include="CSS\menuStyle.css" />
     <Content Include="CSS\microsoftMenu.css" />
+    <Content Include="CSS\ParclSheet2.css" />
+    <Content Include="CSS\ParclStyleSheet.css" />
     <Content Include="CSS\StyleSheetGridView.css" />
     <Content Include="CSS\StyleSheetSpecial.css" />
     <Content Include="HomePageForm.aspx" />
@@ -993,12 +995,24 @@
     <Content Include="Images\btnNo.jpg" />
     <Content Include="Images\btnOK.jpg" />
     <Content Include="Images\btnYes.jpg" />
+    <Content Include="Images\cut.png" />
+    <Content Include="Images\door.png" />
+    <Content Include="Images\ei0019-48.gif" />
+    <Content Include="Images\ei0020-48.gif" />
+    <Content Include="Images\favicon.ico" />
     <Content Include="Images\forward.png" />
     <Content Include="Images\forwardAll.png" />
     <Content Include="Images\header.png" />
     <Content Include="Images\imageup.jpg" />
     <Content Include="Images\next.png" />
+    <Content Include="Images\page_white_copy.png" />
+    <Content Include="Images\page_white_delete.png" />
+    <Content Include="Images\page_white_edit.png" />
+    <Content Include="Images\page_white_paste.png" />
     <Content Include="Images\Remove.png" />
+    <Content Include="Images\save.png" />
+    <Content Include="jquery.contextMenu.css" />
+    <Content Include="JS\ContextMenu.js" />
     <Content Include="MicrosoftMenuHtmlPage.html" />
     <Content Include="ModuleName\Accounts\CoaHeadSetup.aspx" />
     <Content Include="ModuleName\Accounts\MasterPage\JournalVoucherForm.aspx" />
@@ -1048,6 +1062,22 @@
     <Content Include="CSS\CSSstyleTheme\Fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="CSS\HomePage\bootstrap-theme.css.map" />
     <Content Include="CSS\HomePage\bootstrap.css.map" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="ParclForm.aspx" />
+    <Content Include="Scripts\jquery-1.3.2.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery-ui-1.7.1.custom.min.js" />
+    <Content Include="Scripts\jquery.contextMenu.css" />
+    <Content Include="Scripts\jquery.contextMenu.js" />
+    <Content Include="Scripts\parclJavaScript.js" />
+    <Content Include="Scripts\site.js" />
+    <Content Include="Scripts\xtreeview.js" />
+    <Content Include="WebForm1.aspx" />
+    <Content Include="WebForm2.aspx" />
+    <Content Include="WebForm3.aspx" />
     <Content Include="WebService\ServiceSystem.asmx" />
     <Content Include="ClassDiagram1.cd" />
     <Content Include="WebUserControls\OrganizationalChartControl.ascx" />
@@ -1060,11 +1090,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </Content>
-    <None Include="Scripts\jquery-3.1.0.intellisense.js" />
-    <Content Include="Scripts\jquery-3.1.0.js" />
-    <Content Include="Scripts\jquery-3.1.0.min.js" />
-    <Content Include="Scripts\jquery-3.1.0.slim.js" />
-    <Content Include="Scripts\jquery-3.1.0.slim.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.20.js" />
     <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
     <Content Include="Scripts\microsoftJavaScript.js" />
@@ -1447,6 +1472,13 @@
     <Compile Include="MyAccountForm.aspx.designer.cs">
       <DependentUpon>MyAccountForm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ParclForm.aspx.cs">
+      <DependentUpon>ParclForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ParclForm.aspx.designer.cs">
+      <DependentUpon>ParclForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1459,6 +1491,27 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm3.aspx.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm3.aspx.designer.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebService\ServiceSystem.asmx.cs">
       <DependentUpon>ServiceSystem.asmx</DependentUpon>
@@ -1494,14 +1547,14 @@
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Scripts\jquery-3.1.0.slim.min.map" />
-    <Content Include="Scripts\jquery-3.1.0.min.map" />
     <Content Include="UploadFile\Action Planning form.xlsx" />
     <Content Include="UploadFile\Chart_of_acc.pdf" />
     <Content Include="UploadFile\Client Requirement Form.doc" />
     <Content Include="UploadFile\CRUD Function in MVC.docx" />
     <Content Include="UploadFile\Form Template Link3 Inventory.docx" />
     <Content Include="UploadFile\Inventory Form wise table.xlsx" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

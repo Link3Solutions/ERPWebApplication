@@ -76,40 +76,40 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage {
         protected global::System.Web.UI.WebControls.ListBox ListBoxStandardOrgElements;
         
         /// <summary>
-        /// btnForword control.
+        /// imgbtnForword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnForword;
+        protected global::System.Web.UI.WebControls.ImageButton imgbtnForword;
         
         /// <summary>
-        /// btnForwordAll control.
+        /// imgbtnForwordAll control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnForwordAll;
+        protected global::System.Web.UI.WebControls.ImageButton imgbtnForwordAll;
         
         /// <summary>
-        /// btnBack control.
+        /// imgbtnBack control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBack;
+        protected global::System.Web.UI.WebControls.ImageButton imgbtnBack;
         
         /// <summary>
-        /// btnBackAll control.
+        /// imgbtnBackAll control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBackAll;
+        protected global::System.Web.UI.WebControls.ImageButton imgbtnBackAll;
         
         /// <summary>
         /// ListBoxOrganizationElements control.
@@ -175,6 +175,15 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage {
         protected global::System.Web.UI.WebControls.Button btnEdit;
         
         /// <summary>
+        /// Button3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button3;
+        
+        /// <summary>
         /// TreeViewCompanyChart control.
         /// </summary>
         /// <remarks>
@@ -182,6 +191,15 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TreeView TreeViewCompanyChart;
+        
+        /// <summary>
+        /// Panel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel1;
         
         /// <summary>
         /// Label3 control.
@@ -220,15 +238,6 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage {
         protected global::System.Web.UI.WebControls.DropDownList ddlElement;
         
         /// <summary>
-        /// lblParentElementValue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblParentElementValue;
-        
-        /// <summary>
         /// lblParentElementText control.
         /// </summary>
         /// <remarks>
@@ -236,6 +245,15 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblParentElementText;
+        
+        /// <summary>
+        /// lblParentElementValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblParentElementValue;
         
         /// <summary>
         /// Label5 control.
@@ -533,15 +551,6 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnClearChart;
-        
-        /// <summary>
-        /// Button3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
         
         /// <summary>
         /// btnUpdate control.

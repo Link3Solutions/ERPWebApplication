@@ -76,5 +76,12 @@ namespace ERPWebApplication.AppClass.Model
 
         public int EmployeeTitle { get; set; }
         public DataTable dtEmployeeChart;
+        private byte[] _empPhoto;
+
+        public byte[] EmpPhoto
+        {
+            get { return _empPhoto; }
+            set { _empPhoto = value; }
+        }
     }
 }

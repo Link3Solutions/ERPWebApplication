@@ -323,11 +323,11 @@
                                                 <td style="width: 2%;">
                                                     &nbsp;</td>
                                                 <td style="width: 11%;">
-                                                    <asp:Label ID="lblisproject" runat="server" Text="Project Related?"></asp:Label>
+                                                    <asp:Label ID="lblisproject" runat="server" Text="Project Related?"></asp:Label>&nbsp;<asp:CheckBox ID="chkproject" runat="server" AutoPostBack="True" Checked="true" OnCheckedChanged="chkproject_CheckedChanged1" />
                                                 </td>
                                                 <td >
-                                                    <asp:CheckBox ID="chkproject" runat="server" AutoPostBack="True" Checked="true" OnCheckedChanged="chkproject_CheckedChanged1" />
-                                                    <asp:DropDownList ID="ddlProject" runat="server" Visible="true" Width="95%">
+                                                    
+                                                    <asp:DropDownList ID="ddlProject" runat="server" Visible="true" Width="100%">
                                                     </asp:DropDownList>
                                                 </td>
                                             </tr>

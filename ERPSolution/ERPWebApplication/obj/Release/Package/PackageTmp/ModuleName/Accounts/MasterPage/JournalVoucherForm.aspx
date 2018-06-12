@@ -691,10 +691,10 @@
                                                             <table style="width: 99%; margin-left: 5px">
                                                                 <tr>
                                                                     <td>
-                                                                        <asp:TextBox ID="txtSearchIntoGrid" runat="server" onkeyup="callForSearch();" Width="390px"></asp:TextBox>
+                                                                        <asp:TextBox ID="txtSearchIntoGrid" runat="server" onkeyup="callForSearch();" Width="375px"></asp:TextBox>
                                                                     </td>
                                                                     <td>
-                                                                        <asp:Button ID="btnAdvancedSearch" runat="server" CssClass="CssBtnAdvancedSearch" Text="Advanced Search" Width="150px" OnClick="btnAdvancedSearch_Click" />
+                                                                        <asp:Button ID="btnAdvancedSearch" runat="server" CssClass="CssBtnAdvancedSearch" Text="Advanced Search" Width="170px" OnClick="btnAdvancedSearch_Click" />
                                                                     </td>
                                                                     <td>&nbsp;</td>
                                                                 </tr>

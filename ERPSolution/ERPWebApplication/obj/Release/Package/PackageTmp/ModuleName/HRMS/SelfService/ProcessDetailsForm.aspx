@@ -646,25 +646,7 @@
                                             </td>
                                             <td colspan="2" style="width: 525px">
                                                 <div style="height: 190px">
-                                                    <table style="width: 100%; margin-top: -10px">
-                                                        <tr>
-                                                            <td colspan="3" style="text-align: right">
-                                                                
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>&nbsp;</td>
-                                                            <td>&nbsp;</td>
-                                                            <td>&nbsp;</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>&nbsp;</td>
-                                                            <td>&nbsp;</td>
-                                                            <td>&nbsp;</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="3">
-                                                                <div style="width: 100%; height: 155px; overflow-y: scroll; overflow-x: hidden;">
+                                                    <div style="width: 100%; height: 100%; overflow-y: scroll; overflow-x: hidden;">
                                                                     <asp:GridView ID="grdProcessTeam" runat="server" Width="100%" AutoGenerateColumns="False" OnRowCommand="grdProcessTeam_RowCommand" OnRowDeleting="grdProcessTeam_RowDeleting">
                                                                         <Columns>
                                                                             <asp:TemplateField HeaderText="SL">
@@ -718,14 +700,6 @@
                                                                         </Columns>
                                                                     </asp:GridView>
                                                                 </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>&nbsp;</td>
-                                                            <td>&nbsp;</td>
-                                                            <td>&nbsp;</td>
-                                                        </tr>
-                                                    </table>
                                                 </div>
                                             </td>
                                         </tr>

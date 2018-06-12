@@ -31,7 +31,7 @@
 
 .CssBtnAdvancedSearch {
     font-size: 10pt;
-    border: none;
+    border: 1px #BDDAEA !important; 
     height: 30px;
     color: #fff;
     text-decoration: none;
@@ -145,12 +145,12 @@
     .CssBtnLogin:hover {
         width: auto;
         font-size: 10pt;
-        border: 1px #4BB1E1 !important;
+        border: 1px #72D1FE !important;
         height: 27px;
         color: #fff;
         text-decoration: none;
         cursor: pointer;
-        background: #9BB9E9;
+        background: #72D1FE;
         font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
         border-radius: 3px;
     }
@@ -278,7 +278,7 @@
 
 .CssBtnClear {
     font-size: 10pt;
-    border: solid 0px #EB1357 !important;
+    border: solid 1px #F6978A !important;
     border-bottom: solid 2px #EB1357 !important;
     height: 30px;
     color: #F6978A;
@@ -291,7 +291,7 @@
 
     .CssBtnClear:hover {
         font-size: 10pt;
-        border: solid 0px #EB1357;
+        border: solid 1px #F6978A;
         border-bottom: solid 2px #EB1357;
         height: 30px;
         color: #F1378A;
@@ -509,7 +509,7 @@
     color: #fff;
     text-decoration: none;
     cursor: pointer;
-    background: #9FD148 url(../Images/print.png) no-repeat scroll 5px center;
+    background: #9FD148 url(../Images/print.png) no-repeat scroll 2px center;
     font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
     border-radius: 3px;
 }
@@ -521,7 +521,7 @@
         color: #fff;
         text-decoration: none;
         cursor: pointer;
-        background: #9FD989 url(../Images/print.png) no-repeat scroll 5px center;
+        background: #9FD989 url(../Images/print.png) no-repeat scroll 2px center;
         font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
         border-radius: 3px;
     }

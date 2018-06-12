@@ -457,6 +457,15 @@ label {
 
     label.checkbox {
         display: inline;
+/*edited Start*/
+        font-family: Tahoma;
+        font-size: 1.1em;
+        font-weight: normal;        
+        color: #7F7F7F;
+        text-align: left;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        /*edited end*/
     }
 
 input, textarea {

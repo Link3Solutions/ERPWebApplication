@@ -31,6 +31,51 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage {
         protected global::System.Web.UI.WebControls.Panel Panel11;
         
         /// <summary>
+        /// lblImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblImage;
+        
+        /// <summary>
+        /// Label98 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label98;
+        
+        /// <summary>
+        /// ProfileImageUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload ProfileImageUpload;
+        
+        /// <summary>
+        /// btnEmpPhoto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton btnEmpPhoto;
+        
+        /// <summary>
+        /// RevImg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RevImg;
+        
+        /// <summary>
         /// Label3 control.
         /// </summary>
         /// <remarks>

@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="Organizational Chart" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="OrganizationalChartForm.aspx.cs" Inherits="ERPWebApplication.ModuleName.HRMS.MasterPage.OrganizationalChartForm" %>
 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+       
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -44,12 +46,12 @@
                                                             <table style="width: 100%;">
                                                                 <tr>
                                                                     <td>
-                                                                        <asp:Button ID="btnForword" runat="server" Text="&gt;" Width="25px" OnClick="btnForword_Click" />
+                                                                        <asp:ImageButton ID="imgbtnForword" runat="server"  Width="17px" Height="17px" ImageUrl="~/Images/forward.png" OnClick="imgbtnForword_Click" />
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
-                                                                        <asp:Button ID="btnForwordAll" runat="server" Text="&gt;&gt;" Width="25px" OnClick="btnForwordAll_Click" />
+                                                                        <asp:ImageButton ID="imgbtnForwordAll" runat="server" OnClick="imgbtnForwordAll_Click" Width="17px" Height="17px" ImageUrl="~/Images/forwardAll.png" />
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -57,12 +59,12 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
-                                                                        <asp:Button ID="btnBack" runat="server" Text="&lt;" Width="25px" OnClick="btnBack_Click" />
+                                                                        <asp:ImageButton ID="imgbtnBack" runat="server" Width="17px" Height="17px" ImageUrl="~/Images/backward.png" OnClick="imgbtnBack_Click" />
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
-                                                                        <asp:Button ID="btnBackAll" runat="server" Text="&lt;&lt;" Width="25px" OnClick="btnBackAll_Click" />
+                                                                        <asp:ImageButton ID="imgbtnBackAll" runat="server" Width="17px" Height="17px" ImageUrl="~/Images/backwardAll.png" OnClick="imgbtnBackAll_Click" />
                                                                     </td>
                                                                 </tr>
                                                             </table>
@@ -86,22 +88,31 @@
                                     </table>
                                 </ContentTemplate>
                             </ajaxToolkit:TabPanel>
-
-
                             <ajaxToolkit:TabPanel ID="TabPanel2" runat="server" HeaderText="Organizational Chart Setup" Width="1160px">
                                 <ContentTemplate>
                                     <table style="width: 100%;">
+                                        <tr style="border-bottom: 1px solid gray">
+                                            <td  style="text-align: left; float: left; width: 500px">
+                                                <div class="showinfo" style="height:32px;width:500px;margin-top:-15px"><asp:Button ID="btnAddNew" runat="server" CssClass="CssBtnAddNew" Text="Add New" Width="100px" OnClick="btnAddNew_Click" /><asp:Button ID="btnEdit" runat="server" Text="Edit" CssClass="CssBtnUpdate" Width="100px" OnClick="btnEdit_Click" /></div>
+                                            </td>
+                                            <td  style="text-align: left; float: left;width:500px; "></td>
+                                            <td style="float:left">
+                                                <div style="width:105px;position:fixed;padding-left:50px;margin-top:-15px">
+                                                    <asp:Button ID="Button3" runat="server" Text="Print" CssClass="CssBtnPrint" Width="70px" />
+                                                </div>
+                                            </td>
+                                        </tr>
                                         <tr>
                                             <td  style="text-align: left; float: left; width: 500px">
-                                                <div style="height:32px;width:500px"><asp:Button ID="btnAddNew" runat="server" CssClass="CssBtnAddNew" Text="Add New" Width="100px" OnClick="btnAddNew_Click" /><asp:Button ID="btnEdit" runat="server" Text="Edit" CssClass="CssBtnUpdate" Width="100px" OnClick="btnEdit_Click" /></div>
-                        <div style="overflow:auto; height:435px;width:500px">
-                                                <asp:TreeView ID="TreeViewCompanyChart" runat="server" OnTreeNodePopulate="TreeViewCompanyChart_TreeNodePopulate" OnSelectedNodeChanged="TreeViewCompanyChart_SelectedNodeChanged" ShowLines="True">
+                                                 <div style="overflow:auto; height:435px;width:500px;margin-top:1px">
+                            <asp:TreeView ID="TreeViewCompanyChart" runat="server" OnTreeNodePopulate="TreeViewCompanyChart_TreeNodePopulate" OnSelectedNodeChanged="TreeViewCompanyChart_SelectedNodeChanged" CssClass="popup">
                                                 </asp:TreeView>
-                            </div>
+                             </div>
                                             </td>
-                                            <td  style="text-align: left; float: left;width:485px; ">
-                                                <div style="height: 560px;width:475px;padding-left:5px">
-                                                <table style="width: 100%;">
+                                            <td  style="text-align: left; float: left;width:500px; ">
+                                                <div style="height: 615px;width:485px;padding-left:15px">
+                                                    <asp:Panel ID="Panel1" runat="server" Height="100%" Width="99%" >
+                                                <table style="width: 99%;text-align:left">
                                                     <tr>
                                                         <td>
                                                             <asp:Label ID="Label3" runat="server" Text="Company"></asp:Label>
@@ -124,11 +135,11 @@
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <asp:Label ID="lblParentElementValue" runat="server" Visible="False"></asp:Label>
-                                                        </td>
+                                                            &nbsp;</td>
                                                         <td>&nbsp;</td>
                                                         <td>
                                                             <asp:Label ID="lblParentElementText" runat="server"></asp:Label>
+                                                            <asp:Label ID="lblParentElementValue" runat="server" Visible="False"></asp:Label>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -188,7 +199,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <asp:Label ID="Label13" runat="server" Text="Opening Date"></asp:Label>
+                                                            <asp:Label ID="Label13" runat="server" Width="100px" Text="Opening Date"></asp:Label>
                                                         </td>
                                                         <td>:</td>
                                                         <td>
@@ -206,11 +217,11 @@
                                                     </tr>
                                                     <tr>
                                                         <td colspan="3">
-                                                            <asp:Panel ID="PanelAddress" runat="server">
-                                                                <table style="width: 95%;">
+                                                            <asp:Panel ID="PanelAddress" runat="server" Width="100%">
+                                                                <table style="width: 99%;text-align: left">
                                                                     <tr>
                                                                         <td>
-                                                                            <asp:Label ID="Label14" runat="server" Text="Contact Number"></asp:Label>
+                                                                            <asp:Label ID="Label14" runat="server" Width="102px"  Text="Contact Number"></asp:Label>
                                                                         </td>
                                                                         <td>:</td>
                                                                         <td>
@@ -278,14 +289,14 @@
                                                         </td>
                                                     </tr>
                                                 </table>
+                                                        </asp:Panel>
                                                     </div>
                                             </td>
                                             <td style="float:left">
-                                                <div style="height: 475px;width:110px;position:fixed;padding-left:50px">
+                                                <div style="height: 475px;width:105px;position:fixed;padding-left:50px;margin-top:-5px">
                                                     <table >
                                                         <tr><td><asp:Button ID="btnSaveChart" runat="server" OnClick="btnSaveChart_Click" Text="Save" Width="70px" CssClass="CssBtnSave" /></td></tr>
                                                         <tr><td><asp:Button ID="btnClearChart" runat="server" OnClick="btnClearChart_Click" Text="Clear" Width="70px" CssClass="CssBtnClear" /></td></tr>
-                                                        <tr><td><asp:Button ID="Button3" runat="server" Text="Print" CssClass="CssBtnPrint" Width="70px" /></td></tr>
                                                         <tr><td><asp:Button ID="btnUpdate" runat="server" Text="Update" Width="70px" OnClick="btnUpdate_Click" CssClass="CssBtnUpdate" /></td></tr>
                                                         <tr><td><asp:Button ID="btnClearUpdate" runat="server" Text="Clear" Width="70px" OnClick="btnClearUpdate_Click" CssClass="CssBtnClear" /></td></tr>
                                                     </table>
@@ -299,7 +310,9 @@
                         </ajaxToolkit:TabContainer></td>
                 </tr>
             </table>
+    
         </ContentTemplate>
         <Triggers></Triggers>
     </asp:UpdatePanel>
+    
 </asp:Content>

@@ -11,7 +11,40 @@
             <table style="width: 100%; text-align: left">
                 <tr >
                     <td style="text-align: left; float: left;width:192px">
-                        <asp:Panel ID="Panel11" runat="server" Height="250px" Width="190px">
+                        <asp:Panel ID="Panel11" runat="server" Height="100%" Width="190px">
+                            <table style="width: 100%; text-align: left">
+                                                            <tr>
+                                                                <td>
+                                                                    <asp:Label ID="lblImage" runat="server" BorderColor="Black" BorderWidth="0px" Font-Bold="True" Font-Italic="True" Font-Size="Medium" ForeColor="Red" Height="155px" Style="text-align: center; vertical-align: middle" Width="155px"> <br /> Photo
+                                             <br />  Not <br />  Available  
+                                             
+                                                                    </asp:Label>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <asp:Label ID="Label98" runat="server" Text="[150X150,  Files are supported]"></asp:Label>
+                                                                    <div id="dvMsg" style="background-color: Red; color: White; width: 190px; padding: 3px; display: none;">
+                                                                        Maximum size allowed is 500 kb
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <asp:FileUpload ID="ProfileImageUpload" runat="server" Width="190px" CssClass="CssFile_Upload" Height="24px" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="text-align: left; margin-top: -30px">
+                                                                    <asp:ImageButton ID="btnEmpPhoto" runat="server" Width="27px" ImageUrl="~/Images/imageup.jpg" Height="12px" OnClick="btnEmpPhoto_Click"  />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="margin-top: -30px">
+                                                                    <asp:RegularExpressionValidator ID="RevImg" runat="server" ControlToValidate="ProfileImageUpload" ErrorMessage="Invalid File!(only  .gif, .jpg, .jpeg, .bmp, .png  Files are supported)" ForeColor="Red" ValidationExpression="^.+(.jpg|.JPG|.gif|.GIF|.jpeg|JPEG| .bmp|BMP| .png|PNG)$" Width="100%"></asp:RegularExpressionValidator>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
                         </asp:Panel>
                     </td>
                     <td style="text-align: left; float: left;width:375px">
@@ -193,6 +226,7 @@
             </div>
         </ContentTemplate>
         <Triggers>
+            <asp:PostBackTrigger ControlID="btnEmpPhoto" />
         </Triggers>
     </asp:UpdatePanel>
 </asp:Content>

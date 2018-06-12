@@ -5,6 +5,7 @@ using System.Web;
 using ERPWebApplication.AppClass.Model;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace ERPWebApplication.AppClass.DataAccess
 {
@@ -64,6 +65,11 @@ namespace ERPWebApplication.AppClass.DataAccess
 
                 }
 
+                if (objEmployeeDetailsSetup.EmpPhoto != null)
+                {
+                    saveEmployeePhoto(objEmployeeDetailsSetup);
+                }
+
             }
             catch (Exception msgException)
             {
@@ -71,6 +77,31 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
 
+        }
+
+        private void saveEmployeePhoto(EmployeeDetailsSetup objEmployeeDetailsSetup)
+        {
+            try
+            {
+                SqlConnection con = null;
+                con = new SqlConnection(this.ConnectionString);
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "INSERT INTO [hrEmployeePhoto] ([ReferenceID],[CompanyID],[EmployeeID],[EmpPhoto],[EntryUserID]) VALUES (@ReferenceID,@CompanyID,@EmployeeID,@EmpPhoto,@EntryUserID)";
+                cmd.Connection = con;
+                cmd.Parameters.AddWithValue("@ReferenceID", objEmployeeDetailsSetup.EmployeeSerialNo);
+                cmd.Parameters.AddWithValue("@CompanyID", objEmployeeDetailsSetup.CompanyID);
+                cmd.Parameters.AddWithValue("@EmployeeID", objEmployeeDetailsSetup.EmployeeID);
+                cmd.Parameters.AddWithValue("@EmpPhoto", objEmployeeDetailsSetup.EmpPhoto);
+                cmd.Parameters.AddWithValue("@EntryUserID", objEmployeeDetailsSetup.EntryUserName);                
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
         }
 
         private int GetEmployeeSerialNo()

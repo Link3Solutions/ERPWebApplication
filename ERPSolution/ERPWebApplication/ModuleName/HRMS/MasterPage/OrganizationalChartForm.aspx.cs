@@ -8,6 +8,8 @@ using ERPWebApplication.AppClass.CommonClass;
 using ERPWebApplication.AppClass.Model;
 using ERPWebApplication.AppClass.DataAccess;
 using System.Data;
+using System.Drawing;
+
 
 namespace ERPWebApplication.ModuleName.HRMS.MasterPage
 {
@@ -40,7 +42,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                 clsTopMostMessageBox.Show(msgException.Message);
             }
         }
-
+        
         private void PopulateOrganizationalChart()
         {
             try
@@ -87,7 +89,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
         }
 
 
-        protected void btnForword_Click(object sender, EventArgs e)
+        protected void imgbtnForword_Click(object sender, EventArgs e)
         {
             try
             {
@@ -114,7 +116,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
             }
         }
 
-        protected void btnForwordAll_Click(object sender, EventArgs e)
+        protected void imgbtnForwordAll_Click(object sender, EventArgs e)
         {
             try
             {
@@ -131,7 +133,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
             }
         }
 
-        protected void btnBack_Click(object sender, EventArgs e)
+        protected void imgbtnBack_Click(object sender, EventArgs e)
         {
             try
             {
@@ -157,7 +159,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
             }
         }
 
-        protected void btnBackAll_Click(object sender, EventArgs e)
+        protected void imgbtnBackAll_Click(object sender, EventArgs e)
         {
             try
             {
@@ -548,7 +550,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
 
                 }
 
-
+                
             }
             catch (Exception msgException)
             {

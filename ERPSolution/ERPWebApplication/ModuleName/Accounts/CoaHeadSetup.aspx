@@ -20,7 +20,6 @@
                     <td colspan="3">
                         <table style="width: 35%; text-align: left">
                                 <tr>
-                                    <td>&nbsp;</td>
                                     <td>
                                         <asp:TextBox ID="txtSearch" runat="server" AutoPostBack="True" placeholder="Search..." Width="337px"></asp:TextBox>
                                     </td>
@@ -41,22 +40,41 @@
                 </tr>
                 <tr>
                     <td colspan="3"> 
-                        <hr id="searchbottom" runat="server" style="border:0; height: 1px; background: #333;  background-image: linear-gradient(to right, #ccc, #333, #ccc); width: 1175px;" />
+                        <hr id="searchbottom" runat="server" style="border:0; height: 1px; background: #333;  background-image: linear-gradient(to right, #ccc, #333, #ccc); width: 1175px;margin-top:-2px" />
+                        </td>
+                    
+                </tr>
+                <tr >
+                    <td>
+                        <div style="height:32px;text-align: left; width: 500px;margin-top:-8px">
+                                <asp:Button ID="btnAddNew" runat="server" CssClass="CssBtnAddNew" Text="Add New" Width="70px" OnClick="btnAddNew_Click" /><asp:Button ID="btnEdit" runat="server" CssClass="CssBtnUpdate" Text="Edit" Width="70px" OnClick="btnEdit_Click" />
+                                </div>
+                    </td>
+                    <td>
+                        <div style="text-align:left; width: 425px">
+                            </div>
+                    </td>
+                    <td style="width:125px;float:left">
+                        <div style="position:fixed;margin-top:-8px;height:32px">
+                            <asp:Button ID="btnPrintSummery" runat="server" Text="Print" CssClass="CssBtnPrint" Width="70px" />
+                            </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"> 
+                        <hr id="Hr1" runat="server" style="border:0; height: 1px; background: #333;  background-image: linear-gradient(to right, #ccc, #333, #ccc); width: 1175px;margin-top:-2px" />
                         </td>
                     
                 </tr>
                 <tr>
                     <td>
-                        <div style="text-align: left;height: 500px; width: 500px;">
-                            <div style="height:32px">
-                                <asp:Button ID="btnAddNew" runat="server" CssClass="CssBtnAddNew" Text="Add New" Width="70px" OnClick="btnAddNew_Click" /><asp:Button ID="btnEdit" runat="server" CssClass="CssBtnUpdate" Text="Edit" Width="70px" OnClick="btnEdit_Click" />
-                                </div>
-                            <div style="overflow:auto; height:425px;padding-top:5px">    
+                        <div style="height:512px;text-align: left;width: 500px;">   
+                            <div style="overflow:auto; height:425px;text-align: left;width: 500px;">   
                             <asp:Panel ID="Panel5" runat="server" Height="100%" 
                                     Width="100%">
                                     <asp:TreeView ID="treeCOAHead" runat="server" ImageSet="Simple" NodeIndent="15" 
                                         OnTreeNodePopulate="treeCOAHead_TreeNodePopulate"
-                                        OnSelectedNodeChanged="treeCOAHead_SelectedNodeChanged" ShowLines="True">
+                                        OnSelectedNodeChanged="treeCOAHead_SelectedNodeChanged">
                                         <HoverNodeStyle Font-Underline="True" ForeColor="#6666AA" />
                                     <NodeStyle Font-Names="Tahoma" Font-Size="10pt" ForeColor="Black" HorizontalPadding="0px"
                                         NodeSpacing="0px" VerticalPadding="0px" ></NodeStyle>
@@ -66,7 +84,7 @@
                                     </asp:TreeView>
                                 </asp:Panel>
                                 </div>
-                            </div>
+                             </div>
                     </td>
                     <td>
                         <div style="text-align:left;height: 512px; width: 425px">
@@ -259,7 +277,7 @@
                         </div>
                     </td>
                     <td style="width:125px;float:left">
-                        <div style="height: 500px;position:fixed">
+                        <div style="height: 500px;position:fixed;margin-top:-5px">
                             <table>
                                 <tr>
                                     <td><asp:Button ID="btnSave" runat="server" CssClass="CssBtnSave" OnClick="btnSave_Click" Text="Save" Width="70px" /></td>
@@ -267,10 +285,6 @@
                                 <tr>
                                     <td><asp:Button ID="btnCancelAdd" runat="server" Text="Cancel" CssClass="CssBtnCancel" Width="70px" OnClick="btnCancelAdd_Click" /></td>
                                 </tr>
-                                <tr>
-                                    <td><asp:Button ID="btnPrintSummery" runat="server" Text="Print" CssClass="CssBtnPrint" Width="70px" /></td>
-                                </tr>
-                                
                                 <tr>
                                     <td><asp:Button ID="btnUpdate" runat="server" Text="Update" Width="70px" CssClass="CssBtnUpdate" OnClick="btnUpdate_Click" /></td>
                                 </tr>
