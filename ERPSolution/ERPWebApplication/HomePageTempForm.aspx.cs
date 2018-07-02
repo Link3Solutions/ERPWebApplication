@@ -11,7 +11,7 @@ using System.Data;
 
 namespace ERPWebApplication
 {
-    public partial class HomePageForm : System.Web.UI.Page
+    public partial class HomePageTempForm : System.Web.UI.Page
     {
         private UserList _objUserList;
         private UserListController _objUserListController;
@@ -23,7 +23,6 @@ namespace ERPWebApplication
             {
                 if (!Page.IsPostBack)
                 {
-                    PanelHomePart.Visible = true;
                     PanelRegister.Visible = false;
                     PanelLogin.Visible = false;
                     LoadCompanyDDL();
@@ -60,14 +59,12 @@ namespace ERPWebApplication
 
         protected void lnkbtnRegister_Click(object sender, EventArgs e)
         {
-            PanelHomePart.Visible = false;
             PanelLogin.Visible = false;
             PanelRegister.Visible = true;
         }
 
         protected void lnkbtnLogin_Click(object sender, EventArgs e)
         {
-            PanelHomePart.Visible = false;
             PanelRegister.Visible = false;
             PanelLogin.Visible = true;
         }
@@ -288,13 +285,6 @@ namespace ERPWebApplication
 
             }
 
-        }
-
-        protected void ImageButtonLogo_Click(object sender, ImageClickEventArgs e)
-        {
-            PanelHomePart.Visible = true;
-            PanelRegister.Visible = false;
-            PanelLogin.Visible = false;
         }
 
 

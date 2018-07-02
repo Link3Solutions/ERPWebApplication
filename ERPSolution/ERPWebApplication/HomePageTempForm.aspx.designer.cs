@@ -10,7 +10,7 @@
 namespace ERPWebApplication {
     
     
-    public partial class HomePageForm {
+    public partial class HomePageTempForm {
         
         /// <summary>
         /// Head1 control.
@@ -58,24 +58,6 @@ namespace ERPWebApplication {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// ImageButtonLogo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButtonLogo;
-        
-        /// <summary>
-        /// lnkbtnAbout control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkbtnAbout;
-        
-        /// <summary>
         /// lnkbtnRegister control.
         /// </summary>
         /// <remarks>
@@ -103,15 +85,6 @@ namespace ERPWebApplication {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// PanelHomePart control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelHomePart;
-        
-        /// <summary>
         /// PanelRegister control.
         /// </summary>
         /// <remarks>
@@ -119,24 +92,6 @@ namespace ERPWebApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel PanelRegister;
-        
-        /// <summary>
-        /// Panel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
-        
-        /// <summary>
-        /// PanelRegisterControl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelRegisterControl;
         
         /// <summary>
         /// Label1 control.
@@ -247,24 +202,6 @@ namespace ERPWebApplication {
         protected global::System.Web.UI.WebControls.Panel PanelLogin;
         
         /// <summary>
-        /// Panel2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel2;
-        
-        /// <summary>
-        /// PanelLoginControl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelLoginControl;
-        
-        /// <summary>
         /// Label5 control.
         /// </summary>
         /// <remarks>
@@ -335,14 +272,5 @@ namespace ERPWebApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnLogin;
-        
-        /// <summary>
-        /// Panel3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel3;
     }
 }

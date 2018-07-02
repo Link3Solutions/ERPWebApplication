@@ -348,7 +348,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:16</publishTime>
     </File>
     <File Include="bin/ControlLibrary.dll">
-      <publishTime>06/10/2018 15:23:16</publishTime>
+      <publishTime>01/07/2018 15:27:25</publishTime>
     </File>
     <File Include="bin/CrystalDecisions.CrystalReports.Design.dll">
       <publishTime>06/01/2013 05:05:56</publishTime>
@@ -399,7 +399,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:28</publishTime>
     </File>
     <File Include="bin/ERPWebApplication.dll">
-      <publishTime>06/10/2018 15:23:21</publishTime>
+      <publishTime>01/07/2018 15:27:29</publishTime>
     </File>
     <File Include="bin/FlashControlV71.dll">
       <publishTime>03/03/2011 12:25:18</publishTime>
@@ -450,7 +450,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:10</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>03/06/2018 14:32:15</publishTime>
+      <publishTime>07/01/2018 16:13:43</publishTime>
     </File>
     <File Include="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png">
       <publishTime>08/21/2016 12:45:16</publishTime>
@@ -2603,11 +2603,17 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="CSS/microsoftMenu.css">
       <publishTime>09/26/2016 15:16:32</publishTime>
     </File>
+    <File Include="CSS/ParclSheet2.css">
+      <publishTime>06/12/2018 14:44:46</publishTime>
+    </File>
+    <File Include="CSS/ParclStyleSheet.css">
+      <publishTime>06/12/2018 14:42:16</publishTime>
+    </File>
     <File Include="CSS/StyleSheetGridView.css">
       <publishTime>05/30/2017 16:09:59</publishTime>
     </File>
     <File Include="CSS/StyleSheetSpecial.css">
-      <publishTime>04/06/2018 11:48:31</publishTime>
+      <publishTime>01/07/2018 11:58:19</publishTime>
     </File>
     <File Include="Default.aspx">
       <publishTime>04/18/2018 11:38:52</publishTime>
@@ -2619,7 +2625,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:10</publishTime>
     </File>
     <File Include="HomePageForm.aspx">
-      <publishTime>05/30/2018 15:19:08</publishTime>
+      <publishTime>07/01/2018 16:03:36</publishTime>
+    </File>
+    <File Include="HomePageTempForm.aspx">
+      <publishTime>06/28/2018 15:53:03</publishTime>
     </File>
     <File Include="Images/accent.png">
       <publishTime>08/21/2016 12:45:10</publishTime>
@@ -2657,6 +2666,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Images/ei0020-48.gif">
       <publishTime>05/28/2018 14:42:23</publishTime>
     </File>
+    <File Include="Images/favicon.ico">
+      <publishTime>06/12/2018 14:51:58</publishTime>
+    </File>
     <File Include="Images/forward.png">
       <publishTime>05/14/2018 16:33:21</publishTime>
     </File>
@@ -2673,7 +2685,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/01/2017 10:45:26</publishTime>
     </File>
     <File Include="Images/logo_120_100.png">
-      <publishTime>08/22/2016 10:40:48</publishTime>
+      <publishTime>06/28/2018 15:29:18</publishTime>
     </File>
     <File Include="Images/next.png">
       <publishTime>04/23/2018 18:09:35</publishTime>
@@ -2837,6 +2849,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="packages.config">
       <publishTime>05/27/2018 12:54:26</publishTime>
     </File>
+    <File Include="ParclForm.aspx">
+      <publishTime>06/25/2018 16:48:41</publishTime>
+    </File>
     <File Include="Properties/Settings.settings">
       <publishTime>07/03/2017 12:56:48</publishTime>
     </File>
@@ -2908,6 +2923,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Scripts/modernizr-2.5.3.js">
       <publishTime>08/21/2016 12:45:16</publishTime>
+    </File>
+    <File Include="Scripts/parclJavaScript.js">
+      <publishTime>06/12/2018 14:58:45</publishTime>
     </File>
     <File Include="Scripts/site.js">
       <publishTime>05/27/2018 15:47:15</publishTime>
@@ -2982,7 +3000,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/27/2018 12:54:29</publishTime>
     </File>
     <File Include="Site.Master">
-      <publishTime>05/28/2018 11:49:37</publishTime>
+      <publishTime>07/01/2018 15:57:26</publishTime>
     </File>
     <File Include="UploadFile/Action Planning form.xlsx">
       <publishTime>10/23/2016 14:33:30</publishTime>
@@ -3027,7 +3045,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/23/2016 14:33:30</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/10/2018 15:23:27</publishTime>
+      <publishTime>07/01/2018 16:16:38</publishTime>
     </File>
     <File Include="WebForm1.aspx">
       <publishTime>05/28/2018 16:24:22</publishTime>

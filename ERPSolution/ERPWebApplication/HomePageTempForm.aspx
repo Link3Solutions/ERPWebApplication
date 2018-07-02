@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" Title="Home Page" AutoEventWireup="true" CodeBehind="HomePageForm.aspx.cs" Inherits="ERPWebApplication.HomePageForm" %>
+﻿<%@ Page Language="C#" Title="Home Page" AutoEventWireup="true" CodeBehind="HomePageTempForm.aspx.cs" Inherits="ERPWebApplication.HomePageTempForm" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <!DOCTYPE html>
@@ -77,14 +77,14 @@
             <div id="container" style="width: 100%; height: 100px; position: fixed; background-color: #fff; border-top: solid 10px #000">
                 <div id="div1">
                     <div style="float: left">
-                        <asp:ImageButton ID="ImageButtonLogo" runat="server" ImageUrl="~/Images/logo_120_100.png" OnClick="ImageButtonLogo_Click" Height="58px" Width="75px" />
+                        <%--Framework Scripts--%>
                     </div>
                     <div style="float: left; padding-left: 60px; margin-top: 31px">
                     </div>
                     <div style="float: right; padding-right: 10px">
                         <div class="content-wrapper">
                             <section style="padding-top: 15px" id="login">
-                                <asp:LinkButton ID="lnkbtnAbout" runat="server" Font-Underline="False" CssClass="logoutHover" BackColor="White" >About</asp:LinkButton><asp:LinkButton ID="lnkbtnRegister" runat="server" Font-Underline="False" CssClass="logoutHover" BackColor="White" OnClick="lnkbtnRegister_Click">Register</asp:LinkButton><asp:LinkButton ID="lnkbtnLogin" runat="server" Font-Underline="False" CssClass="logoutHover" BackColor="White" OnClick="lnkbtnLogin_Click">Log in</asp:LinkButton>
+                                <asp:LinkButton ID="lnkbtnRegister" runat="server" Font-Underline="False" CssClass="logoutHover" BackColor="White" OnClick="lnkbtnRegister_Click">Register</asp:LinkButton><asp:LinkButton ID="lnkbtnLogin" runat="server" Font-Underline="False" CssClass="logoutHover" BackColor="White" OnClick="lnkbtnLogin_Click">Log in</asp:LinkButton>
                             </section>
                         </div>
                     </div>
@@ -95,9 +95,9 @@
                 <br />
                 <br />
 
-                <div id="div12">
+                <div id="div2">
                     <section class="featured">
-                        <div class="content-wrapperHeader" style="height:24px">
+                        <div class="content-wrapperHeader">
                             <hgroup class="title">
                                 <h2 style="font-size: 1.1em;"></h2>
                             </hgroup>
@@ -109,77 +109,22 @@
         </header>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
-                <div id="body" style="padding-top: 98px; width: 100%;min-height:470px">
-                    <table style="width: 100%;">
-                        <tr >
-                        <td>
-                            <asp:Panel ID="PanelHomePart" runat="server" >
-                                <div id="div5"  >
-                    <section class="featured"  >
-                        
-                        <div class="content-wrapperBody" style="min-height:600px;"  >
-                            <table style="width: 100%;">
-                                    <tr>
-                                        <td>&nbsp;</td>
-                                        <td>&nbsp;</td>
-                                        <td>&nbsp;</td>
-                                    </tr>
-                                    <tr>
-                                        <td>&nbsp;</td>
-                                        <td>&nbsp;</td>
-                                        <td>&nbsp;</td>
-                                    </tr>
-                                    <tr>
-                                        <td>&nbsp;</td>
-                                        <td>&nbsp;</td>
-                                        <td>&nbsp;</td>
-                                    </tr>
-                                </table>
-                        </div>
-                    </section>
-                </div>
-                                <div id="div6" style="min-height:600px;">
-                                    <table style="width: 100%;">
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                        </tr>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                        </tr>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </asp:Panel>
-                            
-                        </td>
-                        
-                    </tr>
+        <div id="body" style="padding-top: 109px; width: 100%">
+            <div id="fixedImage" style="position: fixed; background-color: #fff">
+                <section style="margin-left: 80px; max-width: 960px">
+                    
+                </section>
+
+            </div>
+
+            <section class="content-wrapper main-content clear-fix" style="min-height:470px">
+                <table style="width: 100%;">
                     <tr>
                         <td><asp:Panel ID="PanelRegister" runat="server">
-                            <table style="width: 100%;">
-                                <tr>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Panel ID="Panel1" runat="server" Width="100px"></asp:Panel>
-                                    </td>
-                                    <td>
-                                        <asp:Panel ID="PanelRegisterControl" runat="server" Width="600px" >
-                                            <table style="width: 100%;">
+                                <table style="width: 100%;">
                                     <tr>
                                         <td colspan="3">
-                                            <p class="message-info" style="color:#7ac0da">
+                                            <p class="message-info">
                                                 Passwords are required to be a minimum of <%: Membership.MinRequiredPasswordLength %> characters in length.
                                             </p>
                                         </td>
@@ -188,23 +133,23 @@
                                         <td class="auto-style1">
                                             <ol style="list-style-type: none">
                                                 <li>
-                                                    <asp:Label ID="Label1" runat="server" AssociatedControlID="txtUserName" CssClass="labelView">User name</asp:Label>
+                                                    <asp:Label ID="Label1" runat="server" AssociatedControlID="txtUserName">User name</asp:Label>
                                                     <asp:TextBox runat="server" Height="18px" ID="txtUserName" />
                                                 </li>
                                                 <li>
-                                                    <asp:Label ID="Label3" runat="server" AssociatedControlID="txtPassword" CssClass="labelView">Password</asp:Label>
+                                                    <asp:Label ID="Label3" runat="server" AssociatedControlID="txtPassword">Password</asp:Label>
                                                     <asp:TextBox runat="server" ID="txtPassword" TextMode="Password" />
                                                 </li>
                                                 <li>
-                                                    <asp:Label ID="Label4" runat="server" AssociatedControlID="txtConfirmPassword" CssClass="labelView">Confirm password</asp:Label>
+                                                    <asp:Label ID="Label4" runat="server" AssociatedControlID="txtConfirmPassword">Confirm password</asp:Label>
                                                     <asp:TextBox runat="server" ID="txtConfirmPassword" TextMode="Password" />
                                                 </li>
                                                 <li>
-                                                    <asp:Label ID="Label2" runat="server" AssociatedControlID="txtSecurityCode" CssClass="labelView">Security Code</asp:Label>
+                                                    <asp:Label ID="Label2" runat="server" AssociatedControlID="txtSecurityCode">Security Code</asp:Label>
                                                     <asp:TextBox runat="server" Height="18px" ID="txtSecurityCode" />
                                                 </li>
                                                 <li>
-                                                    <asp:Label ID="Label7" runat="server" AssociatedControlID="txtEmail" CssClass="labelView">Email</asp:Label>
+                                                    <asp:Label ID="Label7" runat="server" AssociatedControlID="txtEmail">Email</asp:Label>
                                                     <asp:TextBox runat="server" ID="txtEmail" TextMode="Email" />
                                                 </li>
                                             </ol>
@@ -219,53 +164,17 @@
                                         <td>&nbsp;</td>
                                     </tr>
                                 </table>
-                                        </asp:Panel>
-                                    </td>
-                                    <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                </tr>
-                            </table>
-                                
                             </asp:Panel></td>
-                        
+                        <td>&nbsp;</td>
+                        <td>&nbsp;
+                        </td>
                     </tr>
                     <tr>
                         <td><asp:Panel ID="PanelLogin" runat="server">
-                            <table style="width: 100%;">
-                                <tr>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;</td>
-                                    <td ><h2 style="color:#7ac0da" >Use an account to log in.</h2></td>
-                                    <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Panel ID="Panel2" runat="server" Width="300px"></asp:Panel>
-                                    </td>
-                                    <td>
-                                        <asp:Panel ID="PanelLoginControl" BorderStyle="Solid" BorderWidth="1px" BorderColor="#9E9E9E" runat="server">
-                                            <table style="width: 100%;">
+                                <table style="width: 100%;">
                                     <tr>
                                         <td colspan="3">
-                                            
+                                            <h2>Use an account to log in.</h2>
                                         </td>
                                     </tr>
                                     <tr>
@@ -300,41 +209,24 @@
                                         <td>&nbsp;</td>
                                         <td>&nbsp;</td>
                                     </tr>
-                                                <tr>
-                                                    <td style="padding-left: 40px">&nbsp;</td>
-                                                    <td>&nbsp;</td>
-                                                    <td>&nbsp;</td>
-                                                </tr>
                                 </table>
-                                        </asp:Panel>
-                                    </td>
-                                    <td>
-                                        <asp:Panel ID="Panel3" runat="server" Width="300px"></asp:Panel>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                </tr>
-                            </table>
-                                
                             </asp:Panel></td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;
+                        </td>
                     </tr>
                     <tr>
                         <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
                     </tr>
                 </table>
-                </div>
-                 <footer style="height:275px;background-color:#525252">
-            <div class="content-wrapper" >
+            </section>
+        </div>
+        <footer style="height:31px">
+            <div class="content-wrapper">
                 <div class="float-left">
-                    <p style="color:#A2AEAE">&copy; <%--<li><a id="registerLink" runat="server" href="~/Account/Register.aspx">Register</a></li>--%>- My ASP.NET Application</p>
+                    <p>&copy; <%--<li><a id="registerLink" runat="server" href="~/Account/Register.aspx">Register</a></li>--%>- My ASP.NET Application</p>
                 </div>
             </div>
         </footer>

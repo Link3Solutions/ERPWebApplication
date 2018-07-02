@@ -331,6 +331,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="HomePageTempForm.aspx" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl.cab" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_cs.cab" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_da.cab" />
@@ -1273,6 +1274,13 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePageTempForm.aspx.cs">
+      <DependentUpon>HomePageTempForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePageTempForm.aspx.designer.cs">
+      <DependentUpon>HomePageTempForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomePageForm.aspx.cs">
       <DependentUpon>HomePageForm.aspx</DependentUpon>

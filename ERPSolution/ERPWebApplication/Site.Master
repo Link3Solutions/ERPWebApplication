@@ -75,10 +75,10 @@
                         <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/logo_120_100.png" />
                     </div>
                     <div style="float: left; padding-left: 90px; padding-top: 36px">
-                        <hgroup class="title">
+                        <%--<hgroup class="title">--%>
                             <h2 style="font-size: .9em;font-family:Tahoma;color:#606163">
                                 <asp:Label ID="lblWelcomeMessage" runat="server" Text=""></asp:Label><asp:Label ID="lblLoginEmployeeName" runat="server" Font-Bold="True"></asp:Label><asp:Label ID="lblAt" runat="server" Text=""></asp:Label><asp:Label ID="lblPageTitle" runat="server" Font-Bold="True"></asp:Label></h2>
-                        </hgroup>
+                       <%-- </hgroup>--%>
                     </div>
                     <div style="float: right; padding-right: 10px">
                         <div class="content-wrapper">
@@ -117,10 +117,10 @@
                 <asp:ContentPlaceHolder runat="server" ID="MainContent" />
             </section>
         </div>
-        <footer style="height:31px">
+        <footer style="height:275px;background-color:#525252">
             <div class="content-wrapper" >
                 <div class="float-left">
-                    <p>&copy; <%--<li><a id="registerLink" runat="server" href="~/Account/Register.aspx">Register</a></li>--%>- My ASP.NET Application</p>
+                    <p style="color:#A2AEAE">&copy; <%--<li><a id="registerLink" runat="server" href="~/Account/Register.aspx">Register</a></li>--%>- My ASP.NET Application</p>
                 </div>
             </div>
              </footer>

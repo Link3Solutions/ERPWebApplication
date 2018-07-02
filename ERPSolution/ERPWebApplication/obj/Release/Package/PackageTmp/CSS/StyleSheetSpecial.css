@@ -15,15 +15,16 @@
 }
 
 .logoutHover {
-    color: black !important;
-    font-size: 1.1em;
+    /*color: black !important;*/
+    color: #7ac0da !important;
+    font-size: 1.2em;
 }
 
     .logoutHover:hover {
-        color: black !important;
-        font-size: 1.1em;
+        color: #7ac0da !important;
+        font-size: 1.2em;
         border-bottom: solid;
-        border-bottom-color: black;
+        border-bottom-color: #7ac0da;
         border-bottom-width: 1px;
     }
 
