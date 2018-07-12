@@ -85,7 +85,7 @@ namespace ERPWebApplication {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// PanelRegister control.
+        /// panelOptional2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
@@ -193,7 +193,7 @@ namespace ERPWebApplication {
         protected global::System.Web.UI.WebControls.Button btnRegister;
         
         /// <summary>
-        /// PanelLogin control.
+        /// panelOptional3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.

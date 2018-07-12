@@ -197,7 +197,7 @@ namespace ERPWebApplication
         {
             try
             {
-                Response.Redirect("~/HomePageForm.aspx");
+                Response.Redirect("~/HomePageLogoForm.aspx");
 
             }
             catch (Exception msgException)

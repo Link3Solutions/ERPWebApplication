@@ -901,7 +901,7 @@
 	</a>
 </div>
 <div class="col-lg-4 col-tb-4 col-sm-3 item">
-	<a class="box blog" href="/blog/top-10-items-delivered-internationally-this-week-1/">
+	<a class="box blog" href="HomePageForm.aspx">
 		<div class="image"
 			 style="background-image: url('https://www.parcl.com/files/live/whatyoucanshipwithparcl.jpg?s=huge');"></div>
 		<div class="info">
@@ -1131,7 +1131,7 @@
 		</div>
 	</div>
 </section>
-
+             
 <section id="using">
 	<div class="container">
 		<div class="row">

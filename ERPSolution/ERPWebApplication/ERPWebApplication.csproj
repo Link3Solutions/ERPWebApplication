@@ -331,6 +331,11 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="HomePageAboutForm.aspx" />
+    <Content Include="HomePageContactUsForm.aspx" />
+    <Content Include="HomePageLogoForm.aspx" />
+    <Content Include="HomePageLoginForm.aspx" />
+    <Content Include="HomePageRegisterForm.aspx" />
     <Content Include="HomePageTempForm.aspx" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl.cab" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_cs.cab" />
@@ -1004,6 +1009,7 @@
     <Content Include="Images\forward.png" />
     <Content Include="Images\forwardAll.png" />
     <Content Include="Images\header.png" />
+    <Content Include="Images\IMAGE1.bmp" />
     <Content Include="Images\imageup.jpg" />
     <Content Include="Images\next.png" />
     <Content Include="Images\page_white_copy.png" />
@@ -1081,6 +1087,7 @@
     <Content Include="WebForm3.aspx" />
     <Content Include="WebService\ServiceSystem.asmx" />
     <Content Include="ClassDiagram1.cd" />
+    <Content Include="WebUserControls\FooterContentControl.ascx" />
     <Content Include="WebUserControls\OrganizationalChartControl.ascx" />
     <Content Include="App_Themes\Site\Site.skin" />
     <Content Include="WebUserControls\SelfServiceControl.ascx" />
@@ -1274,6 +1281,41 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePageAboutForm.aspx.cs">
+      <DependentUpon>HomePageAboutForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePageAboutForm.aspx.designer.cs">
+      <DependentUpon>HomePageAboutForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePageContactUsForm.aspx.cs">
+      <DependentUpon>HomePageContactUsForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePageContactUsForm.aspx.designer.cs">
+      <DependentUpon>HomePageContactUsForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePageLogoForm.aspx.cs">
+      <DependentUpon>HomePageLogoForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePageLogoForm.aspx.designer.cs">
+      <DependentUpon>HomePageLogoForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePageLoginForm.aspx.cs">
+      <DependentUpon>HomePageLoginForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePageLoginForm.aspx.designer.cs">
+      <DependentUpon>HomePageLoginForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePageRegisterForm.aspx.cs">
+      <DependentUpon>HomePageRegisterForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePageRegisterForm.aspx.designer.cs">
+      <DependentUpon>HomePageRegisterForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomePageTempForm.aspx.cs">
       <DependentUpon>HomePageTempForm.aspx</DependentUpon>
@@ -1500,6 +1542,13 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
+    <Compile Include="SiteHomePage.Master.cs">
+      <DependentUpon>SiteHomePage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteHomePage.Master.designer.cs">
+      <DependentUpon>SiteHomePage.Master</DependentUpon>
+    </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1524,6 +1573,13 @@
     <Compile Include="WebService\ServiceSystem.asmx.cs">
       <DependentUpon>ServiceSystem.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WebUserControls\FooterContentControl.ascx.cs">
+      <DependentUpon>FooterContentControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUserControls\FooterContentControl.ascx.designer.cs">
+      <DependentUpon>FooterContentControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="WebUserControls\OrganizationalChartControl.ascx.cs">
       <DependentUpon>OrganizationalChartControl.ascx</DependentUpon>
@@ -1563,6 +1619,7 @@
     <Content Include="UploadFile\Inventory Form wise table.xlsx" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="SiteHomePage.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

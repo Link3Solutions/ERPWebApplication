@@ -93,9 +93,9 @@
                 <br />
                 <br />
 
-                <div id="div2">
+                <div id="div12" >
                     <section class="featured">
-                        <div class="content-wrapperHeader">
+                        <div class="content-wrapperHeader" style="height: 24px">
                             <hgroup class="title">
                                 <h2 style="font-size: 1.1em;"><%: Page.Title %>.</h2>
                             </hgroup>
@@ -108,13 +108,11 @@
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
         <div id="body" style="padding-top: 109px; width: 100%">
-            <div id="fixedImage" style="position: fixed; background-color: #fff">
+            <%--<div id="fixedImage" style="position: fixed; background-color: #fff">
                 <section style="margin-left: 80px; max-width: 960px">
                     <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/heroAccent.png" />
                 </section>
-
-            </div>
-
+            </div>--%>
             <section class="content-wrapper main-content clear-fix" style="min-height:470px">
                 <table style="width: 100%;">
                     <tr>
@@ -123,6 +121,11 @@
                         <td>
                             
                         </td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
                     </tr>
                     <tr>
                         <td><asp:Panel ID="PanelLogin" runat="server">

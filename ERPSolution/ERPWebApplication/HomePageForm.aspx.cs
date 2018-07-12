@@ -23,15 +23,16 @@ namespace ERPWebApplication
             {
                 if (!Page.IsPostBack)
                 {
-                    PanelHomePart.Visible = true;
-                    PanelRegister.Visible = false;
-                    PanelLogin.Visible = false;
+                    ControlPanelVisibility(PanelHomePart, PanelRegister, PanelLogin, PanelContactus, PanelAbout);
                     LoadCompanyDDL();
                     lblCompanyText.Visible = false;
                     ddlCompany.Visible = false;
                     lblLoginPassword.Visible = false;
                     txtLoginPassword.Visible = false;
                     btnLogin.Visible = false;
+                    RememberMe.Visible = false;
+                    lblRememberMe.Visible = false;
+                    
                 }
 
             }
@@ -60,16 +61,12 @@ namespace ERPWebApplication
 
         protected void lnkbtnRegister_Click(object sender, EventArgs e)
         {
-            PanelHomePart.Visible = false;
-            PanelLogin.Visible = false;
-            PanelRegister.Visible = true;
+            ControlPanelVisibility(PanelRegister, PanelHomePart, PanelLogin, PanelContactus, PanelAbout);            
         }
 
         protected void lnkbtnLogin_Click(object sender, EventArgs e)
         {
-            PanelHomePart.Visible = false;
-            PanelRegister.Visible = false;
-            PanelLogin.Visible = true;
+            ControlPanelVisibility(PanelLogin, PanelHomePart, PanelRegister, PanelContactus, PanelAbout);            
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)
@@ -241,6 +238,8 @@ namespace ERPWebApplication
                     lblLoginPassword.Visible = true;
                     txtLoginPassword.Visible = true;
                     btnLogin.Visible = true;
+                    RememberMe.Visible = true;
+                    lblRememberMe.Visible = true;
                 }
                 else
                 {
@@ -254,6 +253,8 @@ namespace ERPWebApplication
                         lblLoginPassword.Visible = true;
                         txtLoginPassword.Visible = true;
                         btnLogin.Visible = true;
+                        RememberMe.Visible = true;
+                        lblRememberMe.Visible = true;
                     }
                     else
                     {
@@ -262,6 +263,8 @@ namespace ERPWebApplication
                         lblLoginPassword.Visible = false;
                         txtLoginPassword.Visible = false;
                         btnLogin.Visible = false;
+                        RememberMe.Visible = false;
+                        lblRememberMe.Visible = false;
                         _objUserListController.CheckUser(_objUserList);
 
                     }
@@ -292,9 +295,26 @@ namespace ERPWebApplication
 
         protected void ImageButtonLogo_Click(object sender, ImageClickEventArgs e)
         {
-            PanelHomePart.Visible = true;
-            PanelRegister.Visible = false;
-            PanelLogin.Visible = false;
+            ControlPanelVisibility(PanelHomePart, PanelContactus, PanelRegister, PanelLogin, PanelAbout);
+        }
+
+        protected void lnkbtnContactUs_Click(object sender, EventArgs e)
+        {
+            ControlPanelVisibility(PanelContactus,PanelHomePart,PanelRegister,PanelLogin,PanelAbout);
+        }
+
+        private void ControlPanelVisibility(Panel panelTarget, Panel panelOptional1, Panel panelOptional2, Panel panelOptional3, Panel panelOptional4)
+        {
+            panelTarget.Visible = true;
+            panelOptional1.Visible = false;
+            panelOptional2.Visible = false;
+            panelOptional3.Visible = false;
+            panelOptional4.Visible = false;
+        }
+
+        protected void lnkbtnAbout_Click(object sender, EventArgs e)
+        {
+            ControlPanelVisibility(PanelAbout, PanelContactus, PanelHomePart, PanelRegister, PanelLogin);
         }
 
 
