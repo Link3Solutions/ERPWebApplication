@@ -330,7 +330,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/30/2016 11:34:14</publishTime>
     </File>
     <File Include="App_Themes/Site/Site.skin">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>05/21/2018 11:35:00</publishTime>
     </File>
     <File Include="bin/AjaxControlToolkit.dll">
       <publishTime>08/29/2016 16:02:06</publishTime>
@@ -348,7 +348,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:16</publishTime>
     </File>
     <File Include="bin/ControlLibrary.dll">
-      <publishTime>07/10/2018 17:02:14</publishTime>
+      <publishTime>07/16/2018 10:39:52</publishTime>
     </File>
     <File Include="bin/CrystalDecisions.CrystalReports.Design.dll">
       <publishTime>01/06/2013 05:05:56</publishTime>
@@ -399,10 +399,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:28</publishTime>
     </File>
     <File Include="bin/ERPWebApplication.dll">
-      <publishTime>07/10/2018 17:02:15</publishTime>
+      <publishTime>07/16/2018 10:39:59</publishTime>
     </File>
     <File Include="bin/FlashControlV71.dll">
-      <publishTime>03/03/2011 12:25:18</publishTime>
+      <publishTime>01/06/2013 05:05:56</publishTime>
     </File>
     <File Include="bin/HtmlAgilityPack.dll">
       <publishTime>12/29/2016 13:01:54</publishTime>
@@ -2346,7 +2346,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="CSS/CSSstyleTheme/Control/CommandButton.css">
-      <publishTime>07/08/2018 18:28:16</publishTime>
+      <publishTime>07/11/2018 13:56:25</publishTime>
     </File>
     <File Include="CSS/CSSstyleTheme/Control/DropDown.css">
       <publishTime>08/30/2016 11:59:32</publishTime>
@@ -2607,7 +2607,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/12/2018 14:44:46</publishTime>
     </File>
     <File Include="CSS/ParclStyleSheet.css">
-      <publishTime>04/07/2018 14:14:10</publishTime>
+      <publishTime>07/04/2018 14:14:10</publishTime>
     </File>
     <File Include="CSS/StyleSheetGridView.css">
       <publishTime>05/30/2017 16:09:59</publishTime>
@@ -2634,10 +2634,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/09/2018 11:55:11</publishTime>
     </File>
     <File Include="HomePageLoginForm.aspx">
-      <publishTime>07/10/2018 15:01:01</publishTime>
+      <publishTime>07/11/2018 16:56:08</publishTime>
     </File>
     <File Include="HomePageLogoForm.aspx">
-      <publishTime>07/10/2018 14:14:01</publishTime>
+      <publishTime>07/11/2018 14:36:43</publishTime>
     </File>
     <File Include="HomePageRegisterForm.aspx">
       <publishTime>07/10/2018 14:06:32</publishTime>
@@ -2697,7 +2697,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:10</publishTime>
     </File>
     <File Include="Images/IMAGE1.bmp">
-      <publishTime>04/07/2018 15:59:53</publishTime>
+      <publishTime>07/04/2018 15:59:53</publishTime>
     </File>
     <File Include="Images/imageup.jpg">
       <publishTime>01/11/2017 10:45:26</publishTime>
@@ -2763,7 +2763,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/28/2018 14:37:08</publishTime>
     </File>
     <File Include="MicrosoftMenuHtmlPage.html">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>05/24/2017 16:15:00</publishTime>
     </File>
     <File Include="ModuleName/Accounts/CoaHeadSetup.aspx">
       <publishTime>06/04/2018 15:41:47</publishTime>
@@ -2868,13 +2868,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/27/2018 12:54:26</publishTime>
     </File>
     <File Include="ParclForm.aspx">
-      <publishTime>07/08/2018 18:26:39</publishTime>
+      <publishTime>07/11/2018 12:49:38</publishTime>
     </File>
     <File Include="Properties/Settings.settings">
       <publishTime>03/07/2017 12:56:48</publishTime>
     </File>
     <File Include="README.docx">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>03/22/2018 17:45:00</publishTime>
     </File>
     <File Include="Scripts/jquery-1.3.2.min.js">
       <publishTime>05/27/2018 15:47:15</publishTime>
@@ -3066,7 +3066,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/23/2016 14:33:30</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/10/2018 17:02:18</publishTime>
+      <publishTime>07/16/2018 12:51:09</publishTime>
     </File>
     <File Include="WebForm1.aspx">
       <publishTime>05/28/2018 16:24:22</publishTime>

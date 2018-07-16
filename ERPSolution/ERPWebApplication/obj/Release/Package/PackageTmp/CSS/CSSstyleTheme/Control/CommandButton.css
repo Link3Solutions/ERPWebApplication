@@ -673,17 +673,13 @@
 .carousel-rulers a.right { right: 0px; }
 
 
-/*section#live .black .item { max-width: 230px; }
-section#live .item .box { display: block; height: 385px; text-decoration: none; position: relative; overflow: hidden; margin: 0px 11px 0px 0px; }
-section#live .blog { color: #ffffff; overflow: hidden; }
-section#live .blog .image { filter: blur(8px); opacity: 0.5; position: absolute; left: -20px; top: -20px; width: 140%; height: 140%; background-position: center center; background-size: cover; z-index: 1; }
-section#live .blog .info { position: relative; margin-top: 150px; padding: 15px; z-index: 10; }
-section#live .blog .lead { font-weight: bold; }*/
-
 .col-tb-12 { width: 100%; }
 .col-xs-12{width:100%}
 margin-top { margin-top: 20px; }
 .btn { margin-top: 0px; }
+
+
+
 
 
 

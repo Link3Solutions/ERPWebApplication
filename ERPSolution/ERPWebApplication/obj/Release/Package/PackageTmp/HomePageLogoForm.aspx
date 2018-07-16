@@ -61,9 +61,84 @@
                                     </div>
                                     <section class="featured">
                                         <div id="div7" class="content-wrapperBodyPart2" style="min-height: 400px;padding-top:30px;padding-bottom:30px">
-                                            <div class="col-lg-4 col-tb-4 col-sm-3 item" style="display: inline-block" >
-                                                <h2 style="color:white" >Link3 <b>Live:</b> Latest Service Updates</h2>
+                                            <div class="col-lg-4 col-tb-4 col-sm-3 item" style="display: inline-block;" >
+                                                <table style="width: 100%;">
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <h2 style="color:white" >Link3 <b>Live:</b> Latest Service Updates</h2>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                </table>
                                             </div>
+                                            <div  style="display: inline-block; width:350px" >
+                                                <asp:Panel ID="Panel1"  runat="server"></asp:Panel>
+                                                </div>
+                                            
                                             <div class="col-lg-4 col-tb-4 col-sm-3 item" style="display: inline-block">
                                                 <a class="box blog" href="HomePageForm.aspx">
                                                     <div class="image"

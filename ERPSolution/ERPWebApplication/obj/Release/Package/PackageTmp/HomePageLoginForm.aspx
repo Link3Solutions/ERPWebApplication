@@ -36,7 +36,7 @@
                                                 <asp:Panel ID="Panel2" runat="server" Width="385px"></asp:Panel>
                                             </td>
                                             <td>
-                                                <asp:Panel ID="PanelLoginControl" BorderStyle="Solid" BorderWidth="1px" BorderColor="#9E9E9E" runat="server" Width="435px">
+                                                <asp:Panel ID="PanelLoginControl" BorderStyle="Solid" BorderWidth="1px" BorderColor="#9E9E9E" runat="server" Width="435px" >
                                                     <table style="width: 100%;">
                                                         <tr>
                                                             <td colspan="3"></td>
