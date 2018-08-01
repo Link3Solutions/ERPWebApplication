@@ -197,6 +197,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                     }
 
 
+                    txtVAT.Text = rowNo["VATNumber"].ToString() == null ? string.Empty : rowNo["VATNumber"].ToString();
                     txtFaceBook.Text = rowNo["FaceBookID"].ToString() == null ? string.Empty : rowNo["FaceBookID"].ToString();
                     txtLinkedInID.Text = rowNo["LinkedInID"].ToString() == null ? string.Empty : rowNo["LinkedInID"].ToString();
                     txtTwitterID.Text = rowNo["TwitterID"].ToString() == null ? string.Empty : rowNo["TwitterID"].ToString();
@@ -334,6 +335,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                 txtFax.Text = string.Empty;
                 txtURL.Text = string.Empty;
                 txtLicence.Text = string.Empty;
+                txtVAT.Text = string.Empty;
                 txtFaceBook.Text = string.Empty;
                 txtLinkedInID.Text = string.Empty;
                 txtTwitterID.Text = string.Empty;
@@ -397,7 +399,8 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                 _objCompanyDetailsSetup.CompanyFax = txtFax.Text == string.Empty ? null : txtFax.Text;
                 _objCompanyDetailsSetup.CompanyURL = txtURL.Text == string.Empty ? null : txtURL.Text;
 
-                _objCompanyDetailsSetup.LicenceID = Convert.ToInt32(txtLicence.Text == string.Empty ? null : txtLicence.Text);
+                _objCompanyDetailsSetup.LicenceID = txtLicence.Text == string.Empty ? null : txtLicence.Text;
+                _objCompanyDetailsSetup.VatNumber = txtVAT.Text == string.Empty ? null : txtVAT.Text;
                 _objCompanyDetailsSetup.FaceBookID = txtFaceBook.Text == string.Empty ? null : txtFaceBook.Text;
                 _objCompanyDetailsSetup.LinkedInID = txtLinkedInID.Text == string.Empty ? null : txtLinkedInID.Text;
                 _objCompanyDetailsSetup.TwitterID = txtTwitterID.Text == string.Empty ? null : txtTwitterID.Text;

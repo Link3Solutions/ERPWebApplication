@@ -517,7 +517,7 @@ fieldset {
         }
 
 label {
-    display: block;
+    display: block;    
     font-size: 1.2em;
     font-weight: 600;
 }
@@ -594,15 +594,15 @@ input[type="checkbox"] {
     }
 
     input[type='checkbox']:checked:after {
-        width: 10px;
-        height: 11px;        
+        width: 9px;
+        height: 8px;        
         top: -2px;
         left: -1px;        
         /*content: '';
         display: inline-block;
         visibility: visible;*/
-        content: '✔';
-        padding-left:3px;
+        content: '√';
+        padding-left:1px;
         padding-bottom:4px;
         display: inline-block;        
         transition: 0.5s ease;
@@ -613,6 +613,8 @@ input[type="checkbox"] {
         border-radius: 3px;
         
     }
+
+  
 
 /*input[type=checkbox]:checked {
     background-color: #009688;

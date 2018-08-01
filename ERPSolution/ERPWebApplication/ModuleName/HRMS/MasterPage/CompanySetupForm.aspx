@@ -12,9 +12,9 @@
                             <table style="width: 100%;">
                                 <tr>
                                     <td  style="width: 675px; float: left; text-align: left">
-                                        <table style="width: 100%;">
+                                        <table style="width: 100%;margin-top:1px">
                                             <tr>
-                                                <td rowspan="7">
+                                                <td rowspan="8">
                                                     <asp:Panel ID="Panel11" runat="server" Height="310px" Width="235px">
                                                         <table style="width: 100%; text-align: left">
                                                             <tr>
@@ -97,9 +97,16 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td></td>
-                                                <td>&nbsp;</td>
-                                                <td></td>
+                                                <td><asp:Label ID="Label119" runat="server" Text="BIN"></asp:Label></td>
+                                                <td>:</td>
+                                                <td><asp:TextBox ID="txtLicence" runat="server" ></asp:TextBox></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <asp:Label ID="Label6" runat="server" Text="VAT"></asp:Label></td>
+                                                <td>:</td>
+                                                <td>
+                                                    <asp:TextBox ID="txtVAT" runat="server"></asp:TextBox></td>
                                             </tr>
                                             <tr>
                                                 <td colspan="3">
@@ -230,20 +237,10 @@
                                                     <asp:TextBox ID="txtURL" runat="server" TextMode="Url"></asp:TextBox>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>&nbsp;</td>
-                                                <td>
-                                                    <asp:Label ID="Label119" runat="server" Text="Licence"></asp:Label>
-                                                </td>
-                                                <td>:</td>
-                                                <td>
-                                                    <asp:TextBox ID="txtLicence" runat="server" TextMode="Number"></asp:TextBox>
-                                                </td>
-                                            </tr>
                                         </table>
                                     </td>
                                     <td style="width:275px ;text-align: left; float: left;padding-left:25px">
-                                        <table style="width: 100%; text-align: left;">
+                                        <table style="width: 100%; text-align: left;margin-top:1px">
                                             <tr>
                                                 <td>
                                                     <asp:Label ID="Label100" runat="server" Text="Business Type"></asp:Label>
@@ -389,6 +386,31 @@
                                                 <td>&nbsp;</td>
                                                 <td>&nbsp;</td>
                                             </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            </tr>
                                         </table>
                                     </td>
                                     <td style="width:100px;text-align: right; float: right;padding-left:25px;padding-top:1px;padding-right:1px">
@@ -401,7 +423,7 @@
                                                     <td><asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="CssBtnClear" Width="70px" OnClick="btnClear_Click" /></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><asp:Button ID="btnPrint" runat="server" Text="Print" CssClass="CssBtnPrint" Width="70px" /></td>
+                                                    <td><asp:Button ID="btnPrint" runat="server" Text="" CssClass="CssBtnPrint" Width="70px" /></td>
                                                 </tr>
                                             </table>
                                         </div>

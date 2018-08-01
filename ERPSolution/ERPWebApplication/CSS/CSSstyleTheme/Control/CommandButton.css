@@ -31,7 +31,7 @@
 
 .CssBtnAdvancedSearch {
     font-size: 10pt;
-    border: 1px #BDDAEA !important; 
+    border: 1px #BDDAEA !important;
     height: 30px;
     color: #fff;
     text-decoration: none;
@@ -155,6 +155,18 @@
         border-radius: 3px;
     }
 
+
+.CssBtnModuleName {
+    border: none !important;
+    /*background-color: #8CBCCF;*/
+    background-color: none !important;
+    cursor: pointer;
+    margin-right: 8px;
+    width: auto;
+    border-radius: 3px;
+    text-decoration: none;
+    font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+}
 
 .CssBtnRegister {
     border: 1px #4BB1E1 !important;
@@ -509,7 +521,7 @@
     color: #fff;
     text-decoration: none;
     cursor: pointer;
-    background: #9FD148 url(../Images/print.png) no-repeat scroll 2px center;
+    background: #9FD148 url(../Images/print.png) no-repeat scroll center;
     font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
     border-radius: 3px;
 }
@@ -521,7 +533,8 @@
         color: #fff;
         text-decoration: none;
         cursor: pointer;
-        background: #9FD989 url(../Images/print.png) no-repeat scroll 2px center;
+        background: #9FD989 url(../Images/print.png) no-repeat scroll center;
+        /*background: #9FD989 url(../Images/print.png) no-repeat scroll 2px center;*/
         font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
         border-radius: 3px;
     }
@@ -601,89 +614,233 @@
         font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
         border-radius: 3px;
     }
-        
+
 .forgotPassword {
     font-family: Tahoma;
     font-size: 1.0em;
-    font-weight: normal;        
-    color: #00B1ED !important;
-    background-color: #FFFFFF !important;
+    font-weight: normal;
+    color: #0E9ED6 !important;
+    background-color: transparent !important;
     text-align: left;
     padding-top: 5px;
     padding-bottom: 5px;
 }
 
-       
+
 .lineRegistration {
-    border-right:solid 1px #C8C7CC;
-    
+    border-right: solid 1px #C8C7CC;
+}
+
+.lineCreateAccount {
+    border-bottom: solid 1px #C8C7CC;
+    font-family: Tahoma;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+
+.approvalFlowConfigureHeader {
+    font-family: Tahoma;
+    font-size: 1.0em;
+    font-weight: normal;
+    color: #FFFFFF !important;
 }
 
 .footerTextHeader {
     font-family: Tahoma;
     font-size: 1.4em;
-    font-weight: normal;    
-    color: #AEAEAE !important ;
+    font-weight: normal;
+    color: #AEAEAE !important;
     text-align: left;
     padding-top: 5px;
     padding-bottom: 5px;
 }
+
 .footerTextBody {
     font-family: Tahoma;
     font-size: 1.2em;
-    font-weight: normal;    
-    color: #AEAEAE !important ;
+    font-weight: normal;
+    color: #AEAEAE !important;
     text-align: left;
     padding-top: 5px;
     padding-bottom: 5px;
-    
-    
 }
 
-.footerTextBody:hover {
+    .footerTextBody:hover {
+        font-family: Tahoma;
+        font-size: 1.2em;
+        font-weight: normal;
+        color: #FFFFFF !important;
+        text-align: left;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background-color: #525252;
+    }
+
+
+.CssLoginPanel {
+    border-radius: 4px;
+    background: #f7f7f7;
+    box-shadow: 1px 2px 2px 2px #c6c1c1;
+}
+
+.CssSigninText {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #0E9ED6;
+}
+
+.CssPlaceOrderText {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+}
+
+.CssPanelUserAccount {
+    border-radius: 4px;
+    background: #D0D8E3;
+}
+
+/*Start for CheckBoxList*/
+.inline label {
+    display: inline;
     font-family: Tahoma;
-    font-size: 1.2em;
-    font-weight: normal;    
-    color: #FFFFFF !important ;
+    font-size: 1.0em;
+    font-weight: normal;
+    color: #7F7F7F;
     text-align: left;
     padding-top: 5px;
     padding-bottom: 5px;
-    background-color:#525252;
+    margin-left: 3px;
 }
 
-.hidden-mobile { display: none !important; }
-.hidden-tablet { display: none !important; }
-.inner { transition: transform 300ms ease; max-height: 385px; }
-.carousel-container { padding-left: 15px; }
-.content { overflow: hidden; }
-.container-fluid{padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto}
-.black { background: #446e22 url("/home/i/bg-live.jpg") center center; background-size: cover; padding: 0px; }
-.col-lg-4{width:33.33333333%}
-.col-tb-4 { width: 33.33333333%; }
-.col-sm-3{width:25%}
-.item { max-width: 230px; }
-.box { display: block; height: 385px; text-decoration: none; position: relative; overflow: hidden; margin: 0px 11px 0px 0px; }
-.blog { color: #ffffff; overflow: hidden; }
-.image { filter: blur(8px); opacity: 0.5; position: absolute; left: -20px; top: -20px; width: 140%; height: 140%; background-position: center center; background-size: cover; z-index: 1; }
-.info { position: relative; margin-top: 150px; padding: 15px; z-index: 10; }
-.lead { font-weight: bold; }
-.hide{display:none!important}
-.black .carousel-rulers a.rect { top: 57px; height: 385px; border-radius: 0px; background-color: rgba(0,0,0,0.75); color: #ffffff; width: 55px; line-height: 400px; text-align: center; transition: 100ms; }
-.carousel-rulers a.left { left: 0px; }
-.carousel-rulers a.right { right: 0px; }
+/*end for CheckBoxList*/
+.hidden-mobile {
+    display: none !important;
+}
+
+.hidden-tablet {
+    display: none !important;
+}
+
+.inner {
+    transition: transform 300ms ease;
+    max-height: 385px;
+}
+
+.carousel-container {
+    padding-left: 15px;
+}
+
+.content {
+    overflow: hidden;
+}
+
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.black {
+    background: #446e22 url("/home/i/bg-live.jpg") center center;
+    background-size: cover;
+    padding: 0px;
+}
+
+.col-lg-4 {
+    width: 33.33333333%;
+}
+
+.col-tb-4 {
+    width: 33.33333333%;
+}
+
+.col-sm-3 {
+    width: 25%;
+}
+
+.item {
+    max-width: 230px;
+}
+
+.box {
+    display: block;
+    height: 385px;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    margin: 0px 11px 0px 0px;
+    cursor: default;
+}
+
+.blog {
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.image {
+    filter: blur(8px);
+    opacity: 0.5;
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    width: 140%;
+    height: 140%;
+    background-position: center center;
+    background-size: cover;
+    z-index: 1;
+}
+
+.info {
+    position: relative;
+    margin-top: 150px;
+    padding: 15px;
+    z-index: 10;
+}
+
+.lead {
+    font-weight: bold;
+}
+
+.hide {
+    display: none!important;
+}
+
+.black .carousel-rulers a.rect {
+    top: 57px;
+    height: 385px;
+    border-radius: 0px;
+    background-color: rgba(0,0,0,0.75);
+    color: #ffffff;
+    width: 55px;
+    line-height: 400px;
+    text-align: center;
+    transition: 100ms;
+}
+
+.carousel-rulers a.left {
+    left: 0px;
+}
+
+.carousel-rulers a.right {
+    right: 0px;
+}
 
 
-.col-tb-12 { width: 100%; }
-.col-xs-12{width:100%}
-margin-top { margin-top: 20px; }
-.btn { margin-top: 0px; }
+.col-tb-12 {
+    width: 100%;
+}
 
+.col-xs-12 {
+    width: 100%;
+}
 
+margin-top {
+    margin-top: 20px;
+}
 
-
-
-
-
-
-
-
+.btn {
+    margin-top: 0px;
+}

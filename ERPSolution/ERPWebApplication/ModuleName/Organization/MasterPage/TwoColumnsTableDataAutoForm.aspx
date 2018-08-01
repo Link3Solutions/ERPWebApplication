@@ -7,21 +7,28 @@
             <table style="width: 100%;text-align:left">
                 <tr>
                     <td colspan="3">
-                        <asp:GridView ID="grdTableName" runat="server" AutoGenerateColumns="False" Width="40%" OnRowCommand="grdTableName_RowCommand" OnRowDataBound="grdTableName_RowDataBound">
+                        <div style="width:50%;height: 530px; overflow-y: scroll; overflow-x: hidden">
+                        <asp:GridView ID="grdTableName" runat="server" AutoGenerateColumns="False" Width="100%" OnRowCommand="grdTableName_RowCommand" OnRowDataBound="grdTableName_RowDataBound">
                             <Columns>
                                 <asp:TemplateField HeaderText="TableID">
                                     <ItemTemplate>
                                         <asp:Label ID="lblTableID" runat="server" Text='<%# Bind("TableID") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="TableName">
+                                <asp:TemplateField HeaderText="Table Name">
                                     <ItemTemplate>
                                         <asp:Label ID="lblTableName" runat="server" Text='<%# Bind("TableName") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:CommandField SelectText="Apply" ShowSelectButton="True" />
+                                <asp:CommandField SelectText="Apply" ShowSelectButton="True" HeaderText="Action" />
+                                <asp:TemplateField HeaderText="Status">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblStatus" runat="server" Text="Submitted" Font-Bold="True" ForeColor="Green"></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                             </Columns>
                         </asp:GridView>
+                            </div>
                     </td>
                 </tr>
                 <tr>

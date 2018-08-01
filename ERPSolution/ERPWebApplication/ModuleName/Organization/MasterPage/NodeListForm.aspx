@@ -24,7 +24,9 @@
                 <tr>
                     <td  style="text-align: left; float: left; width: 500px">
                         <div style="overflow:auto; height:433px;width:500px">
-                        <asp:TreeView ID="treeNodeList" runat="server" ImageSet="Msdn" OnSelectedNodeChanged="treeNodeList_SelectedNodeChanged" OnTreeNodePopulate="treeNodeList_TreeNodePopulate">
+                        <asp:TreeView ID="treeNodeList" runat="server" NodeIndent="15"  OnSelectedNodeChanged="treeNodeList_SelectedNodeChanged" OnTreeNodePopulate="treeNodeList_TreeNodePopulate">
+                            <ParentNodeStyle Font-Bold="True" />
+                                                        <RootNodeStyle Font-Bold="True" />
                         </asp:TreeView>
                             </div>
                     </td>
@@ -123,4 +125,5 @@
             
         </Triggers>
     </asp:UpdatePanel>
+    
 </asp:Content>

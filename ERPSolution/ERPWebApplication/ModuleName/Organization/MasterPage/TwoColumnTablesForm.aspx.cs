@@ -63,7 +63,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 txtTableName.Text = string.Empty;
                 txtEntryMode.Text = string.Empty;
                 txtRelatedTo.Text = string.Empty;
-                btnSave.Text = "Update";
+                btnSave.Text = "Save";
                 ddlEntrySystem.SelectedValue = "-1";
                 ddlRelatedUserRoleID.SelectedValue = "-1";
 
@@ -108,7 +108,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 _objTwoColumnTables.RelatedUserRoleID = ddlRelatedUserRoleID.SelectedValue == "-1" ? 0 : Convert.ToInt32(ddlRelatedUserRoleID.SelectedValue);
                 _objTwoColumnTables.EntrySystem = ddlEntrySystem.SelectedValue == "-1" ? null : ddlEntrySystem.SelectedValue;
                 _objTwoColumnTablesController = new TwoColumnTablesController();
-                if (btnSave.Text == "Update")
+                if (btnSave.Text == "Save")
                 {
                     _objTwoColumnTablesController.Save(_connectionString, _objTwoColumnTables);
 
@@ -148,7 +148,6 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                     ddlEntrySystem.SelectedValue = lblEntrySystem;
                     btnSave.Text = "Update";
                     Session["selectedIndex"] = lblTableID;
-
                 }
                 catch (Exception msgException)
                 {
@@ -181,6 +180,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
         {
             e.Row.Cells[1].Visible = false;
             e.Row.Cells[5].Visible = false;
+            e.Row.Cells[7].Visible = false;
         }
 
         protected void grdTwoColumnTables_RowDeleting(object sender, GridViewDeleteEventArgs e)

@@ -77,7 +77,7 @@
                                                                 <table style="margin-left:270px">
                                                                     <tr><td><asp:Button ID="btnSave" runat="server" Text="Save" Width="70px" CssClass="CssBtnSave" OnClick="btnSave_Click" /></td></tr>
                                                                     <tr><td><asp:Button ID="btnClear" runat="server" Text="Clear" Width="70px" CssClass="CssBtnClear" OnClick="btnClear_Click" /></td></tr>
-                                                                    <tr><td><asp:Button ID="btnPrint" runat="server" Text="Print" Width="70px" CssClass="CssBtnPrint" /></td></tr>
+                                                                    <tr><td><asp:Button ID="btnPrint" runat="server" Text="" Width="70px" CssClass="CssBtnPrint" /></td></tr>
                                                                 </table>
                                                             </div>
                                                         </td>
@@ -98,14 +98,17 @@
                                             <td  style="text-align: left; float: left;width:500px; "></td>
                                             <td style="float:left">
                                                 <div style="width:105px;position:fixed;padding-left:50px;margin-top:-15px">
-                                                    <asp:Button ID="Button3" runat="server" Text="Print" CssClass="CssBtnPrint" Width="70px" />
+                                                    <asp:Button ID="Button3" runat="server" Text="" CssClass="CssBtnPrint" Width="70px" OnClick="Button3_Click" />
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td  style="text-align: left; float: left; width: 500px">
                                                  <div style="overflow:auto; height:435px;width:500px;margin-top:1px">
-                            <asp:TreeView ID="TreeViewCompanyChart" runat="server" OnTreeNodePopulate="TreeViewCompanyChart_TreeNodePopulate" OnSelectedNodeChanged="TreeViewCompanyChart_SelectedNodeChanged" CssClass="popup">
+                            <asp:TreeView ID="TreeViewCompanyChart" runat="server" OnTreeNodePopulate="TreeViewCompanyChart_TreeNodePopulate"
+                                 OnSelectedNodeChanged="TreeViewCompanyChart_SelectedNodeChanged" NodeIndent="15" CssClass="popup">
+                                <ParentNodeStyle Font-Bold="True" />
+                                                        <RootNodeStyle Font-Bold="True" />
                                                 </asp:TreeView>
                              </div>
                                             </td>
@@ -144,7 +147,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <asp:Label ID="Label5" runat="server" Text="Title"></asp:Label>
+                                                            <asp:Label ID="Label5" runat="server" Text="Name"></asp:Label>
                                                         </td>
                                                         <td>:</td>
                                                         <td>

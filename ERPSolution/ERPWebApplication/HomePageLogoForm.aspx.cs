@@ -20,6 +20,15 @@ namespace ERPWebApplication
 
         }
 
+        protected void btnModuleName2_Click(object sender, EventArgs e)
+        {
+            Session["moduleName"] = this.btnModuleName2.Text;
+            Response.Redirect("~/ServiceRequestForm.aspx");
+            
+            //string passthevalue = UsernameTextbox.Text;
+            //Response.Redirect("Step2.aspx?PasstheValue=" + passthevalue);
+        }
+
 
     }
 }

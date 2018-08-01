@@ -72,7 +72,7 @@
                             <div style="overflow:auto; height:425px;text-align: left;width: 500px;">   
                             <asp:Panel ID="Panel5" runat="server" Height="100%" 
                                     Width="100%">
-                                    <asp:TreeView ID="treeCOAHead" runat="server" ImageSet="Simple" NodeIndent="15" 
+                                    <asp:TreeView ID="treeCOAHead" runat="server" NodeIndent="15" 
                                         OnTreeNodePopulate="treeCOAHead_TreeNodePopulate"
                                         OnSelectedNodeChanged="treeCOAHead_SelectedNodeChanged">
                                         <HoverNodeStyle Font-Underline="True" ForeColor="#6666AA" />
@@ -81,6 +81,8 @@
                                     <ParentNodeStyle Font-Bold="False"  />
                                     <SelectedNodeStyle BackColor="#B5B5B5" Font-Underline="False" HorizontalPadding="0px"
                                         VerticalPadding="0px" />
+                                        <ParentNodeStyle Font-Bold="True" />
+                                                        <RootNodeStyle Font-Bold="True" />
                                     </asp:TreeView>
                                 </asp:Panel>
                                 </div>

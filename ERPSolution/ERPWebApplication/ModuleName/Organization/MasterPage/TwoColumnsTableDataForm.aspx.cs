@@ -31,6 +31,9 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                     Session["lastPositionNo"] = 1;
                     Session["branchID"] = 1;
                     ShowsysTwoColumnTables();
+                    PanelForInputControl.Visible = false;
+                    btnSave.Visible = false;
+                    btnClear.Visible = false;
                     
                 }
 
@@ -76,17 +79,10 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
         {
             if (dtTablesNameTemp.Rows.Count > 0)
             {
-                PanelForInputControl.Visible = true;
-                btnSave.Visible = true;
-                btnClear.Visible = true;
                 lblStatus.Visible = false;
             }
             else
             {
-
-                PanelForInputControl.Visible = false;
-                btnSave.Visible = false;
-                btnClear.Visible = false;
                 lblStatus.Visible = true;
             }
         }
@@ -114,7 +110,9 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 txtFieldOfName.Focus();
                 Session["tableID"] = lblTableID;
                 ShowTwoColumnsTableData();
-                btnSave.Text = "Update";
+                PanelForInputControl.Visible = true;
+                btnSave.Visible = true;
+                btnClear.Visible = true;
 
             }
             catch (Exception msgException)
@@ -173,7 +171,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             {
                 txtFieldOfName.Text = string.Empty;
                 txtFieldDescription.Text = string.Empty;
-                btnSave.Text = "Update";
+                btnSave.Text = "Save";
 
             }
             catch (Exception msgException)
@@ -196,7 +194,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 _objTwoColumnsTableData.EntryUserName = Session["entryUserCode"].ToString();
                 _objTwoColumnsTableData.TableName = lblSelectedTableName.Text == string.Empty ? null : lblSelectedTableName.Text;
                 _objTwoColumnsTableDataController = new TwoColumnsTableDataController();
-                if (btnSave.Text == "Update")
+                if (btnSave.Text == "Save")
                 {
                     _objTwoColumnsTableDataController.Save(_connectionString, _objTwoColumnsTableData);
                 }
@@ -230,6 +228,9 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 lblSelectedTableName.Text = string.Empty;
                 grdTableData.DataSource = null;
                 grdTableData.DataBind();
+                PanelForInputControl.Visible = false;
+                btnSave.Visible = false;
+                btnClear.Visible = false;
 
             }
             catch (Exception msgException)

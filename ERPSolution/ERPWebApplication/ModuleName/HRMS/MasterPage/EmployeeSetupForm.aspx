@@ -216,7 +216,7 @@
                                     <td><asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="CssBtnClear"  Width="70px" /></td>
                                 </tr>
                                 <tr>
-                                    <td><asp:Button ID="btnPrint" runat="server" Text="Print" CssClass="CssBtnPrint" Width="70px" /></td>
+                                    <td><asp:Button ID="btnPrint" runat="server" Text="" CssClass="CssBtnPrint" Width="70px" /></td>
                                 </tr>
                             </table>
                         </div>

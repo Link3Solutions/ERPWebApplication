@@ -10,7 +10,8 @@
                 <tr>
                     <td style="width: 430px; float: left;margin-left:1px;margin-top:1px">
                         <asp:Label ID="lblStatus" runat="server" Text="NO DATA FOUND !" Visible="false"></asp:Label>
-                        <asp:GridView ID="grdTableName" runat="server" AutoGenerateColumns="False" OnRowDataBound="grdTableName_RowDataBound" OnSelectedIndexChanged="grdTableName_SelectedIndexChanged">
+                        <div style="width:100%;height: 530px; overflow-y: scroll; overflow-x: hidden">
+                        <asp:GridView ID="grdTableName" Width="100%" runat="server" AutoGenerateColumns="False" OnRowDataBound="grdTableName_RowDataBound" OnSelectedIndexChanged="grdTableName_SelectedIndexChanged">
                             <Columns>
                                 <asp:TemplateField HeaderText="SL">
                                     <ItemTemplate>
@@ -32,8 +33,9 @@
                                 </asp:TemplateField>
                             </Columns>
                         </asp:GridView>
+                            </div>
                     </td>
-                    <td  style="width:425px;text-align: left; float: left">
+                    <td  style="width:425px;text-align: left; float: left;margin-left:100px;margin-top:1px">
                         <asp:Panel ID="PanelForInputControl" runat="server">
                         <table style="width: 100%;">
                             <tr>
@@ -100,7 +102,7 @@
                                     <td><asp:Button ID="btnSave" runat="server" CssClass="CssBtnSave" Text="Save" Width="70px" OnClick="btnSave_Click" /></td>
                                 </tr>
                                 <tr>
-                                    <td><asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="CssBtnClear" Width="70px" OnClick="btnClear_Click" /></td>
+                                    <td><asp:Button ID="btnClear" runat="server" Text="Cancel" CssClass="CssBtnClear" Width="70px" OnClick="btnClear_Click" /></td>
                                 </tr>
                                 <tr>
                                     <td>&nbsp;</td>

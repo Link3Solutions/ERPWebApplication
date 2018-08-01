@@ -217,5 +217,10 @@ namespace ERPWebApplication
 
         }
 
+        protected void lnkbtnCreateAccount_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/HomePageRegisterForm.aspx");
+        }
+
     }
 }

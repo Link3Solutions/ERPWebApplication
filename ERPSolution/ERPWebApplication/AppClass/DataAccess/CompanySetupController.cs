@@ -164,7 +164,7 @@ namespace ERPWebApplication.AppClass.DataAccess
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }
@@ -284,7 +284,8 @@ namespace ERPWebApplication.AppClass.DataAccess
                                               " ,[CompanyPhones] = ISNULL('" + objCompanyDetailsSetup.CompanyPhones + "',[CompanyPhones]) " +
                                               " ,[CompanyFax] = ISNULL('" + objCompanyDetailsSetup.CompanyFax + "',[CompanyFax]) " +
                                               " ,[CompanyURL] = ISNULL('" + objCompanyDetailsSetup.CompanyURL + "',[CompanyURL]) " +
-                                              " ,[LicenceID] = ISNULL(" + objCompanyDetailsSetup.LicenceID + ",[LicenceID]) " +
+                                              " ,[LicenceID] = ISNULL('" + objCompanyDetailsSetup.LicenceID + "',[LicenceID]) " +
+                                              " ,[VATNumber] = ISNULL('" + objCompanyDetailsSetup.VatNumber + "',[VATNumber]) " +
                                               " ,[FaceBookID] = ISNULL('" + objCompanyDetailsSetup.FaceBookID + "',[FaceBookID]) " +
                                               " ,[LinkedInID] = ISNULL('" + objCompanyDetailsSetup.LinkedInID + "',[LinkedInID]) " +
                                               " ,[TwitterID] = ISNULL('" + objCompanyDetailsSetup.TwitterID + "',[TwitterID]) " +
@@ -336,6 +337,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                       ,[LinkedInID]
                       ,[TwitterID]
                       ,[YouTubeID]
+                      ,[VATNumber]
                   FROM [comCompanySetup]
                   WHERE CompanyID = " + objCompanyDetailsSetup.CompanyID + "";
                 dtRecord = clsDataManipulation.GetData(this.ConnectionString, storedProcedureComandText);

@@ -51,7 +51,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 objEmployeeSetup.CompanyID = LoginUserInformation.CompanyID;
                 objEmployeeSetup.EmployeeID = LoginUserInformation.UserID;
                 _objTwoColumnTablesController = new TwoColumnTablesController();
-                DataTable dtTablesName = _objTwoColumnTablesController.GetRecord(_connectionString, _objTwoColumnTables,objEmployeeSetup);
+                DataTable dtTablesName = _objTwoColumnTablesController.GetRecord(_connectionString, _objTwoColumnTables, objEmployeeSetup);
                 grdTableName.DataSource = null;
                 grdTableName.DataBind();
                 if (dtTablesName.Rows.Count > 0)
@@ -72,8 +72,29 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
 
         protected void grdTableName_RowDataBound(object sender, GridViewRowEventArgs e)
         {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                var lblTableID = e.Row.FindControl("lblTableID") as Label;
+                var lblStatus = e.Row.FindControl("lblStatus") as Label;
+                _objTwoColumnsTableDataAuto = new TwoColumnsTableDataAuto();
+                _objTwoColumnsTableDataAuto.TableID = Convert.ToInt32(lblTableID.Text);
+                _objTwoColumnsTableDataAutoController = new TwoColumnsTableDataAutoController();
+                bool checkTableID = false;
+                checkTableID = _objTwoColumnsTableDataAutoController.CheckTableSubmission(_objTwoColumnsTableDataAuto);
+                if (checkTableID == true)
+                {
+                    lblStatus.Visible = true;
+                }
+                else
+                {
+                    lblStatus.Visible = false;
+                }
+            }
+
             e.Row.Cells[0].Visible = false;
         }
+
+        
 
         protected void grdTableName_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -85,7 +106,8 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 try
                 {
                     string lblTableName = ((Label)grdTableName.Rows[selectedIndex].FindControl("lblTableName")).Text;
-                    ApplyDefaultData(lblTableID,lblTableName);
+                    ApplyDefaultData(lblTableID, lblTableName);
+                    ShowsysTwoColumnTables();
                     clsTopMostMessageBox.Show(clsMessages.GProcessSuccess);
 
                 }
@@ -110,7 +132,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }

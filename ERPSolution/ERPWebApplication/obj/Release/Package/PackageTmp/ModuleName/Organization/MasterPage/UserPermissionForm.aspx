@@ -8,14 +8,15 @@
             <table style="width: 100%;">
                 <tr>
                     <td>
-                        <ajaxToolkit:TabContainer ID="TabContainerUserPermission" runat="server" Width="1160px" Height="100%" ActiveTabIndex="1" CssClass="tab" CssTheme="None">
+                        <ajaxToolkit:TabContainer ID="TabContainerUserPermission" runat="server" Width="1160px" Height="100%" ActiveTabIndex="0" CssClass="tab" CssTheme="None">
                             <ajaxToolkit:TabPanel ID="TabPanelRoleSetup" runat="server" HeaderText="Role Setup" Width="1160px">
                                 <ContentTemplate>
                                     <table style="width: 100%;">
                                         <tr>
                                             <td style="text-align: left; float: left; width: 500px">
                                                 <div style="overflow: auto; height: 450px;">
-                                                    <asp:TreeView ID="TreeViewAllNode" runat="server" OnTreeNodePopulate="TreeViewAllNode_TreeNodePopulate" ShowCheckBoxes="All" NodeIndent="15" ShowExpandCollapse="False">
+                                                    <asp:TreeView ID="TreeViewAllNode" runat="server" OnTreeNodePopulate="TreeViewAllNode_TreeNodePopulate" 
+                                                        ShowCheckBoxes="All" NodeIndent="15" ShowExpandCollapse="False">
                                                         <ParentNodeStyle Font-Bold="True" />
                                                         <RootNodeStyle Font-Bold="True" />
                                                     </asp:TreeView>
@@ -294,4 +295,90 @@
         </ContentTemplate>
         <Triggers></Triggers>
     </asp:UpdatePanel>
+    <script  type="text/javascript">
+        function OnTreeClick(evt) {
+            var src = window.event != window.undefined ? window.event.srcElement : evt.target
+            var isChkBoxClick = (src.tagName.toLowerCase() == "input" && src.type == "checkbox");
+            if (isChkBoxClick) {
+                var parentTable = GetParentByTagName("table", src);
+                var nxtSibling = parentTable.nextSibling;
+                if (nxtSibling && nxtSibling.nodeType == 1)//check if nxt sibling is not null & is an element node
+                {
+                    if (nxtSibling.tagName.toLowerCase() == "div") //if node has children
+                    {
+                        //check or uncheck children at all levels
+                        CheckUncheckChildren(parentTable.nextSibling, src.checked);
+                    }
+                }
+                //check or uncheck parents at all levels
+                CheckUncheckParents(src, src.checked);
+            }
+        }
+
+        function CheckUncheckChildren(childContainer, check) {
+            var childChkBoxes = childContainer.getElementsByTagName("input");
+            var childChkBoxCount = childChkBoxes.length;
+            for (var i = 0; i < childChkBoxCount; i++) {
+                childChkBoxes[i].checked = check;
+            }
+        }
+
+        function CheckUncheckParents(srcChild, check) {
+            var parentDiv = GetParentByTagName("div", srcChild);
+            var parentNodeTable = parentDiv.previousSibling;
+
+            if (parentNodeTable) {
+                var checkUncheckSwitch;
+
+                if (check) //checkbox checked
+                {
+                    checkUncheckSwitch = true;
+                }
+                else //checkbox unchecked
+                {
+                    var isAllSiblingsUnChecked = AreAllSiblingsUnChecked(srcChild);
+                    if (!isAllSiblingsUnChecked)
+                        checkUncheckSwitch = true;
+                    else
+                        checkUncheckSwitch = false;
+                }
+
+                var inpElemsInParentTable = parentNodeTable.getElementsByTagName("input");
+                if (inpElemsInParentTable.length > 0) {
+                    var parentNodeChkBox = inpElemsInParentTable[0];
+                    parentNodeChkBox.checked = checkUncheckSwitch;
+                    //do the same recursively
+                    CheckUncheckParents(parentNodeChkBox, checkUncheckSwitch);
+                }
+            }
+        }
+
+        function AreAllSiblingsUnChecked(chkBox) {
+            var parentDiv = GetParentByTagName("div", chkBox);
+            var childCount = parentDiv.childNodes.length;
+            for (var i = 0; i < childCount; i++) {
+                if (parentDiv.childNodes[i].nodeType == 1) //check if the child node is an element node
+                {
+                    if (parentDiv.childNodes[i].tagName.toLowerCase() == "table") {
+                        var prevChkBox = parentDiv.childNodes[i].getElementsByTagName("input")[0];
+                        //if any of sibling nodes are not checked, return false
+                        if (prevChkBox.checked) {
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+
+        //utility function to get the container of an element by tagname
+        function GetParentByTagName(parentTagName, childElementObj) {
+            var parent = childElementObj.parentNode;
+            while (parent.tagName.toLowerCase() != parentTagName.toLowerCase()) {
+                parent = parent.parentNode;
+            }
+            return parent;
+        }
+
+    </script>
 </asp:Content>

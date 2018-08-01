@@ -9,7 +9,7 @@
                             <td>
                                 <asp:Panel ID="PanelRegister" runat="server" Height="550px">
                                     <table style="width: 100%;">
-                                        <tr>
+                                        <tr >
                                             <td>&nbsp;</td>
                                             <td>&nbsp;</td>
                                             <td>&nbsp;</td>
@@ -21,6 +21,17 @@
                                             <td>
                                                 <asp:Panel ID="PanelRegisterControl" runat="server" Width="600px" Height="550px" CssClass="lineRegistration">
                                                     <table style="width: 100%;">
+                                                        <tr>
+                                                            <td >
+                                                                <ol style="list-style-type:none">
+                                                                    
+                                                                    <li><asp:Label ID="Label5" runat="server" Text="Create Account" CssClass="CssSigninText"></asp:Label>&nbsp;&nbsp;<asp:Label ID="Label20" runat="server" Text="|" ForeColor="#CCCCCC"></asp:Label>&nbsp;<asp:LinkButton ID="lnkbtnSigninRegisterForm" runat="server" Font-Underline="False" CssClass="logoutHover" BackColor="White" Font-Size="12pt" ForeColor="#0E9ED6" OnClick="lnkbtnSigninRegisterForm_Click">Sign in</asp:LinkButton>
+                                                                        </li>
+                                                                </ol>
+                                                            </td>
+                                                            <td ></td>
+                                                            <td ></td>
+                                                        </tr>
                                                         <tr>
                                                             <td class="auto-style1">
                                                                 <ol style="list-style-type: none">

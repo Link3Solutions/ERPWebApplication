@@ -202,5 +202,28 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
         }
+        
+
+        internal bool CheckTableSubmission(TwoColumnsTableDataAuto objTwoColumnsTableDataAuto)
+        {
+            try
+            {
+                bool submittedTableID = false;
+                string sql = "SELECT COUNT( [TableID]) FROM TwoColumnsTableAuto WHERE [TableID] = "+objTwoColumnsTableDataAuto.TableID+"";
+                clsDataManipulation objclsDataManipulation = new clsDataManipulation();
+                int tableIDCount = objclsDataManipulation.GetSingleValue(this.ConnectionString, sql);
+                if (tableIDCount != 0)
+                {
+                    submittedTableID = true;
+                }
+
+                return submittedTableID;
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
     }
 }

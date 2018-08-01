@@ -1082,6 +1082,7 @@
     <Content Include="Scripts\parclJavaScript.js" />
     <Content Include="Scripts\site.js" />
     <Content Include="Scripts\xtreeview.js" />
+    <Content Include="ServiceRequestForm.aspx" />
     <Content Include="WebForm1.aspx" />
     <Content Include="WebForm2.aspx" />
     <Content Include="WebForm3.aspx" />
@@ -1534,6 +1535,13 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceRequestForm.aspx.cs">
+      <DependentUpon>ServiceRequestForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ServiceRequestForm.aspx.designer.cs">
+      <DependentUpon>ServiceRequestForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

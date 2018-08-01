@@ -147,13 +147,22 @@ namespace ERPWebApplication.AppClass.Model
             get { return _companyURL; }
             set { _companyURL = value; }
         }
-        private int? _licenceID;
+        private string _licenceID;
 
-        public int? LicenceID
+        public string LicenceID
         {
             get { return _licenceID; }
             set { _licenceID = value; }
         }
+
+        private string _vatNumber;
+
+        public string VatNumber
+        {
+            get { return _vatNumber; }
+            set { _vatNumber = value; }
+        }
+        
         private string _faceBookID;
 
         public string FaceBookID

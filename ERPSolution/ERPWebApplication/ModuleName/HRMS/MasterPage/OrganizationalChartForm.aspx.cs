@@ -17,6 +17,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
     {
         private OrganizationalChartSetup _objOrganizationalChartSetup;
         private OrganizationalChartSetupController _objOrganizationalChartSetupController;
+        private CGlobalMethod _objCGlobalMethod;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -33,6 +34,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                     btnSaveChart.Visible = false;
                     btnClearChart.Visible = false;
                     lblParentElementText.Visible = false;
+                    ddlCompanyChart.Enabled = false;
                 }
 
             }
@@ -378,6 +380,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                 ddlCategory.Items.Clear();
                 txtOpeningDate.Text = string.Empty;
                 CheckBoxAddress.Checked = false;
+                ddlCompanyChart.Enabled = false;
                 ClearChartAddressControl();
             }
             catch (Exception msgException)
@@ -505,6 +508,10 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
         {
             try
             {
+                ddlCompanyChart.Enabled = true; btnUpdate.Visible = false;
+                btnClearUpdate.Visible = false;
+                btnSaveChart.Visible = false;
+                btnClearChart.Visible = false;
                 lblParentElementText.Text = TreeViewCompanyChart.SelectedNode.Text;
                 lblParentElementText.Visible = true;
                 _objOrganizationalChartSetup = new OrganizationalChartSetup();
@@ -515,8 +522,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                 _objOrganizationalChartSetup.EntityTypeID = _objOrganizationalChartSetupController.GetEntityTypeID(_objOrganizationalChartSetup);
                 _objOrganizationalChartSetupController.LoadDivisionDDL(ddlDivision);
                 _objOrganizationalChartSetupController.LoadDistrict(ddlDistrict);
-                btnSaveChart.Visible = true;
-                btnUpdate.Visible = true;
+               
                 if (Convert.ToInt32(_objOrganizationalChartSetup.EntityID) == 111)
                 {
                     btnSaveChart.Visible = false;
@@ -674,14 +680,12 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
         {
             try
             {
-                this.PopulateOrganizationalChart();
-                this.ClearChartControl();
-                TreeViewCompanyChart.ExpandAll();
-                btnUpdate.Visible = false;
-                btnClearUpdate.Visible = false;
-                btnSaveChart.Visible = true;
-                btnClearChart.Visible = true;
-
+                //this.PopulateOrganizationalChart();
+                //this.ClearChartControl();
+                //TreeViewCompanyChart.ExpandAll();
+                ddlCompanyChart.Enabled = true;
+                _objCGlobalMethod = new CGlobalMethod();
+                _objCGlobalMethod.ControlButtonVisibility(btnSaveChart, btnClearChart, btnUpdate, btnClearUpdate);
             }
             catch (Exception msgException)
             {
@@ -694,11 +698,9 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
         {
             try
             {
-                btnSaveChart.Visible = false;
-                btnClearChart.Visible = false;
-                btnUpdate.Visible = true;
-                btnClearUpdate.Visible = true;
-
+                ddlCompanyChart.Enabled = true;
+                _objCGlobalMethod = new CGlobalMethod();
+                _objCGlobalMethod.ControlButtonVisibility(btnUpdate, btnClearUpdate,btnSaveChart, btnClearChart);
             }
             catch (Exception msgException)
             {
@@ -742,6 +744,11 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
 
                 clsTopMostMessageBox.Show(msgException.Message);
             }
+
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
 
         }
     }

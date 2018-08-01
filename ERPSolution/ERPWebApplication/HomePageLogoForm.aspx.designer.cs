@@ -76,6 +76,33 @@ namespace ERPWebApplication {
         protected global::System.Web.UI.WebControls.Panel Panel1;
         
         /// <summary>
+        /// lblModuleName1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblModuleName1;
+        
+        /// <summary>
+        /// btnModuleName2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnModuleName2;
+        
+        /// <summary>
+        /// lblModuleName3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblModuleName3;
+        
+        /// <summary>
         /// PanelContactus control.
         /// </summary>
         /// <remarks>

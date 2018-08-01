@@ -42,6 +42,7 @@ namespace ERPWebApplication.ModuleName.HRMS.SelfService
                     LoadProcessFlow();
                     LoadProcessLevel();
                     LoadProcessAction();
+                    lblDepartmentName.Text = string.Empty;
 
                 }
 
@@ -722,6 +723,7 @@ namespace ERPWebApplication.ModuleName.HRMS.SelfService
                 grdConfiguration.DataSource = null;
                 grdConfiguration.DataBind();
                 lblReferenceNo.Text = string.Empty;
+                lblDepartmentName.Text = string.Empty;
                 this.LoadEmployeeList();
 
             }
@@ -804,6 +806,14 @@ namespace ERPWebApplication.ModuleName.HRMS.SelfService
             {
                 this.LoadEmployeeList();
                 this.LoadConfigurationRecord();
+                if (ddlDepartmentConfiguration.SelectedValue != "-1")
+                {
+                    lblDepartmentName.Text = "in "+ ddlDepartmentConfiguration.SelectedItem.Text;
+                }
+                else
+                {
+                    lblDepartmentName.Text = string.Empty;
+                }
             }
             catch (Exception msgException)
             {

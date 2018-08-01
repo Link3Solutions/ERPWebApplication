@@ -100,7 +100,7 @@
                                     <td><asp:Button ID="btnSave" runat="server" CssClass="CssBtnSave" Text="Save" Width="70px" OnClick="btnSave_Click" /></td>
                                 </tr>
                                 <tr>
-                                    <td><asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="CssBtnClear" Width="70px" OnClick="btnClear_Click" /></td>
+                                    <td><asp:Button ID="btnClear" runat="server" Text="Cancel" CssClass="CssBtnClear" Width="70px" OnClick="btnClear_Click" /></td>
                                 </tr>
                                 <tr>
                                     <td>&nbsp;</td>

@@ -34,15 +34,15 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Entry Date">
                                     <ItemTemplate>
-                                        <asp:Label ID="Label3" runat="server" Text='<%# Bind("EntryDate", "{0:d}") %>'></asp:Label>
+                                        <asp:Label ID="Label3" runat="server" Text='<%# Bind("EntryDate", "{0:dd, MMM yyyy}") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Date of Code">
+                                <asp:TemplateField HeaderText="Code Sent Date">
                                     <ItemTemplate>
-                                        <asp:Label ID="Label4" runat="server" Text='<%# Bind("DateOfCode", "{0:d}") %>'></asp:Label>
+                                        <asp:Label ID="Label4" runat="server" Text='<%# Bind("DateOfCode", "{0:dd, MMM yyyy}") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:CommandField ShowSelectButton="True" SelectText="Send code" />
+                                <asp:CommandField ShowSelectButton="True" SelectText="Send code" HeaderText="Action" />
                             </Columns>
                         </asp:GridView>
                     </td>

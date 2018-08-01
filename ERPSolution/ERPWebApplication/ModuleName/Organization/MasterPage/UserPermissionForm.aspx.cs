@@ -33,6 +33,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                     LoadRoleRecordList();
                     txtUserCode_AutoCompleteExtender.ContextKey = LoginUserInformation.CompanyID.ToString();
                     LoadRelatedUserRole();
+                    TreeViewAllNode.Attributes.Add("onclick", "OnTreeClick(event)");
 
                 }
 
@@ -717,5 +718,6 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             }
 
         }
+        
     }
 }

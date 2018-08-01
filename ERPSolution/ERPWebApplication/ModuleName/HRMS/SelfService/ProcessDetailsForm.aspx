@@ -717,20 +717,20 @@
                                                         </td>
                                                     </tr>
                                                     <tr style="background-color:#9FD1E4">
-                                                        <td>
-                                                            <asp:Label ID="Label5" runat="server" Text="Level" Width="130px"></asp:Label>
+                                                        <td style="padding-left:3px">
+                                                            <asp:Label ID="Label5" runat="server" Text="Level" Width="130px" CssClass="approvalFlowConfigureHeader"></asp:Label>
                                                         </td>
                                                         <td colspan="4">
-                                                            <asp:Label ID="Label6" runat="server" Text="Access ID" Width="130px"></asp:Label>
+                                                            <asp:Label ID="Label6" runat="server" Text="Access ID" Width="130px" CssClass="approvalFlowConfigureHeader"></asp:Label>
                                                         </td>
                                                         <td>
-                                                            <asp:Label ID="Label7" runat="server" Text="Access Permission" Width="280px"></asp:Label>
+                                                            <asp:Label ID="Label7" runat="server" Text="Access Permission" Width="280px" CssClass="approvalFlowConfigureHeader"></asp:Label>
                                                         </td>
                                                         <td colspan="4">
-                                                            <asp:Label ID="Label8" runat="server" Text="SubAccess ID" Width="130px"></asp:Label>
+                                                            <asp:Label ID="Label8" runat="server" Text="SubAccess ID" Width="130px" CssClass="approvalFlowConfigureHeader"></asp:Label>
                                                         </td>
                                                         <td>
-                                                            <asp:Label ID="Label24" runat="server" Text="Access Permission" Width="280px"></asp:Label>
+                                                            <asp:Label ID="Label24" runat="server" Text="Access Permission" Width="280px" CssClass="approvalFlowConfigureHeader"></asp:Label>
                                                         </td>
                                                     </tr>
                                                     <tr style="height:30px">
@@ -752,7 +752,7 @@
                                                             </ajaxToolkit:AutoCompleteExtender>
                                                         </td>
                                                         <td colspan="3">
-                                                            <asp:CheckBoxList ID="ChkLisBoxAccessPermission" runat="server" RepeatDirection="Horizontal" Width="280px">
+                                                            <asp:CheckBoxList ID="ChkLisBoxAccessPermission" runat="server" RepeatDirection="Horizontal" Width="280px" CssClass="inline"  > 
                                                             </asp:CheckBoxList>
                                                         </td>
                                                         <td colspan="2">
@@ -770,7 +770,7 @@
                                                         </td>
                                                         <td colspan="2">
 
-                                                            <asp:CheckBoxList ID="chklistboxSubAccessPermission" runat="server" RepeatDirection="Horizontal" Width="280px">
+                                                            <asp:CheckBoxList ID="chklistboxSubAccessPermission" runat="server" RepeatDirection="Horizontal" Width="280px" CssClass="inline">
                                                             </asp:CheckBoxList>
                                                         </td>
                                                     </tr>
@@ -852,7 +852,8 @@
                                                 <table style="width: 100%;">
                                                     <tr style="border-bottom:solid;border-bottom-color:gray;border-bottom-width:.5px">
                                                         <td colspan="3" style="text-align: left">
-                                                            <asp:Label ID="Label25" runat="server" Font-Bold="True" Font-Underline="False" Text="EMPLOYEE DETAILS"></asp:Label>
+                                                            <asp:Label ID="Label25" runat="server" Font-Bold="True" Font-Underline="False" Text="List of employee "></asp:Label>
+                                                            &nbsp;<asp:Label ID="lblDepartmentName" Font-Bold="True" runat="server"></asp:Label>
                                                             <asp:Label ID="lblReferenceNo" runat="server" Visible="False"></asp:Label>
                                                         </td>
                                                     </tr>

@@ -39,13 +39,15 @@ namespace ERPWebApplication.AppClass.DataAccess
             try
             {
                 DataTable dtItem = null;
-                string sqlString = @"SELECT [TableID]
-                                  ,[TableName]
-                                  ,[EntryMode]
-                                  ,[RelatedTo]
-                                  ,[RelatedUserRoleID]
-                                  ,[EntrySystem]  
-                              FROM [sysTwoColumnTables] WHERE DataUsed = 'A' ORDER BY [EntrySystem],[TableName],[RelatedUserRoleID]";
+                string sqlString = @"SELECT A.[TableID] ,A.[TableName]
+                ,A.[EntryMode]
+                ,A.[RelatedTo]
+                ,A.[RelatedUserRoleID]
+                ,A.[EntrySystem]  
+                ,B.RelatedToText
+                FROM [sysTwoColumnTables] A
+                LEFT JOIN [sysRelatedUserRole] B ON A.RelatedUserRoleID = B.RelatedToID
+                 WHERE A.DataUsed = 'A' ORDER BY A.[EntrySystem],A.[TableName],A.[RelatedUserRoleID]";
                 dtItem = clsDataManipulation.GetData(connectionString, sqlString);
                 return dtItem;
 

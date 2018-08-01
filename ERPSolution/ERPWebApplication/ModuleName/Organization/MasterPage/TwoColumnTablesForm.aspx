@@ -45,7 +45,7 @@
                                 </tr>
                                 <tr>
                                     <td class="auto-style1">
-                                        <asp:Label ID="Label4" runat="server" Text="Related User Role ID"></asp:Label>
+                                        <asp:Label ID="Label4" runat="server" Text="Related User Role"></asp:Label>
                                     </td>
                                     <td>:</td>
                                     <td>
@@ -76,7 +76,7 @@
                                     <td><asp:Button ID="btnSave" runat="server" CssClass="CssBtnSave" Text="Save" Width="70px" OnClick="btnSave_Click" /></td>
                                 </tr>
                                 <tr>
-                                    <td><asp:Button ID="btnClear" runat="server" CssClass="CssBtnClear" Text="Clear" Width="70px" OnClick="btnClear_Click" /></td>
+                                    <td><asp:Button ID="btnClear" runat="server" CssClass="CssBtnClear" Text="Cancel" Width="70px" OnClick="btnClear_Click" /></td>
                                 </tr>
                                 <tr>
                                     <td>&nbsp;</td>
@@ -92,7 +92,7 @@
                 </tr>
                 <tr>
                     <td colspan="4">
-                        <div style="width:1050px">
+                        <div style="width:1050px;height: 300px; overflow-y: scroll; overflow-x: hidden">
                         <asp:GridView ID="grdTwoColumnTables" runat="server" Width="100%" AutoGenerateColumns="False" OnRowCommand="grdTwoColumnTables_RowCommand" OnRowDataBound="grdTwoColumnTables_RowDataBound" OnRowDeleting="grdTwoColumnTables_RowDeleting">
                             <Columns>
                                 <asp:TemplateField HeaderText="SL">
@@ -127,12 +127,17 @@
                                         <asp:Label ID="lblRelatedUserRoleID" runat="server" Text='<%# Bind("RelatedUserRoleID") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Related User Role">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblRelatedToText" runat="server" Text='<%# Bind("RelatedToText") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Entry System">
                                     <ItemTemplate>
                                         <asp:Label ID="lblEntrySystem" runat="server" Text='<%# Bind("EntrySystem") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:CommandField ShowSelectButton="True" />
+                                <asp:CommandField ShowSelectButton="True" SelectText="Edit" />
                                 <asp:CommandField ShowDeleteButton="True" />
                             </Columns>
                         </asp:GridView>

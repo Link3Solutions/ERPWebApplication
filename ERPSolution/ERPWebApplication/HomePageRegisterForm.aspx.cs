@@ -88,6 +88,11 @@ namespace ERPWebApplication
             }
         }
 
+        protected void lnkbtnSigninRegisterForm_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/HomePageLoginForm.aspx");
+        }
+
         
     }
 }

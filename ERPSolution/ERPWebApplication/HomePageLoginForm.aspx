@@ -20,24 +20,22 @@
                                             <td>&nbsp;</td>
                                         </tr>
                                         <tr>
-                                            <td>&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                        </tr>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                            <td>
-                                                <h2 style="color: #7ac0da">Use an account to log in.</h2>
-                                            </td>
-                                            <td>&nbsp;</td>
-                                        </tr>
-                                        <tr>
                                             <td>
                                                 <asp:Panel ID="Panel2" runat="server" Width="385px"></asp:Panel>
                                             </td>
                                             <td>
-                                                <asp:Panel ID="PanelLoginControl" BorderStyle="Solid" BorderWidth="1px" BorderColor="#9E9E9E" runat="server" Width="435px" >
+                                                <asp:Panel ID="PanelLoginControl" runat="server" Width="435px" CssClass="CssLoginPanel" >
                                                     <table style="width: 100%;">
+                                                        <tr>
+                                                            <td colspan="3">&nbsp;</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="3">
+                                                                <ol style="list-style-type:none">
+                                                    <li><asp:Label ID="Label24" runat="server"  Text="Sign in" CssClass="CssSigninText"></asp:Label>&nbsp;&nbsp;<asp:Label ID="Label20" runat="server" Text="|" ForeColor="#CCCCCC"></asp:Label>&nbsp;<asp:LinkButton ID="lnkbtnCreateAccount" runat="server" Font-Underline="False" CssClass="logoutHover" BackColor="Transparent" OnClick="lnkbtnCreateAccount_Click" >Create Account</asp:LinkButton></li>
+                                                </ol>
+                                                            </td>
+                                                        </tr>
                                                         <tr>
                                                             <td colspan="3"></td>
                                                         </tr>
@@ -93,6 +91,20 @@
                                                             <td>&nbsp;</td>
                                                             <td>&nbsp;</td>
                                                         </tr>
+                                                        <tr>
+                                                            <td >
+                                                                <ol style="list-style-type:none">
+                                                    <li><asp:LinkButton ID="LinkButton1" runat="server" Font-Underline="False" BackColor="Transparent" CssClass="forgotPassword">Forgot password?</asp:LinkButton></li>
+                                                </ol>
+                                                            </td>
+                                                            <td>&nbsp;</td>
+                                                            <td>&nbsp;</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="padding-left: 40px">&nbsp;</td>
+                                                            <td>&nbsp;</td>
+                                                            <td>&nbsp;</td>
+                                                        </tr>
                                                     </table>
                                                 </asp:Panel>
                                             </td>
@@ -105,42 +117,7 @@
                                             <td>&nbsp;</td>
                                             <td>&nbsp;</td>
                                         </tr>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                            <td style="text-align: center">
-                                                <asp:LinkButton ID="LinkButton1" runat="server" CssClass="forgotPassword">Forgot password?</asp:LinkButton>
-                                            </td>
-                                            <td>&nbsp;</td>
-                                        </tr>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                        </tr>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                            <td style="text-align: center">
-                                                <asp:Label ID="Label8" runat="server" Text="Don't have an account yet?"></asp:Label>
-                                                <asp:LinkButton ID="LinkButton2" runat="server" CssClass="forgotPassword"> Sign up now!</asp:LinkButton>
-                                            </td>
-                                            <td>&nbsp;</td>
-                                        </tr>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                        </tr>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                        </tr>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                        </tr>
-                                    </table>
+                                         </table>
 
                                 </asp:Panel>
                             </td>

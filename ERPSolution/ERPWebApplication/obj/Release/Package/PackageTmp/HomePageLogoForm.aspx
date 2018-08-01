@@ -140,35 +140,36 @@
                                                 </div>
                                             
                                             <div class="col-lg-4 col-tb-4 col-sm-3 item" style="display: inline-block">
-                                                <a class="box blog" href="HomePageForm.aspx">
+                                                <a class="box blog" >
                                                     <div class="image"
                                                         style="background-image: url('https://www.parcl.com/files/live/sleepingcatstatue.jpg?s=product-catalog');">
                                                     </div>
                                                     <div class="info">
-                                                        <b>Shopping Ideas</b>
-                                                        <p class="lead">Top-10 Items Delivered Internationally This Week</p>
+                                                        <b>Ideas</b>
+                                                        <p class="lead">
+                                                            <asp:Label ID="lblModuleName1" runat="server" Text="HRMS" Font-Bold="True" Font-Size="Larger" ForeColor="#333333"></asp:Label></p>
                                                     </div>
                                                 </a>
                                             </div>
                                             <div class="col-lg-4 col-tb-4 col-sm-3 item" style="display: inline-block">
-                                                <a class="box blog" href="HomePageForm.aspx">
+                                                <a class="box blog"  >
                                                     <div class="image"
                                                         style="background-image: url('https://www.parcl.com/files/live/whatyoucanshipwithparcl.jpg?s=huge');">
                                                     </div>
                                                     <div class="info">
-                                                        <b>Shopping Ideas</b>
-                                                        <p class="lead">Top-10 Items Delivered Internationally This Week</p>
+                                                        <b>Ideas</b>
+                                                        <p class="lead"><asp:Button ID="btnModuleName2" runat="server" Text="Accounts" CssClass="CssBtnModuleName" Width="100%" Font-Bold="True" Font-Size="Larger" ForeColor="#333333" OnClick="btnModuleName2_Click" /></p>
                                                     </div>
                                                 </a>
                                             </div>
                                             <div class="col-lg-4 col-tb-4 col-sm-3 item" style="display: inline-block">
-                                                <a class="box blog" href="HomePageForm.aspx">
+                                                <a class="box blog" >
                                                     <div class="image"
                                                         style="background-image: url('https://www.parcl.com/files/live/whatyoucanshipwithparcl.jpg?s=huge');">
                                                     </div>
                                                     <div class="info">
-                                                        <b>Shopping Ideas</b>
-                                                        <p class="lead">Top-10 Items Delivered Internationally This Week</p>
+                                                        <b>Ideas</b>
+                                                        <p class="lead"><asp:Label ID="lblModuleName3" runat="server" Text="Inventory" Font-Bold="True" Font-Size="Larger" ForeColor="#333333"></asp:Label></p>
                                                     </div>
                                                 </a>
                                             </div>
