@@ -17,7 +17,7 @@
                     <td style="text-align: left; float: left;width:485px; "></td>
                     <td style="float:left">
                         <div style="width:110px;position:fixed;padding-left:50px;margin-top:-10px">
-                            <asp:Button ID="btnPrint" runat="server" CssClass="CssBtnPrint" Text="Print" Width="70px" />
+                            <asp:Button ID="btnPrint" runat="server" CssClass="CssBtnPrint" Text="" Width="70px" />
                             </div>
                     </td>
                 </tr>

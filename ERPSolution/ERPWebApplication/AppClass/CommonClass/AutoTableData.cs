@@ -100,8 +100,74 @@ namespace ERPWebApplication.AppClass.CommonClass
                 {
                     dtTargetData = EmployeeTitle();
                 }
+                else if (TableID == 42)
+                {
+                    dtTargetData = PaymentType();
+                }
+                else if (TableID == 43)
+                {
+                    dtTargetData = VATCalculationProcess();
+                }
+                else if (TableID == 44)
+                {
+                    dtTargetData = BillingFrequency();
+                }
 
                 return dtTargetData;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        private DataTable BillingFrequency()
+        {
+            try
+            {
+                DataRow dr;
+                dr = dtAutoData.NewRow(); dr[0] = "100441"; dr[1] = "Billing Frequency 1"; dtAutoData.Rows.Add(dr);
+                dr = dtAutoData.NewRow(); dr[0] = "100442"; dr[1] = "Billing Frequency 2"; dtAutoData.Rows.Add(dr);
+                dr = dtAutoData.NewRow(); dr[0] = "100443"; dr[1] = "Billing Frequency 3"; dtAutoData.Rows.Add(dr);
+                return dtAutoData;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        private DataTable VATCalculationProcess()
+        {
+            try
+            {
+                DataRow dr;
+                dr = dtAutoData.NewRow(); dr[0] = "100431"; dr[1] = "VAT Calculation Process 1"; dtAutoData.Rows.Add(dr);
+                dr = dtAutoData.NewRow(); dr[0] = "100432"; dr[1] = "VAT Calculation Process 2"; dtAutoData.Rows.Add(dr);
+                dr = dtAutoData.NewRow(); dr[0] = "100433"; dr[1] = "VAT Calculation Process 3"; dtAutoData.Rows.Add(dr);
+                return dtAutoData;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        private DataTable PaymentType()
+        {
+            try
+            {
+                DataRow dr;
+                dr = dtAutoData.NewRow(); dr[0] = "100421"; dr[1] = "PaymentType 1"; dtAutoData.Rows.Add(dr);
+                dr = dtAutoData.NewRow(); dr[0] = "100422"; dr[1] = "PaymentType 2"; dtAutoData.Rows.Add(dr);
+                dr = dtAutoData.NewRow(); dr[0] = "100423"; dr[1] = "PaymentType 3"; dtAutoData.Rows.Add(dr);
+                return dtAutoData;
 
             }
             catch (Exception msgException)

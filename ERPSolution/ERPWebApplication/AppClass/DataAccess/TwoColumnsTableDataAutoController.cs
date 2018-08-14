@@ -225,5 +225,52 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
         }
+
+        internal void LoadBillingFrequency(DropDownList ddlBillingFrequency)
+        {
+            try
+            {
+                string sqlString = "BillingFrequency";
+                this.GetTwoColumnsTableDataAuto(ddlBillingFrequency, sqlString);
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+
+
+        internal void LoadPaymentType(DropDownList ddlPaymentType)
+        {
+            try
+            {
+                string sqlString = "PaymentType";
+                this.GetTwoColumnsTableDataAuto(ddlPaymentType, sqlString);
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal void LoadVATCalculationProcess(DropDownList ddlVATCalculation)
+        {
+            try
+            {
+                string sqlString = "VATCalculationProcess";
+                this.GetTwoColumnsTableDataAuto(ddlVATCalculation, sqlString);
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
     }
 }

@@ -56,7 +56,7 @@
                     </td>
                     <td style="width:125px;float:left">
                         <div style="position:fixed;margin-top:-8px;height:32px">
-                            <asp:Button ID="btnPrintSummery" runat="server" Text="Print" CssClass="CssBtnPrint" Width="70px" />
+                            <asp:Button ID="btnPrintSummery" runat="server" Text="" CssClass="CssBtnPrint" Width="70px" />
                             </div>
                     </td>
                 </tr>

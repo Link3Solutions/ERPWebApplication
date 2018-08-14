@@ -393,7 +393,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <asp:Button ID="Button3" runat="server" CssClass="CssBtnPrint" Text="Print" Width="70px" />
+                                                        <asp:Button ID="Button3" runat="server" CssClass="CssBtnPrint" Text="" Width="70px" />
                                                     </td>
                                                 </tr>
                                             </table>

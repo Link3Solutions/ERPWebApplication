@@ -1050,9 +1050,11 @@
     <Content Include="Images\orderedList7.png" />
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
+    <Content Include="ModuleName\Organization\MasterPage\ProductOwnerNodeListForm.aspx" />
     <Content Include="ModuleName\Organization\MasterPage\NewCompany.aspx" />
     <Content Include="ModuleName\Organization\MasterPage\NodeListForm.aspx" />
     <Content Include="ModuleName\Organization\MasterPage\ReportVenueForm.aspx" />
+    <Content Include="ModuleName\Organization\MasterPage\ServiceManagementForm.aspx" />
     <Content Include="ModuleName\Organization\MasterPage\TwoColumnsTableDataAutoForm.aspx" />
     <Content Include="ModuleName\Organization\MasterPage\TwoColumnsTableDataForm.aspx" />
     <Content Include="ModuleName\Organization\MasterPage\TwoColumnTablesForm.aspx" />
@@ -1086,6 +1088,7 @@
     <Content Include="WebForm1.aspx" />
     <Content Include="WebForm2.aspx" />
     <Content Include="WebForm3.aspx" />
+    <Content Include="WebFormSample.aspx" />
     <Content Include="WebService\ServiceSystem.asmx" />
     <Content Include="ClassDiagram1.cd" />
     <Content Include="WebUserControls\FooterContentControl.ascx" />
@@ -1196,6 +1199,7 @@
     <Compile Include="AppClass\DataAccess\ProjectSetupController.cs" />
     <Compile Include="AppClass\DataAccess\ProritySetupController.cs" />
     <Compile Include="AppClass\DataAccess\PurposeSetupController.cs" />
+    <Compile Include="AppClass\DataAccess\ServiceManagementController.cs" />
     <Compile Include="AppClass\DataAccess\StandardOrgElementsController.cs" />
     <Compile Include="AppClass\DataAccess\StoredProcedureExecutor.cs" />
     <Compile Include="AppClass\DataAccess\SubledgerSetupController.cs" />
@@ -1248,6 +1252,7 @@
     <Compile Include="AppClass\Model\RequisitionDetail.cs" />
     <Compile Include="AppClass\Model\RequisitionHeader.cs" />
     <Compile Include="AppClass\Model\SectionSetup.cs" />
+    <Compile Include="AppClass\Model\ServiceManagement.cs" />
     <Compile Include="AppClass\Model\SubledgerSetup.cs" />
     <Compile Include="AppClass\Model\TeamSetup.cs" />
     <Compile Include="AppClass\Model\TwoColumnsTableData.cs" />
@@ -1453,6 +1458,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="ModuleName\Organization\MasterPage\ProductOwnerNodeListForm.aspx.cs">
+      <DependentUpon>ProductOwnerNodeListForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuleName\Organization\MasterPage\ProductOwnerNodeListForm.aspx.designer.cs">
+      <DependentUpon>ProductOwnerNodeListForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ModuleName\Organization\MasterPage\NewCompany.aspx.cs">
       <DependentUpon>NewCompany.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1473,6 +1485,13 @@
     </Compile>
     <Compile Include="ModuleName\Organization\MasterPage\ReportVenueForm.aspx.designer.cs">
       <DependentUpon>ReportVenueForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleName\Organization\MasterPage\ServiceManagementForm.aspx.cs">
+      <DependentUpon>ServiceManagementForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuleName\Organization\MasterPage\ServiceManagementForm.aspx.designer.cs">
+      <DependentUpon>ServiceManagementForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModuleName\Organization\MasterPage\TwoColumnsTableDataAutoForm.aspx.cs">
       <DependentUpon>TwoColumnsTableDataAutoForm.aspx</DependentUpon>
@@ -1557,6 +1576,13 @@
     <Compile Include="SiteHomePage.Master.designer.cs">
       <DependentUpon>SiteHomePage.Master</DependentUpon>
     </Compile>
+    <Compile Include="SiteTree.master.cs">
+      <DependentUpon>SiteTree.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteTree.master.designer.cs">
+      <DependentUpon>SiteTree.master</DependentUpon>
+    </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1577,6 +1603,13 @@
     </Compile>
     <Compile Include="WebForm3.aspx.designer.cs">
       <DependentUpon>WebForm3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebFormSample.aspx.cs">
+      <DependentUpon>WebFormSample.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebFormSample.aspx.designer.cs">
+      <DependentUpon>WebFormSample.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebService\ServiceSystem.asmx.cs">
       <DependentUpon>ServiceSystem.asmx</DependentUpon>
@@ -1628,6 +1661,7 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="SiteHomePage.Master" />
+    <Content Include="SiteTree.master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

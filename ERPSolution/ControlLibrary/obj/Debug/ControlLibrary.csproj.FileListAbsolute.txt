@@ -15,6 +15,7 @@ D:\ERPSolution\ControlLibrary\bin\Debug\ControlLibrary.pdb
 D:\ERPSolution\ControlLibrary\bin\Debug\AjaxControlToolkit.dll
 D:\ERPSolution\ControlLibrary\obj\Debug\ControlLibrary.dll
 D:\ERPSolution\ControlLibrary\obj\Debug\ControlLibrary.pdb
+D:\ERPSolution\ControlLibrary\obj\Debug\ControlLibrary.csprojResolveAssemblyReference.cache
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ControlLibrary\bin\Debug\ControlLibrary.dll
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ControlLibrary\bin\Debug\ControlLibrary.pdb
 D:\ProjectArchives\Project\ERPSolution And Version Control\ERPSolution\ControlLibrary\bin\Debug\AjaxControlToolkit.dll

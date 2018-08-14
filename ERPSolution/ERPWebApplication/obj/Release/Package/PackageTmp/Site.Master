@@ -2,7 +2,9 @@
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
 <%@ Register Src="~/WebUserControls/FooterContentControl.ascx" TagPrefix="uc1" TagName="FooterContentControl" %>
+
 
 
 
@@ -98,20 +100,19 @@
                 <div id="div2">
                     <section class="featured">
                         <div class="content-wrapperHeaderInside">
-                            <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
-                                </asp:Menu>
+                            <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal"></asp:Menu>
                         </div>
                     </section>
                 </div>
             </div>
         </header>
         <div id="body" style="padding-top: 109px; width: 100%">
-            <div id="fixedImage" style="position: fixed; background-color: #fff">
+            <%--<div id="fixedImage" style="position: fixed; background-color: #fff">
                 <section style="margin-left: 80px; max-width: 960px">
                     <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/heroAccent.png" />
                 </section>
 
-            </div>
+            </div>--%>
             <%--<asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />--%>
             <section class="content-wrapper main-content clear-fix" style="min-height:470px" >
                 <asp:ContentPlaceHolder runat="server" ID="MainContent" />

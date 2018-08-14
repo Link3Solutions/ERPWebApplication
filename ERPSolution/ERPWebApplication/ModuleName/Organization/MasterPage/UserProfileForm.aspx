@@ -81,7 +81,7 @@
                                     <td><asp:Button ID="btnClear" runat="server" CssClass="CssBtnClear" Text="Clear" Width="70px" OnClick="btnClear_Click" /></td>
                                 </tr>
                                 <tr>
-                                    <td><asp:Button ID="btnPrint" runat="server" CssClass="CssBtnPrint" Text="Print" Width="70px" /></td>
+                                    <td><asp:Button ID="btnPrint" runat="server" CssClass="CssBtnPrint" Text="" Width="70px" /></td>
                                 </tr>
                             </table>
                         </div>

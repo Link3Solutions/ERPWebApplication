@@ -156,7 +156,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 AddValuesToTablesData();
                 ShowTwoColumnsTableData();
                 ClearControl();
-
+                clsTopMostMessageBox.Show(clsMessages.GProcessSuccess);
             }
             catch (Exception msgException)
             {

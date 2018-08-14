@@ -16,6 +16,12 @@ namespace ERPWebApplication.AppClass.DataAccess
         {
             try
             {
+                int countTableData = CheckTableData(connectionString, objTwoColumnsTableData);
+                if (countTableData != 0)
+                {
+                    throw new Exception("Name : "+ objTwoColumnsTableData.FieldOfName+" " + clsMessages.GExist);
+                }
+
                 var storedProcedureComandTest = "exec [ACT_TwoColumnsTable] " +
                                         objTwoColumnsTableData.CompanyID + "," +
                                         objTwoColumnsTableData.BranchID + "," +
@@ -34,6 +40,48 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
 
+        }
+
+        private int CheckTableData(string connectionString, TwoColumnsTableData objTwoColumnsTableData)
+        {
+            try
+            {
+                string sql = "SELECT COUNT(FieldOfID) FROM TwoColumnsTable WHERE DataUsed = 'A' AND CompanyID = " + objTwoColumnsTableData.CompanyID + " " +
+                " AND BranchID= " + objTwoColumnsTableData.BranchID + " AND TableID = " + objTwoColumnsTableData.TableID + " AND FieldOfName = '" + objTwoColumnsTableData.FieldOfName + "'";
+                clsDataManipulation objclsDataManipulation = new clsDataManipulation();
+                int tableDataCount;
+                return tableDataCount = objclsDataManipulation.GetSingleValue(this.ConnectionString, sql);
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+        private bool CheckTableDataUpdate(string connectionString, TwoColumnsTableData objTwoColumnsTableData)
+        {
+            try
+            {
+                bool checkData = true;
+                string sql = "SELECT FieldOfID FROM TwoColumnsTable WHERE DataUsed = 'A' AND CompanyID = " + objTwoColumnsTableData.CompanyID + " " +
+                " AND BranchID= " + objTwoColumnsTableData.BranchID + " AND TableID = " + objTwoColumnsTableData.TableID + " AND FieldOfName = '" + objTwoColumnsTableData.FieldOfName + "'";
+                clsDataManipulation objclsDataManipulation = new clsDataManipulation();
+                string tableDataValue;
+                tableDataValue = objclsDataManipulation.GetSingleValueAsString(this.ConnectionString, sql);
+                if (tableDataValue != null && tableDataValue != objTwoColumnsTableData.FieldOfID )
+                {
+                    checkData = false;
+                }
+
+                return checkData;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
         }
 
         private string SqlCreateView(TwoColumnsTableData objTwoColumnsTableData)
@@ -106,6 +154,13 @@ namespace ERPWebApplication.AppClass.DataAccess
         {
             try
             {
+                bool tableData = true;
+                tableData = CheckTableDataUpdate(connectionString, objTwoColumnsTableData);
+                if (tableData == false)
+                {
+                    throw new Exception("Name : " + objTwoColumnsTableData.FieldOfName + " " + clsMessages.GExist);
+                }
+
                 var storedProcedureComandTest = "exec [ACT_TwoColumnsTable] " +
                                         objTwoColumnsTableData.CompanyID + "," +
                                         objTwoColumnsTableData.BranchID + "," +
@@ -312,7 +367,7 @@ namespace ERPWebApplication.AppClass.DataAccess
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }
@@ -328,7 +383,38 @@ namespace ERPWebApplication.AppClass.DataAccess
             }
             catch (Exception msgException)
             {
-                
+
+                throw msgException;
+            }
+        }
+
+
+        internal void LoadServiceCategoryType(DropDownList ddlServiceCategory, TwoColumnsTableData objTwoColumnsTableData)
+        {
+            try
+            {
+                ClsDropDownListController.LoadDropDownList(this.ConnectionString, SqlGetServiceCategoryType(objTwoColumnsTableData), ddlServiceCategory, "FieldOfName", "FieldOfID");
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        private string SqlGetServiceCategoryType(TwoColumnsTableData objTwoColumnsTableData)
+        {
+            try
+            {
+                string sqlString = null;
+                sqlString = "SELECT [FieldOfID],[FieldOfName] FROM [ServiceCategoryType] WHERE [DataUsed] = 'A' AND [CompanyID] = " + objTwoColumnsTableData.CompanyID + " ORDER BY [FieldOfName]";
+                return sqlString;
+
+            }
+            catch (Exception msgException)
+            {
+
                 throw msgException;
             }
         }
