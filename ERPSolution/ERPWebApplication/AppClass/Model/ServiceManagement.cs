@@ -82,7 +82,12 @@ namespace ERPWebApplication.AppClass.Model
         public int ServiceCategoryTypeID
         {
             get { return _serviceCategoryTypeID; }
-            set { _serviceCategoryTypeID = value; }
+            set {
+                if (value == -1)
+                {
+                   throw new Exception(" Service category is required "); 
+                } _serviceCategoryTypeID = value;
+            }
         }
         private double _serviceValue;
 
@@ -97,6 +102,13 @@ namespace ERPWebApplication.AppClass.Model
         {
             get { return _dtServices; }
             set { _dtServices = value; }
+        }
+        private int _serviceInformatioID;
+
+        public int ServiceInformatioID
+        {
+            get { return _serviceInformatioID; }
+            set { _serviceInformatioID = value; }
         }
     }
 }

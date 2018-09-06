@@ -301,6 +301,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                 var storedProcedureComandText = @"
             INSERT INTO [sysServiceSetup]
            ([ServiceID]
+           ,[ServiceCategoryTypeID]
            ,[ServiceName]
            ,[ServiceDescription]
            ,[ServiceValueID]
@@ -311,6 +312,7 @@ namespace ERPWebApplication.AppClass.DataAccess
            ,[EntryDate])
             VALUES
            (" + objServiceManagement.ServiceID + ""
+             + "," + objServiceManagement.ServiceCategoryTypeID + ""
              + ",'" + objServiceManagement.ServiceName + "'"
              + ",'" + objServiceManagement.ServiceDescription + "'"
              + "," + objServiceManagement.ServiceValueID + ""
@@ -336,6 +338,7 @@ namespace ERPWebApplication.AppClass.DataAccess
             UPDATE [sysServiceSetup]
                SET 
                   [ServiceName] = '" + objServiceManagement.ServiceName + "'" +
+                  " ,[ServiceCategoryTypeID] = " + objServiceManagement.ServiceCategoryTypeID + "" +
                   " ,[ServiceDescription] = '" + objServiceManagement.ServiceDescription + "'" +
                   " ,[ServiceValueID] = " + objServiceManagement.ServiceValueID + "" +
                   " ,[BillingFrequencyType] = " + objServiceManagement.BillingFrequencyType + "" +
@@ -396,11 +399,14 @@ namespace ERPWebApplication.AppClass.DataAccess
                 ,C.FieldOfName AS VATCalculationProcessText
                 ,D.FieldOfName AS PaymentTypeText
                 ,E.FieldOfName AS BillingFrequencyTypeText
+				,A.ServiceCategoryTypeID
+				,F.FieldOfName AS ServiceCategoryType
                  FROM sysServiceSetup A
                 INNER JOIN sysServicePricing B ON A.ServiceID = B.ServiceID AND A.ServiceValueID = B.ServiceValueID
                 LEFT JOIN VATCalculationProcess C ON B.VATCalculationProcess = C.FieldOfID
                 LEFT JOIN PaymentType D ON A.PaymentType = D.FieldOfID
                 LEFT JOIN BillingFrequency E ON A.BillingFrequencyType = E.FieldOfID
+				LEFT JOIN ServiceCategoryType F ON A.ServiceCategoryTypeID = F.FieldOfID
                 WHERE A.DataUsed = 'A' AND B.DataUsed = 'A' ORDER BY A.ServiceName";
                 dtServiceRecord = clsDataManipulation.GetData(this.ConnectionString, storedProcedureComandText);
                 return dtServiceRecord;
@@ -459,6 +465,154 @@ namespace ERPWebApplication.AppClass.DataAccess
             {
                 string sqlString = @" UPDATE sysServicePricing SET DataUsed	= 'I' WHERE ServiceID = " + objServiceManagement.ServiceID + " AND ServiceValueID = " + objServiceManagement.ServiceValueID + "";
                 return sqlString;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal void LoadServicesDDL(DropDownList givenDDL)
+        {
+            try
+            {
+                string sqlString = @"SELECT A.[ServiceID],A.[ServiceName]
+	            FROM [sysServiceSetup] A WHERE A.[DataUsed] = 'A' ORDER BY A.[ServiceName]";
+                ClsDropDownListController.LoadDropDownList(this.ConnectionString, sqlString, givenDDL, "ServiceName", "ServiceID");
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal void SaveAssignedNode(ServiceManagement objServiceManagement, UserPermission objUserPermission)
+        {
+            try
+            {
+                if (objServiceManagement.ServiceID == -1)
+                {
+                    throw new Exception(" Please select service");
+
+                }
+
+                objServiceManagement.ServiceInformatioID = GetServiceInformatioID();
+                var storedProcedureComandText = "INSERT INTO [sysServiceHeader] ([ServiceInformatioID],[ServiceID] ,[DataUsed],[EntryUserID],[EntryDate]) VALUES ( " +
+                                                 objServiceManagement.ServiceInformatioID + "," +
+                                                 objServiceManagement.ServiceID + ",'" +
+                                                 "A" + "', '" +
+                                                 objServiceManagement.EntryUserName + "'," +
+                                                 "CAST(GETDATE() AS DateTime));";
+                clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
+
+                foreach (var itemNo in objUserPermission.nodeList)
+                {
+                    objUserPermission.NodeID = Convert.ToInt32(itemNo.ToString());
+                    var storedProcedureComandTextNode = "INSERT INTO [sysServiceDetails] ([ServiceInformatioID],[NodeTypeID] ,[DataUsed],[EntryUserID],[EntryDate]) VALUES ( " +
+                                                 objServiceManagement.ServiceInformatioID + "," +
+                                                 objUserPermission.NodeID + ",'" +
+                                                 "A" + "', '" +
+                                                 objServiceManagement.EntryUserName + "'," +
+                                                 "CAST(GETDATE() AS DateTime));";
+                    clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandTextNode);
+
+                }
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        private int GetServiceInformatioID()
+        {
+            try
+            {
+                UserPermission objUserPermission = new UserPermission();
+                var storedProcedureComandText = @" SELECT ISNULL( MAX( ServiceInformatioID ),0) +1 AS ServiceInformatioID FROM [sysServiceHeader]";
+                clsDataManipulation objclsDataManipulation = new clsDataManipulation();
+                return objUserPermission.RoleID = objclsDataManipulation.GetSingleValue(this.ConnectionString, storedProcedureComandText);
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal DataTable GetNodesOfService(ServiceManagement objServiceManagement)
+        {
+            try
+            {
+                DataTable dtNodes = new DataTable();
+                string sqlString = @" SELECT DISTINCT A.NodeTypeID FROM sysServiceDetails A INNER JOIN sysServiceHeader B ON A.ServiceInformatioID = B.ServiceInformatioID
+                                    WHERE A.DataUsed = 'A' AND B.DataUsed = 'A' 
+									AND B.ServiceID = " + objServiceManagement.ServiceID + "ORDER BY A.NodeTypeID";
+                dtNodes = clsDataManipulation.GetData(this.ConnectionString, sqlString);
+                return dtNodes;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal void UpdateAssignedNode(ServiceManagement objServiceManagement, UserPermission objUserPermission)
+        {
+            try
+            {
+                if (objServiceManagement.ServiceID == -1)
+                {
+                    throw new Exception(" Please select service");
+
+                }
+
+                objServiceManagement.ServiceInformatioID = GetServiceInformatioID(objServiceManagement);
+
+                string sqlForUpdate = @"UPDATE [sysServiceHeader] SET [LastUpdateDate] = CAST(GETDATE() AS DateTime)," +
+                                "[LastUpdateUserID] = '" + objServiceManagement.EntryUserName + "' WHERE [DataUsed] = 'A' " + " AND " +
+                                " [ServiceInformatioID] = " + objServiceManagement.ServiceInformatioID + "; " +
+                                 " DELETE FROM sysServiceDetails  WHERE ServiceInformatioID = " + objServiceManagement.ServiceInformatioID + "";
+                clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, sqlForUpdate);
+
+                foreach (var itemNo in objUserPermission.nodeList)
+                {
+                    objUserPermission.NodeID = Convert.ToInt32(itemNo.ToString());
+                    var storedProcedureComandTextNode = "INSERT INTO [sysServiceDetails] ([ServiceInformatioID],[NodeTypeID] ,[DataUsed],[EntryUserID],[EntryDate]) VALUES ( " +
+                                                 objServiceManagement.ServiceInformatioID + "," +
+                                                 objUserPermission.NodeID + ",'" +
+                                                 "A" + "', '" +
+                                                 objServiceManagement.EntryUserName + "'," +
+                                                 "CAST(GETDATE() AS DateTime));";
+                    clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandTextNode);
+
+                }
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        private int GetServiceInformatioID(ServiceManagement objServiceManagement)
+        {
+            try
+            {
+                UserPermission objUserPermission = new UserPermission();
+                var storedProcedureComandText = @" SELECT A.ServiceInformatioID FROM [sysServiceHeader] A WHERE A.DataUsed = 'A' AND A.ServiceID = " + objServiceManagement.ServiceID + "";
+                clsDataManipulation objclsDataManipulation = new clsDataManipulation();
+                return objUserPermission.RoleID = objclsDataManipulation.GetSingleValue(this.ConnectionString, storedProcedureComandText);
 
             }
             catch (Exception msgException)

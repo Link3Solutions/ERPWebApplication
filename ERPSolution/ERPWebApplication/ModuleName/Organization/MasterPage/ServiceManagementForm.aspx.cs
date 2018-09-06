@@ -17,6 +17,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
         private NodeList _objNodeList;
         private TwoColumnsTableData _objTwoColumnsTableData;
         private ServiceManagement _objServiceManagement;
+        private UserPermission _objUserPermission;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -33,6 +34,9 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                     _objServiceManagementController.LoadPaymentType(ddlPaymentType);
                     _objServiceManagementController.LoadVATCalculationProcess(ddlVATCalculation);
                     LoadServices();
+                    _objServiceManagementController.PopulateRootLevel(treeNodeListForAssign);
+                    _objServiceManagementController.LoadServicesDDL(ddlservices);
+                    treeNodeListForAssign.Attributes.Add("onclick", "OnTreeClick(event)");
 
                 }
             }
@@ -309,11 +313,12 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
 
         protected void grdServices_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            e.Row.Cells[0].Visible = false;
             e.Row.Cells[1].Visible = false;
-            e.Row.Cells[4].Visible = false;
+            e.Row.Cells[2].Visible = false;
             e.Row.Cells[5].Visible = false;
-            e.Row.Cells[7].Visible = false;
+            e.Row.Cells[6].Visible = false;
+            e.Row.Cells[8].Visible = false;
+            e.Row.Cells[12].Visible = false;
         }
 
         protected void grdServices_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -331,6 +336,8 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                     string lblPaymentType = ((Label)grdServices.Rows[selectedIndex].FindControl("lblPaymentType")).Text;
                     string lblServiceValue = ((Label)grdServices.Rows[selectedIndex].FindControl("lblServiceValue")).Text;
                     string lblVATCalculationProcess = ((Label)grdServices.Rows[selectedIndex].FindControl("lblVATCalculationProcess")).Text;
+                    string lblServiceCategoryTypeID = ((Label)grdServices.Rows[selectedIndex].FindControl("lblServiceCategoryTypeID")).Text;
+                    ddlServiceCategory.SelectedValue = lblServiceCategoryTypeID;
                     txtServiceName.Text = lblServiceName;
                     txtServiceValue.Text = lblServiceValue;
                     ddlBillingFrequency.SelectedValue = lblBillingFrequencyType;
@@ -380,6 +387,218 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             try
             {
                 this.ClearControlServiceData();
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        protected void treeNodeListForAssign_TreeNodePopulate(object sender, TreeNodeEventArgs e)
+        {
+            try
+            {
+                _objServiceManagementController = new ServiceManagementController();
+                _objServiceManagementController.PopulateSubLevelOwner(Int32.Parse(e.Node.Value), e.Node);
+                treeNodeListForAssign.ExpandAll();
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        protected void btnSaveServiceNode_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AddValuesForNodeAssign();
+                ClearControlNodeAssign();                
+                clsTopMostMessageBox.Show(clsMessages.GProcessSuccess);
+
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        private void ClearControlNodeAssign()
+        {
+            try
+            {
+                ddlservices.SelectedValue = "-1";
+                btnSaveServiceNode.Text = "Save";
+                while (treeNodeListForAssign.CheckedNodes.Count > 0)
+                {
+                    treeNodeListForAssign.CheckedNodes[0].Checked = false;
+                }
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        List<int> listNode = new List<int>();
+        private void AddValuesForNodeAssign()
+        {
+            try
+            {
+                _objServiceManagement = new ServiceManagement();
+                _objUserPermission = new UserPermission();                
+                _objServiceManagement.EntryUserName = LoginUserInformation.UserID;                
+
+                foreach (TreeNode nodeNumber in this.treeNodeListForAssign.Nodes)
+                {
+                    saveNodePermission(nodeNumber);
+                }
+
+                _objUserPermission.nodeList = listNode;
+
+                _objServiceManagement.ServiceID = Convert.ToInt32( ddlservices.SelectedValue);
+                _objServiceManagementController = new ServiceManagementController();
+                if (btnSaveServiceNode.Text == "Save")
+                {
+                    _objServiceManagementController.SaveAssignedNode(_objServiceManagement, _objUserPermission);
+
+                }
+                else
+                {
+
+                    _objServiceManagementController.UpdateAssignedNode(_objServiceManagement, _objUserPermission);
+                }
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+        private void saveNodePermission(TreeNode targetNode)
+        {
+            try
+            {
+                if (targetNode.ChildNodes.Count > 0)
+                {
+                    if (targetNode.Checked)
+                    {
+                        listNode.Add(Convert.ToInt32(targetNode.Value.ToString()));
+                    }
+                    foreach (TreeNode targetChildNode in targetNode.ChildNodes)
+                    {
+                        saveNodePermission(targetChildNode);
+
+                    }
+                }
+                else
+                {
+                    if (targetNode.Checked)
+                    {
+                        listNode.Add(Convert.ToInt32(targetNode.Value.ToString()));
+                    }
+                }
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        protected void ddlservices_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _objServiceManagement = new ServiceManagement();
+                _objServiceManagement.ServiceID = Convert.ToInt32( ddlservices.SelectedValue);
+                ShowNodesOfRole(_objServiceManagement);   
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        private void ShowNodesOfRole(ServiceManagement objServiceManagement)
+        {
+            try
+            {
+                _objServiceManagementController = new ServiceManagementController();   
+                DataTable dtNodes = _objServiceManagementController.GetNodesOfService(objServiceManagement);
+                while (treeNodeListForAssign.CheckedNodes.Count > 0)
+                {
+                    treeNodeListForAssign.CheckedNodes[0].Checked = false;
+                }
+
+                foreach (DataRow rowNo in dtNodes.Rows)
+                {
+                    foreach (TreeNode nodeNumber in this.treeNodeListForAssign.Nodes)
+                    {
+                        ShowNodeInRole(nodeNumber, rowNo["NodeTypeID"].ToString());
+                    }
+
+                }
+
+                if (dtNodes.Rows.Count > 0)
+                {
+                    btnSaveServiceNode.Text = "Update";
+                }
+                else
+                {
+                    btnSaveServiceNode.Text = "Save";
+                }
+                
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+        private void ShowNodeInRole(TreeNode targetNode, string nodeValue)
+        {
+            try
+            {
+                if (nodeValue == targetNode.Value)
+                {
+                    targetNode.Checked = true;
+
+                }
+
+                foreach (TreeNode targetChildNode in targetNode.ChildNodes)
+                {
+                    if (nodeValue == targetChildNode.Value)
+                    {
+                        targetChildNode.Checked = true;
+
+                    }
+
+                    ShowNodeInRole(targetChildNode, nodeValue);
+
+                }
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        protected void btnCancelNodeAssign_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ClearControlNodeAssign();
             }
             catch (Exception msgException)
             {
