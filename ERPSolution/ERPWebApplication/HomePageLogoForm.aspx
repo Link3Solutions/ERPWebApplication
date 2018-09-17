@@ -147,7 +147,7 @@
                                                     <div class="info">
                                                         <b>Ideas</b>
                                                         <p class="lead">
-                                                            <asp:Label ID="lblModuleName1" runat="server" Text="HRMS" Font-Bold="True" Font-Size="Larger" ForeColor="#333333"></asp:Label></p>
+                                                            <asp:Button ID="btnModuleName1" runat="server" Text="HRMS" CssClass="CssBtnModuleName" Width="100%" Font-Bold="True" Font-Size="Larger" ForeColor="#333333" OnClick="btnModuleName1_Click"  /></p>
                                                     </div>
                                                 </a>
                                             </div>
@@ -169,7 +169,7 @@
                                                     </div>
                                                     <div class="info">
                                                         <b>Ideas</b>
-                                                        <p class="lead"><asp:Label ID="lblModuleName3" runat="server" Text="Inventory" Font-Bold="True" Font-Size="Larger" ForeColor="#333333"></asp:Label></p>
+                                                        <p class="lead"><asp:Button ID="btnModuleName3" runat="server" Text="Inventory" CssClass="CssBtnModuleName" Width="100%" Font-Bold="True" Font-Size="Larger" ForeColor="#333333" OnClick="btnModuleName3_Click"  /></p>
                                                     </div>
                                                 </a>
                                             </div>

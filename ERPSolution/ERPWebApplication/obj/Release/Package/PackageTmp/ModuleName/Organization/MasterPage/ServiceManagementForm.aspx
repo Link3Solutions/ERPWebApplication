@@ -9,7 +9,7 @@
             <table style="width: 100%;">
                 <tr>
                     <td>
-                        <ajaxToolkit:TabContainer ID="TabContainerUserPermission" runat="server" Width="1160px" Height="100%" ActiveTabIndex="0" CssClass="tab" CssTheme="None">
+                        <ajaxToolkit:TabContainer ID="TabContainerUserPermission" runat="server" Width="1160px" Height="100%" ActiveTabIndex="1" CssClass="tab" CssTheme="None">
                             <ajaxToolkit:TabPanel ID="TabPanelRoleSetup" runat="server" HeaderText="Service Description" Width="1160px">
                                 <ContentTemplate>
                                     <asp:Panel ID="Panel1" runat="server" Width="1160px">
@@ -195,14 +195,32 @@
                                                                                 <asp:Label ID="Label14" runat="server" Text="Payment Type"></asp:Label><asp:Label ID="lblServiceIDValue" runat="server" Visible="False"></asp:Label></td>
                                                                             <td>&nbsp;</td>
                                                                             <td>
-                                                                                <asp:Label ID="Label9" runat="server" Text="Description"></asp:Label><asp:Label ID="lblServiceValueIDValue" runat="server" Visible="False"></asp:Label></td>
+                                                                                <asp:Label ID="Label9" runat="server" Text="Package"></asp:Label><asp:Label ID="lblServiceValueIDValue" runat="server" Visible="False"></asp:Label></td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
                                                                                 <asp:DropDownList ID="ddlPaymentType" runat="server"></asp:DropDownList></td>
                                                                             <td>&nbsp;</td>
                                                                             <td rowspan="5">
-                                                                                <asp:TextBox ID="txtServiceDescription" runat="server" Height="130px" TextMode="MultiLine" Width="250px"></asp:TextBox></td>
+                                                                                <table style="width: 100%;margin-top:-1px">
+                                                                                    <tr>
+                                                                                        <td colspan="3">
+                                                                                            <asp:DropDownList ID="ddlPackage" runat="server"></asp:DropDownList>&nbsp;<asp:Button ID="btnAddPackage" Width="100px" CssClass="CssBtnAddNew"  runat="server" Text="Add Package" OnClick="btnAddPackage_Click" />
+                                                                                            </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <asp:Label ID="Label1" runat="server" Text="Description"></asp:Label></td>
+                                                                                        <td>&nbsp;</td>
+                                                                                        <td>&nbsp;</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td rowspan="3">
+                                                                                            <asp:TextBox ID="txtServiceDescription" runat="server" Height="90px" TextMode="MultiLine" Width="250px"></asp:TextBox>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                                </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
@@ -319,6 +337,16 @@
                                                                                 <asp:Label ID="lblServiceCategoryTypeID" runat="server" Text='<%# Bind("ServiceCategoryTypeID") %>'></asp:Label>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
+                                                                        <asp:TemplateField HeaderText="Package ID">
+                                                                            <ItemTemplate>
+                                                                                <asp:Label ID="lblPackageIDService" runat="server" Text='<%# Bind("PackageID") %>'></asp:Label>
+                                                                            </ItemTemplate>
+                                                                        </asp:TemplateField>
+                                                                        <asp:TemplateField HeaderText="Package">
+                                                                            <ItemTemplate>
+                                                                                <asp:Label ID="lblPackageName" runat="server" Text='<%# Bind("PackageName") %>'></asp:Label>
+                                                                            </ItemTemplate>
+                                                                        </asp:TemplateField>
                                                                         <asp:CommandField ShowSelectButton="True" />
                                                                         <asp:CommandField ShowDeleteButton="True" />
                                                                     </Columns>
@@ -328,6 +356,112 @@
                                                         </tr>
                                                     </table>
                                                 </asp:Panel>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <asp:Panel ID="PanelPackageSetup" runat="server">
+                                                    <table style="width: 100%; text-align: left; margin-top: -25px">
+                                                        <tr>
+                                                            <td style="text-align: left; float: left; width: 600px">
+                                                                <div style="height: 275px; width: 600px">
+                                                                    <table style="width: 100%;">
+                                                                        <tr>
+                                                                            <td>
+                                                                                <asp:Label ID="Label2" runat="server" Text="Package Name"></asp:Label></td>
+                                                                            <td></td>
+                                                                            <td>
+                                                                                </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="3">
+                                                                                <asp:TextBox ID="txtPackageName" runat="server" Width="600px"></asp:TextBox>
+                                                                            </td>
+                                                                            
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <asp:Label ID="Label6" runat="server" Text="Description"></asp:Label><asp:Label ID="lblPackageIdUpdate" runat="server" Visible="false" Text=""></asp:Label>
+                                                                            </td>
+                                                                            <td>&nbsp;</td>
+                                                                            <td>&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="3">
+                                                                                <asp:HtmlEditorExtender ID="HtmlEditorExtender2" runat="server" TargetControlID="txtDescriptionPackage"></asp:HtmlEditorExtender>
+                                                                                <asp:TextBox ID="txtDescriptionPackage" runat="server" Width="600px" Height="150px" TextMode="MultiLine"></asp:TextBox>
+
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                    </div>
+                                                                </td>
+                                                            <td style="text-align: left; float: left; width: 385px;">
+                                                                <div style="height: 275px; width: 370px; padding-left: 15px">
+                                                                    </div>
+                                                                </td>
+                                                            <td style="float: left">
+                                                                <div style="height: 275px; width: 110px; position: fixed; padding-left: 50px; margin-top: -5px">
+                                                                    <table>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <asp:Button ID="btnSavePackage" runat="server" CssClass="CssBtnSave" Text="Save" Width="70px" OnClick="btnSavePackage_Click"  /></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <asp:Button ID="btnPackageSetupCancel" runat="server" CssClass="CssBtnCancel" Text="Cancel" Width="70px" OnClick="btnPackageSetupCancel_Click"  /></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <asp:Button ID="btnClearPackage" runat="server" CssClass="CssBtnCancel" Text="Clear" Width="70px" OnClick="btnClearPackage_Click"  /></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <asp:Button ID="Button6" runat="server" CssClass="CssBtnPrint" Width="70px" /></td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr >
+                                                            <td colspan="3">
+                                                                <asp:GridView ID="grdPackageSetup" runat="server" AutoGenerateColumns="False" Width="1050px" OnRowDataBound="grdPackageSetup_RowDataBound" OnRowDeleting="grdPackageSetup_RowDeleting" OnRowCommand="grdPackageSetup_RowCommand">
+                                                                    <Columns>
+                                <asp:TemplateField HeaderText="SL">
+                                    <ItemTemplate>
+                                        <%# Container.DisplayIndex + 1 %>
+                                    </ItemTemplate>
+                                    <HeaderStyle HorizontalAlign="Center" />
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Package Name">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblPackageName" runat="server" Text='<%# Bind("PackageName") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Package Description">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblPackageDescription" runat="server" Text='<%# Bind("PackageDescription") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                                                        <asp:TemplateField HeaderText="Package ID">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblPackageID" runat="server" Text='<%# Bind("PackageID") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                                                        <asp:CommandField ShowSelectButton="True" />
+                                <asp:CommandField ShowDeleteButton="True" />
+                            </Columns>
+                                                                </asp:GridView>
+                                                                </t>
+                                                                </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td>&nbsp;</td>
+                                                            <td>&nbsp;</td>
+                                                        </tr>
+                                                    </table>
+                                                    </asp:Panel>
                                             </td>
                                         </tr>
                                     </table>

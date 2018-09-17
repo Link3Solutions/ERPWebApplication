@@ -1193,6 +1193,7 @@
     <Compile Include="AppClass\DataAccess\matMaterialTransactionDetailsController.cs" />
     <Compile Include="AppClass\DataAccess\NodeListController.cs" />
     <Compile Include="AppClass\DataAccess\OrganizationalChartSetupController.cs" />
+    <Compile Include="AppClass\DataAccess\PackageSetupController.cs" />
     <Compile Include="AppClass\DataAccess\PersonTypeSetupController.cs" />
     <Compile Include="AppClass\DataAccess\ProcessDetailsController.cs" />
     <Compile Include="AppClass\DataAccess\ProcessFlowController.cs" />
@@ -1200,6 +1201,7 @@
     <Compile Include="AppClass\DataAccess\ProritySetupController.cs" />
     <Compile Include="AppClass\DataAccess\PurposeSetupController.cs" />
     <Compile Include="AppClass\DataAccess\ServiceManagementController.cs" />
+    <Compile Include="AppClass\DataAccess\ServiceRequestController.cs" />
     <Compile Include="AppClass\DataAccess\StandardOrgElementsController.cs" />
     <Compile Include="AppClass\DataAccess\StoredProcedureExecutor.cs" />
     <Compile Include="AppClass\DataAccess\SubledgerSetupController.cs" />
@@ -1246,6 +1248,7 @@
     <Compile Include="AppClass\Model\NodeList.cs" />
     <Compile Include="AppClass\Model\OrganizationalChartSetup.cs" />
     <Compile Include="AppClass\Model\OwnershipType.cs" />
+    <Compile Include="AppClass\Model\PackageSetup.cs" />
     <Compile Include="AppClass\Model\ProcessDetails.cs" />
     <Compile Include="AppClass\Model\ProcessFlow.cs" />
     <Compile Include="AppClass\Model\ProjectSetup.cs" />
@@ -1253,6 +1256,7 @@
     <Compile Include="AppClass\Model\RequisitionHeader.cs" />
     <Compile Include="AppClass\Model\SectionSetup.cs" />
     <Compile Include="AppClass\Model\ServiceManagement.cs" />
+    <Compile Include="AppClass\Model\ServiceRequest.cs" />
     <Compile Include="AppClass\Model\SubledgerSetup.cs" />
     <Compile Include="AppClass\Model\TeamSetup.cs" />
     <Compile Include="AppClass\Model\TwoColumnsTableData.cs" />

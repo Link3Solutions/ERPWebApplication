@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -121,6 +122,13 @@ namespace ERPWebApplication.AppClass.Model
 
                 } _showPosition = value;
             }
+        }
+        private DataTable _dtNodeList;
+
+        public DataTable DtNodeList
+        {
+            get { return _dtNodeList; }
+            set { _dtNodeList = value; }
         }
     }
 }

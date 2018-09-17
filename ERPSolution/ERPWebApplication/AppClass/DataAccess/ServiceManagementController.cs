@@ -203,6 +203,11 @@ namespace ERPWebApplication.AppClass.DataAccess
                     throw new Exception("Service Name : " + objServiceManagement.ServiceName + " " + clsMessages.GExist);
                 }
 
+                if (objServiceManagement.PackageID == -1)
+                {
+                    throw new Exception("Package is required");
+                }
+
                 objServiceManagement.ServiceID = GetServiceID();
                 objServiceManagement.ServiceValueID = GetServiceValueID(objServiceManagement);
                 var storedProcedureComandText = SqlSaveServiceData(objServiceManagement);
@@ -268,7 +273,7 @@ namespace ERPWebApplication.AppClass.DataAccess
             try
             {
                 int serviceValueNo = 0;
-                var storedProcedureComandText = "SELECT ISNULL( COUNT( ServiceValueID),0)+1 as ServiceValueID FROM [sysServicePricing] WHERE ServiceID = " + objServiceManagement.ServiceID + "";
+                var storedProcedureComandText = "SELECT ISNULL( MAX( ServiceValueID),0)+1 as ServiceValueID FROM [sysServicePricing] WHERE ServiceID = " + objServiceManagement.ServiceID + "";
                 serviceValueNo = clsDataManipulation.GetMaximumValueUsingSQL(this.ConnectionString, storedProcedureComandText);
                 return serviceValueNo;
             }
@@ -284,7 +289,7 @@ namespace ERPWebApplication.AppClass.DataAccess
             try
             {
                 int serviceNo = 0;
-                var storedProcedureComandText = "SELECT ISNULL( COUNT( ServiceID),0)+1 as ServiceID FROM [sysServiceSetup]";
+                var storedProcedureComandText = "SELECT ISNULL( MAX( ServiceID),0)+1 as ServiceID FROM [sysServiceSetup]";
                 serviceNo = clsDataManipulation.GetMaximumValueUsingSQL(this.ConnectionString, storedProcedureComandText);
                 return serviceNo;
             }
@@ -305,6 +310,7 @@ namespace ERPWebApplication.AppClass.DataAccess
            ,[ServiceName]
            ,[ServiceDescription]
            ,[ServiceValueID]
+           ,[PackageID] 
            ,[BillingFrequencyType]
            ,[PaymentType]
            ,[DataUsed]
@@ -316,6 +322,7 @@ namespace ERPWebApplication.AppClass.DataAccess
              + ",'" + objServiceManagement.ServiceName + "'"
              + ",'" + objServiceManagement.ServiceDescription + "'"
              + "," + objServiceManagement.ServiceValueID + ""
+             + "," + objServiceManagement.PackageID + ""
              + "," + objServiceManagement.BillingFrequencyType + ""
              + "," + objServiceManagement.PaymentType + ""
              + ",'" + "A" + "'"
@@ -341,6 +348,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                   " ,[ServiceCategoryTypeID] = " + objServiceManagement.ServiceCategoryTypeID + "" +
                   " ,[ServiceDescription] = '" + objServiceManagement.ServiceDescription + "'" +
                   " ,[ServiceValueID] = " + objServiceManagement.ServiceValueID + "" +
+                  " ,[PackageID] = " + objServiceManagement.PackageID + "" +
                   " ,[BillingFrequencyType] = " + objServiceManagement.BillingFrequencyType + "" +
                   " ,[PaymentType] = " + objServiceManagement.PaymentType + "" +
                   " ,[LastUpdateUserID] = '" + objServiceManagement.EntryUserName + "'" +
@@ -401,12 +409,15 @@ namespace ERPWebApplication.AppClass.DataAccess
                 ,E.FieldOfName AS BillingFrequencyTypeText
 				,A.ServiceCategoryTypeID
 				,F.FieldOfName AS ServiceCategoryType
+				,A.PackageID 
+				,G.PackageName
                  FROM sysServiceSetup A
                 INNER JOIN sysServicePricing B ON A.ServiceID = B.ServiceID AND A.ServiceValueID = B.ServiceValueID
                 LEFT JOIN VATCalculationProcess C ON B.VATCalculationProcess = C.FieldOfID
                 LEFT JOIN PaymentType D ON A.PaymentType = D.FieldOfID
                 LEFT JOIN BillingFrequency E ON A.BillingFrequencyType = E.FieldOfID
 				LEFT JOIN ServiceCategoryType F ON A.ServiceCategoryTypeID = F.FieldOfID
+				LEFT JOIN sysPackageSetup G ON A.PackageID = G.PackageID
                 WHERE A.DataUsed = 'A' AND B.DataUsed = 'A' ORDER BY A.ServiceName";
                 dtServiceRecord = clsDataManipulation.GetData(this.ConnectionString, storedProcedureComandText);
                 return dtServiceRecord;
@@ -614,6 +625,140 @@ namespace ERPWebApplication.AppClass.DataAccess
                 clsDataManipulation objclsDataManipulation = new clsDataManipulation();
                 return objUserPermission.RoleID = objclsDataManipulation.GetSingleValue(this.ConnectionString, storedProcedureComandText);
 
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal void LoadPackages(DropDownList givenDDL)
+        {
+            try
+            {
+                string sqlString = @"SELECT A.PackageID,A.PackageName
+	            FROM [sysPackageSetup] A WHERE A.[DataUsed] = 'A' ORDER BY A.PackageName";
+                ClsDropDownListController.LoadDropDownList(this.ConnectionString, sqlString, givenDDL, "PackageName", "PackageID");
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal DataTable GetServices(PackageSetup objPackageSetup)
+        {
+            try
+            {
+                DataTable dtServiceRecord = null;
+                var storedProcedureComandText = @"SELECT A.ServiceID,A.ServiceName,A.ServiceDescription,A.ServiceLogo
+                FROM sysServiceSetup A WHERE A.DataUsed = 'A' AND A.PackageID = " + objPackageSetup.PackageID + "  ORDER BY A.ServiceName";
+                dtServiceRecord = clsDataManipulation.GetData(this.ConnectionString, storedProcedureComandText);
+                return dtServiceRecord;
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal DataTable GetNodeOfServices(ServiceManagement objServiceManagement)
+        {
+            try
+            {
+                DataTable dtNodeList = null;
+                var storedProcedureComandText = @"SELECT  D.ActivityName, D.FormDescription, D.PNodeTypeID FROM sysServiceSetup A
+                LEFT JOIN sysServiceHeader B ON A.ServiceID = B.ServiceID
+                LEFT JOIN sysServiceDetails C ON B.ServiceInformatioID = C.ServiceInformatioID
+                LEFT JOIN sysProductOwnerNodeList D ON C.NodeTypeID = D.NodeTypeID
+                WHERE A.DataUsed = 'A' AND B.DataUsed = 'A' AND C.DataUsed = 'A' AND D.DataUsed = 'A' AND D.ActivityID=4 AND A.ServiceID = " + objServiceManagement.ServiceID + " ORDER BY D.PNodeTypeID ";
+                dtNodeList = clsDataManipulation.GetData(this.ConnectionString, storedProcedureComandText);
+                return dtNodeList;
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal DataTable GetServiceDescription(ServiceManagement objServiceManagement)
+        {
+            try
+            {
+                DataTable dtServiceDescription = null;
+                var storedProcedureComandText = @"SELECT A.ServiceDescription FROM sysServiceSetup A WHERE A.ServiceID = " + objServiceManagement.ServiceID + " ;";
+                dtServiceDescription = clsDataManipulation.GetData(this.ConnectionString, storedProcedureComandText);
+                return dtServiceDescription;
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+        internal DataTable GetServiceDetails(ServiceManagement objServiceManagement)
+        {
+            try
+            {
+                DataTable dtServiceDescription = null;
+                var storedProcedureComandText = @"SELECT A.ServiceID,A.ServiceName,A.ServiceLogo,B.ServiceValue FROM sysServiceSetup A
+                INNER JOIN sysServicePricing B ON A.ServiceID = B.ServiceID AND A.ServiceValueID = B.ServiceValueID
+                WHERE A.DataUsed = 'A' AND B.DataUsed = 'A' AND A.ServiceID = " + objServiceManagement.ServiceID + " ;";
+                dtServiceDescription = clsDataManipulation.GetData(this.ConnectionString, storedProcedureComandText);
+                return dtServiceDescription;
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal void GetServicesCheckBoxList(PackageSetup objPackageSetup, CheckBoxList CheckBoxListService)
+        {
+            try
+            {
+                var storedProcedureComandText = @"SELECT A.ServiceID,A.ServiceName,A.ServiceDescription,A.ServiceLogo
+                FROM sysServiceSetup A WHERE A.DataUsed = 'A' AND A.PackageID = " + objPackageSetup.PackageID + "  ORDER BY A.ServiceName";
+                ClsDropDownListController.LoadCheckBoxListExceptDisplayMember(this.ConnectionString, storedProcedureComandText, CheckBoxListService, "ServiceID");
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal string GetServicePrice(ServiceManagement objServiceManagement)
+        {
+            try
+            {
+                string sql = @"SELECT B.ServiceValue FROM sysServiceSetup A 
+                LEFT JOIN sysServicePricing B ON A.ServiceID = B.ServiceID AND A.ServiceValueID = B.ServiceValueID
+                WHERE A.DataUsed = 'A' AND B.DataUsed='A' AND A.ServiceID = " + objServiceManagement.ServiceID + ";";
+                clsDataManipulation objclsDataManipulation = new clsDataManipulation();
+                return objclsDataManipulation.GetSingleValueAsString(this.ConnectionString, sql);
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal object GetServicePreviousPrice(ServiceManagement objServiceManagement)
+        {
+            try
+            {
+                string sql = @"SELECT A.ServiceValue,A.ServiceValueID FROM sysServicePricing A WHERE A.DataUsed = 'I' AND A.ServiceID = " + objServiceManagement.ServiceID + "  AND " +
+                " A.ServiceValueID = (SELECT MAX( B.ServiceValueID) FROM sysServicePricing B WHERE B.DataUsed = 'I' AND B.ServiceID = " + objServiceManagement.ServiceID + ") " + ";";
+                clsDataManipulation objclsDataManipulation = new clsDataManipulation();
+                return objclsDataManipulation.GetSingleValueAsString(this.ConnectionString, sql);
             }
             catch (Exception msgException)
             {

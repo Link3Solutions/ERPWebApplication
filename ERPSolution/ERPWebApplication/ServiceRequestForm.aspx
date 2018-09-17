@@ -1,5 +1,70 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteHomePage.Master" AutoEventWireup="true" CodeBehind="ServiceRequestForm.aspx.cs" Inherits="ERPWebApplication.ServiceRequestForm" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+ <script src="http://code.jquery.com/jquery-1.8.2.js" type="text/javascript"></script>   
+    <script type="text/javascript">
+        $(function () {
+            var showChar = 120, showtxt = "more", hidetxt = "less";
+            $('.more').each(function () {
+                var content = $(this).text();
+                if (content.length > showChar) {
+                    var con = content.substr(0, showChar);
+                    var hcon = content.substr(showChar, content.length - showChar);
+                    var txt = con + '<span class="dots">...</span><span class="morecontent"><span>' + hcon + '</span>&nbsp;&nbsp;<a href="" class="moretxt">' + showtxt + '</a></span>';
+                    $(this).html(txt);
+                }
+            });
+            $(".moretxt").click(function () {
+                if ($(this).hasClass("sample")) {
+                    $(this).removeClass("sample");
+                    $(this).text(showtxt);
+                } else {
+                    $(this).addClass("sample");
+                    $(this).text(hidetxt);
+                }
+                $(this).parent().prev().toggle();
+                $(this).prev().toggle();
+                return false;
+            });
+        });
+</script>
+<style type="text/css">
+/*body{
+font-family: Calibri, Arial;
+margin: 0px;
+padding: 0px;
+}
+.more {
+width: 400px;
+background-color: #f0f0f0;
+margin: 10px;
+}
+.morecontent span {
+display: none;
+}*/
+.TOG_CHECK
+
+{
+    background-color: #efefef;
+    padding: 10px;
+
+}
+
+.TOG_CHECK Label
+
+{
+     width: 100px;
+    display: inline;
+    background-color: Green;
+    padding: 2px;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+}
+
+</style>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -18,7 +83,16 @@
                                     </tr>
                                     <tr>
                                         <td><div style="width:100px;height:100%"></div></td>
-                                        <td><div style="width:700px;height:45px;border:1px solid gray"></div></td>
+                                        <td><div style="width:700px;height:45px;border:1px solid gray" >
+                                            <asp:Repeater ID="RepeaterModuleDescription" runat="server">
+                                                <ItemTemplate>
+                                                    <%--<div class="more" style="width:685px;background:#FFFFFF" >--%>
+                                                    <div >
+                                                        <%# DataBinder.Eval(Container.DataItem, "PackageDescription")%>
+                                                    </div>
+                                                </ItemTemplate>
+                                            </asp:Repeater>
+                                            </div></td>
                                         <td><div style="width:300px;height:100%;">
                                             <ol style="list-style-type: none;margin-top:-25px;height:65px;padding-top:5px">
                                                 <li>
@@ -47,14 +121,78 @@
                             <table style="width: 100%;">
                                 <tr>
                                     <td colspan="3">
-                                        <asp:Panel ID="PanelSubModuleLogo" runat="server" Height="60px"></asp:Panel>
+                                        <asp:Panel ID="PanelSubModuleLogo" runat="server" Height="65px">
+                                             <asp:Repeater ID="RepeaterServices" runat="server" >
+                                                <ItemTemplate >
+         <div style="padding:10px;float:left; width:110px; text-align:left; background-color:White;border:1px solid black;padding-right :10px;padding-top :10px;margin-left:10px;margin-bottom:10px" >
+             <div  style="width:15px;height:15px;background-image: url('<%#"data:image/jpg;base64," + Convert.ToBase64String((byte[])Eval("ServiceLogo")) %>');"></div>
+             <div><%# DataBinder.Eval(Container.DataItem, "ServiceName")%></div>
+             <div style="height:10px;text-align:right">
+                 <asp:Label ID="lblServiceIDReapeter" runat="server" Visible="false" Text='<%# Eval("ServiceID") %>' ></asp:Label><asp:LinkButton ID="lnkbtnServiceDetails" OnClick="GetValue" Font-Underline="False" CssClass="logoutHover" BackColor="White" Font-Size="Small" runat="server">Details...</asp:LinkButton>
+             </div>
+         </div>
+         </ItemTemplate> 
+          <SeparatorTemplate>
+          </SeparatorTemplate>
+          <FooterTemplate>
+          </FooterTemplate>
+                                            </asp:Repeater>
+                                        </asp:Panel>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colspan="3">
                                         <asp:Panel ID="PanelModuleDescription" runat="server">
-                                            <div style="overflow:auto; height:425px;text-align: left;width: 700px;display: inline-block">
-
+                                            <div style="text-align: left;width: 700px;display: inline-block;border-bottom: 1px solid #808080;padding-bottom:3px">
+                                                <table style="width: 100%;">
+                                                    <tr>
+                                                        <td><asp:Label ID="Label28" runat="server" CssClass="labelasHeader2" Width="270px" Text="Description"></asp:Label></td>
+                                                        <td ><asp:Label ID="lblPreviousPrice" CssClass="labelasHeader2" runat="server" style="text-align:right" BackColor="Black" Width="120px" ForeColor="White" Font-Overline="False" Font-Strikeout="True" ></asp:Label></td>
+                                                        <td><asp:Label ID="lblPrice" CssClass="labelasHeader2" style="text-align:right" runat="server" BackColor="Black" Width="120px" ForeColor="White" ></asp:Label></td>
+                                                        <td><asp:Button ID="btnTakeService" runat="server" CssClass="CssBtnAddNew" Text="Take This Service" Width="170px" OnClick="btnTakeService_Click" /></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div style="overflow:auto; height:275px;text-align: left;width: 700px;display: inline-block">
+                                                <table style="width: 100%;">
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <asp:Repeater ID="RepeaterServiceDescription" runat="server">
+                                                                <ItemTemplate>
+                                                                    <div style="width:99%;height:99%">
+                                                                    <%# DataBinder.Eval(Container.DataItem, "ServiceDescription")%>
+                                                                        </div>
+                                                                </ItemTemplate>
+                                                            </asp:Repeater>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <asp:Repeater ID="RepeateNodeCollection" runat="server">
+                                                                <ItemTemplate>
+                                                                    <div>
+                                                                    <div style="width:99%;height:30px">
+                                                                    <%# DataBinder.Eval(Container.DataItem, "ActivityName")%>
+                                                                        </div>
+                                                                    <div style="width:99%;height:100%">
+                                                                    <%# DataBinder.Eval(Container.DataItem, "FormDescription")%>
+                                                                        </div>
+                                                                        </div>
+                                                                </ItemTemplate>
+                                                            </asp:Repeater>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                </table>
                                             </div>
                                             <div style="overflow:auto; text-align: left;width: 700px;display: inline-block;padding-left:10px;border:1px solid gray;padding-top:3px;padding-bottom:3px">
                                                 Other Services
@@ -390,7 +528,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:Button ID="btnPlaceOrder" runat="server" CssClass="CssBtnSave" Text="Place Order" Width="100px" OnClick="btnPlaceOrder_Click" />
+                                            <asp:Button ID="btnPlaceOrder" runat="server" CssClass="CssBtnSave" Text="Place Order" Width="100px" OnClick="btnPlaceOrder_Click" /><asp:Label ID="lblSelectedSerciceID" Visible="false" runat="server" Text=""></asp:Label>
                                         </td>
                                         <td>&nbsp;</td>
                                         <td>&nbsp;</td>
@@ -402,7 +540,35 @@
                                     </tr>
                                     <tr>
                                         <td colspan="3">
-                                            <asp:GridView ID="grdSelectedServices" runat="server" Width="100%">
+                                            <asp:GridView ID="grdSelectedServices" runat="server" Width="100%" AutoGenerateColumns="False" OnRowDataBound="grdSelectedServices_RowDataBound" OnRowCommand="grdSelectedServices_RowCommand" OnRowDeleting="grdSelectedServices_RowDeleting">
+                                                <Columns>
+                                                    <%--<asp:TemplateField HeaderText="SL">
+                                        <ItemTemplate>
+                                            <%# Container.DisplayIndex + 1 %>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>--%>
+                                                    <%--<asp:TemplateField>
+                                                        <ItemTemplate>
+                                                        <div  style="width:15px;height:15px;background-image: url('<%#"data:image/jpg;base64," + Convert.ToBase64String((byte[])Eval("colServiceLogo")) %>');"></div>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>--%>
+                                                    <asp:TemplateField HeaderText="Service">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label29" runat="server" Text='<%# Bind("colServiceName") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Value">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label30" runat="server" Text='<%# Eval("colServiceValue","{0:N2}") %>' Width="75px" Style="text-align: right;" ></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="ServiceID">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label31" runat="server" Text='<%# Bind("colServiceID") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:CommandField ShowDeleteButton="True" ControlStyle-Width="15px" ControlStyle-Height="15px" ControlStyle-BorderStyle="None" DeleteImageUrl="~/Images/RemoveServices.png" ButtonType="Image" />
+                                                </Columns>
                                             </asp:GridView>
                                         </td>
                                     </tr>

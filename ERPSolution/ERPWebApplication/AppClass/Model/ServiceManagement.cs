@@ -110,5 +110,19 @@ namespace ERPWebApplication.AppClass.Model
             get { return _serviceInformatioID; }
             set { _serviceInformatioID = value; }
         }
+        private int _packageID;
+
+        public int PackageID
+        {
+            get { return _packageID; }
+            set { _packageID = value; }
+        }
+        private DataTable _dtServiceDescription;
+
+        public DataTable DtServiceDescription
+        {
+            get { return _dtServiceDescription; }
+            set { _dtServiceDescription = value; }
+        }
     }
 }

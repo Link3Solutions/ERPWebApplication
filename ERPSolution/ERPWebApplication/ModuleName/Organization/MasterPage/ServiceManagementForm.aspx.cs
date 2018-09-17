@@ -18,6 +18,8 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
         private TwoColumnsTableData _objTwoColumnsTableData;
         private ServiceManagement _objServiceManagement;
         private UserPermission _objUserPermission;
+        private PackageSetup _objPackageSetup;
+        private PackageSetupController _objPackageSetupController;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -33,10 +35,12 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                     _objServiceManagementController.LoadBillingFrequency(ddlBillingFrequency);
                     _objServiceManagementController.LoadPaymentType(ddlPaymentType);
                     _objServiceManagementController.LoadVATCalculationProcess(ddlVATCalculation);
+                    _objServiceManagementController.LoadPackages(ddlPackage);
                     LoadServices();
                     _objServiceManagementController.PopulateRootLevel(treeNodeListForAssign);
                     _objServiceManagementController.LoadServicesDDL(ddlservices);
                     treeNodeListForAssign.Attributes.Add("onclick", "OnTreeClick(event)");
+                    PanelPackageSetup.Visible = false;
 
                 }
             }
@@ -257,6 +261,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
         {
             try
             {
+
                 _objServiceManagement = new ServiceManagement();
                 _objServiceManagement.ServiceCategoryTypeID = Convert.ToInt32(ddlServiceCategory.SelectedValue);
                 _objServiceManagement.ServiceName = txtServiceName.Text == string.Empty ? null : txtServiceName.Text;
@@ -264,6 +269,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 _objServiceManagement.BillingFrequencyType = Convert.ToInt32(ddlBillingFrequency.SelectedValue);
                 _objServiceManagement.PaymentType = Convert.ToInt32(ddlPaymentType.SelectedValue);
                 _objServiceManagement.VatCalculationProcessID = Convert.ToInt32(ddlVATCalculation.SelectedValue);
+                _objServiceManagement.PackageID = Convert.ToInt32( ddlPackage.SelectedValue);
                 _objServiceManagement.ServiceDescription = txtServiceDescription.Text == string.Empty ? null : txtServiceDescription.Text;
                 _objServiceManagement.EntryUserName = LoginUserInformation.UserID;
                 _objServiceManagementController = new ServiceManagementController();
@@ -280,6 +286,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
 
                 ClearControlServiceData();
                 this.LoadServices();
+                _objServiceManagementController.LoadServicesDDL(ddlservices);
                 clsTopMostMessageBox.Show(clsMessages.GProcessSuccess);
             }
             catch (Exception msgException)
@@ -303,6 +310,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 lblServiceIDValue.Text = string.Empty;
                 lblServiceValueIDValue.Text = string.Empty;
                 btnCreateService.Text = "Save";
+                ddlPackage.SelectedValue = "-1";
             }
             catch (Exception msgException)
             {
@@ -319,6 +327,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             e.Row.Cells[6].Visible = false;
             e.Row.Cells[8].Visible = false;
             e.Row.Cells[12].Visible = false;
+            e.Row.Cells[13].Visible = false;
         }
 
         protected void grdServices_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -337,6 +346,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                     string lblServiceValue = ((Label)grdServices.Rows[selectedIndex].FindControl("lblServiceValue")).Text;
                     string lblVATCalculationProcess = ((Label)grdServices.Rows[selectedIndex].FindControl("lblVATCalculationProcess")).Text;
                     string lblServiceCategoryTypeID = ((Label)grdServices.Rows[selectedIndex].FindControl("lblServiceCategoryTypeID")).Text;
+                    string lblPackageIDService = ((Label)grdServices.Rows[selectedIndex].FindControl("lblPackageIDService")).Text;
                     ddlServiceCategory.SelectedValue = lblServiceCategoryTypeID;
                     txtServiceName.Text = lblServiceName;
                     txtServiceValue.Text = lblServiceValue;
@@ -346,6 +356,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                     txtServiceDescription.Text = lblServiceDescription;
                     lblServiceIDValue.Text = lblServiceID;
                     lblServiceValueIDValue.Text = lblServiceValueID;
+                    ddlPackage.SelectedValue = lblPackageIDService;
                     btnCreateService.Text = "Update";
                     
                 }
@@ -365,6 +376,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                     _objServiceManagementController = new ServiceManagementController();                    
                     _objServiceManagementController.DeleteService(_objServiceManagement);
                     this.LoadServices();
+                    _objServiceManagementController.LoadServicesDDL(ddlservices);
 
                 }
                 catch (Exception msgException)
@@ -606,5 +618,178 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 clsTopMostMessageBox.Show(msgException.Message);
             }
         }
+
+        protected void btnAddPackage_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                PanelPackageSetup.Visible = true;
+                PanelServiceSetup.Visible = false;
+                LoadPackages();
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+
+        }
+
+        private void LoadPackages()
+        {
+            try
+            {
+                _objPackageSetup = new PackageSetup();
+                _objPackageSetupController = new PackageSetupController();
+                _objPackageSetup.DtPackages = _objPackageSetupController.GetPackages();
+                grdPackageSetup.DataSource = null;
+                grdPackageSetup.DataBind();
+                if (_objPackageSetup.DtPackages != null)
+                {
+                    grdPackageSetup.DataSource = _objPackageSetup.DtPackages;
+                    grdPackageSetup.DataBind();
+                }
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
+        }
+
+        protected void btnPackageSetupCancel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                PanelPackageSetup.Visible = false;
+                PanelServiceSetup.Visible = true;
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        protected void btnSavePackage_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AddValuesPackageSetup();
+                ClearControlPackage();
+                this.LoadPackages();
+                _objServiceManagementController = new ServiceManagementController();
+                _objServiceManagementController.LoadPackages(ddlPackage);
+                clsTopMostMessageBox.Show(clsMessages.GProcessSuccess);
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        private void ClearControlPackage()
+        {
+            try
+            {
+                txtPackageName.Text = string.Empty;
+                txtDescriptionPackage.Text = string.Empty;
+                lblPackageIdUpdate.Text = string.Empty;
+                btnSavePackage.Text = "Save";
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
+        }
+
+        private void AddValuesPackageSetup()
+        {
+            try
+            {
+                _objPackageSetup = new PackageSetup();
+                _objPackageSetup.PackageName = txtPackageName.Text == string.Empty ? null : txtPackageName.Text;
+                _objPackageSetup.PackageDescription = txtDescriptionPackage.Text == string.Empty ? null : txtDescriptionPackage.Text;
+                _objPackageSetup.EntryUserName = LoginUserInformation.UserID;
+                _objPackageSetupController = new PackageSetupController();
+                if (btnSavePackage.Text == "Save")
+                {
+                    _objPackageSetupController.SavePackage(_objPackageSetup);  
+                }
+                else
+                {
+                    _objPackageSetup.PackageID = Convert.ToInt32( lblPackageIdUpdate.Text);
+                    _objPackageSetupController.UpdatePackage(_objPackageSetup);
+                }
+                
+
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
+        }
+
+        protected void btnClearPackage_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.ClearControlPackage();
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        protected void grdPackageSetup_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            e.Row.Cells[3].Visible = false;
+        }
+
+        protected void grdPackageSetup_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+        }
+
+        protected void grdPackageSetup_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            try
+            {
+                int selectedIndex = Convert.ToInt32(e.CommandArgument.ToString());
+                string lblPackageID = ((Label)grdPackageSetup.Rows[selectedIndex].FindControl("lblPackageID")).Text;
+                if (e.CommandName.Equals("Select"))
+                {
+                    string lblPackageName = ((Label)grdPackageSetup.Rows[selectedIndex].FindControl("lblPackageName")).Text;
+                    string lblPackageDescription = ((Label)grdPackageSetup.Rows[selectedIndex].FindControl("lblPackageDescription")).Text;
+                    txtPackageName.Text = lblPackageName;
+                    txtDescriptionPackage.Text = lblPackageDescription;
+                    lblPackageIdUpdate.Text = lblPackageID;
+                    btnSavePackage.Text = "Update";
+                    
+                }
+                else if (e.CommandName.Equals("Delete"))
+                {
+                    _objPackageSetup = new PackageSetup();
+                    _objPackageSetup.PackageID = Convert.ToInt32( lblPackageID);
+                    _objPackageSetupController = new PackageSetupController();
+                    _objPackageSetupController.DeletePackage(_objPackageSetup);
+                    this.LoadPackages();
+                    _objServiceManagementController = new ServiceManagementController();
+                    _objServiceManagementController.LoadPackages(ddlPackage);
+                }
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        
     }
 }
