@@ -76,13 +76,31 @@ namespace ERPWebApplication {
         protected global::System.Web.UI.WebControls.Label Label22;
         
         /// <summary>
-        /// Label23 control.
+        /// lblTotalTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label23;
+        protected global::System.Web.UI.WebControls.Label lblTotalTitle;
+        
+        /// <summary>
+        /// lblTotalVale control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalVale;
+        
+        /// <summary>
+        /// btnPlaceOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPlaceOrder;
         
         /// <summary>
         /// PanelSubModuleLogo control.
@@ -112,13 +130,13 @@ namespace ERPWebApplication {
         protected global::System.Web.UI.WebControls.Panel PanelModuleDescription;
         
         /// <summary>
-        /// Label28 control.
+        /// lblServiceDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label28;
+        protected global::System.Web.UI.WebControls.Label lblServiceDescription;
         
         /// <summary>
         /// lblPreviousPrice control.
@@ -634,22 +652,13 @@ namespace ERPWebApplication {
         protected global::System.Web.UI.WebControls.Panel PanelSelectedServices;
         
         /// <summary>
-        /// Label1 control.
+        /// grdSelectedServices control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
-        /// <summary>
-        /// btnPlaceOrder control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPlaceOrder;
+        protected global::System.Web.UI.WebControls.GridView grdSelectedServices;
         
         /// <summary>
         /// lblSelectedSerciceID control.
@@ -659,14 +668,5 @@ namespace ERPWebApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSelectedSerciceID;
-        
-        /// <summary>
-        /// grdSelectedServices control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdSelectedServices;
     }
 }

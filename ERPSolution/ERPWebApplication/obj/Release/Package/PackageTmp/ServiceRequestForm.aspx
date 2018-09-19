@@ -124,11 +124,11 @@ display: none;
                                         <asp:Panel ID="PanelSubModuleLogo" runat="server" Height="65px">
                                              <asp:Repeater ID="RepeaterServices" runat="server" >
                                                 <ItemTemplate >
-         <div style="padding:10px;float:left; width:110px; text-align:left; background-color:White;border:1px solid black;padding-right :10px;padding-top :10px;margin-left:10px;margin-bottom:10px" >
+         <div id="serviceAreaDIV" style="padding:10px;float:left; width:110px; text-align:left; background-color:White;border:1px solid black;padding-right :10px;padding-top :10px;margin-left:10px;margin-bottom:10px" >
              <div  style="width:15px;height:15px;background-image: url('<%#"data:image/jpg;base64," + Convert.ToBase64String((byte[])Eval("ServiceLogo")) %>');"></div>
-             <div><%# DataBinder.Eval(Container.DataItem, "ServiceName")%></div>
+             <%--<div><%# DataBinder.Eval(Container.DataItem, "ServiceName")%></div>--%><div><asp:Label ID="lblServiceName" runat="server"  Text='<%# Eval("ServiceName") %>' ></asp:Label></div>
              <div style="height:10px;text-align:right">
-                 <asp:Label ID="lblServiceIDReapeter" runat="server" Visible="false" Text='<%# Eval("ServiceID") %>' ></asp:Label><asp:LinkButton ID="lnkbtnServiceDetails" OnClick="GetValue" Font-Underline="False" CssClass="logoutHover" BackColor="White" Font-Size="Small" runat="server">Details...</asp:LinkButton>
+                 <asp:Label ID="lblServiceIDReapeter" runat="server" Visible="false" Text='<%# Eval("ServiceID") %>' ></asp:Label><asp:Label ID="lblStatusAdded" ForeColor="Green" Visible="false" CssClass="labelasHeader2" runat="server" Text="ADDED"></asp:Label><asp:LinkButton ID="lnkbtnServiceDetails" OnClick="GetValue" Font-Underline="False" CssClass="logoutHover" BackColor="White" Font-Size="Small" runat="server">Details...</asp:LinkButton>
              </div>
          </div>
          </ItemTemplate> 
@@ -146,14 +146,14 @@ display: none;
                                             <div style="text-align: left;width: 700px;display: inline-block;border-bottom: 1px solid #808080;padding-bottom:3px">
                                                 <table style="width: 100%;">
                                                     <tr>
-                                                        <td><asp:Label ID="Label28" runat="server" CssClass="labelasHeader2" Width="270px" Text="Description"></asp:Label></td>
+                                                        <td><asp:Label ID="lblServiceDescription" runat="server" CssClass="labelasHeader2" Width="270px" Text="Description"></asp:Label></td>
                                                         <td ><asp:Label ID="lblPreviousPrice" CssClass="labelasHeader2" runat="server" style="text-align:right" BackColor="Black" Width="120px" ForeColor="White" Font-Overline="False" Font-Strikeout="True" ></asp:Label></td>
                                                         <td><asp:Label ID="lblPrice" CssClass="labelasHeader2" style="text-align:right" runat="server" BackColor="Black" Width="120px" ForeColor="White" ></asp:Label></td>
                                                         <td><asp:Button ID="btnTakeService" runat="server" CssClass="CssBtnAddNew" Text="Take This Service" Width="170px" OnClick="btnTakeService_Click" /></td>
                                                     </tr>
                                                 </table>
                                             </div>
-                                            <div style="overflow:auto; height:275px;text-align: left;width: 700px;display: inline-block">
+                                            <div style="overflow:auto; height:260px;text-align: left;width: 700px;display: inline-block">
                                                 <table style="width: 100%;">
                                                     <tr>
                                                         <td colspan="3">
@@ -194,8 +194,9 @@ display: none;
                                                     </tr>
                                                 </table>
                                             </div>
-                                            <div style="overflow:auto; text-align: left;width: 700px;display: inline-block;padding-left:10px;border:1px solid gray;padding-top:3px;padding-bottom:3px">
-                                                Other Services
+                                            <div style="overflow:auto; height:2px;text-align: left;width: 700px;display: inline-block"></div>
+                                            <div style="overflow:auto; text-align: left;width: 690px;display: inline-block;padding-left:10px;border:1px solid gray;padding-top:3px;padding-bottom:3px;">
+                                                Other Packages
                                             </div>
                                             <div style="overflow:auto; height:125px;text-align: left;width: 700px;display: inline-block"></div>
                                         </asp:Panel>
@@ -520,11 +521,13 @@ display: none;
                                         <td colspan="3">&nbsp;</td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <asp:Label ID="Label1" runat="server" Text="Total"></asp:Label>
+                                        <td style="width:190px">
+                                            <asp:Label ID="Label1" Width="190px" runat="server" Text="Total"></asp:Label>
                                         </td>
-                                        <td>&nbsp;</td>
-                                        <td>&nbsp;</td>
+                                        <td style="text-align:left">
+                                            <asp:Label ID="lblTotalVale" Width="75px" Style="text-align: right;" runat="server" Text=""></asp:Label></td>
+                                        <td>
+                                            <asp:Label ID="Label32"  runat="server" Text=""></asp:Label></td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -540,7 +543,7 @@ display: none;
                                     </tr>
                                     <tr>
                                         <td colspan="3">
-                                            <asp:GridView ID="grdSelectedServices" runat="server" Width="100%" AutoGenerateColumns="False" OnRowDataBound="grdSelectedServices_RowDataBound" OnRowCommand="grdSelectedServices_RowCommand" OnRowDeleting="grdSelectedServices_RowDeleting">
+                                            <asp:GridView ID="grdSelectedServices" runat="server" Width="299px" AutoGenerateColumns="False" OnRowDataBound="grdSelectedServices_RowDataBound" OnRowCommand="grdSelectedServices_RowCommand" OnRowDeleting="grdSelectedServices_RowDeleting">
                                                 <Columns>
                                                     <%--<asp:TemplateField HeaderText="SL">
                                         <ItemTemplate>
@@ -554,20 +557,24 @@ display: none;
                                                     </asp:TemplateField>--%>
                                                     <asp:TemplateField HeaderText="Service">
                                                         <ItemTemplate>
-                                                            <asp:Label ID="Label29" runat="server" Text='<%# Bind("colServiceName") %>'></asp:Label>
+                                                            <asp:Label ID="Label29" Width="190px" runat="server" Text='<%# Bind("colServiceName") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Value">
                                                         <ItemTemplate>
-                                                            <asp:Label ID="Label30" runat="server" Text='<%# Eval("colServiceValue","{0:N2}") %>' Width="75px" Style="text-align: right;" ></asp:Label>
+                                                            <asp:Label ID="lblcolServiceValue" runat="server" Text='<%# Eval("colServiceValue","{0:N2}") %>' Width="75px" Style="text-align: right;" ></asp:Label>
                                                         </ItemTemplate>
+                                                        <HeaderStyle HorizontalAlign="Right" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="ServiceID">
                                                         <ItemTemplate>
-                                                            <asp:Label ID="Label31" runat="server" Text='<%# Bind("colServiceID") %>'></asp:Label>
+                                                            <asp:Label ID="Label31" Width="15px" runat="server" Text='<%# Bind("colServiceID") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:CommandField ShowDeleteButton="True" ControlStyle-Width="15px" ControlStyle-Height="15px" ControlStyle-BorderStyle="None" DeleteImageUrl="~/Images/RemoveServices.png" ButtonType="Image" />
+                                                    <asp:CommandField ShowDeleteButton="True" ControlStyle-Width="15px" ControlStyle-Height="15px" ControlStyle-BorderStyle="None" DeleteImageUrl="~/Images/RemoveServices.png" ButtonType="Image" >
+                                                    <ControlStyle BorderStyle="None" Height="15px" Width="15px" />
+                                                    <ItemStyle HorizontalAlign="Center" />
+                                                    </asp:CommandField>
                                                 </Columns>
                                             </asp:GridView>
                                         </td>

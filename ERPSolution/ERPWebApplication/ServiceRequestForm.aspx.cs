@@ -35,9 +35,36 @@ namespace ERPWebApplication
                 LoadNodeCollection(_objServiceManagement);
                 LoadServicePricing(_objServiceManagement);
                 LoadServicePreviousPricing(_objServiceManagement);
+                ControlPlaceOrderVisibility();
 
             }
 
+        }
+
+        private void ControlPlaceOrderVisibility()
+        {
+            try
+            {
+                if (grdSelectedServices.Rows.Count > 0)
+                {
+                    PanelSelectedServices.Visible = true;
+                    lblTotalTitle.Visible = true;
+                    lblTotalVale.Visible = true;
+                    btnPlaceOrder.Visible = true;
+                }
+                else
+                {
+                    PanelSelectedServices.Visible = false;
+                    lblTotalTitle.Visible = false;
+                    lblTotalVale.Visible = false;
+                    btnPlaceOrder.Visible = false;
+                }
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
         }
 
         private void LoadServicePreviousPricing(ServiceManagement objServiceManagement)
@@ -80,10 +107,18 @@ namespace ERPWebApplication
             }
         }
 
+        
         protected void GetValue(object sender, EventArgs e)
         {
             try
             {
+                foreach (RepeaterItem ri in RepeaterServices.Items)
+                {
+                    LinkButton lnkbtnServiceDetailsTemp = ri.FindControl("lnkbtnServiceDetails") as LinkButton;
+                    lnkbtnServiceDetailsTemp.Visible = true;
+                }
+
+
                 RepeaterItem item = (sender as LinkButton).NamingContainer as RepeaterItem;
                 _objServiceManagement = new ServiceManagement();
                 _objServiceManagement.ServiceID = Convert.ToInt32((item.FindControl("lblServiceIDReapeter") as Label).Text);
@@ -92,6 +127,12 @@ namespace ERPWebApplication
                 LoadServiceDescription(_objServiceManagement);
                 LoadNodeCollection(_objServiceManagement);
                 LoadServicePreviousPricing(_objServiceManagement);
+                LinkButton lnkbtnServiceDetails = (item.FindControl("lnkbtnServiceDetails") as LinkButton);
+                lnkbtnServiceDetails.Visible = false;
+                
+                Label lblServiceName =(item.FindControl("lblServiceName") as Label);
+                lblServiceDescription.Text = "Description of " + lblServiceName.Text;
+                
             }
             catch (Exception msgException)
             {
@@ -171,7 +212,8 @@ namespace ERPWebApplication
                     RepeaterServices.DataBind();
 
                     lblSelectedSerciceID.Text = _objServiceManagement.DtServices.Rows[0].ItemArray[0].ToString();
-                    
+                    ControlDetailsVisiability();
+                    lblServiceDescription.Text = "Description of " + _objServiceManagement.DtServices.Rows[0].ItemArray[1].ToString(); 
                 }
 
             }
@@ -183,9 +225,70 @@ namespace ERPWebApplication
 
         }
 
+        private void ControlDetailsVisiability()
+        {
+            try
+            {
+                foreach (RepeaterItem ri in RepeaterServices.Items)
+                {
+                    LinkButton lnkbtnServiceDetailsTemp = ri.FindControl("lnkbtnServiceDetails") as LinkButton;
+                    lnkbtnServiceDetailsTemp.Visible = true;
+                }
 
+                foreach (RepeaterItem ri in RepeaterServices.Items)
+                {
+                    Label lblServiceIDReapeter = ri.FindControl("lblServiceIDReapeter") as Label;
+                    LinkButton lnkbtnServiceDetailsTemp = ri.FindControl("lnkbtnServiceDetails") as LinkButton;
+                    if (lblServiceIDReapeter.Text.Trim() == lblSelectedSerciceID.Text.Trim())
+                    {
+                        lnkbtnServiceDetailsTemp.Visible = false;
+                    }
+                }
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
+        }
 
+        private void ControlAddedStatusVisiability()
+        {
+            try
+            {
+                foreach (RepeaterItem ri in RepeaterServices.Items)
+                {
+                    Label lblStatusAdded = ri.FindControl("lblStatusAdded") as Label;
+                    //LinkButton lnkbtnServiceDetailsTemp = ri.FindControl("lnkbtnServiceDetails") as LinkButton;
+                    //lnkbtnServiceDetailsTemp.Visible = true;
+                    lblStatusAdded.Visible = false;
+                }
 
+                foreach (RepeaterItem ri in RepeaterServices.Items)
+                {
+                    Label lblServiceIDReapeter = ri.FindControl("lblServiceIDReapeter") as Label;
+                    //LinkButton lnkbtnServiceDetailsTemp = ri.FindControl("lnkbtnServiceDetails") as LinkButton;
+                    Label lblStatusAdded = ri.FindControl("lblStatusAdded") as Label;
+
+                    foreach (GridViewRow rowNo in grdSelectedServices.Rows)
+                    {
+                        Label lblcolServiceID = (Label)rowNo.FindControl("lblcolServiceID");
+                        if (lblServiceIDReapeter.Text.Trim() == lblcolServiceID.Text.Trim())
+                        {
+                            //lnkbtnServiceDetailsTemp.Visible = false;
+                            lblStatusAdded.Visible = true;
+                        }
+                    }
+
+                    
+                }
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
 
         private void LoadPackageDescription(PackageSetup objPackageSetup)
         {
@@ -347,6 +450,9 @@ namespace ERPWebApplication
             try
             {
                 AddValuesTakeService();
+                ControlPlaceOrderVisibility();
+                ControlAddedStatusVisiability();
+                
             }
             catch (Exception msgException)
             {
@@ -458,11 +564,16 @@ namespace ERPWebApplication
             }
             ViewState["SelectedServices"] = dt;
         }
-
+        double serviceValue = 0;
         protected void grdSelectedServices_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             e.Row.Cells[2].Visible = false;
-            
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                Label lblcolServiceValue = (e.Row.FindControl("lblcolServiceValue") as Label);
+                serviceValue += Convert.ToDouble(lblcolServiceValue.Text);
+                lblTotalVale.Text = string.Format("{0:n2}", serviceValue);
+            }
         }
 
         protected void grdSelectedServices_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -484,6 +595,8 @@ namespace ERPWebApplication
                 if (ViewState["SelectedServices"] == null) return;
                 grdSelectedServices.DataSource = ViewState["SelectedServices"];
                 grdSelectedServices.DataBind();
+                ControlAddedStatusVisiability();
+                ControlPlaceOrderVisibility();
             }
             catch (Exception msgException)
             {
