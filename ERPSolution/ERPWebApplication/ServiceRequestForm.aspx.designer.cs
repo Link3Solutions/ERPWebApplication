@@ -184,6 +184,15 @@ namespace ERPWebApplication {
         protected global::System.Web.UI.WebControls.Repeater RepeateNodeCollection;
         
         /// <summary>
+        /// RepeaterOtherPackages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater RepeaterOtherPackages;
+        
+        /// <summary>
         /// PanelUserAccount control.
         /// </summary>
         /// <remarks>

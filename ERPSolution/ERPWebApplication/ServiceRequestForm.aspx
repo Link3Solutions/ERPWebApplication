@@ -28,7 +28,7 @@
         });
 </script>
 <style type="text/css">
-
+    
 </style>
 
 </asp:Content>
@@ -162,10 +162,23 @@
                                                 </table>
                                             </div>
                                             <div style="overflow:auto; height:2px;text-align: left;width: 700px;display: inline-block"></div>
-                                            <div style="overflow:auto; text-align: left;width: 690px;display: inline-block;padding-left:10px;border:1px solid gray;padding-top:3px;padding-bottom:3px;">
+                                            <div style="overflow:auto; text-align: left;width: 690px;display: inline-block;padding-left:10px;border:0px solid gray;padding-top:3px;padding-bottom:3px;background-color:#91B5CF;">
                                                 Other Packages
                                             </div>
-                                            <div style="overflow:auto; height:125px;text-align: left;width: 700px;display: inline-block"></div>
+                                            <div style="min-height:401px;text-align: left;width: 700px;display: inline-block">
+                                                <asp:Repeater ID="RepeaterOtherPackages" runat="server">
+                                                    <ItemTemplate>
+                                                        <div  style="padding:10px;float:left; width:120px; height:150px; text-align:left;background-color:#041624;border:1px solid black;padding-right :10px;padding-top :10px;margin-left:10px;margin-bottom:10px" onmouseover="this.style.background='#053041';" onmouseout="this.style.background='#041624';" >
+                                                        <div  style="width:15px;height:15px;background-image: url('<%#"data:image/jpg;base64," + Convert.ToBase64String((byte[])Eval("PackageLogo")) %>');"> 
+                                                            <br> 
+                                                            </br>
+                                                            <br></br><asp:Button ID="btnOtherModuleName1" runat="server" Text='<%# Eval("PackageName") %>' CssClass="CssBtnModuleName" Width="115px" Font-Bold="True" Font-Size="Larger" ForeColor="#333333" OnClick="btnOtherModuleName1_Click"   />
+                                                            
+                                                        </div>
+                                                            </div>
+                                                    </ItemTemplate>
+                                                </asp:Repeater>
+                                            </div>
                                         </asp:Panel>
                                     </td>
                                 </tr>

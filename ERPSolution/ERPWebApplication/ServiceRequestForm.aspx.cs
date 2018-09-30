@@ -36,9 +36,33 @@ namespace ERPWebApplication
                 LoadServicePricing(_objServiceManagement);
                 LoadServicePreviousPricing(_objServiceManagement);
                 ControlPlaceOrderVisibility();
-
+                _objPackageSetup = new PackageSetup();
+                _objPackageSetup.PackageName = Session["moduleName"].ToString();
+                LoadPackages(_objPackageSetup);
             }
 
+        }
+
+        private void LoadPackages(PackageSetup objPackageSetup)
+        {
+            try
+            {
+                _objPackageSetup = new PackageSetup();
+                _objPackageSetupController = new PackageSetupController();
+                _objPackageSetup.DtPackages = _objPackageSetupController.GetOtherPackages(objPackageSetup);
+                RepeaterOtherPackages.DataSource = null;
+                RepeaterOtherPackages.DataBind();
+                if (_objPackageSetup.DtPackages != null)
+                {
+                    RepeaterOtherPackages.DataSource = _objPackageSetup.DtPackages;
+                    RepeaterOtherPackages.DataBind();
+                }
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
         }
 
         private void ControlPlaceOrderVisibility()
@@ -74,14 +98,6 @@ namespace ERPWebApplication
                 _objServiceManagementController = new ServiceManagementController();
                 string previousPrice = "BDT " + (_objServiceManagementController.GetServicePreviousPrice(objServiceManagement) == null ? "0.00" : Convert.ToDouble(_objServiceManagementController.GetServicePrice(objServiceManagement)).ToString("0.00")).ToString() + "&nbsp;&nbsp;";
                 lblPreviousPrice.Text = previousPrice;
-                //if (lblPreviousPrice.Text.Trim() == "BDT 0.00&nbsp;&nbsp;")
-                //{
-                //    lblPreviousPrice.Visible = false;
-                //}
-                //else
-                //{
-                //    lblPreviousPrice.Visible = true;
-                //}
 
             }
             catch (Exception msgException)
@@ -603,6 +619,37 @@ namespace ERPWebApplication
 
                 throw msgException;
             }
+        }
+        protected void btnOtherModuleName1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                RepeaterItem item = (sender as Button).NamingContainer as RepeaterItem;
+                _objServiceManagement = new ServiceManagement();
+                Session["moduleName"] = (item.FindControl("btnOtherModuleName1") as Button).Text;
+                lblNameoftheModule.Text = Session["moduleName"].ToString();
+                _objPackageSetup = new PackageSetup();
+                _objPackageSetup.PackageName = Session["moduleName"].ToString();
+                LoadServices(_objPackageSetup);
+                _objServiceManagement = new ServiceManagement();
+                _objServiceManagement.ServiceID = lblSelectedSerciceID.Text == string.Empty ? 0 : Convert.ToInt32(lblSelectedSerciceID.Text);
+                LoadServiceDescription(_objServiceManagement);
+                LoadNodeCollection(_objServiceManagement);
+                LoadServicePricing(_objServiceManagement);
+                LoadServicePreviousPricing(_objServiceManagement);
+                ControlAddedStatusVisiability();
+                ControlPlaceOrderVisibility();
+                _objPackageSetup = new PackageSetup();
+                _objPackageSetup.PackageName = Session["moduleName"].ToString();
+                this.LoadPackages(_objPackageSetup);
+                
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+            
         }
 
 

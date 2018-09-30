@@ -18,6 +18,8 @@ namespace ERPWebApplication.AppClass.CommonClass
         public static string GNoDataFound = "No data found";
         public static string GNoNewDataFound = "No new data found";
         public static string GExist = "Already exist";
+        public static string GDataFound = " data found";
+        public static string GYouareAddingData = "You are Adding Data";
         
     }
 }

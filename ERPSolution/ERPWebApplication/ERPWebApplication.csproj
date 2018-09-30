@@ -1018,6 +1018,7 @@
     <Content Include="Images\page_white_paste.png" />
     <Content Include="Images\Remove.png" />
     <Content Include="Images\save.png" />
+    <Content Include="Images\whatyoucanshipwithparcl.png" />
     <Content Include="jquery.contextMenu.css" />
     <Content Include="JS\ContextMenu.js" />
     <Content Include="MicrosoftMenuHtmlPage.html" />
@@ -1061,6 +1062,7 @@
     <Content Include="ModuleName\Organization\MasterPage\UserPermissionForm.aspx" />
     <Content Include="ModuleName\Organization\MasterPage\UserProfileForm.aspx" />
     <Content Include="ModuleName\Organization\MasterPage\UserSecurityCodeForm.aspx" />
+    <Content Include="ModuleName\People\PeopleInfoForm.aspx" />
     <Content Include="MyAccountForm.aspx" />
     <Content Include="packages.config" />
     <Content Include="CSS\CSSstyleTheme\CommonCSS\default.skin" />
@@ -1194,6 +1196,7 @@
     <Compile Include="AppClass\DataAccess\NodeListController.cs" />
     <Compile Include="AppClass\DataAccess\OrganizationalChartSetupController.cs" />
     <Compile Include="AppClass\DataAccess\PackageSetupController.cs" />
+    <Compile Include="AppClass\DataAccess\PeopleEntryController.cs" />
     <Compile Include="AppClass\DataAccess\PersonTypeSetupController.cs" />
     <Compile Include="AppClass\DataAccess\ProcessDetailsController.cs" />
     <Compile Include="AppClass\DataAccess\ProcessFlowController.cs" />
@@ -1249,6 +1252,7 @@
     <Compile Include="AppClass\Model\OrganizationalChartSetup.cs" />
     <Compile Include="AppClass\Model\OwnershipType.cs" />
     <Compile Include="AppClass\Model\PackageSetup.cs" />
+    <Compile Include="AppClass\Model\PeopleEntry.cs" />
     <Compile Include="AppClass\Model\ProcessDetails.cs" />
     <Compile Include="AppClass\Model\ProcessFlow.cs" />
     <Compile Include="AppClass\Model\ProjectSetup.cs" />
@@ -1538,6 +1542,13 @@
     </Compile>
     <Compile Include="ModuleName\Organization\MasterPage\UserSecurityCodeForm.aspx.designer.cs">
       <DependentUpon>UserSecurityCodeForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleName\People\PeopleInfoForm.aspx.cs">
+      <DependentUpon>PeopleInfoForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuleName\People\PeopleInfoForm.aspx.designer.cs">
+      <DependentUpon>PeopleInfoForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="MyAccountForm.aspx.cs">
       <DependentUpon>MyAccountForm.aspx</DependentUpon>

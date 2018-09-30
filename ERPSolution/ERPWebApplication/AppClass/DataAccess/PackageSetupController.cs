@@ -80,6 +80,23 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
         }
+        internal DataTable GetOtherPackages(PackageSetup objPackageSetup)
+        {
+            try
+            {
+                DataTable dtPackages = null;
+                var storedProcedureComandText = @"SELECT A.PackageID,A.PackageName,A.PackageDescription,A.PackageLogo
+                FROM [sysPackageSetup] A WHERE A.[DataUsed] = 'A' AND A.PackageName != '" + objPackageSetup.PackageName + "'  ORDER BY A.PackageName ";
+                dtPackages = clsDataManipulation.GetData(this.ConnectionString, storedProcedureComandText);
+                return dtPackages;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
 
         internal void DeletePackage(PackageSetup objPackageSetup)
         {
