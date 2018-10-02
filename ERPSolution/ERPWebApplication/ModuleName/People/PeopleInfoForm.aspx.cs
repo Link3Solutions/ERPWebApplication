@@ -31,6 +31,7 @@ namespace ERPWebApplication.ModuleName.People
                     ShowProperData(NoDataFound);
                     LoadPepoleRecord();
                     LoadEmployeeTitle();
+                    PanelSearchDetails.Visible = false;
                 }
             }
             catch (Exception msgException)
@@ -67,12 +68,12 @@ namespace ERPWebApplication.ModuleName.People
                 _objPeopleEntryController = new PeopleEntryController();
                 //_objPeopleEntry.DtPeople = _objPeopleEntryController.GetPeopleRecord();
                 _objPeopleEntry.DtPeople = GETTEMPDATA();
-                
+
                 grdPeople.DataSource = null;
                 grdPeople.DataBind();
                 if (_objPeopleEntry.DtPeople == null)
                 {
-                    PanelSearchHeader.Visible = false;
+                    btnSearchOption.Visible = false;
                     PanelSearchToGrid.Visible = false;
                     lblGridTitle.Text = clsMessages.GNoDataFound;
                     PanelPeopleRecord.Visible = false;
@@ -81,9 +82,17 @@ namespace ERPWebApplication.ModuleName.People
                 {
                     grdPeople.DataSource = _objPeopleEntry.DtPeople;
                     grdPeople.DataBind();
-                    PanelSearchHeader.Visible = true;
                     PanelSearchToGrid.Visible = true;
-                    lblGridTitle.Text = grdPeople.Rows.Count.ToString() + clsMessages.GDataFound;
+                    int countRecords = grdPeople.Rows.Count;
+                    if (countRecords == 1)
+                    {
+                        lblGridTitle.Text = countRecords.ToString() + clsMessages.GRecordFound;
+                    }
+                    else
+                    {
+                        lblGridTitle.Text = countRecords.ToString() + clsMessages.GRecordsFound;
+                    }
+
                     PanelPeopleRecord.Visible = true;
                 }
             }
@@ -114,7 +123,7 @@ namespace ERPWebApplication.ModuleName.People
             dr[5] = "01787656665";
             dt.Rows.Add(dr);
             return dt;
-            
+
         }
 
         protected void btnAddNew_Click(object sender, EventArgs e)
@@ -265,10 +274,11 @@ namespace ERPWebApplication.ModuleName.People
                 _objPeopleEntry.SearchOption3 = ddlSearch3.SelectedValue.ToString();
                 _objPeopleEntry.SearchOption4 = ddlSearch4.SelectedValue.ToString();
                 _objPeopleEntryController = new PeopleEntryController();
-                _objPeopleEntry.DtPeople = _objPeopleEntryController.GetPeopleRecord(_objPeopleEntry);
+                //_objPeopleEntry.DtPeople = _objPeopleEntryController.GetPeopleRecord(_objPeopleEntry);
                 grdPeople.DataSource = null;
                 grdPeople.DataBind();
                 PanelPeopleRecord.Visible = false;
+                ControlSearchTitle();
                 if (_objPeopleEntry.DtPeople != null)
                 {
                     grdPeople.DataSource = _objPeopleEntry.DtPeople;
@@ -279,8 +289,50 @@ namespace ERPWebApplication.ModuleName.People
             }
             catch (Exception msgException)
             {
-                
+
                 clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        private void ControlSearchTitle()
+        {
+            try
+            {
+                clsStringManipulation objclsStringManipulation = new clsStringManipulation();
+                _objPeopleEntry = new PeopleEntry();
+                _objPeopleEntry.SearchOption1 = ddlSearch1.SelectedValue == "-1" ? null : ddlSearch1.SelectedItem.Text;
+                _objPeopleEntry.SearchOption2 = ddlSearch2.SelectedValue == "-1" ? null : ddlSearch2.SelectedItem.Text;
+                _objPeopleEntry.SearchOption3 = ddlSearch3.SelectedValue == "-1" ? null : ddlSearch3.SelectedItem.Text;
+                _objPeopleEntry.SearchOption4 = ddlSearch4.SelectedValue == "-1" ? null : ddlSearch4.SelectedItem.Text;
+                string tempTitle = objclsStringManipulation.CreatingCommaSeparatedlist(_objPeopleEntry.SearchOption1, _objPeopleEntry.SearchOption2, _objPeopleEntry.SearchOption3,
+                    _objPeopleEntry.SearchOption4, null, null);
+                if (tempTitle == null)
+                {
+                    lblGridTitle.Text = clsMessages.GYouDidnotSelectYet;
+                }
+                else
+                {
+                    int countRecords = grdPeople.Rows.Count;
+                    if (countRecords == 0)
+                    {
+                        lblGridTitle.Text = "You selected " + tempTitle + " to search : " + clsMessages.GNoDataFound;
+                    }
+                    else if (countRecords == 1)
+                    {
+                        lblGridTitle.Text = "You selected " + tempTitle + " to search : " + countRecords.ToString() + clsMessages.GRecordFound;
+                    }
+                    else
+                    {
+                        lblGridTitle.Text = "You selected " + tempTitle + " to search : " + countRecords.ToString() + clsMessages.GRecordsFound;
+                    }
+
+
+                }
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
             }
         }
 
@@ -478,11 +530,13 @@ namespace ERPWebApplication.ModuleName.People
                 _objPeopleEntry = new PeopleEntry();
                 if (e.CommandName.Equals("Select"))
                 {
-                    txtPeopleName.Text = grdPeople.Rows[selectedIndex].Cells[1].Text == "&nbsp;" ? "" : grdPeople.Rows[selectedIndex].Cells[1].Text;
+                    string tempCol1 = grdPeople.Rows[selectedIndex].Cells[1].Text == "&nbsp;" ? "" : grdPeople.Rows[selectedIndex].Cells[1].Text;
+                    string tempCol2 = grdPeople.Rows[selectedIndex].Cells[2].Text == "&nbsp;" ? "" : grdPeople.Rows[selectedIndex].Cells[2].Text;
+                    txtPeopleName.Text = tempCol1;
                     PanelDataEntry.Visible = true;
                     btnCancel.Visible = true;
                     btnAddNew.Text = "Save";
-                    lblGridTitle.Text = clsMessages.GYouareAddingData;
+                    lblGridTitle.Text = clsMessages.GYouareEditingRecord + " : " + tempCol1 + ", " + tempCol2;
                 }
                 else
                 {
@@ -493,6 +547,49 @@ namespace ERPWebApplication.ModuleName.People
             }
             catch (Exception msgException)
             {
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        protected void btnSearchOption_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                PanelSearchDetails.Visible = true;
+                btnSearchOption.Visible = false;
+                lblGridTitle.Text = clsMessages.GYouareSearchingData;
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        protected void imgBtnSearch_Click(object sender, ImageClickEventArgs e)
+        {
+            try
+            {
+                btnSearchOption.Visible = true;
+                PanelSearchDetails.Visible = false;
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+
+        }
+
+        protected void btnReset_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect(Request.RawUrl);
+            }
+            catch (Exception msgException)
+            {
+
                 clsTopMostMessageBox.Show(msgException.Message);
             }
         }

@@ -31,6 +31,24 @@ namespace ERPWebApplication.ModuleName.People {
         protected global::System.Web.UI.WebControls.Label lblGridTitle;
         
         /// <summary>
+        /// btnReset control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnReset;
+        
+        /// <summary>
+        /// btnSearchOption control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSearchOption;
+        
+        /// <summary>
         /// btnCancel control.
         /// </summary>
         /// <remarks>
@@ -301,13 +319,13 @@ namespace ERPWebApplication.ModuleName.People {
         protected global::System.Web.UI.WebControls.GridView grdAcademicRecords;
         
         /// <summary>
-        /// PanelSearchHeader control.
+        /// PanelSearchDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelSearchHeader;
+        protected global::System.Web.UI.WebControls.Panel PanelSearchDetails;
         
         /// <summary>
         /// imgBtnSearch control.
@@ -319,22 +337,13 @@ namespace ERPWebApplication.ModuleName.People {
         protected global::System.Web.UI.WebControls.ImageButton imgBtnSearch;
         
         /// <summary>
-        /// lblSearchHeaderTab1 control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSearchHeaderTab1;
-        
-        /// <summary>
-        /// PanelSearchDetails control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelSearchDetails;
+        protected global::System.Web.UI.WebControls.Button btnSearch;
         
         /// <summary>
         /// Label2 control.
@@ -373,15 +382,6 @@ namespace ERPWebApplication.ModuleName.People {
         protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// btnSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSearch;
-        
-        /// <summary>
         /// ddlSearch1 control.
         /// </summary>
         /// <remarks>
@@ -416,15 +416,6 @@ namespace ERPWebApplication.ModuleName.People {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlSearch4;
-        
-        /// <summary>
-        /// CollapsiblePanelExtender1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CollapsiblePanelExtender CollapsiblePanelExtender1;
         
         /// <summary>
         /// PanelPeopleRecord control.

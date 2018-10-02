@@ -415,6 +415,30 @@
         border-radius: 3px;
     }
 
+	.CssBtnReset {
+    font-size: 10pt;
+    border: 1px #65812A !important;
+    height: 30px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    background: #65812A;
+    font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+    border-radius: 3px;
+}
+
+    .CssBtnReset:hover {
+        font-size: 10pt;
+        border: 1px #65812A !important;
+        height: 30px;
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+        background: #19926E;
+        font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+        border-radius: 3px;
+    }
+
 .CssBtnAddMore {
     width: 98px;
     font-size: 10pt;
@@ -844,3 +868,30 @@ margin-top {
 .btn {
     margin-top: 0px;
 }
+
+/*Gridview start*/
+
+table.GridviewItemStyle tr td
+{
+   font-family: Tahoma;
+    font-size: 0.9em;
+    font-weight: normal;
+    
+    color: #7F7F7F;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+table.GridviewItemStyle tr th
+{
+   font-family: Tahoma;
+    font-size: 0.9em;
+    font-weight: bold;
+    
+    color: #7F7F7F;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/*Gridview end*/

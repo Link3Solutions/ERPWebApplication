@@ -7,16 +7,16 @@
             <table style="width: 100%;">
                 <tr>
                     <td colspan="3">
-                        <div style="position:fixed;width:900px;height:50px;margin-top:-12px;background-color:#FFFFFF">
+                        <div style="position:fixed;width:905px;height:50px;margin-top:-12px;background-color:#FFFFFF">
                         <table style="width: 100%;  border-bottom-style: solid;border-bottom-width: 1px; border-bottom-color: #7F7F7F;  border-top-color: #7F7F7F; border-top-width: 1px;border-top-style: solid;">
                             <tr>
                                 <td><asp:Label ID="lblGridTitle" runat="server" Width="100%"></asp:Label></td>
                                 <td>
-                                    &nbsp;</td>
-                                <td style="text-align:right">
-                                    <asp:Button ID="btnCancel" runat="server" CssClass="CssBtnCancel" OnClick="btnCancel_Click" Text="Cancel" Width="100px" />
                                 </td>
-                                <td style="text-align:right;width:110px">
+                                <td style="text-align:right">
+                                    <asp:Button ID="btnReset" runat="server" Width="100px" CssClass="CssBtnReset" Text="Reset" OnClick="btnReset_Click" /><asp:Button ID="btnSearchOption" runat="server" CssClass="CssBtnSearch" Width="100px" Text="Search" OnClick="btnSearchOption_Click" /><asp:Button ID="btnCancel" runat="server" CssClass="CssBtnCancel" OnClick="btnCancel_Click" Text="Cancel" Width="100px" />
+                                </td>
+                                <td style="text-align:right;width:105px">
                                     <asp:Button ID="btnAddNew" CssClass="CssBtnAddNew" runat="server" Text="Add New" Width="100px" OnClick="btnAddNew_Click" /></td>
                             </tr>
                         </table>
@@ -64,9 +64,9 @@
                         </td>
                 </tr>
                 <tr >
-                    <td colspan="3">
-                        <asp:Panel ID="PanelDataEntry" runat="server">
-                            <table style="width: 100%;">
+                    <td colspan="3" style="padding-top:10px">
+                        <asp:Panel ID="PanelDataEntry" runat="server" BorderStyle="Solid" BorderWidth="1px" BorderColor="Gray">
+                            <table style="width: 100%;margin-left:5px">
                                 <tr>
                                     <td colspan="7">
                                         <table style="width:100%;margin-top:-5px">
@@ -249,32 +249,42 @@
                 </tr>
                 <tr>
                     <td colspan="3">
-                        <asp:Panel ID="PanelSearchHeader" runat="server">
-                            <asp:ImageButton ID="imgBtnSearch" runat="server" ImageUrl="~/images/collapse.jpg" Height="15px" Width="15px" />
-                                                                            <div style="margin-left: 30px; margin-top: -25px">
-                                                                                <asp:Label ID="lblSearchHeaderTab1" runat="server" Text="Search" Width="100px" Height="15px"></asp:Label>
-                                                                            </div>
-                             </asp:Panel>
+                        
                     </td>
                 </tr>
                 <tr>
                     <td colspan="3">
-                        <asp:Panel ID="PanelSearchDetails" runat="server" >
+                        <asp:Panel ID="PanelSearchDetails" runat="server" BorderStyle="Solid" BorderWidth="1px" BorderColor="Gray" >
                             <table style="width: 100%;">
-                                <tr>
+                                <tr >
+                                    <td >
+                                        <div style="margin-top:-15px">
+                                        <asp:ImageButton ID="imgBtnSearch" runat="server" ImageUrl="~/Images/btnClose.jpg" Height="15px" Width="15px" OnClick="imgBtnSearch_Click" />
+                                            </div>
+                                            </td>
                                     <td>
+                                        &nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td rowspan="3" style="text-align:center;vertical-align:bottom">
+                                        <asp:Button ID="btnSearch" runat="server" CssClass="CssBtnSearch" Text="Search" Width="100px" OnClick="btnSearch_Click" /> </td>
+                                </tr>
+                                <tr >
+                                    <td style="padding-left:5px">
                                         <asp:Label ID="Label2" runat="server" Text="Select"></asp:Label>
                                     </td>
                                     <td>
                                         <asp:Label ID="Label3" runat="server" Text="Select"></asp:Label>
                                     </td>
-                                    <td><asp:Label ID="Label4" runat="server" Text="Select"></asp:Label></td>
-                                    <td><asp:Label ID="Label5" runat="server" Text="Select"></asp:Label></td>
-                                    <td rowspan="2" style="text-align:center;vertical-align:bottom">
-                                        <asp:Button ID="btnSearch" runat="server" CssClass="CssBtnSearch" Text="Search" Width="100px" OnClick="btnSearch_Click" /> </td>
-                                </tr>
-                                <tr>
                                     <td>
+                                        <asp:Label ID="Label4" runat="server" Text="Select"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="Label5" runat="server" Text="Select"></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr >
+                                    <td style="padding-left:5px">
                                         <asp:DropDownList ID="ddlSearch1" runat="server" Width="190px"></asp:DropDownList></td>
                                     <td><asp:DropDownList ID="ddlSearch2" runat="server" Width="190px"></asp:DropDownList></td>
                                     <td><asp:DropDownList ID="ddlSearch3" runat="server" Width="190px"></asp:DropDownList></td>
@@ -289,7 +299,7 @@
                                 </tr>
                             </table>
                         </asp:Panel>
-                        <ajaxToolkit:CollapsiblePanelExtender ID="CollapsiblePanelExtender1" runat="Server"  Enabled="true"
+                        <%--<ajaxToolkit:CollapsiblePanelExtender ID="CollapsiblePanelExtender1" runat="Server"  Enabled="true"
                                             TargetControlID="PanelSearchDetails"
                                             ExpandControlID="PanelSearchHeader"
                                             CollapseControlID="PanelSearchHeader"
@@ -299,7 +309,7 @@
                                             AutoExpand="false"
                                             ExpandedImage="~/images/collapse.jpg"
                                             CollapsedImage="~/images/expand.jpg"
-                                            ImageControlID="imgBtnSearch" />
+                                            ImageControlID="imgBtnSearch" />--%>
                     </td>
                 </tr>
                 
@@ -324,6 +334,7 @@
                 </tr>
                             <tr>
                     <td colspan="3" style="padding-left:5px">
+                        <div style="width: 100%; height: 300px; overflow-y: scroll; overflow-x: hidden">
                         <asp:GridView ID="grdPeople" runat="server" AutoGenerateColumns="False" Width="100%" OnRowCommand="grdPeople_RowCommand" OnRowDeleting="grdPeople_RowDeleting">
                             <Columns>
                                     <asp:TemplateField HeaderText="SL">
@@ -343,7 +354,12 @@
                                     <asp:CommandField ShowDeleteButton="True" />
                                 </Columns>
                         </asp:GridView>
+                            </div>
                     </td>
+                </tr>
+                            <tr>
+                    <td colspan="3" style="padding-left:5px">
+                        </td>
                 </tr>
                         </table>
                             </asp:Panel>
