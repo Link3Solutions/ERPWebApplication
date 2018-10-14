@@ -10,12 +10,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-            <div style="width:1200px">
+            <asp:Panel ID="PanelTwoColumnTable" runat="server">
+            <div style="width:1190px">
             <table style="width: 100%; text-align: left">
                 <tr>
                     <td colspan="2" style="width: 600px; float: left">
                         <div style="width: 600px">
-                            <table style="width: 70%;">
+                            <table style="width: 85%;">
                                 <tr>
                                     <td class="auto-style1">
                                         <asp:Label ID="Label1" runat="server" Text="Table Name"></asp:Label>
@@ -24,6 +25,7 @@
                                     <td>
                                         <asp:TextBox ID="txtTableName" runat="server"></asp:TextBox>
                                     </td>
+                                    <td>&nbsp;</td>
                                 </tr>
                                 <tr>
                                     <td class="auto-style1">
@@ -33,6 +35,7 @@
                                     <td>
                                         <asp:TextBox ID="txtEntryMode" runat="server"></asp:TextBox>
                                     </td>
+                                    <td>&nbsp;</td>
                                 </tr>
                                 <tr>
                                     <td class="auto-style1">
@@ -42,16 +45,7 @@
                                     <td>
                                         <asp:TextBox ID="txtRelatedTo" runat="server"></asp:TextBox>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td class="auto-style1">
-                                        <asp:Label ID="Label4" runat="server" Text="Related User Role"></asp:Label>
-                                    </td>
-                                    <td>:</td>
-                                    <td>
-                                        <asp:DropDownList ID="ddlRelatedUserRoleID" runat="server">
-                                        </asp:DropDownList>
-                                    </td>
+                                    <td>&nbsp;</td>
                                 </tr>
                                 <tr>
                                     <td class="auto-style1">
@@ -64,6 +58,20 @@
                                             <asp:ListItem Value="A">Auto</asp:ListItem>
                                             <asp:ListItem Value="M">Manual</asp:ListItem>
                                         </asp:DropDownList>
+                                    </td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style1">
+                                        <asp:Label ID="Label4" runat="server" Text="Related User Role"></asp:Label>
+                                    </td>
+                                    <td>:</td>
+                                    <td>
+                                        <asp:DropDownList ID="ddlRelatedUserRoleID" runat="server">
+                                        </asp:DropDownList>
+                                    </td>
+                                    <td>
+                                        <asp:Button ID="btnAddRole" runat="server" CssClass="CssBtnAddNew" Text="Add New" Width="100px" OnClick="btnAddRole_Click" />
                                     </td>
                                 </tr>
                             </table>
@@ -92,7 +100,7 @@
                 </tr>
                 <tr>
                     <td colspan="4">
-                        <div style="width:1050px;height: 300px; overflow-y: scroll; overflow-x: hidden">
+                        <div style="width:1040px;height: 300px; overflow-y: scroll; overflow-x: hidden">
                         <asp:GridView ID="grdTwoColumnTables" runat="server" Width="100%" AutoGenerateColumns="False" OnRowCommand="grdTwoColumnTables_RowCommand" OnRowDataBound="grdTwoColumnTables_RowDataBound" OnRowDeleting="grdTwoColumnTables_RowDeleting">
                             <Columns>
                                 <asp:TemplateField HeaderText="SL">
@@ -151,6 +159,88 @@
                 </tr>
             </table>
                 </div>
+                </asp:Panel>
+            <asp:Panel ID="PanelRelatedRole" Width="100%" runat="server">
+                <div style="width:1190px">
+                    <table style="width: 100%; text-align: left">
+                        <tr>
+                    <td colspan="2" style="width: 600px; float: left">
+                        <div style="width: 600px">
+                            <table style="width: 85%;">
+                                <tr>
+                                    <td style="width:98px">
+                                        <asp:Label ID="Label6" runat="server" Text="Related User Role"></asp:Label>
+                                    </td>
+                                    <td>:</td>
+                                    <td>
+                                        <asp:TextBox ID="txtRelatedUserRole" runat="server"></asp:TextBox>
+                                    </td>
+                                </tr>
+                            </table>
+                            </div>
+                        </td>
+                    <td colspan="2" style=" width:100px;text-align: right; float: right;padding-left:25px;padding-top:1px;padding-right:1px;">
+                        <div style="position: fixed; background-color: white">
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td><asp:Button ID="btnSaveRelatedRole" runat="server" CssClass="CssBtnSave" Text="Save" Width="70px" OnClick="btnSaveRelatedRole_Click"  /></td>
+                                </tr>
+                                <tr>
+                                    <td><asp:Button ID="btnCancelRelatedRole" runat="server" CssClass="CssBtnClear" Text="Cancel" Width="70px" OnClick="btnCancelRelatedRole_Click"  /></td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                        </div>
+                        </td>
+                </tr>
+                        <tr>
+                    <td>
+                        <asp:Label ID="lblRelatedUserRoleID" runat="server" Visible="False"></asp:Label>
+                            </td>
+                    <td colspan="2">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <div style="width:1040px;height: 400px; overflow-y: scroll; overflow-x: hidden">
+                        <asp:GridView ID="grdRelatedUserRole" runat="server" Width="100%" AutoGenerateColumns="False" OnRowCommand="grdRelatedUserRole_RowCommand" OnRowDataBound="grdRelatedUserRole_RowDataBound" OnRowDeleting="grdRelatedUserRole_RowDeleting" >
+                            <Columns>
+                                <asp:TemplateField HeaderText="SL">
+                                    <ItemTemplate>
+                                        <%# Container.DisplayIndex + 1 %>
+                                    </ItemTemplate>
+                                    <HeaderStyle HorizontalAlign="Center" />
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="RelatedToID">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblRelatedToID" runat="server" Text='<%# Bind("RelatedToID") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Related User Role ">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblRelatedToText" runat="server" Text='<%# Bind("RelatedToText") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:CommandField ShowSelectButton="True" />
+                                <asp:CommandField ShowDeleteButton="True" />
+                            </Columns>
+                            
+                        </asp:GridView>
+                            </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td colspan="2">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+
+                        </table>
+                    </div>
+                </asp:Panel>
         </ContentTemplate>
         <Triggers>
             

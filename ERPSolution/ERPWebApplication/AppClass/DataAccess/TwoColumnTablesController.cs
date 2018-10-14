@@ -138,11 +138,11 @@ namespace ERPWebApplication.AppClass.DataAccess
 
         }
 
-        internal void LoadRelatedUserRoleDDL(DropDownList ddlRelatedUserRoleID, CompanySetup objCompanySetup)
+        internal void LoadRelatedUserRoleDDL(DropDownList ddlRelatedUserRoleID)
         {
             try
             {
-                ClsDropDownListController.LoadDropDownList(this.ConnectionString, this.SqlForRelatedUserRole(objCompanySetup), ddlRelatedUserRoleID, "RelatedToText", "RelatedToID");
+                ClsDropDownListController.LoadDropDownList(this.ConnectionString, this.SqlForRelatedUserRole(), ddlRelatedUserRoleID, "RelatedToText", "RelatedToID");
             }
             catch (Exception msgException)
             {
@@ -168,6 +168,21 @@ namespace ERPWebApplication.AppClass.DataAccess
             {
                 string sqlString = null;
                 sqlString = " SELECT [RelatedToID],[RelatedToText]  FROM [sysRelatedUserRole] WHERE CompanyID = " + objCompanySetup.CompanyID + " ORDER BY [RelatedToText]";
+                return sqlString;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+        private string SqlForRelatedUserRole()
+        {
+            try
+            {
+                string sqlString = null;
+                sqlString = " SELECT A.RelatedToID,A.RelatedToText  FROM sysRelatedUserRoleSetup A WHERE A.DataUsed = 'A' ORDER BY A.RelatedToText";
                 return sqlString;
 
             }

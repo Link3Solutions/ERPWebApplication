@@ -1056,6 +1056,7 @@
     <Content Include="ModuleName\Organization\MasterPage\NodeListForm.aspx" />
     <Content Include="ModuleName\Organization\MasterPage\ReportVenueForm.aspx" />
     <Content Include="ModuleName\Organization\MasterPage\ServiceManagementForm.aspx" />
+    <Content Include="ModuleName\Organization\MasterPage\ServiceServeForm.aspx" />
     <Content Include="ModuleName\Organization\MasterPage\TwoColumnsTableDataAutoForm.aspx" />
     <Content Include="ModuleName\Organization\MasterPage\TwoColumnsTableDataForm.aspx" />
     <Content Include="ModuleName\Organization\MasterPage\TwoColumnTablesForm.aspx" />
@@ -1203,6 +1204,7 @@
     <Compile Include="AppClass\DataAccess\ProjectSetupController.cs" />
     <Compile Include="AppClass\DataAccess\ProritySetupController.cs" />
     <Compile Include="AppClass\DataAccess\PurposeSetupController.cs" />
+    <Compile Include="AppClass\DataAccess\RelatedUserRoleController.cs" />
     <Compile Include="AppClass\DataAccess\ServiceManagementController.cs" />
     <Compile Include="AppClass\DataAccess\ServiceRequestController.cs" />
     <Compile Include="AppClass\DataAccess\StandardOrgElementsController.cs" />
@@ -1256,6 +1258,7 @@
     <Compile Include="AppClass\Model\ProcessDetails.cs" />
     <Compile Include="AppClass\Model\ProcessFlow.cs" />
     <Compile Include="AppClass\Model\ProjectSetup.cs" />
+    <Compile Include="AppClass\Model\RelatedUserRole.cs" />
     <Compile Include="AppClass\Model\RequisitionDetail.cs" />
     <Compile Include="AppClass\Model\RequisitionHeader.cs" />
     <Compile Include="AppClass\Model\SectionSetup.cs" />
@@ -1500,6 +1503,13 @@
     </Compile>
     <Compile Include="ModuleName\Organization\MasterPage\ServiceManagementForm.aspx.designer.cs">
       <DependentUpon>ServiceManagementForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleName\Organization\MasterPage\ServiceServeForm.aspx.cs">
+      <DependentUpon>ServiceServeForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuleName\Organization\MasterPage\ServiceServeForm.aspx.designer.cs">
+      <DependentUpon>ServiceServeForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModuleName\Organization\MasterPage\TwoColumnsTableDataAutoForm.aspx.cs">
       <DependentUpon>TwoColumnsTableDataAutoForm.aspx</DependentUpon>

@@ -17,6 +17,10 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
         readonly string _connectionString = ConfigurationManager.ConnectionStrings["dbERPSolutionConnection"].ToString();
         private TwoColumnTables _objTwoColumnTables;
         private TwoColumnTablesController _objTwoColumnTablesController;
+        private RelatedUserRole _objRelatedUserRole;
+        private RelatedUserRoleController _objRelatedUserRoleController;
+        private CompanySetup _objCompanySetup;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -25,10 +29,9 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 {
                     Session["entryUserCode"] = "ADM";
                     ShowRecord();
-                    CompanySetup objCompanySetup = new CompanySetup();
-                    objCompanySetup.CompanyID = LoginUserInformation.CompanyID;
-                    _objTwoColumnTablesController.LoadRelatedUserRoleDDL(ddlRelatedUserRoleID, objCompanySetup);
-
+                    _objTwoColumnTablesController.LoadRelatedUserRoleDDL(ddlRelatedUserRoleID);
+                    PanelTwoColumnTable.Visible = true;
+                    PanelRelatedRole.Visible = false;
                 }
 
             }
@@ -201,5 +204,153 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 clsTopMostMessageBox.Show(msgException.Message);
             }
         }
+
+        protected void btnAddRole_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                PanelRelatedRole.Visible = true;
+                PanelTwoColumnTable.Visible = false;
+                LoadRelatedUserRole();
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        private void LoadRelatedUserRole()
+        {
+            try
+            {
+                _objRelatedUserRoleController = new RelatedUserRoleController();
+                _objRelatedUserRole = new RelatedUserRole();
+                _objRelatedUserRole.DtRelatedRole = _objRelatedUserRoleController.GetRelatedUserRole();
+                grdRelatedUserRole.DataSource = null;
+                grdRelatedUserRole.DataBind();
+                if (_objRelatedUserRole.DtRelatedRole != null)
+                {
+                    grdRelatedUserRole.DataSource = _objRelatedUserRole.DtRelatedRole;
+                    grdRelatedUserRole.DataBind();
+                }
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        protected void btnCancelRelatedRole_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                PanelTwoColumnTable.Visible = true;
+                PanelRelatedRole.Visible = false;
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        protected void btnSaveRelatedRole_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AddValuesRelatedUserRole();
+                this.LoadRelatedUserRole();
+                ClearControlRelatedUserRole();
+                clsTopMostMessageBox.Show(clsMessages.GProcessSuccess);
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        private void ClearControlRelatedUserRole()
+        {
+            try
+            {
+                txtRelatedUserRole.Text = string.Empty;
+                btnSaveRelatedRole.Text = "Save";
+            }
+            catch (Exception msgException)
+            {
+                
+                throw msgException;
+            }
+        }
+
+        private void AddValuesRelatedUserRole()
+        {
+            try
+            {
+                _objRelatedUserRole = new RelatedUserRole();
+                _objRelatedUserRole.RelatedRoleText = txtRelatedUserRole.Text == string.Empty ? null : txtRelatedUserRole.Text;
+                _objCompanySetup = new CompanySetup();
+                _objCompanySetup.EntryUserName = LoginUserInformation.UserID;
+                _objRelatedUserRoleController = new RelatedUserRoleController();
+                if (btnSaveRelatedRole.Text == "Save")
+                {
+                    _objRelatedUserRoleController.SaveRelatedRole(_objCompanySetup, _objRelatedUserRole);
+                }
+                else
+                {
+                    _objRelatedUserRole.RelatedRoleID = Convert.ToInt32(lblRelatedUserRoleID.Text);
+                    _objRelatedUserRoleController.UpdateRelatedUserRole(_objCompanySetup, _objRelatedUserRole);
+                }
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        protected void grdRelatedUserRole_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            e.Row.Cells[1].Visible = false;
+        }
+
+        protected void grdRelatedUserRole_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+        }
+
+        protected void grdRelatedUserRole_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            try
+            {
+                int selectedIndex = Convert.ToInt32(e.CommandArgument.ToString());
+                string lblRelatedToID = ((Label)grdRelatedUserRole.Rows[selectedIndex].FindControl("lblRelatedToID")).Text;
+                if (e.CommandName.Equals("Select"))
+                {
+                    string lblRelatedToText = ((Label)grdRelatedUserRole.Rows[selectedIndex].FindControl("lblRelatedToText")).Text;
+                    txtRelatedUserRole.Text = lblRelatedToText;
+                    lblRelatedUserRoleID.Text = lblRelatedToID;
+                    btnSaveRelatedRole.Text = "Update";
+                }
+                else if (e.CommandName.Equals("Delete"))
+                {
+                    _objRelatedUserRole = new RelatedUserRole();
+                    _objRelatedUserRole.RelatedRoleID = Convert.ToInt32(lblRelatedToID);
+                    _objRelatedUserRoleController = new RelatedUserRoleController();
+                    _objRelatedUserRoleController.DeleteRelatedUserRole(_objRelatedUserRole);
+                    this.LoadRelatedUserRole();
+                }
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+
     }
 }
