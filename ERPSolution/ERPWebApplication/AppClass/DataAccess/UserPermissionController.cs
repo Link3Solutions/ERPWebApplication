@@ -356,6 +356,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                 INNER JOIN uRoleSetupDetails C ON B.RoleID = C.RoleID
                 INNER JOIN [uDefaultNodeList] D ON C.NodeID = D.NodeTypeID
                 WHERE A.DataUsed = 'A' AND B.DataUsed = 'A' AND C.DataUsed = 'A' AND D.DataUsed = 'A' AND A.CompanyID = " + objEmployeeSetup.CompanyID + " " +
+                " AND D.CompanyID = " + objEmployeeSetup.CompanyID + " " +
                 " AND A.UserProfileID = '" + objEmployeeSetup.EntryUserName + "' AND D.ShowPosition = " + objNodeList.ShowPosition + "";
                 var dtEntityDetails = clsDataManipulation.GetData(this.ConnectionString, sqlString);
                 return dtEntityDetails;

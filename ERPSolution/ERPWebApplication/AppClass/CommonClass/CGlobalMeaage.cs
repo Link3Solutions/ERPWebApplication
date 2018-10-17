@@ -25,6 +25,8 @@ namespace ERPWebApplication.AppClass.CommonClass
         public static string GYouareSearchingData = "You are searching.";
         public static string GYouDidnotSelectYet = "You didn't select any option.";
         public static string GYouareEditingRecord = "You are editing record";
+        public static string GEverythingUptoDate = "Everything up-to-date";
+
         
     }
 }

@@ -98,7 +98,7 @@ namespace ERPWebApplication
                 if (_objUserList.UserName == "ADM" && _objUserList.UserPassword == "ADM123")
                 {
                     LoginUserInformation.UserID = "160ea939-7633-46a8-ae49-f661d12abfd5";
-                    LoginUserInformation.CompanyID = 1;
+                    LoginUserInformation.CompanyID = 2;
                     LoginUserInformation.EmployeeCode = "ADM";
                     LoginUserInformation.EmployeeFullName = "Administrator";
                     LoginUserInformation.UserName = "ADM";

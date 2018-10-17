@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using ERPWebApplication.AppClass.Model;
+using ERPWebApplication.AppClass.CommonClass;
 
 namespace ERPWebApplication.AppClass.DataAccess
 {
@@ -18,9 +19,8 @@ namespace ERPWebApplication.AppClass.DataAccess
                 var storedProcedureComandText = SqlClientNode(dtClientNode, objServiceServe, objUserList);
                 if (storedProcedureComandText == null)
                 {
-                    throw new Exception("");
+                    throw new Exception(clsMessages.GEverythingUptoDate);
                 }
-
                 clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
             }
             catch (Exception msgException)
