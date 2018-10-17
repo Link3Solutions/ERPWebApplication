@@ -1207,6 +1207,7 @@
     <Compile Include="AppClass\DataAccess\RelatedUserRoleController.cs" />
     <Compile Include="AppClass\DataAccess\ServiceManagementController.cs" />
     <Compile Include="AppClass\DataAccess\ServiceRequestController.cs" />
+    <Compile Include="AppClass\DataAccess\ServiceServeController.cs" />
     <Compile Include="AppClass\DataAccess\StandardOrgElementsController.cs" />
     <Compile Include="AppClass\DataAccess\StoredProcedureExecutor.cs" />
     <Compile Include="AppClass\DataAccess\SubledgerSetupController.cs" />
@@ -1264,6 +1265,7 @@
     <Compile Include="AppClass\Model\SectionSetup.cs" />
     <Compile Include="AppClass\Model\ServiceManagement.cs" />
     <Compile Include="AppClass\Model\ServiceRequest.cs" />
+    <Compile Include="AppClass\Model\ServiceServe.cs" />
     <Compile Include="AppClass\Model\SubledgerSetup.cs" />
     <Compile Include="AppClass\Model\TeamSetup.cs" />
     <Compile Include="AppClass\Model\TwoColumnsTableData.cs" />

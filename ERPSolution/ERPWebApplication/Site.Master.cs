@@ -140,7 +140,7 @@ namespace ERPWebApplication
                 _objUserPermissionController = new UserPermissionController();
                 if (LoginUserInformation.UserID == "160ea939-7633-46a8-ae49-f661d12abfd5")
                 {
-                    table = _objUserPermissionController.GetData( _objNodeList);
+                    table = _objUserPermissionController.GetDataImplementer(_objNodeList);
                 }
                 else
                 {

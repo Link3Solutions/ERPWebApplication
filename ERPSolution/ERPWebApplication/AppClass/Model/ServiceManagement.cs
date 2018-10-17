@@ -124,5 +124,6 @@ namespace ERPWebApplication.AppClass.Model
             get { return _dtServiceDescription; }
             set { _dtServiceDescription = value; }
         }
+
     }
 }

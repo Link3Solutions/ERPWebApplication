@@ -20,13 +20,14 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
         private ServiceManagementController _objServiceManagementController;
         private PackageSetup _objPackageSetup;
         private PackageSetupController _objPackageSetupController;
+        private ServiceServe _objServiceServe;
+        private ServiceServeController _objServiceServeController;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
                 Session["moduleName"] = "HRMS";
-                lblNameoftheModule.Text = Session["moduleName"].ToString();
-                ControlPanelVisibility(PanelSubModuleLogo, PanelModuleDescription, PanelUserAccount, PanelCreateAccount, PanelUserLogin);
+                lblNameoftheModule.Text = Session["moduleName"].ToString();                
                 _objPackageSetup = new PackageSetup();
                 _objPackageSetup.PackageName = Session["moduleName"].ToString();
                 LoadServices(_objPackageSetup);
@@ -75,14 +76,14 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                     PanelSelectedServices.Visible = true;
                     lblTotalTitle.Visible = true;
                     lblTotalVale.Visible = true;
-                    btnPlaceOrder.Visible = true;
+                    btnServe.Visible = true;
                 }
                 else
                 {
                     PanelSelectedServices.Visible = false;
                     lblTotalTitle.Visible = false;
                     lblTotalVale.Visible = false;
-                    btnPlaceOrder.Visible = false;
+                    btnServe.Visible = false;
                 }
             }
             catch (Exception msgException)
@@ -362,20 +363,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 throw msgException;
             }
         }
-
-        protected void btnPlaceOrder_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ControlPanelVisibilityPlaceOrder(PanelUserAccount, PanelSubModuleLogo, PanelModuleDescription, PanelCreateAccount, PanelUserLogin);
-            }
-            catch (Exception msgException)
-            {
-
-                clsTopMostMessageBox.Show(msgException.Message);
-            }
-        }
-
+        
         private void ControlPanelVisibilityPlaceOrder(Panel panelTarget1, Panel PanelOptional1, Panel PanelOptional2, Panel PanelOptional3, Panel PanelOptional4)
         {
             try
@@ -393,18 +381,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             }
 
         }
-        protected void btnCreateAccount_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ControlPanelVisibility(PanelCreateAccount, PanelUserAccount, PanelUserLogin);
-            }
-            catch (Exception msgException)
-            {
-
-                clsTopMostMessageBox.Show(msgException.Message);
-            }
-        }
+        
 
         private void ControlPanelVisibility(Panel panelTarget1, Panel PanelOptional1, Panel PanelOptional2)
         {
@@ -421,47 +398,6 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 throw msgException;
             }
         }
-
-        protected void btnSigninPanel_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ControlPanelVisibility(PanelUserLogin, PanelCreateAccount, PanelUserAccount);
-            }
-            catch (Exception msgException)
-            {
-
-                clsTopMostMessageBox.Show(msgException.Message);
-            }
-        }
-
-        protected void lnkbtnSignIn_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ControlPanelVisibility(PanelUserLogin, PanelCreateAccount, PanelUserAccount);
-            }
-            catch (Exception msgException)
-            {
-
-                clsTopMostMessageBox.Show(msgException.Message);
-            }
-        }
-
-        protected void lnkbtnCreateAccount_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ControlPanelVisibility(PanelCreateAccount, PanelUserAccount, PanelUserLogin);
-            }
-            catch (Exception msgException)
-            {
-
-                clsTopMostMessageBox.Show(msgException.Message);
-            }
-
-        }
-
         protected void btnTakeService_Click(object sender, EventArgs e)
         {
             try
@@ -651,6 +587,34 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 throw msgException;
             }
             
+        }
+
+        protected void btnServe_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _objServiceServe = new ServiceServe();
+                _objServiceServe.DtServices = (DataTable)ViewState["SelectedServices"];
+                foreach (DataRow rowNo in _objServiceServe.DtServices.Rows)
+                {
+                    _objServiceServe.ServiceList += rowNo["colServiceID"].ToString()+",";   
+                }
+
+                _objServiceServe.ServiceList = _objServiceServe.ServiceList.TrimEnd(',');
+                UserList objUserList = new UserList();
+                objUserList.UserName = LoginUserInformation.UserName;
+                _objServiceServe.EntryUserName = LoginUserInformation.UserID;
+                _objServiceServe.CompanyID = LoginUserInformation.CompanyID;
+                _objServiceServeController = new ServiceServeController();
+                _objServiceServeController.ServeClientNode(_objServiceServe, objUserList);
+                clsTopMostMessageBox.Show(clsMessages.GProcessSuccess);
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+
         }
 
 

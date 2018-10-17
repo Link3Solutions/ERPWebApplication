@@ -46,6 +46,22 @@ namespace ERPWebApplication.AppClass.DataAccess
             }
 
         }
+        internal DataTable GetDataImplementer(NodeList objNodeList)
+        {
+            try
+            {
+                string sqlString = "SELECT [NodeTypeID], [ActivityName], [FormDescription], [FormName],[PNodeTypeID] FROM [suDefaultNodeList] WHERE ShowPosition = " + objNodeList.ShowPosition + " ";
+                var dtEntityDetails = clsDataManipulation.GetData(this.ConnectionString, sqlString);
+                return dtEntityDetails;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+
+        }
 
         internal void PopulateRootLevel(TreeView TreeViewAllNode)
         {
