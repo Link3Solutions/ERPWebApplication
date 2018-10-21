@@ -17,14 +17,30 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
         private UserPermissionController _objUserPermissionController;
         private UserPermission _objUserPermission;
         private CompanySetup _objCompanySetup;
+        private UserList _objUserList;
+        private UserListController _objUserListController;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
                 if (!Page.IsPostBack)
                 {
-                    LoadCompany(ddlCompanyForRole);
-                    LoadCompany(ddlCompany);
+                    if (LoginUserInformation.UserName == "ADM")
+                    {
+                        LoadCompany(ddlCompanyForRole);
+                        LoadCompany(ddlCompany);
+                    }
+                    else
+                    {
+
+                        _objUserList = new UserList();
+                        _objUserList.UserName = LoginUserInformation.UserName;
+                        _objUserListController = new UserListController();
+                        DataTable dtAssignCompany = _objUserListController.GetAssignCompanyUpdate(_objUserList);
+                        _objUserListController.LoadCompanyDDL(dtAssignCompany, ddlCompany);
+                        _objUserListController.LoadCompanyDDL(dtAssignCompany, ddlCompanyForRole);
+                    }
+
                     _objUserPermissionController = new UserPermissionController();
                     _objUserPermissionController.PopulateRootLevel(TreeViewAllNode);
                     _objUserPermissionController.LoadRoleTypeData(ddlRoleType);
@@ -145,7 +161,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             try
             {
                 _objUserPermissionController = new UserPermissionController();
-                _objUserPermissionController.PopulateSubLevel(Int32.Parse(e.Node.Value), e.Node);
+                _objUserPermissionController.PopulateSubLevel(Int32.Parse(e.Node.Value), e.Node, LoginUserInformation.CompanyID);
                 TreeViewAllNode.ExpandAll();
 
             }
@@ -313,7 +329,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             }
         }
 
-        
+
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
@@ -533,7 +549,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 clsTopMostMessageBox.Show(msgException.Message);
             }
         }
-        
+
         protected void imgbtnForwordAllUserRole_Click(object sender, EventArgs e)
         {
             try
@@ -718,6 +734,6 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             }
 
         }
-        
+
     }
 }

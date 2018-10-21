@@ -20,6 +20,9 @@ namespace ERPWebApplication
         private ServiceManagementController _objServiceManagementController;
         private PackageSetup _objPackageSetup;
         private PackageSetupController _objPackageSetupController;
+        private UserProfileOnline _objUserProfileOnline;
+        private UserProfileOnlineController _objUserProfileOnlineController;
+        private CompanyDetailsSetup _objCompanyDetailsSetup;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -30,7 +33,7 @@ namespace ERPWebApplication
                 _objPackageSetup.PackageName = Session["moduleName"].ToString();
                 LoadServices(_objPackageSetup);
                 _objServiceManagement = new ServiceManagement();
-                _objServiceManagement.ServiceID = lblSelectedSerciceID.Text == string.Empty ? 0 : Convert.ToInt32( lblSelectedSerciceID.Text);                
+                _objServiceManagement.ServiceID = lblSelectedSerciceID.Text == string.Empty ? 0 : Convert.ToInt32(lblSelectedSerciceID.Text);
                 LoadServiceDescription(_objServiceManagement);
                 LoadNodeCollection(_objServiceManagement);
                 LoadServicePricing(_objServiceManagement);
@@ -86,7 +89,7 @@ namespace ERPWebApplication
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }
@@ -114,7 +117,7 @@ namespace ERPWebApplication
                 _objServiceManagementController = new ServiceManagementController();
                 string currentPrice = "BDT " + (_objServiceManagementController.GetServicePrice(objServiceManagement) == null ? "0.00" : Convert.ToDouble(_objServiceManagementController.GetServicePrice(objServiceManagement)).ToString("0.00")).ToString() + "&nbsp;&nbsp;";
                 lblPrice.Text = currentPrice;
-                
+
             }
             catch (Exception msgException)
             {
@@ -123,7 +126,7 @@ namespace ERPWebApplication
             }
         }
 
-        
+
         protected void GetValue(object sender, EventArgs e)
         {
             try
@@ -145,10 +148,10 @@ namespace ERPWebApplication
                 LoadServicePreviousPricing(_objServiceManagement);
                 LinkButton lnkbtnServiceDetails = (item.FindControl("lnkbtnServiceDetails") as LinkButton);
                 lnkbtnServiceDetails.Visible = false;
-                
-                Label lblServiceName =(item.FindControl("lblServiceName") as Label);
+
+                Label lblServiceName = (item.FindControl("lblServiceName") as Label);
                 lblServiceDescription.Text = "Description of " + lblServiceName.Text;
-                
+
             }
             catch (Exception msgException)
             {
@@ -229,7 +232,7 @@ namespace ERPWebApplication
 
                     lblSelectedSerciceID.Text = _objServiceManagement.DtServices.Rows[0].ItemArray[0].ToString();
                     ControlDetailsVisiability();
-                    lblServiceDescription.Text = "Description of " + _objServiceManagement.DtServices.Rows[0].ItemArray[1].ToString(); 
+                    lblServiceDescription.Text = "Description of " + _objServiceManagement.DtServices.Rows[0].ItemArray[1].ToString();
                 }
 
             }
@@ -263,7 +266,7 @@ namespace ERPWebApplication
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }
@@ -296,7 +299,7 @@ namespace ERPWebApplication
                         }
                     }
 
-                    
+
                 }
             }
             catch (Exception msgException)
@@ -397,11 +400,27 @@ namespace ERPWebApplication
             try
             {
                 ControlPanelVisibility(PanelCreateAccount, PanelUserAccount, PanelUserLogin);
+                LoadEmployeeTitle();
             }
             catch (Exception msgException)
             {
 
                 clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        private void LoadEmployeeTitle()
+        {
+            try
+            {
+                EmployeeSetupController _objEmployeeSetupController = new EmployeeSetupController();
+                _objEmployeeSetupController.GetEmployeeTitle(ddlUserTitle);
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
             }
         }
 
@@ -468,7 +487,7 @@ namespace ERPWebApplication
                 AddValuesTakeService();
                 ControlPlaceOrderVisibility();
                 ControlAddedStatusVisiability();
-                
+
             }
             catch (Exception msgException)
             {
@@ -482,24 +501,24 @@ namespace ERPWebApplication
             try
             {
                 _objServiceManagement = new ServiceManagement();
-                _objServiceManagement.ServiceID = Convert.ToInt32( lblSelectedSerciceID.Text);
+                _objServiceManagement.ServiceID = Convert.ToInt32(lblSelectedSerciceID.Text);
 
                 _objServiceManagementController = new ServiceManagementController();
                 _objServiceManagement.DtServiceDescription = _objServiceManagementController.GetServiceDetails(_objServiceManagement);
-               
+
                 //CheckValidation(nameOfDegree);
                 foreach (DataRow dr in _objServiceManagement.DtServiceDescription.Rows)
                 {
                     var serviceNameTemp = dr["ServiceName"].ToString();
                     var serviceIDTemp = Convert.ToInt32(dr["ServiceID"].ToString());
-                    byte[] serviceLogoTemp = (byte[])dr.ItemArray[2]; 
+                    byte[] serviceLogoTemp = (byte[])dr.ItemArray[2];
                     var serviceValueTemp = Convert.ToDouble(dr["ServiceValue"].ToString());
                     _objServiceManagement.ServiceName = serviceNameTemp;
                     CheckValidation(_objServiceManagement);
-                    this.BindSelectedServicesGrid(serviceLogoTemp,serviceNameTemp,serviceValueTemp,serviceIDTemp);
-                    
+                    this.BindSelectedServicesGrid(serviceLogoTemp, serviceNameTemp, serviceValueTemp, serviceIDTemp);
+
                 }
-                
+
             }
             catch (Exception msgException)
             {
@@ -521,11 +540,11 @@ namespace ERPWebApplication
                         throw new Exception(objServiceManagement.ServiceName + " service already exists !");
                     }
                 }
-                
+
             }
             catch (Exception msgException)
             {
-                
+
                 throw msgException;
             }
         }
@@ -537,7 +556,7 @@ namespace ERPWebApplication
             dt.Columns.Add(new DataColumn("colServiceLogo", typeof(byte[])));
             dt.Columns.Add(new DataColumn("colServiceName", typeof(String)));
             dt.Columns.Add(new DataColumn("colServiceValue", typeof(double)));
-            
+
 
             if (ViewState["SelectedServices"] != null)
             {
@@ -551,11 +570,11 @@ namespace ERPWebApplication
                     dr[0] = dt.Rows[0][0].ToString();
                 }
                 dr = dt.NewRow();
-                dr[0] = serviceID ;
+                dr[0] = serviceID;
                 dr[1] = serviceLogo;
                 dr[2] = serviceName;
                 dr[3] = serviceValue;
-               
+
                 dt.Rows.Add(dr);
             }
             else
@@ -594,7 +613,7 @@ namespace ERPWebApplication
 
         protected void grdSelectedServices_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            
+
         }
 
         protected void grdSelectedServices_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -642,14 +661,49 @@ namespace ERPWebApplication
                 _objPackageSetup = new PackageSetup();
                 _objPackageSetup.PackageName = Session["moduleName"].ToString();
                 this.LoadPackages(_objPackageSetup);
-                
+
             }
             catch (Exception msgException)
             {
 
                 throw msgException;
             }
-            
+
+        }
+
+        protected void btnSubmitRequest_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AddValuesUserProfileOnline();
+                clsTopMostMessageBox.Show(clsMessages.GProcessSuccess);
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+
+        private void AddValuesUserProfileOnline()
+        {
+            try
+            {
+                _objUserProfileOnline = new UserProfileOnline();
+                _objCompanyDetailsSetup = new CompanyDetailsSetup();
+                _objCompanyDetailsSetup.CompanyName = txtCompanyName.Text == string.Empty ? null : txtCompanyName.Text;
+                _objCompanyDetailsSetup.CompanyEmail = txtCompanyEmail.Text == string.Empty ? null : txtCompanyEmail.Text;
+                _objUserProfileOnline.Title = ddlUserTitle.SelectedValue == "-1" ? null : ddlUserTitle.SelectedValue;
+                _objUserProfileOnline.FullName = txtUserName.Text == string.Empty ? null : txtUserName.Text;
+                _objUserProfileOnline.Email = txtUserEmail.Text == string.Empty ? null : txtUserEmail.Text;
+                _objUserProfileOnlineController = new UserProfileOnlineController();
+                _objUserProfileOnlineController.SaveUserProfileOnline(_objUserProfileOnline, _objCompanyDetailsSetup);
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
         }
 
 

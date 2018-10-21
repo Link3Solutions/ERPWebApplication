@@ -1220,6 +1220,7 @@
     <Compile Include="AppClass\DataAccess\UserListController.cs" />
     <Compile Include="AppClass\DataAccess\UserPermissionController.cs" />
     <Compile Include="AppClass\DataAccess\UserProfileController.cs" />
+    <Compile Include="AppClass\DataAccess\UserProfileOnlineController.cs" />
     <Compile Include="AppClass\DataAccess\UserSecurityCodeController.cs" />
     <Compile Include="AppClass\DataAccess\VehicleInformationController.cs" />
     <Compile Include="AppClass\DataAccess\YearSetupController.cs" />
@@ -1274,6 +1275,7 @@
     <Compile Include="AppClass\Model\UserList.cs" />
     <Compile Include="AppClass\Model\UserPermission.cs" />
     <Compile Include="AppClass\Model\UserProfile.cs" />
+    <Compile Include="AppClass\Model\UserProfileOnline.cs" />
     <Compile Include="AppClass\Model\UserSecurityCode.cs" />
     <Compile Include="AppClass\Model\YearSetup.cs" />
     <Compile Include="AppClass\Process\Process.cs" />

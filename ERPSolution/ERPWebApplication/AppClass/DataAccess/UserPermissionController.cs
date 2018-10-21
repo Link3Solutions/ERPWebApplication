@@ -71,7 +71,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                 TreeViewAllNode.ExpandAll();
                 var sqlString = @"SELECT 111 as NodeTypeID,'Node List' as ActivityName,childnodecount = 
                                     (SELECT Count(*) FROM UDefaultNodeList  
-                                    WHERE PNodeTypeID = 111)";
+                                    WHERE PNodeTypeID = 111 AND CompanyID = " + LoginUserInformation.CompanyID + ")";
                 var dt = clsDataManipulation.GetData(this.ConnectionString, sqlString);
                 PopulateNodes(dt, TreeViewAllNode.Nodes);
 
@@ -100,11 +100,11 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
         }
-        public void PopulateSubLevel(int parentid, TreeNode parentNode)
+        public void PopulateSubLevel(int parentid, TreeNode parentNode, int companyID)
         {
             try
             {
-                var sqlString = @"select NodeTypeID,ActivityName,(select count(*) FROM UDefaultNodeList WHERE PNodeTypeID=e.NodeTypeID) childnodecount FROM UDefaultNodeList e where PNodeTypeID= " + parentid + "";
+                var sqlString = @"select NodeTypeID,ActivityName,(select count(*) FROM UDefaultNodeList WHERE PNodeTypeID=e.NodeTypeID AND CompanyID = " + companyID + ") childnodecount FROM UDefaultNodeList e where CompanyID = " + companyID + " AND PNodeTypeID= " + parentid + "";
                 var dt = clsDataManipulation.GetData(this.ConnectionString, sqlString);
                 PopulateNodes(dt, parentNode.ChildNodes);
                 parentNode.CollapseAll();
@@ -683,7 +683,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                 {
                     grdFormDashboard.DataSource = dtEntityDetails;
                     grdFormDashboard.DataBind();
-                    
+
                 }
             }
             catch (Exception msgException)
