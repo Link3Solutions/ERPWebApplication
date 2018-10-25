@@ -171,6 +171,22 @@ public class clsDataManipulation
             throw msgException;
         }
     }
+    public string GetAnUniqueidentifierSecurityCode(string connectionString)
+    {
+        try
+        {
+            string uniqueidentifierNumber = null;
+            string sqlString = @"SELECT RIGHT(CAST(RAND(CHECKSUM(NEWID())) AS DECIMAL(15, 15)), 5) AS SecurityCode";
+            uniqueidentifierNumber = this.GetSingleValueAsString(connectionString, sqlString);
+
+            return uniqueidentifierNumber;
+        }
+        catch (Exception msgException)
+        {
+
+            throw msgException;
+        }
+    }
 
     public static bool DuplicateDataCheckfunction(string ConnectionString, string SQLStatementpar)
     {

@@ -50,7 +50,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                                                  objCompanyDetailsSetup.CompanyMobile + "', '" +
                                                  objCompanyDetailsSetup.CompanyEmail + "', '" +
                                                  "A" + "', '" +
-                                                 "160ea939-7633-46a8-ae49-f661d12abfd5" + "'," +
+                                                 objCompanyDetailsSetup.EntryUserName + "'," +
                                                  "CAST(GETDATE() AS DateTime));";
                 clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
                 if (objCompanyDetailsSetup.CompanyLogo != null)
@@ -99,6 +99,22 @@ namespace ERPWebApplication.AppClass.DataAccess
             {
                 int companyID = 0;
                 var storedProcedureComandText = "SELECT ISNULL( MAX( [CompanyID]),0) +1  FROM [comCompanySetup]";
+                companyID = clsDataManipulation.GetMaximumValueUsingSQL(this.ConnectionString, storedProcedureComandText);
+                return companyID;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+        public int GetCompanyID(UserProfile objUserProfile)
+        {
+            try
+            {
+                int companyID = 0;
+                var storedProcedureComandText = "SELECT A.[CompanyID]  FROM [comCompanySetup] A WHERE A.DataUsed='A' AND A.EntryUserID = '" + objUserProfile.UserProfileID + "'";
                 companyID = clsDataManipulation.GetMaximumValueUsingSQL(this.ConnectionString, storedProcedureComandText);
                 return companyID;
 

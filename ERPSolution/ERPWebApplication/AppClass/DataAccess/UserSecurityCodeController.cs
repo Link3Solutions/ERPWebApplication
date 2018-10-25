@@ -70,6 +70,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
         }
+        
 
         private void SendSecurityCodeByMail(CompanySetup objCompanySetup, UserSecurityCode objUserSecurityCode, UserProfile objUserProfile)
         {
@@ -117,9 +118,12 @@ namespace ERPWebApplication.AppClass.DataAccess
         {
             try
             {
+                clsDataManipulation objclsDataManipulation = new clsDataManipulation();
+                objUserSecurityCode.SecurityCode = Convert.ToInt32( objclsDataManipulation.GetAnUniqueidentifierSecurityCode(this.ConnectionString));
                 var storedProcedureComandText = "exec [spInitiateSecurityCode] " +
                                          "'" + objUserSecurityCode.UserKnownID + "','" +
-                                        objCompanySetup.EntryUserName + "'";
+                                        objCompanySetup.EntryUserName + "',"+
+                                        objUserSecurityCode.SecurityCode + "" ;
                 clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
             }
             catch (Exception msgException)

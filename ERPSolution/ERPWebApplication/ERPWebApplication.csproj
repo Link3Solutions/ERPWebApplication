@@ -1195,6 +1195,7 @@
     <Compile Include="AppClass\DataAccess\MatItemTransactionWithAllController.cs" />
     <Compile Include="AppClass\DataAccess\matMaterialTransactionDetailsController.cs" />
     <Compile Include="AppClass\DataAccess\NodeListController.cs" />
+    <Compile Include="AppClass\DataAccess\OnlineRegisterController.cs" />
     <Compile Include="AppClass\DataAccess\OrganizationalChartSetupController.cs" />
     <Compile Include="AppClass\DataAccess\PackageSetupController.cs" />
     <Compile Include="AppClass\DataAccess\PeopleEntryController.cs" />

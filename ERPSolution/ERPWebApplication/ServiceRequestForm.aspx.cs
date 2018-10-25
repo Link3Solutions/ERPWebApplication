@@ -506,7 +506,7 @@ namespace ERPWebApplication
                 _objServiceManagementController = new ServiceManagementController();
                 _objServiceManagement.DtServiceDescription = _objServiceManagementController.GetServiceDetails(_objServiceManagement);
 
-                //CheckValidation(nameOfDegree);
+                
                 foreach (DataRow dr in _objServiceManagement.DtServiceDescription.Rows)
                 {
                     var serviceNameTemp = dr["ServiceName"].ToString();
@@ -695,7 +695,8 @@ namespace ERPWebApplication
                 _objCompanyDetailsSetup.CompanyEmail = txtCompanyEmail.Text == string.Empty ? null : txtCompanyEmail.Text;
                 _objUserProfileOnline.Title = ddlUserTitle.SelectedValue == "-1" ? null : ddlUserTitle.SelectedValue;
                 _objUserProfileOnline.FullName = txtUserName.Text == string.Empty ? null : txtUserName.Text;
-                _objUserProfileOnline.Email = txtUserEmail.Text == string.Empty ? null : txtUserEmail.Text;
+                _objUserProfileOnline.Email = txtUserEmail.Text == string.Empty ? null : txtUserEmail.Text;                
+                _objUserProfileOnline.DtSelectedService = (DataTable)ViewState["SelectedServices"];
                 _objUserProfileOnlineController = new UserProfileOnlineController();
                 _objUserProfileOnlineController.SaveUserProfileOnline(_objUserProfileOnline, _objCompanyDetailsSetup);
             }

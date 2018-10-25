@@ -120,6 +120,7 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 _objCompanyDetailsSetup.CompanyEmail = txtEmail.Text == string.Empty ? null : txtEmail.Text;
                 _objCompanyDetailsSetup.CompanyMobile = txtMobile.Text == string.Empty ? null : txtMobile.Text;
                 _objCompanyDetailsSetup.CompanyLogo = (byte[])ViewState["profileImage"];
+                _objCompanyDetailsSetup.EntryUserName = LoginUserInformation.UserID;
                 _objCompanySetupController = new CompanySetupController();
                 if (btnSave.Text == "Update")
                 {

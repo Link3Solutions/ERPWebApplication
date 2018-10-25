@@ -394,7 +394,7 @@
                                                     <td>
                                                         &nbsp;</td>
                                                     <td colspan="4">
-                                                        <asp:Button ID="btnSubmitRequest" runat="server" CssClass="CssBtnRegister" Text="Submit Request" Width="150px" />
+                                                        <asp:Button ID="btnSubmitRequest" runat="server" CssClass="CssBtnRegister" Text="Submit Request" Width="150px" OnClick="btnSubmitRequest_Click" />
                                                         <asp:Label ID="Label15" runat="server" Text="You will receive security code in your email address"></asp:Label>
                                                     </td>
                                                 </tr>

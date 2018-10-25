@@ -12,7 +12,7 @@ namespace ERPWebApplicationUnitTest
         public void TestAdd()
         {
             _objCalculatorController = new CalculatorController();
-            Assert.AreEqual(31, _objCalculatorController.Add(15, 17));
+            Assert.AreEqual(32, _objCalculatorController.Add(15, 17));
         }
     }
 }

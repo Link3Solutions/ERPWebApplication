@@ -377,6 +377,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
             try
             {
                 _objCompanyDetailsSetup = new CompanyDetailsSetup();
+                _objCompanyDetailsSetup.EntryUserName = LoginUserInformation.UserID;
                 _objCompanyDetailsSetup.CountryID = Convert.ToInt32(ddlCountry.SelectedValue);
                 _objCompanyDetailsSetup.CompanyName = txtCompanyName.Text == string.Empty ? null : txtCompanyName.Text;
                 _objCompanyDetailsSetup.CompanyEmail = txtEmail.Text == string.Empty ? null : txtEmail.Text;

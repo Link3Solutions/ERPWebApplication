@@ -16,7 +16,7 @@ namespace ERPWebApplicationTest
         public void AddMethodTest()
         {
             _objCalculatorController = new CalculatorController();
-            Assert.AreEqual(32, _objCalculatorController.Add(19, 17));
+            Assert.AreEqual(37, _objCalculatorController.Add(19, 17));
         }
 
 

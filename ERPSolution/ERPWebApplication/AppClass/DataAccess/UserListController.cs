@@ -90,7 +90,7 @@ namespace ERPWebApplication.AppClass.DataAccess
             }
         }
 
-        private string CheckSecurityCode(UserList objUserList)
+        public string CheckSecurityCode(UserList objUserList)
         {
             try
             {

@@ -29,7 +29,6 @@ namespace ERPWebApplication
             {
                 AddValuesForRegistration();
                 ClearControl();
-                //Response.Redirect("~/Default.aspx");
                 clsTopMostMessageBox.Show(clsMessages.GProcessSuccess);
 
             }
@@ -70,16 +69,8 @@ namespace ERPWebApplication
                 _objUserList.SecurityCode = txtSecurityCode.Text == string.Empty ? null : txtSecurityCode.Text;
                 _objUserList.UserEmail = txtEmail.Text == string.Empty ? null : txtEmail.Text;
                 _objUserListController = new UserListController();
-                _objUserListController.Update(_objUserList);
-                //DataTable dtUserInformation = new DataTable();
-                //dtUserInformation = _objUserListController.GetLoginUserInformation(_objUserList);
-                //foreach (DataRow rowNo in dtUserInformation.Rows)
-                //{
-                //    LoginUserInformation.CompanyID = Convert.ToInt32(rowNo["CompanyID"].ToString());
-                //    LoginUserInformation.UserID = rowNo["UserProfileID"].ToString();
-                //    LoginUserInformation.EmployeeCode = rowNo["EmployeeID"].ToString();
-                //    LoginUserInformation.EmployeeFullName = rowNo["FullName"].ToString();
-                //}
+                OnlineRegisterController objOnlineRegisterController = new OnlineRegisterController();
+                objOnlineRegisterController.Update(_objUserList);
             }
             catch (Exception msgException)
             {
