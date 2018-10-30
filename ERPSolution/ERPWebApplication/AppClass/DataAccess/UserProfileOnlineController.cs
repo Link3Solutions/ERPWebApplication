@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using ERPWebApplication.AppClass.Model;
+using ERPWebApplication.AppClass.CommonClass;
 
 namespace ERPWebApplication.AppClass.DataAccess
 {
@@ -13,8 +14,14 @@ namespace ERPWebApplication.AppClass.DataAccess
         {
             try
             {
-                clsDataManipulation objclsDataManipulation = new clsDataManipulation();
-                objUserProfileOnline.UserProfileID = objclsDataManipulation.GetAnUniqueidentifierNumber(this.ConnectionString);
+                bool checkUserEmail = true;
+                checkUserEmail = CountUserEmail(objUserProfileOnline);
+                if (checkUserEmail == false)
+                {
+                    throw new Exception(clsMessages.GExist);
+
+                }
+
                 var storedProcedureComandText = @"INSERT INTO [uUserProfileTemp]
                ([UserProfileID]
                ,[CompanyName]
@@ -39,8 +46,23 @@ namespace ERPWebApplication.AppClass.DataAccess
                 storedProcedureComandText += SqlSaveOnlineServiceRequestDetails(objUserProfileOnline);
                 storedProcedureComandText += SqlSaveOnlineServiceRequestNodes(objUserProfileOnline);
                 clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
+            }
+            catch (Exception msgException)
+            {
 
-                SendSecurityCodeOnline(objUserProfileOnline);
+                throw msgException;
+            }
+        }
+        internal void SaveUserAnotherServices(UserProfileOnline objUserProfileOnline)
+        {
+            try
+            {
+                var storedProcedureComandText = @"";
+                objUserProfileOnline.ServiceRequestID = this.GetServiceRequestID();
+                storedProcedureComandText += SqlSaveOnlineServiceRequest(objUserProfileOnline);
+                storedProcedureComandText += SqlSaveOnlineServiceRequestDetails(objUserProfileOnline);
+                storedProcedureComandText += SqlSaveOnlineAnotherServiceRequestNodes(objUserProfileOnline);
+                clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
             }
             catch (Exception msgException)
             {
@@ -49,7 +71,34 @@ namespace ERPWebApplication.AppClass.DataAccess
             }
         }
 
-        private static void SendSecurityCodeOnline(UserProfileOnline objUserProfileOnline)
+        private bool CountUserEmail(UserProfileOnline objUserProfileOnline)
+        {
+            try
+            {
+                bool emailCount = true;
+                string sql = @"SELECT COUNT(A.UserProfileID) AS UserProfileID FROM uUserProfileTemp A WHERE A.DataUsed='A' AND A.UserEmail = '" + objUserProfileOnline.Email + "'";
+                clsDataManipulation objclsDataManipulation = new clsDataManipulation();
+                if (objclsDataManipulation.GetSingleValue(this.ConnectionString, sql) != 0)
+                {
+                    emailCount = false;
+                }
+
+                return emailCount;
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        public string CreateUserProfileIDOnline()
+        {
+            clsDataManipulation objclsDataManipulation = new clsDataManipulation();
+            return objclsDataManipulation.GetAnUniqueidentifierNumber(this.ConnectionString);
+        }
+
+        public void SendSecurityCodeOnline(UserProfileOnline objUserProfileOnline)
         {
             try
             {
@@ -83,7 +132,32 @@ namespace ERPWebApplication.AppClass.DataAccess
                 objServiceServe.ServiceList = objServiceServe.ServiceList.TrimEnd(',');
                 var storedProcedureComandTextNodes = @"INSERT INTO [OnlineServiceRequestNodes] ([FeatureDetailsID],[ActivityID],[ActivityName],[SeqNo],[NodeTypeID],[PNodeTypeID],[FormDescription],[FormName]
                ,[ShowPosition],[DataUsed],[EntryDate])
-		       SELECT DISTINCT " + objUserProfileOnline.ServiceRequestID + " AS FeatureDetailsID,A.NodeTypeID,C.ActivityName,C.SeqNo,C.NodeTypeID,C.PNodeTypeID,C.FormDescription,C.FormName,C.ShowPosition,C.DataUsed,CAST(GETDATE() AS DateTime) AS EntryDate " +
+		       SELECT DISTINCT " + objUserProfileOnline.ServiceRequestID + " AS FeatureDetailsID,C.ActivityID,C.ActivityName,C.SeqNo,C.NodeTypeID,C.PNodeTypeID,C.FormDescription,C.FormName,C.ShowPosition,C.DataUsed,CAST(GETDATE() AS DateTime) AS EntryDate " +
+               " FROM sysServiceDetails A INNER JOIN sysServiceHeader B ON A.ServiceInformatioID = B.ServiceInformatioID " +
+               " INNER JOIN sysProductOwnerNodeList C ON A.NodeTypeID = C.NodeTypeID WHERE A.DataUsed = 'A' AND B.DataUsed = 'A' AND C.DataUsed='A' " +
+               " AND B.ServiceID IN (" + objServiceServe.ServiceList + ") ORDER BY A.NodeTypeID";
+                return storedProcedureComandTextNodes;
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+        private string SqlSaveOnlineAnotherServiceRequestNodes(UserProfileOnline objUserProfileOnline)
+        {
+            try
+            {
+                ServiceServe objServiceServe = new ServiceServe();
+                foreach (DataRow rowNo in objUserProfileOnline.DtSelectedService.Rows)
+                {
+                    objServiceServe.ServiceList += rowNo["colServiceID"].ToString() + ",";
+                }
+
+                objServiceServe.ServiceList = objServiceServe.ServiceList.TrimEnd(',');
+                var storedProcedureComandTextNodes = @"INSERT INTO [OnlineServiceRequestNodes] ([FeatureDetailsID],[ActivityID],[ActivityName],[SeqNo],[NodeTypeID],[PNodeTypeID],[FormDescription],[FormName]
+               ,[ShowPosition],[DataUsed],[EntryDate])
+		       SELECT DISTINCT " + objUserProfileOnline.ServiceRequestID + " AS FeatureDetailsID,C.ActivityID,C.ActivityName,C.SeqNo,C.NodeTypeID,C.PNodeTypeID,C.FormDescription,C.FormName,C.ShowPosition,C.DataUsed,CAST(GETDATE() AS DateTime) AS EntryDate " +
                " FROM sysServiceDetails A INNER JOIN sysServiceHeader B ON A.ServiceInformatioID = B.ServiceInformatioID " +
                " INNER JOIN sysProductOwnerNodeList C ON A.NodeTypeID = C.NodeTypeID WHERE A.DataUsed = 'A' AND B.DataUsed = 'A' AND C.DataUsed='A' " +
                " AND B.ServiceID IN (" + objServiceServe.ServiceList + ") ORDER BY A.NodeTypeID";

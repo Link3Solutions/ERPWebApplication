@@ -51,6 +51,7 @@
             padding-top: 5px;
             padding-bottom: 5px;
         }
+        
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>

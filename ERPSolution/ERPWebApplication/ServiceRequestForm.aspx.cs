@@ -23,6 +23,10 @@ namespace ERPWebApplication
         private UserProfileOnline _objUserProfileOnline;
         private UserProfileOnlineController _objUserProfileOnlineController;
         private CompanyDetailsSetup _objCompanyDetailsSetup;
+        private CompanySetupController _objCompanySetupController;
+        private UserList _objUserList;
+        private UserListController _objUserListController;
+        private CompanySetup _objCompanySetup;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -445,11 +449,33 @@ namespace ERPWebApplication
             try
             {
                 ControlPanelVisibility(PanelUserLogin, PanelCreateAccount, PanelUserAccount);
+                LoadCompanyDDL();
+                lblCompanyText.Visible = false;
+                ddlCompany.Visible = false;
+                lblLoginPassword.Visible = false;
+                txtLoginPassword.Visible = false;
+                btnLogin.Visible = false;
+                RememberMe.Visible = false;
+                lblRememberMe.Visible = false;
             }
             catch (Exception msgException)
             {
 
                 clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+        private void LoadCompanyDDL()
+        {
+            try
+            {
+                _objCompanySetupController = new CompanySetupController();
+                _objCompanySetupController.LoadCompany(ddlCompany);
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
             }
         }
 
@@ -506,7 +532,7 @@ namespace ERPWebApplication
                 _objServiceManagementController = new ServiceManagementController();
                 _objServiceManagement.DtServiceDescription = _objServiceManagementController.GetServiceDetails(_objServiceManagement);
 
-                
+
                 foreach (DataRow dr in _objServiceManagement.DtServiceDescription.Rows)
                 {
                     var serviceNameTemp = dr["ServiceName"].ToString();
@@ -675,8 +701,13 @@ namespace ERPWebApplication
         {
             try
             {
-                AddValuesUserProfileOnline();
+                _objUserProfileOnline = new UserProfileOnline();
+                _objUserProfileOnlineController = new UserProfileOnlineController();
+                _objUserProfileOnline.EntryUserName = _objUserProfileOnlineController.CreateUserProfileIDOnline();
+                AddValuesUserProfileOnline(_objUserProfileOnline.EntryUserName);
                 clsTopMostMessageBox.Show(clsMessages.GProcessSuccess);
+                _objUserProfileOnline.Email = txtUserEmail.Text == string.Empty ? null : txtUserEmail.Text;
+                _objUserProfileOnlineController.SendSecurityCodeOnline(_objUserProfileOnline);
             }
             catch (Exception msgException)
             {
@@ -685,7 +716,7 @@ namespace ERPWebApplication
             }
         }
 
-        private void AddValuesUserProfileOnline()
+        private void AddValuesUserProfileOnline(string userProfileID)
         {
             try
             {
@@ -695,10 +726,147 @@ namespace ERPWebApplication
                 _objCompanyDetailsSetup.CompanyEmail = txtCompanyEmail.Text == string.Empty ? null : txtCompanyEmail.Text;
                 _objUserProfileOnline.Title = ddlUserTitle.SelectedValue == "-1" ? null : ddlUserTitle.SelectedValue;
                 _objUserProfileOnline.FullName = txtUserName.Text == string.Empty ? null : txtUserName.Text;
-                _objUserProfileOnline.Email = txtUserEmail.Text == string.Empty ? null : txtUserEmail.Text;                
+                _objUserProfileOnline.Email = txtUserEmail.Text == string.Empty ? null : txtUserEmail.Text;
                 _objUserProfileOnline.DtSelectedService = (DataTable)ViewState["SelectedServices"];
+                _objUserProfileOnline.UserProfileID = userProfileID;
                 _objUserProfileOnlineController = new UserProfileOnlineController();
                 _objUserProfileOnlineController.SaveUserProfileOnline(_objUserProfileOnline, _objCompanyDetailsSetup);
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        protected void lnkbtnCompany_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LoadAssignCompanyDDL();
+
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+
+            }
+        }
+        private void LoadAssignCompanyDDL()
+        {
+            try
+            {
+                _objUserList = new UserList();
+                _objUserList.UserName = txtLoginUserName.Text == string.Empty ? null : txtLoginUserName.Text;
+                _objUserListController = new UserListController();
+                DataTable dtAssignCompany = _objUserListController.GetAssignCompanyUpdate(_objUserList);
+                _objUserListController.LoadCompanyDDL(dtAssignCompany, ddlCompany);
+                if (dtAssignCompany.Rows.Count > 0)
+                {
+                    lblCompanyText.Visible = true;
+                    ddlCompany.Visible = true;
+                    lblLoginPassword.Visible = true;
+                    txtLoginPassword.Visible = true;
+                    btnLogin.Visible = true;
+                    RememberMe.Visible = true;
+                    lblRememberMe.Visible = true;
+                }
+                else
+                {
+                    lblCompanyText.Visible = false;
+                    ddlCompany.Visible = false;
+                    lblLoginPassword.Visible = false;
+                    txtLoginPassword.Visible = false;
+                    btnLogin.Visible = false;
+                    RememberMe.Visible = false;
+                    lblRememberMe.Visible = false;
+                    _objUserListController.CheckUser(_objUserList);
+
+                }
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                switch (CheckUserValidation())
+                {
+                    case 1:
+                        {
+                            Response.Redirect("~/Default.aspx");
+                            break;
+                        }
+                    case 2:
+                        {
+                            Response.Redirect("~/Default.aspx");
+                            break;
+                        }
+                    default:
+                        clsTopMostMessageBox.Show(clsMessages.GLoginFail);
+                        break;
+                }
+            }
+            catch (Exception msgException)
+            {
+
+                clsTopMostMessageBox.Show(msgException.Message);
+            }
+        }
+        private int CheckUserValidation()
+        {
+            try
+            {
+                _objUserList = new UserList();
+                _objUserList.UserName = txtLoginUserName.Text == string.Empty ? null : txtLoginUserName.Text;
+                _objUserList.UserPassword = txtLoginPassword.Text == string.Empty ? null : txtLoginPassword.Text;
+                DataTable dtUserInformation = new DataTable();
+                _objUserListController = new UserListController();
+                _objCompanySetup = new CompanySetup();
+                _objCompanySetup.CompanyID = Convert.ToInt32(ddlCompany.SelectedValue);
+                dtUserInformation = _objUserListController.GetLoginUserProfile(_objUserList, _objCompanySetup);
+                foreach (DataRow rowNo in dtUserInformation.Rows)
+                {
+                    LoginUserInformation.CompanyID = _objCompanySetup.CompanyID;
+                    LoginUserInformation.UserID = rowNo["UserProfileID"].ToString();
+                    LoginUserInformation.EmployeeCode = null;
+                    LoginUserInformation.EmployeeFullName = rowNo["FullName"].ToString();
+                    LoginUserInformation.UserName = _objUserList.UserName;
+                    LoginUserInformation.BranchID = 0;
+
+                    AddValuesUserAnotherServices(rowNo["UserProfileID"].ToString());
+                   
+                    OnlineRegisterController _objOnlineRegisterController = new OnlineRegisterController();
+                    _objUserList.UserID = rowNo["UserProfileID"].ToString();
+                    _objOnlineRegisterController.GetReadyForAnotherServices(_objUserList, _objCompanySetup);
+                    return _objUserList.UserType = 2;
+                }
+
+                return _objUserList.UserType;
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        private void AddValuesUserAnotherServices(string userProfileID)
+        {
+            try
+            {
+                _objUserProfileOnline = new UserProfileOnline();
+                _objUserProfileOnline.DtSelectedService = (DataTable)ViewState["SelectedServices"];
+                _objUserProfileOnline.UserProfileID = userProfileID;
+                _objUserProfileOnlineController = new UserProfileOnlineController();
+                _objUserProfileOnlineController.SaveUserAnotherServices(_objUserProfileOnline);
             }
             catch (Exception msgException)
             {

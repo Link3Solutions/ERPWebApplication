@@ -190,8 +190,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
         }
-
-        private int GetRoleID()
+        public int GetRoleID()
         {
             try
             {

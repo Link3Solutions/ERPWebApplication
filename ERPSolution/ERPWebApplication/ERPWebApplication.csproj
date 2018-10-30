@@ -1011,6 +1011,9 @@
     <Content Include="Images\header.png" />
     <Content Include="Images\IMAGE1.bmp" />
     <Content Include="Images\imageup.jpg" />
+    <Content Include="Images\logoFormHeader.jpg" />
+    <Content Include="Images\logoFormHeader.png" />
+    <Content Include="Images\logoFormHeader2.jpg" />
     <Content Include="Images\next.png" />
     <Content Include="Images\page_white_copy.png" />
     <Content Include="Images\page_white_delete.png" />

@@ -428,7 +428,7 @@
                                                                 <ol style="list-style-type: none">
                                                                     <li>
                                                                         <asp:Label ID="Label18" runat="server" AssociatedControlID="txtLoginUserName" CssClass="labelView">User name</asp:Label>
-                                                                        <asp:TextBox runat="server" Height="18px" ID="txtLoginUserName" />&nbsp;<asp:LinkButton ID="lnkbtnCompany" runat="server"  Font-Underline="false" CssClass="nextHover" Height="15px" Width="85px">Next</asp:LinkButton>
+                                                                        <asp:TextBox runat="server" Height="18px" ID="txtLoginUserName" />&nbsp;<asp:LinkButton ID="lnkbtnCompany" runat="server"  Font-Underline="false" CssClass="nextHover" Height="15px" Width="85px" OnClick="lnkbtnCompany_Click">Next</asp:LinkButton>
                                                                     </li>
                                                                     <li style="padding-left: 170px"></li>
                                                                     <li></li>
@@ -448,7 +448,7 @@
                                                         <tr>
                                                             <td style="padding-left: 40px">
                                                                 <asp:CheckBox ID="RememberMe" runat="server" />
-                                                                <asp:Label ID="lblRememberMe" runat="server" AssociatedControlID="RememberMe" Width="110px" CssClass="checkbox">Remember me?</asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnLogin" runat="server" CssClass="CssBtnLogin"  Text="Log in" Width="100px" />
+                                                                <asp:Label ID="lblRememberMe" runat="server" AssociatedControlID="RememberMe" Width="110px" CssClass="checkbox">Remember me?</asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnLogin" runat="server" CssClass="CssBtnLogin"  Text="Log in" Width="100px" OnClick="btnLogin_Click" />
                                                             </td>
                                                             <td>&nbsp;</td>
                                                             <td>&nbsp;</td>

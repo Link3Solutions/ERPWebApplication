@@ -8,56 +8,11 @@
                         <tr>
                             <td>
                                 <asp:Panel ID="PanelHomePart" runat="server">
-                                    <div id="div5" >
-                                        <section class="featured" >
-                                            <div class="content-wrapperBody" style="min-height: 400px;">
-                                                <asp:Panel ID="Panel8" runat="server" Width="100%">
-                                                <table style="width: 100%;">
-                                                    <tr>
-                                                        <td>
-                                                            <asp:Panel ID="Panel5" runat="server" Width="200px"></asp:Panel>
-                                                        </td>
-                                                        <td>
-                                                            <asp:Panel ID="Panel6" runat="server" Width="600px">
-                                                                <table style="width: 100%;">
-                                                                    <tr>
-                                                                        <td>&nbsp;</td>
-                                                                        <td>&nbsp;</td>
-                                                                        <td>&nbsp;</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            
-                                                                        </td>
-                                                                        <td>&nbsp;</td>
-                                                                        <td>&nbsp;</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>&nbsp;</td>
-                                                                        <td>&nbsp;</td>
-                                                                        <td>&nbsp;</td>
-                                                                    </tr>
-                                                                </table>
-                                                            </asp:Panel>
-                                                        </td>
-                                                        <td>
-                                                            <asp:Panel ID="Panel7" runat="server" Width="100%"></asp:Panel>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>&nbsp;</td>
-                                                        <td>&nbsp;</td>
-                                                        <td>&nbsp;</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>&nbsp;</td>
-                                                        <td>&nbsp;</td>
-                                                        <td>&nbsp;</td>
-                                                    </tr>
-                                                </table>
-                                                    </asp:Panel>
-                                            </div>
-                                        </section>
+                                    <div id="div5"  
+                                        style="min-height: 400px;margin-left:50px;margin-right:50px;background-image:url(Images/logoFormHeader.jpg);
+            background-repeat:no-repeat;
+            background-attachment:fixed;"  >
+                                        
                                     </div>
                                     <section class="featured">
                                         <div id="div7" class="content-wrapperBodyPart2" style="min-height: 400px;padding-top:30px;padding-bottom:30px">
@@ -213,6 +168,7 @@
                             <td>&nbsp;</td>
                         </tr>
                     </table>
+                
             </ContentTemplate>
         </asp:UpdatePanel>
     </asp:Content>
