@@ -56,6 +56,20 @@ namespace ERPWebApplication.AppClass.DataAccess
             }
         }
 
+        internal void SendSecurityCode(CompanySetup objCompanySetup, UserSecurityCode objUserSecurityCode, UserProfile objUserProfile, CompanyDetailsSetup objCompanyDetailsSetup)
+        {
+            try
+            {
+                Save(objCompanySetup, objUserSecurityCode);
+                SendSecurityCodeByMail(objCompanySetup, objUserSecurityCode, objUserProfile,objCompanyDetailsSetup);
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
         internal void SendSecurityCode(CompanySetup objCompanySetup, UserSecurityCode objUserSecurityCode, UserProfile objUserProfile)
         {
             try
@@ -70,8 +84,69 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
         }
-        
 
+
+        private void SendSecurityCodeByMail(CompanySetup objCompanySetup, UserSecurityCode objUserSecurityCode, UserProfile objUserProfile, CompanyDetailsSetup objCompanyDetailsSetup)
+        {
+            try
+            {
+                objUserSecurityCode.SecurityCode = GetSecurityCode(objUserSecurityCode);
+                if (objUserSecurityCode.SecurityCode != 0)
+                {
+                    MailServiceSetup objMailServiceSetup = new MailServiceSetup();
+                    //objMailServiceSetup.MailBody = "Your security code is: " + objUserSecurityCode.SecurityCode + "";
+                    objMailServiceSetup.MailBody = @"Dear Sir,
+
+                                                    Thank you for choosing our service. We are aware about privacy and security of our customer data. 
+                                                    Your security code is: " + objUserSecurityCode.SecurityCode + ""+
+
+                                                  @"Please go to < URL >, Click Register at the right top corner and enter the security code along with a unique user name, your desired password and email address.
+
+                                                    We wish you to experience an excellent journey in using our business solution.
+
+
+                                                    Thanking you,
+
+                                                    The Business Solution Team | Help Line: < Contact No > | < Email address >";
+                    objMailServiceSetup.EmailTo = objUserProfile.Email;
+                    objMailServiceSetup.MailtypeID = "1";
+                    ArrayList attachDocument = new ArrayList();
+                    objMailServiceSetup.AttachItem = attachDocument;
+                    MailServiceController objMailServiceController = new MailServiceController();
+                    objMailServiceController.eMailSendService(objCompanySetup, objMailServiceSetup);
+
+                    objMailServiceSetup.MailBody = @"
+                    Dear Sir,
+
+                    Thank you for choosing our service.
+
+                    < Mr. user name > has requested the below service on behalf of <Company Name>.
+
+            
+                    Service	Description	Number of users	Service Value	VAT Amount	Total	Payable
+                    Accounts	Manage your Accounts data.	03	280,000.00	14,000.00	294,000.00	Monthly
+                    Commercial	Manage your Commercial data.	03	280,000.00	14,000.00	294,000.00	Quarterly
+
+
+                    If you have any query regarding this request, please contact us.
+
+                    Thanking you,
+
+                    The Business Solution Team | Help Line: < Contact No > | < Email address >";
+                    objMailServiceSetup.EmailTo = objCompanyDetailsSetup.CompanyEmail;
+                    objMailServiceSetup.MailtypeID = "1";
+                    objMailServiceSetup.AttachItem = attachDocument;
+                    objMailServiceController.eMailSendService(objCompanySetup, objMailServiceSetup);
+
+                }
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
         private void SendSecurityCodeByMail(CompanySetup objCompanySetup, UserSecurityCode objUserSecurityCode, UserProfile objUserProfile)
         {
             try
@@ -80,14 +155,26 @@ namespace ERPWebApplication.AppClass.DataAccess
                 if (objUserSecurityCode.SecurityCode != 0)
                 {
                     MailServiceSetup objMailServiceSetup = new MailServiceSetup();
-                    objMailServiceSetup.MailBody = "Your security code is: " + objUserSecurityCode.SecurityCode + "";
+                    //objMailServiceSetup.MailBody = "Your security code is: " + objUserSecurityCode.SecurityCode + "";
+                    objMailServiceSetup.MailBody = @"Dear Sir,
+
+                                                    Thank you for choosing our service. We are aware about privacy and security of our customer data. 
+                                                    Your security code is: " + objUserSecurityCode.SecurityCode + "" +
+
+                                                  @"Please go to < URL >, Click Register at the right top corner and enter the security code along with a unique user name, your desired password and email address.
+
+                                                    We wish you to experience an excellent journey in using our business solution.
+
+
+                                                    Thanking you,
+
+                                                    The Business Solution Team | Help Line: < Contact No > | < Email address >";
                     objMailServiceSetup.EmailTo = objUserProfile.Email;
                     objMailServiceSetup.MailtypeID = "1";
                     ArrayList attachDocument = new ArrayList();
                     objMailServiceSetup.AttachItem = attachDocument;
                     MailServiceController objMailServiceController = new MailServiceController();
                     objMailServiceController.eMailSendService(objCompanySetup, objMailServiceSetup);
-
                 }
 
             }

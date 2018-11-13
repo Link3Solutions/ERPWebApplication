@@ -124,6 +124,20 @@ namespace ERPWebApplication.AppClass.Model
             get { return _dtServiceDescription; }
             set { _dtServiceDescription = value; }
         }
+        private int _numberOfUser;
+
+        public int NumberOfUser
+        {
+            get { return _numberOfUser; }
+            set { _numberOfUser = value; }
+        }
+        private byte[] _serviceLogo;
+
+        public byte[] ServiceLogo
+        {
+            get { return _serviceLogo; }
+            set { _serviceLogo = value; }
+        }
 
     }
 }

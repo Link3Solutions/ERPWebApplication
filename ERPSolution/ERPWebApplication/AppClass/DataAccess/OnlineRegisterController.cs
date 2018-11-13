@@ -17,6 +17,7 @@ namespace ERPWebApplication.AppClass.DataAccess
         private CompanySetup _objCompanySetup;
         private string _entryUserName = null;
         private int _companyID;
+        private UserProfileOnline objUserProfileOnline;
         internal void Update(UserList objUserList)
         {
             try
@@ -33,7 +34,7 @@ namespace ERPWebApplication.AppClass.DataAccess
 
                 }
 
-                
+
                 if (objUserList.SecurityCode != CheckSecurityCodeOnline(objUserList))
                 {
                     throw new Exception("The security code and email do not match.");
@@ -79,9 +80,69 @@ namespace ERPWebApplication.AppClass.DataAccess
             try
             {
                 CreateCompanyOnline(objUserList);
+                objUserList.UserID =  _entryUserName;
                 ServeClientNode(objUserList);
+                _objCompanySetup = new CompanySetup();
+                _objCompanySetup.CompanyID = _companyID;
                 AddValuesForRoleSetup(objUserList);
+                ServeOrganizationalChart(objUserList,_objCompanySetup);
+                ServeUsersInRelatedRoles(objUserList,_objCompanySetup);
 
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        private void ServeUsersInRelatedRoles()
+        {
+            try
+            {
+                var storedProcedureComandText = @"INSERT INTO [uUsersInRelatedRoles] ([CompanyID],[UserId],[RoleID],[DataUsed],[EntryUserID],[EntryDate])
+                SELECT DISTINCT " + _companyID + " AS CompanyID,D.UserProfileID, A.RelatedToID,'A' AS DataUsed,D.UserProfileID,CAST(GETDATE() AS DateTime) AS EntryDate " +
+                " FROM OnlineUsersInRelatedRoles A " +
+                " INNER JOIN OnlineServiceRequestDetails B ON A.ServiceID = B.ServiceID " +
+                " INNER JOIN OnlineServiceRequest C ON B.ServiceRequestID=C.ServiceRequestID " +
+                " INNER JOIN uUserProfileTemp D ON C.UserProfileID = D.UserProfileID " +
+                " WHERE A.DataUsed='A' AND B.DataUsed='A' AND C.DataUsed = 'A' AND D.DataUsed='A' AND D.UserProfileID = '" + _entryUserName + "'" +
+                " AND NOT EXISTS(SELECT t2.[RoleID] FROM [uUsersInRelatedRoles] t2  WHERE t2.[RoleID] = A.RelatedToID AND t2.CompanyID = " + _companyID + " AND " +
+                " t2.UserId = '" + _entryUserName + "');";
+                clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        private void ServeOrganizationalChart()
+        {
+            try
+            {
+                var storedProcedureComandText = @"INSERT INTO [orgOrganizationElements] ([CompanyID],[OrgElementID],[DataUsed],[EntryUserID],[EntryDate])
+                  SELECT DISTINCT " + _companyID + " AS CompanyID,A.[EntityTypeID],'A' AS DataUsed,'" + _entryUserName + "' AS EntryUserID,CAST(GETDATE() AS DateTime) " +
+                  " FROM [OnlineOrgOrganizationalChartSetup] A " +
+                  " INNER JOIN OnlineServiceRequestDetails B ON A.ServiceID = B.ServiceID " +
+                  " INNER JOIN OnlineServiceRequest C ON B.ServiceRequestID=C.ServiceRequestID " +
+                  " INNER JOIN uUserProfileTemp D ON C.UserProfileID = D.UserProfileID " +
+                  " WHERE A.DataUsed='A' AND B.DataUsed='A' AND C.DataUsed = 'A' AND D.DataUsed='A' AND D.UserProfileID = '" + _entryUserName + "'" +
+                  " AND NOT EXISTS(SELECT t2.[EntityID] FROM [orgOrganizationalChartSetup] t2  WHERE t2.[EntityID] = A.[EntityID] AND t2.CompanyID = " + _companyID + ");" +
+                @"INSERT INTO [orgOrganizationalChartSetup] ([CompanyID],[ParentEntityID],[EntityID],[EntityTypeID],[AddressTag],[AddressID],[EntityName],[ShortName],[DisplayName]
+                 ,[GroupEmailAddress],[HeadID],[EntityCategoryID],[EntityOpeningDate],[DataUsed],[EntryUserID],[EntryDate])
+                 SELECT DISTINCT " + _companyID + " AS CompanyID,A.[ParentEntityID],A.[EntityID],A.[EntityTypeID],A.[AddressTag],A.[AddressID],A.[EntityName],A.[ShortName],A.[DisplayName],A.[GroupEmailAddress], " +
+                 " A.[HeadID],A.[EntityCategoryID],A.[EntityOpeningDate],'A' AS DataUsed,'" + _entryUserName + "' AS EntryUserID,CAST(GETDATE() AS DateTime) " +
+                 " FROM [OnlineOrgOrganizationalChartSetup] A " +
+                 " INNER JOIN OnlineServiceRequestDetails B ON A.ServiceID = B.ServiceID " +
+                 " INNER JOIN OnlineServiceRequest C ON B.ServiceRequestID=C.ServiceRequestID " +
+                 " INNER JOIN uUserProfileTemp D ON C.UserProfileID = D.UserProfileID " +
+                 " WHERE A.DataUsed='A' AND B.DataUsed='A' AND C.DataUsed = 'A' AND D.DataUsed='A' AND D.UserProfileID = '" + _entryUserName + "'" +
+                 " AND NOT EXISTS(SELECT t2.[EntityID] FROM [orgOrganizationalChartSetup] t2  WHERE t2.[EntityID] = A.[EntityID] AND t2.CompanyID = " + _companyID + ");";
+                clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
 
             }
             catch (Exception msgException)
@@ -96,8 +157,66 @@ namespace ERPWebApplication.AppClass.DataAccess
         {
             try
             {
-                ServeClientNodeAnother(objUserList,objCompanySetup);
-                AddValuesForRoleSetupAnother(objUserList,objCompanySetup);
+                ServeClientNode(objUserList, objCompanySetup);
+                AddValuesForRoleSetupAnother(objUserList, objCompanySetup);
+                this.ServeOrganizationalChart(objUserList, objCompanySetup);
+                this.ServeUsersInRelatedRoles(objUserList, objCompanySetup);
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        private void ServeUsersInRelatedRoles(UserList objUserList, CompanySetup objCompanySetup)
+        {
+            try
+            {
+                var storedProcedureComandText = @"INSERT INTO [uUsersInRelatedRoles] ([CompanyID],[UserId],[RoleID],[DataUsed],[EntryUserID],[EntryDate])
+                SELECT DISTINCT " + objCompanySetup.CompanyID + " AS CompanyID,D.UserProfileID, A.RelatedToID,'A' AS DataUsed,D.UserProfileID,CAST(GETDATE() AS DateTime) AS EntryDate " +
+                " FROM OnlineUsersInRelatedRoles A " +
+                " INNER JOIN OnlineServiceRequestDetails B ON A.ServiceID = B.ServiceID " +
+                " INNER JOIN OnlineServiceRequest C ON B.ServiceRequestID=C.ServiceRequestID " +
+                " INNER JOIN uUserProfileTemp D ON C.UserProfileID = D.UserProfileID " +
+                " WHERE A.DataUsed='A' AND B.DataUsed='A' AND C.DataUsed = 'A' AND D.DataUsed='A' AND D.UserProfileID = '" + objUserList.UserID + "'" +
+                " AND NOT EXISTS(SELECT t2.[RoleID] FROM [uUsersInRelatedRoles] t2  WHERE t2.[RoleID] = A.RelatedToID AND t2.CompanyID = " + objCompanySetup.CompanyID + " AND " +
+                " t2.UserId = '" + objUserList.UserID + "');";
+                clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        private void ServeOrganizationalChart(UserList objUserList, CompanySetup objCompanySetup)
+        {
+            try
+            {
+                var storedProcedureComandText = @"INSERT INTO [orgOrganizationElements] ([CompanyID],[OrgElementID],[DataUsed],[EntryUserID],[EntryDate])
+                  SELECT DISTINCT " + objCompanySetup.CompanyID + " AS CompanyID,A.[EntityTypeID],'A' AS DataUsed,'" + objUserList.UserID + "' AS EntryUserID,CAST(GETDATE() AS DateTime) " +
+                  " FROM [OnlineOrgOrganizationalChartSetup] A " +
+                  " INNER JOIN OnlineServiceRequestDetails B ON A.ServiceID = B.ServiceID " +
+                  " INNER JOIN OnlineServiceRequest C ON B.ServiceRequestID=C.ServiceRequestID " +
+                  " INNER JOIN uUserProfileTemp D ON C.UserProfileID = D.UserProfileID " +
+                  " WHERE A.DataUsed='A' AND B.DataUsed='A' AND C.DataUsed = 'A' AND D.DataUsed='A' AND D.UserProfileID = '" + objUserList.UserID + "'" +
+                  " AND NOT EXISTS(SELECT t2.[EntityID] FROM [orgOrganizationalChartSetup] t2  WHERE t2.[EntityID] = A.[EntityID] AND t2.CompanyID = " + objCompanySetup.CompanyID + ");" +
+                @"INSERT INTO [orgOrganizationalChartSetup] ([CompanyID],[ParentEntityID],[EntityID],[EntityTypeID],[AddressTag],[AddressID],[EntityName],[ShortName],[DisplayName]
+                 ,[GroupEmailAddress],[HeadID],[EntityCategoryID],[EntityOpeningDate],[DataUsed],[EntryUserID],[EntryDate])
+                 SELECT DISTINCT " + objCompanySetup.CompanyID + " AS CompanyID,A.[ParentEntityID],A.[EntityID],A.[EntityTypeID],A.[AddressTag],A.[AddressID],A.[EntityName],A.[ShortName],A.[DisplayName],A.[GroupEmailAddress], " +
+                 " A.[HeadID],A.[EntityCategoryID],A.[EntityOpeningDate],'A' AS DataUsed,'" + objUserList.UserID + "' AS EntryUserID,CAST(GETDATE() AS DateTime) " +
+                 " FROM [OnlineOrgOrganizationalChartSetup] A " +
+                 " INNER JOIN OnlineServiceRequestDetails B ON A.ServiceID = B.ServiceID " +
+                 " INNER JOIN OnlineServiceRequest C ON B.ServiceRequestID=C.ServiceRequestID " +
+                 " INNER JOIN uUserProfileTemp D ON C.UserProfileID = D.UserProfileID " +
+                 " WHERE A.DataUsed='A' AND B.DataUsed='A' AND C.DataUsed = 'A' AND D.DataUsed='A' AND D.UserProfileID = '" + objUserList.UserID + "'" +
+                 " AND NOT EXISTS(SELECT t2.[EntityID] FROM [orgOrganizationalChartSetup] t2  WHERE t2.[EntityID] = A.[EntityID] AND t2.CompanyID = " + objCompanySetup.CompanyID + ");";
+                clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
+
             }
             catch (Exception msgException)
             {
@@ -118,7 +237,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                                                  _companyID + "," +
                                                  _objUserPermission.RoleID + ",'" +
                                                  "1125001" + "','" +
-                                                  "All Services" + "','" +
+                                                  " " + "','" +
                                                  "A" + "', '" +
                                                  _entryUserName + "'," +
                                                  "CAST(GETDATE() AS DateTime));";
@@ -132,7 +251,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                     " INNER JOIN uUserProfileTemp D ON C.UserProfileID = D.UserProfileID " +
                     " WHERE A.DataUsed = 'A' AND B.DataUsed = 'A' AND C.DataUsed = 'A' AND D.DataUsed='A' AND D.UserEmail = '" + objUserList.UserEmail + "'";
                 clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandTextNodes);
-                AddValuesForUserRole(objUserList,_objUserPermission);
+                AddValuesForUserRole(objUserList, _objUserPermission);
 
             }
             catch (Exception msgException)
@@ -152,22 +271,23 @@ namespace ERPWebApplication.AppClass.DataAccess
                                                  objCompanySetup.CompanyID + "," +
                                                  _objUserPermission.RoleID + ",'" +
                                                  "1125001" + "','" +
-                                                  "All Services" + "','" +
+                                                  " " + "','" +
                                                  "A" + "', '" +
                                                  objUserList.UserID + "'," +
                                                  "CAST(GETDATE() AS DateTime));";
                 clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
 
                 var storedProcedureComandTextNodes = @"INSERT INTO [uRoleSetupDetails] ([RoleID],[NodeID],[DataUsed],[EntryUserID],[EntryDate])
-                    SELECT DISTINCT " + _objUserPermission.RoleID + " ,A.NodeTypeID,'A','" + objUserList.UserID + "',CAST(GETDATE() AS DateTime)" +
-                    " FROM OnlineServiceRequestNodes A " +
-                    " INNER JOIN OnlineServiceRequestDetails B ON A.FeatureDetailsID = B.FeatureDetailsID " +
-                    " INNER JOIN OnlineServiceRequest C ON B.ServiceRequestID = C.ServiceRequestID " +
-                    " INNER JOIN uUserProfileTemp D ON C.UserProfileID = D.UserProfileID " +
-                    " WHERE A.DataUsed = 'A' AND B.DataUsed = 'A' AND C.DataUsed = 'A' AND D.DataUsed='A' AND D.UserEmail = '" + objUserList.UserEmail + "'";
+                    SELECT DISTINCT " + _objUserPermission.RoleID + " AS RoleID,A.NodeTypeID,'A' AS DataUsed,'" + objUserList.UserID + "' AS EntryUserID,CAST(GETDATE() AS DateTime) AS EntryDate " +
+                " FROM OnlineServiceRequestNodes A " +
+                " INNER JOIN OnlineServiceRequestDetails B ON A.FeatureDetailsID = B.FeatureDetailsID " +
+                " INNER JOIN OnlineServiceRequest C ON B.ServiceRequestID = C.ServiceRequestID " +
+                " INNER JOIN uUserProfileTemp D ON C.UserProfileID = D.UserProfileID " +
+                " WHERE A.DataUsed = 'A' AND B.DataUsed = 'A' AND C.DataUsed = 'A' AND D.DataUsed='A' AND D.UserProfileID = '" + objUserList.UserID + "'" +
+                " AND NOT EXISTS(SELECT DISTINCT t3.NodeID FROM uRoleSetup t2 " +
+                " INNER JOIN uRoleSetupDetails t3 ON t2.RoleID = t3.RoleID WHERE t2.DataUsed = 'A' AND t3.DataUsed = 'A' AND t2.CompanyID = " + objCompanySetup.CompanyID + " AND t3.NodeID = A.[NodeTypeID]);";
                 clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandTextNodes);
-                AddValuesForUserRole(objUserList, _objUserPermission);
-
+                AddValuesUserRoleAnother(objUserList, _objUserPermission, objCompanySetup);
             }
             catch (Exception msgException)
             {
@@ -176,12 +296,12 @@ namespace ERPWebApplication.AppClass.DataAccess
             }
         }
 
-        private void AddValuesForUserRole(UserList objUserList,UserPermission objUserPermission)
+        private void AddValuesForUserRole(UserList objUserList, UserPermission objUserPermission)
         {
             try
             {
                 _objUserPermission = new UserPermission();
-                List<int> listRole = new List<int>();                
+                List<int> listRole = new List<int>();
                 listRole.Add(Convert.ToInt32(objUserPermission.RoleID));
                 _objUserPermission.roleList = listRole;
                 _objUserPermission.RoleType = "1125001";
@@ -209,6 +329,39 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
         }
+        private void AddValuesUserRoleAnother(UserList objUserList, UserPermission objUserPermission, CompanySetup objCompanySetup)
+        {
+            try
+            {
+                _objUserPermission = new UserPermission();
+                List<int> listRole = new List<int>();
+                listRole.Add(Convert.ToInt32(objUserPermission.RoleID));
+                _objUserPermission.roleList = listRole;
+                _objUserPermission.RoleType = "1125001";
+                EmployeeSetup objEmployeeSetup = new EmployeeSetup();
+
+                UserProfile objUserProfile = new UserProfile();
+                UserProfileController objUserProfileController = new UserProfileController();
+                objUserProfile.UserIdentifierID = objUserList.UserName;
+                objEmployeeSetup.EmployeeID = objUserList.UserID;
+                objEmployeeSetup.CompanyID = objCompanySetup.CompanyID;
+                objEmployeeSetup.EntryUserName = objUserList.UserID;
+                _objUserPermissionController = new UserPermissionController();
+
+                List<int> listRelatedUserRole = new List<int>();
+                //foreach (ListItem item in ListBoxSelectedRelatedUserRole.Items)
+                //{
+                //    listRelatedUserRole.Add(Convert.ToInt32(item.Value.ToString()));
+                //}
+                _objUserPermission.RelatedUserRoleList = listRelatedUserRole;
+                _objUserPermissionController.SaveUserRole(objEmployeeSetup, _objUserPermission);
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
 
         private void ServeClientNode(UserList objUserList)
         {
@@ -217,7 +370,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                 _companyID = GetUserCompanyIDonline();
                 var storedProcedureComandText = @"INSERT INTO [uDefaultNodeList] ([CompanyID],[BranchID],[ActivityID],[ActivityName],[SeqNo],[NodeTypeID],[PNodeTypeID],[FormDescription],[FormName]
                 ,[ShowPosition],[DataUsed],[EntryUserID],[EntryDate],[UserID])
-                SELECT DISTINCT " + _companyID + ",1,A.ActivityID,A.ActivityName,A.SeqNo,A.NodeTypeID,A.PNodeTypeID,A.FormDescription,A.FormName,A.ShowPosition,'A','" + _entryUserName + "',CAST(GETDATE() AS DateTime),'" + objUserList.UserName + "'" +
+                SELECT DISTINCT " + _companyID + " AS CompanyID,1 AS BranchID,A.ActivityID,A.ActivityName,A.SeqNo,A.NodeTypeID,A.PNodeTypeID,A.FormDescription,A.FormName,A.ShowPosition,'A','" + objUserList.UserID + "',CAST(GETDATE() AS DateTime),'" + objUserList.UserName + "'" +
                 " FROM OnlineServiceRequestNodes A " +
                 " INNER JOIN OnlineServiceRequestDetails B ON A.FeatureDetailsID = B.FeatureDetailsID " +
                 " INNER JOIN OnlineServiceRequest C ON B.ServiceRequestID = C.ServiceRequestID " +
@@ -233,18 +386,21 @@ namespace ERPWebApplication.AppClass.DataAccess
                 throw msgException;
             }
         }
-        private void ServeClientNodeAnother(UserList objUserList, CompanySetup objCompanySetup)
+        private void ServeClientNode(UserList objUserList, CompanySetup objCompanySetup)
         {
             try
             {
                 var storedProcedureComandText = @"INSERT INTO [uDefaultNodeList] ([CompanyID],[BranchID],[ActivityID],[ActivityName],[SeqNo],[NodeTypeID],[PNodeTypeID],[FormDescription],[FormName]
                 ,[ShowPosition],[DataUsed],[EntryUserID],[EntryDate],[UserID])
-                SELECT DISTINCT " + objCompanySetup.CompanyID + ",1,A.ActivityID,A.ActivityName,A.SeqNo,A.NodeTypeID,A.PNodeTypeID,A.FormDescription,A.FormName,A.ShowPosition,'A','" + _entryUserName + "',CAST(GETDATE() AS DateTime),'" + objUserList.UserName + "'" +
+                SELECT DISTINCT " + objCompanySetup.CompanyID + " AS CompanyID,1 AS BranchID,A.ActivityID,A.ActivityName,A.SeqNo,A.NodeTypeID,A.PNodeTypeID,A.FormDescription,A.FormName,A.ShowPosition,'A' AS DataUsed,'" + objUserList.UserID + "' AS EntryUserID,CAST(GETDATE() AS DateTime) AS EntryDate,'" + objUserList.UserName + "' AS UserID" +
                 " FROM OnlineServiceRequestNodes A " +
                 " INNER JOIN OnlineServiceRequestDetails B ON A.FeatureDetailsID = B.FeatureDetailsID " +
                 " INNER JOIN OnlineServiceRequest C ON B.ServiceRequestID = C.ServiceRequestID " +
                 " INNER JOIN uUserProfileTemp D ON C.UserProfileID = D.UserProfileID " +
-                " WHERE A.DataUsed = 'A' AND B.DataUsed = 'A' AND C.DataUsed = 'A' AND D.DataUsed='A' AND D.UserEmail = '" + objUserList.UserEmail + "'";
+                " WHERE A.DataUsed = 'A' AND B.DataUsed = 'A' AND C.DataUsed = 'A' AND D.DataUsed='A' AND D.UserProfileID = '" + objUserList.UserID + "'" +
+                " AND NOT EXISTS(SELECT [NodeTypeID] " +
+                " FROM [uDefaultNodeList] t2 " +
+                " WHERE t2.[NodeTypeID] = A.[NodeTypeID] AND t2.CompanyID = " + objCompanySetup.CompanyID + ");";
                 clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
 
 
@@ -277,7 +433,7 @@ namespace ERPWebApplication.AppClass.DataAccess
         {
             try
             {
-                UserProfileOnline objUserProfileOnline = new UserProfileOnline();
+                objUserProfileOnline = new UserProfileOnline();
                 _objUserProfileOnlineController = new UserProfileOnlineController();
                 objUserProfileOnline.DtUserProfileOnline = _objUserProfileOnlineController.GetUserProfileOnline(objUserList);
                 foreach (DataRow rowNo in objUserProfileOnline.DtUserProfileOnline.Rows)

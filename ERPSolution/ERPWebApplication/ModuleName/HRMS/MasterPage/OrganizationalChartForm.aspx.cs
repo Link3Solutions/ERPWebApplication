@@ -199,7 +199,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
             {
                 ddlCompany.SelectedValue = "-1";
                 ListBoxOrganizationElements.Items.Clear();
-                btnSave.Text = "Update";
+                btnSave.Text = "Save";
 
             }
             catch (Exception msgException)
@@ -222,8 +222,10 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                 }
                 _objOrganizationalChartSetup.OrgElementIDList = list;
 
+                _objOrganizationalChartSetup.EntryUserName = LoginUserInformation.UserID;
+
                 _objOrganizationalChartSetupController = new OrganizationalChartSetupController();
-                if (btnSave.Text == "Update")
+                if (btnSave.Text == "Save")
                 {
                     _objOrganizationalChartSetupController.Save(_objOrganizationalChartSetup);
                 }
@@ -275,7 +277,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                     }
                     else
                     {
-                        btnSave.Text = "Update";
+                        btnSave.Text = "Save";
                     }
                 }
 
@@ -433,6 +435,7 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                 _objOrganizationalChartSetup.ShortName = txtShortName.Text == string.Empty ? null : txtShortName.Text;
                 _objOrganizationalChartSetup.DisplayName = txtDisplayName.Text == string.Empty ? null : txtDisplayName.Text;
                 _objOrganizationalChartSetup.GroupEmailAddress = txtEmail.Text == string.Empty ? null : txtEmail.Text;
+                _objOrganizationalChartSetup.EntryUserName = LoginUserInformation.UserID;
                 EmployeeSetup objEmployeeSetup = new EmployeeSetup();
                 objEmployeeSetup.EmployeeID = txtHeadID.Text == string.Empty ? null : txtHeadID.Text;
                 TwoColumnsTableData objTwoColumnsTableData = new TwoColumnsTableData();

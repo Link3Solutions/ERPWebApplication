@@ -65,7 +65,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                                                  objOrganizationalChartSetup.CompanyID + "," +
                                                  listItem.ToString() + ",'" +
                                                  "A" + "', '" +
-                                                 "160ea939-7633-46a8-ae49-f661d12abfd5" + "'," +
+                                                 objOrganizationalChartSetup.EntryUserName + "'," +
                                                  "CAST(GETDATE() AS DateTime));";
                     clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
                 }
@@ -99,10 +99,10 @@ namespace ERPWebApplication.AppClass.DataAccess
             try
             {
                 string sqlQuery = null;
-                sqlQuery = @"SELECT A.[OrgElementID],B.OrgElementName      
+                sqlQuery = @"SELECT DISTINCT A.[OrgElementID],B.OrgElementName,B.[HierarchyID]      
                           FROM [orgOrganizationElements] A 
                           INNER JOIN orgStandardOrgElements B ON A.OrgElementID = B.OrgElementID
-                          WHERE A.[DataUsed] = 'A' AND A.[CompanyID]= " + objOrganizationalChartSetup.CompanyID + " ORDER BY B.HierarchyID";
+                          WHERE A.[DataUsed] = 'A' AND B.DataUsed='A' AND A.[CompanyID]= " + objOrganizationalChartSetup.CompanyID + " ORDER BY B.[HierarchyID]";
                 return sqlQuery;
 
             }
@@ -185,8 +185,8 @@ namespace ERPWebApplication.AppClass.DataAccess
                                                  objOrganizationalChartSetup.CompanyID + "," +
                                                  listItem.ToString() + ",'" +
                                                  "A" + "', '" +
-                                                 "160ea939-7633-46a8-ae49-f661d12abfd5" + "','" +
-                                                 "160ea939-7633-46a8-ae49-f661d12abfd5" + "'," +
+                                                 objOrganizationalChartSetup.EntryUserName + "','" +
+                                                 objOrganizationalChartSetup.EntryUserName + "'," +
                                                  "CAST(GETDATE() AS DateTime));";
                     clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
                 }
@@ -283,7 +283,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                                                  objTwoColumnsTableData.FieldOfID + "',CONVERT(DATETIME,'" +
                                                  objOrganizationalChartSetup.EntityOpeningDate + "', 103),'" +
                                                  "A" + "', '" +
-                                                 "160ea939-7633-46a8-ae49-f661d12abfd5" + "'," +
+                                                 objOrganizationalChartSetup.EntryUserName + "'," +
                                                  "CAST(GETDATE() AS DateTime));";
                 if (objOrganizationalChartSetup.AddressTag == "Y")
                 {
@@ -345,7 +345,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                                                  objOrganizationalChartSetup.PhoneNo + "','" +
                                                  objOrganizationalChartSetup.Fax + "','" +
                                                  "A" + "', '" +
-                                                 "160ea939-7633-46a8-ae49-f661d12abfd5" + "'," +
+                                                 objOrganizationalChartSetup.EntryUserName + "'," +
                                                  "CAST(GETDATE() AS DateTime));";
                 return storedProcedureComandText;
 
@@ -536,7 +536,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                                                       "[EntityCategoryID] = '" + objTwoColumnsTableData.FieldOfID + "'," +
                                                       "[EntityOpeningDate] = CONVERT(DATETIME,'" + objOrganizationalChartSetup.EntityOpeningDate + "',103)" + "," +
                                                       "[LastUpdateDate] = CAST(GETDATE() AS DateTime) " +
-                                                      ",[LastUpdateUserID] = '160ea939-7633-46a8-ae49-f661d12abfd5'" +
+                                                      ",[LastUpdateUserID] = '" + objOrganizationalChartSetup.EntryUserName + "'" +
                                                  " WHERE [EntityID] = " + objOrganizationalChartSetup.ParentEntityID + ";";
 
                 if (objOrganizationalChartSetup.AddressTag == "N")
@@ -593,7 +593,7 @@ namespace ERPWebApplication.AppClass.DataAccess
                                                " ,[ContactPhoneNo] = '" + objOrganizationalChartSetup.PhoneNo + "'" +
                                                " ,[Fax] = '" + objOrganizationalChartSetup.Fax + "'" +
                                                " ,[LastUpdateDate] = CAST(GETDATE() AS DateTime)" +
-                                               " ,[LastUpdateUserID] = '160ea939-7633-46a8-ae49-f661d12abfd5'" +
+                                               " ,[LastUpdateUserID] = '" + objOrganizationalChartSetup.EntryUserName + "'" +
                                              " WHERE [DataUsed] = 'A' AND [EntityAdreessID] = " + objOrganizationalChartSetup.ParentEntityID + ";";
                 return storedProcedureComandText;
 
@@ -612,8 +612,8 @@ namespace ERPWebApplication.AppClass.DataAccess
                 var storedProcedureComandText = @" UPDATE [orgOrganizationAddress]
                                                SET [DataUsed] = 'I'
                                                ,[LastUpdateDate] = CAST(GETDATE() AS DateTime)
-                                               ,[LastUpdateUserID] = '160ea939-7633-46a8-ae49-f661d12abfd5'
-                                             WHERE [DataUsed] = 'A' AND [EntityAdreessID] = " + objOrganizationalChartSetup.ParentEntityID + " ;";
+                                               ,[LastUpdateUserID] = '" + objOrganizationalChartSetup.EntryUserName + "'" +
+                                             " WHERE [DataUsed] = 'A' AND [EntityAdreessID] = " + objOrganizationalChartSetup.ParentEntityID + " ;";
                 return storedProcedureComandText;
 
             }

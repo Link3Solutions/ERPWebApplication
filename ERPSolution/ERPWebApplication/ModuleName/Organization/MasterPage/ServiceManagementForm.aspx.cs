@@ -271,6 +271,9 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 _objServiceManagement.VatCalculationProcessID = Convert.ToInt32(ddlVATCalculation.SelectedValue);
                 _objServiceManagement.PackageID = Convert.ToInt32( ddlPackage.SelectedValue);
                 _objServiceManagement.ServiceDescription = txtServiceDescription.Text == string.Empty ? null : txtServiceDescription.Text;
+                _objServiceManagement.VatRate = txtVATRate.Text == string.Empty ? 0 : Convert.ToInt32( txtVATRate.Text);
+                _objServiceManagement.NumberOfUser = txtNumberOfUsersAllowed.Text == string.Empty ? 0 : Convert.ToInt32( txtNumberOfUsersAllowed.Text);
+                _objServiceManagement.ServiceLogo = (byte[])ViewState["profileImage"];
                 _objServiceManagement.EntryUserName = LoginUserInformation.UserID;
                 _objServiceManagementController = new ServiceManagementController();
                 if (btnCreateService.Text == "Update")
@@ -295,6 +298,48 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 clsTopMostMessageBox.Show(msgException.Message);
             }
         }
+        protected void btnEmpPhoto_Click(object sender, ImageClickEventArgs e)
+        {
+            if (ProfileImageUpload.HasFile)
+            {
+                if (ProfileImageUpload.PostedFile.ContentType == "image/jpg" ||
+                    ProfileImageUpload.PostedFile.ContentType == "image/jpeg" ||
+                    ProfileImageUpload.PostedFile.ContentType == "image/gif" ||
+                    ProfileImageUpload.PostedFile.ContentType == "image/pjpeg" ||
+                    ProfileImageUpload.PostedFile.ContentType == "image/bmp" ||
+                    ProfileImageUpload.PostedFile.ContentType == "image/png")
+                {
+                    int filelenght = ProfileImageUpload.PostedFile.ContentLength;
+                    if (filelenght <= 524288)
+                    {
+                        byte[] imagebytes = new byte[filelenght];
+                        ProfileImageUpload.PostedFile.InputStream.Read(imagebytes, 0, filelenght);
+                        byte[] img = imagebytes;
+                        string base64string = Convert.ToBase64String(img, 0, img.Length);
+                        System.Drawing.Image im = System.Drawing.Image.FromStream(ProfileImageUpload.PostedFile.InputStream);
+                        double imageHight = im.PhysicalDimension.Height;
+                        double imageWidth = im.PhysicalDimension.Width;
+                        if (imageHight <= 150 && imageWidth <= 150)
+                        {
+                            lblImage.Text = "<img src='data:image/png;base64," + base64string +
+                                "' alt='<br />  Logo <br />  Not <br />  Available ' width='" + imageWidth + "' hight='" + imageHight + "' vspace='5px' hspace='5px' />";
+                            ViewState["profileImage"] = imagebytes;
+                        }
+                        else
+                        {
+                            clsTopMostMessageBox.Show(clsMessages.GImageSize);
+
+                        }
+                    }
+                    else
+                    {
+                        clsTopMostMessageBox.Show(clsMessages.GImageSizeBytes);
+
+                    }
+
+                }
+            }
+        }
 
         private void ClearControlServiceData()
         {
@@ -311,6 +356,10 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 lblServiceValueIDValue.Text = string.Empty;
                 btnCreateService.Text = "Save";
                 ddlPackage.SelectedValue = "-1";
+                txtVATRate.Text = string.Empty;
+                txtNumberOfUsersAllowed.Text = string.Empty;
+                lblImage.Text = "Logo <br />  Not <br />  Available ";
+                ViewState["profileImage"] = null;
             }
             catch (Exception msgException)
             {
@@ -326,8 +375,8 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
             e.Row.Cells[5].Visible = false;
             e.Row.Cells[6].Visible = false;
             e.Row.Cells[8].Visible = false;
-            e.Row.Cells[12].Visible = false;
             e.Row.Cells[13].Visible = false;
+            e.Row.Cells[14].Visible = false;
         }
 
         protected void grdServices_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -347,17 +396,22 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                     string lblVATCalculationProcess = ((Label)grdServices.Rows[selectedIndex].FindControl("lblVATCalculationProcess")).Text;
                     string lblServiceCategoryTypeID = ((Label)grdServices.Rows[selectedIndex].FindControl("lblServiceCategoryTypeID")).Text;
                     string lblPackageIDService = ((Label)grdServices.Rows[selectedIndex].FindControl("lblPackageIDService")).Text;
+                    string lblVATRate = ((Label)grdServices.Rows[selectedIndex].FindControl("lblVATRate")).Text;
+                    string lblusers = ((Label)grdServices.Rows[selectedIndex].FindControl("lblusers")).Text;
                     ddlServiceCategory.SelectedValue = lblServiceCategoryTypeID;
                     txtServiceName.Text = lblServiceName;
                     txtServiceValue.Text = lblServiceValue;
                     ddlBillingFrequency.SelectedValue = lblBillingFrequencyType;
                     ddlPaymentType.SelectedValue = lblPaymentType;
                     ddlVATCalculation.SelectedValue = lblVATCalculationProcess;
+                    txtVATRate.Text = lblVATRate;
                     txtServiceDescription.Text = lblServiceDescription;
                     lblServiceIDValue.Text = lblServiceID;
                     lblServiceValueIDValue.Text = lblServiceValueID;
                     ddlPackage.SelectedValue = lblPackageIDService;
+                    txtNumberOfUsersAllowed.Text = lblusers;
                     btnCreateService.Text = "Update";
+                    ShowServiceLogo();
                     
                 }
                 catch (Exception msgException)
@@ -386,6 +440,32 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                 }
 
 
+            }
+        }
+
+        private void ShowServiceLogo()
+        {
+            try
+            {
+                ViewState["profileImage"] = null;
+                lblImage.Text = "Logo <br />  Not <br />  Available ";
+                _objServiceManagement = new ServiceManagement();
+                _objServiceManagement.ServiceID = Convert.ToInt32(lblServiceIDValue.Text);
+                _objServiceManagementController = new ServiceManagementController();
+                DataTable dtLogo = _objServiceManagementController.GetServiceLogo(_objServiceManagement);
+                if (dtLogo.Rows.Count > 0)
+                {
+                    var img = (byte[])dtLogo.Rows[0].ItemArray[0];
+                    string base64string = Convert.ToBase64String(img, 0, img.Length);
+                    lblImage.Text = "<img src='data:image/png;base64," + base64string + "' alt='Logo <br />  Not <br />  Available ' width='60px' hight='55px' vspace='5px' hspace='5px' />";
+                    ViewState["profileImage"] = img;
+                }
+
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
             }
         }
 

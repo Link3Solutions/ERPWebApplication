@@ -479,7 +479,7 @@ namespace ERPWebApplication.AppClass.DataAccess
 
                 string sqlForUpdate = @"UPDATE [uRoleSetup] SET [RoleName] = '" + objUserPermission.RoleName + "',[LastUpdateDate] = CAST(GETDATE() AS DateTime)," +
                                 "[LastUpdateUserID] = '" + objCompanySetup.EntryUserName + "' WHERE [CompanyID] = " + objCompanySetup.CompanyID + " AND " +
-                                " [RoleID] = 1 AND [RoleTypeID] = '" + objUserPermission.RoleType + "'; " +
+                                " [RoleID] = " + objUserPermission.RoleID + " AND [RoleTypeID] = '" + objUserPermission.RoleType + "'; " +
                                  " DELETE FROM uRoleSetupDetails WHERE RoleID = " + objUserPermission.RoleID + "";
                 clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, sqlForUpdate);
 

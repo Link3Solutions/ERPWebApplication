@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
@@ -213,6 +214,34 @@ namespace ERPWebApplication.AppClass.DataAccess
                 var storedProcedureComandText = SqlSaveServiceData(objServiceManagement);
                 storedProcedureComandText += SqlSaveServicePricing(objServiceManagement);
                 clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
+
+                if (objServiceManagement.ServiceLogo != null)
+                {
+                    this.UpdateServiceLogo(objServiceManagement);
+
+                }
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        private void UpdateServiceLogo(ServiceManagement objServiceManagement)
+        {
+            try
+            {
+                SqlConnection con = null;
+                con = new SqlConnection(this.ConnectionString);
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "UPDATE [sysServiceSetup] SET ServiceLogo = @ServiceLogo WHERE ServiceID = @ServiceID";
+                cmd.Connection = con;
+                cmd.Parameters.AddWithValue("@ServiceLogo", objServiceManagement.ServiceLogo);
+                cmd.Parameters.AddWithValue("@ServiceID", objServiceManagement.ServiceID);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
             }
             catch (Exception msgException)
             {
@@ -372,6 +401,7 @@ namespace ERPWebApplication.AppClass.DataAccess
            ,[ServiceValueID]
            ,[ServiceValueStartDate]
            ,[ServiceValue]
+           ,[UserAllowed] 
            ,[VATRate]
            ,[VATCalculationProcess]
            ,[DataUsed]
@@ -382,6 +412,7 @@ namespace ERPWebApplication.AppClass.DataAccess
               + "," + objServiceManagement.ServiceValueID + ""
              + ",'" + objServiceManagement.ServiceValueStartDate + "'"
              + "," + objServiceManagement.ServiceValue + ""
+             + "," + objServiceManagement.NumberOfUser + ""
              + "," + objServiceManagement.VatRate + ""
              + "," + objServiceManagement.VatCalculationProcessID + ""
              + ",'" + "A" + "'"
@@ -411,6 +442,8 @@ namespace ERPWebApplication.AppClass.DataAccess
 				,F.FieldOfName AS ServiceCategoryType
 				,A.PackageID 
 				,G.PackageName
+                ,B.[VATRate]
+                ,B.[UserAllowed]
                  FROM sysServiceSetup A
                 INNER JOIN sysServicePricing B ON A.ServiceID = B.ServiceID AND A.ServiceValueID = B.ServiceValueID
                 LEFT JOIN VATCalculationProcess C ON B.VATCalculationProcess = C.FieldOfID
@@ -462,6 +495,12 @@ namespace ERPWebApplication.AppClass.DataAccess
                 var storedProcedureComandText = SqlUpdateServiceData(objServiceManagement);
                 storedProcedureComandText += SqlSaveServicePricing(objServiceManagement);
                 clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
+
+                if (objServiceManagement.ServiceLogo != null)
+                {
+                    this.UpdateServiceLogo(objServiceManagement);
+
+                }
             }
             catch (Exception msgException)
             {
@@ -759,6 +798,23 @@ namespace ERPWebApplication.AppClass.DataAccess
                 " A.ServiceValueID = (SELECT MAX( B.ServiceValueID) FROM sysServicePricing B WHERE B.DataUsed = 'I' AND B.ServiceID = " + objServiceManagement.ServiceID + ") " + ";";
                 clsDataManipulation objclsDataManipulation = new clsDataManipulation();
                 return objclsDataManipulation.GetSingleValueAsString(this.ConnectionString, sql);
+            }
+            catch (Exception msgException)
+            {
+
+                throw msgException;
+            }
+        }
+
+        internal DataTable GetServiceLogo(ServiceManagement objServiceManagement)
+        {
+            try
+            {
+                DataTable dtLogo = null;
+                var storedProcedureComandText = @"select ServiceLogo from [sysServiceSetup] WHERE ServiceLogo  IS NOT NULL AND DataUsed='A' AND ServiceID = " + objServiceManagement.ServiceID + "";
+                dtLogo = clsDataManipulation.GetData(this.ConnectionString, storedProcedureComandText);
+                return dtLogo;
+
             }
             catch (Exception msgException)
             {

@@ -1091,6 +1091,7 @@
     <Content Include="Scripts\site.js" />
     <Content Include="Scripts\xtreeview.js" />
     <Content Include="ServiceRequestForm.aspx" />
+    <Content Include="ThankYouForm.aspx" />
     <Content Include="WebForm1.aspx" />
     <Content Include="WebForm2.aspx" />
     <Content Include="WebForm3.aspx" />
@@ -1615,6 +1616,13 @@
     </Compile>
     <Compile Include="SiteTree.master.designer.cs">
       <DependentUpon>SiteTree.master</DependentUpon>
+    </Compile>
+    <Compile Include="ThankYouForm.aspx.cs">
+      <DependentUpon>ThankYouForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThankYouForm.aspx.designer.cs">
+      <DependentUpon>ThankYouForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>

@@ -19,9 +19,8 @@ namespace ERPWebApplication.AppClass.DataAccess
                 if (userID == true)
                 {
                     var storedProcedureComandText = "INSERT INTO [uCompanyWiseUserList]([CompanyID],[UserNumber],[UserID]) VALUES (" + objCompanySetup.CompanyID + " " +
-                " ,(SELECT ISNULL(MAX([UserNumber]),0)+1 FROM [uCompanyWiseUserList]),'" + objUserList.UserID + "')";
+                " ,(SELECT ISNULL(MAX(A.[UserNumber]),0)+1 AS [UserNumber] FROM [uCompanyWiseUserList] A WHERE A.CompanyID= " + objCompanySetup.CompanyID + "),'" + objUserList.UserID + "')";
                     clsDataManipulation.StoredProcedureExecuteNonQuery(this.ConnectionString, storedProcedureComandText);
-
                 }
             }
             catch (Exception msgException)

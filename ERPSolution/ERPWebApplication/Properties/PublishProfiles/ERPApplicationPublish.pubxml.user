@@ -348,7 +348,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:16</publishTime>
     </File>
     <File Include="bin/ControlLibrary.dll">
-      <publishTime>10/30/2018 10:51:47</publishTime>
+      <publishTime>11/07/2018 16:56:58</publishTime>
     </File>
     <File Include="bin/CrystalDecisions.CrystalReports.Design.dll">
       <publishTime>01/06/2013 05:05:56</publishTime>
@@ -399,7 +399,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2016 12:45:28</publishTime>
     </File>
     <File Include="bin/ERPWebApplication.dll">
-      <publishTime>10/30/2018 13:22:17</publishTime>
+      <publishTime>11/07/2018 19:24:47</publishTime>
     </File>
     <File Include="bin/FlashControlV71.dll">
       <publishTime>01/06/2013 05:05:56</publishTime>
@@ -2637,7 +2637,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/21/2018 15:40:06</publishTime>
     </File>
     <File Include="HomePageLogoForm.aspx">
-      <publishTime>10/30/2018 11:05:58</publishTime>
+      <publishTime>10/31/2018 11:21:01</publishTime>
     </File>
     <File Include="HomePageRegisterForm.aspx">
       <publishTime>07/26/2018 14:03:10</publishTime>
@@ -2703,13 +2703,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/11/2017 10:45:26</publishTime>
     </File>
     <File Include="Images/logoFormHeader.jpg">
-      <publishTime>10/29/2018 15:11:20</publishTime>
+      <publishTime>10/31/2018 11:35:14</publishTime>
     </File>
     <File Include="Images/logoFormHeader.png">
-      <publishTime>10/30/2018 13:21:35</publishTime>
+      <publishTime>10/31/2018 11:26:18</publishTime>
     </File>
     <File Include="Images/logoFormHeader2.jpg">
-      <publishTime>10/29/2018 15:50:54</publishTime>
+      <publishTime>10/31/2018 11:30:45</publishTime>
     </File>
     <File Include="Images/logo_120_100.png">
       <publishTime>06/28/2018 15:29:20</publishTime>
@@ -2802,7 +2802,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/30/2018 12:48:32</publishTime>
     </File>
     <File Include="ModuleName/HRMS/MasterPage/OrganizationalChartForm.aspx">
-      <publishTime>08/07/2018 11:15:40</publishTime>
+      <publishTime>11/05/2018 12:47:35</publishTime>
     </File>
     <File Include="ModuleName/HRMS/SelfService/LeaveApplicationForm.aspx">
       <publishTime>02/28/2018 16:58:44</publishTime>
@@ -2856,7 +2856,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/01/2018 13:06:25</publishTime>
     </File>
     <File Include="ModuleName/Organization/MasterPage/ServiceManagementForm.aspx">
-      <publishTime>09/09/2018 18:00:44</publishTime>
+      <publishTime>10/31/2018 12:30:51</publishTime>
     </File>
     <File Include="ModuleName/Organization/MasterPage/ServiceServeForm.aspx">
       <publishTime>10/15/2018 14:00:47</publishTime>
@@ -2871,7 +2871,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/11/2018 17:07:28</publishTime>
     </File>
     <File Include="ModuleName/Organization/MasterPage/UserPermissionForm.aspx">
-      <publishTime>10/28/2018 12:36:09</publishTime>
+      <publishTime>11/06/2018 17:14:31</publishTime>
     </File>
     <File Include="ModuleName/Organization/MasterPage/UserProfileForm.aspx">
       <publishTime>08/01/2018 12:25:05</publishTime>
@@ -3096,7 +3096,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/23/2016 14:33:30</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/30/2018 13:22:27</publishTime>
+      <publishTime>11/07/2018 19:25:01</publishTime>
     </File>
     <File Include="WebForm1.aspx">
       <publishTime>05/28/2018 16:24:24</publishTime>

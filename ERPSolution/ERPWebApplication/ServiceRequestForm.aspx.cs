@@ -373,7 +373,17 @@ namespace ERPWebApplication
         {
             try
             {
-                ControlPanelVisibilityPlaceOrder(PanelUserAccount, PanelSubModuleLogo, PanelModuleDescription, PanelCreateAccount, PanelUserLogin);
+                if (btnPlaceOrder.Text == "Place Order")
+                {
+                    ControlPanelVisibilityPlaceOrder(PanelUserAccount, PanelSubModuleLogo, PanelModuleDescription, PanelCreateAccount, PanelUserLogin);
+                    btnPlaceOrder.Text = "<< Back";
+                }
+                else
+                {
+                    ControlPanelVisibility(PanelSubModuleLogo, PanelModuleDescription, PanelUserAccount, PanelCreateAccount, PanelUserLogin);
+                    btnPlaceOrder.Text = "Place Order";
+                }
+                
             }
             catch (Exception msgException)
             {
@@ -707,7 +717,9 @@ namespace ERPWebApplication
                 AddValuesUserProfileOnline(_objUserProfileOnline.EntryUserName);
                 clsTopMostMessageBox.Show(clsMessages.GProcessSuccess);
                 _objUserProfileOnline.Email = txtUserEmail.Text == string.Empty ? null : txtUserEmail.Text;
-                _objUserProfileOnlineController.SendSecurityCodeOnline(_objUserProfileOnline);
+                _objCompanyDetailsSetup = new CompanyDetailsSetup();
+                _objCompanyDetailsSetup.CompanyEmail = txtCompanyEmail.Text == string.Empty ? null : txtCompanyEmail.Text;
+                _objUserProfileOnlineController.SendSecurityCodeOnline(_objUserProfileOnline, _objCompanyDetailsSetup);
             }
             catch (Exception msgException)
             {
