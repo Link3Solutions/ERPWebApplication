@@ -130,7 +130,7 @@ namespace ERPWebApplication
             }
         }
 
-        private void GetMenuData()
+        public void GetMenuData()
         {
             try
             {

@@ -31,6 +31,8 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
                     LoadEmployeeTitle();
                 }
 
+                Page.Form.Attributes.Add("enctype", "multipart/form-data");
+
             }
             catch (Exception msgException)
             {
@@ -195,6 +197,9 @@ namespace ERPWebApplication.ModuleName.HRMS.MasterPage
 
                 }
             }
+
+            SiteMaster MyMasterPage = (SiteMaster)Page.Master;
+            MyMasterPage.GetMenuData();
         }
     }
 }

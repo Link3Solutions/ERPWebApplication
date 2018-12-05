@@ -719,7 +719,9 @@ namespace ERPWebApplication
                 _objUserProfileOnline.Email = txtUserEmail.Text == string.Empty ? null : txtUserEmail.Text;
                 _objCompanyDetailsSetup = new CompanyDetailsSetup();
                 _objCompanyDetailsSetup.CompanyEmail = txtCompanyEmail.Text == string.Empty ? null : txtCompanyEmail.Text;
-                _objUserProfileOnlineController.SendSecurityCodeOnline(_objUserProfileOnline, _objCompanyDetailsSetup);
+                _objUserProfileOnlineController.SendSecurityCodeOnline(_objUserProfileOnline, _objCompanyDetailsSetup);                
+                Response.Redirect("~/ThankYouForm.aspx?EID=" + _objUserProfileOnline.Email + "");
+                
             }
             catch (Exception msgException)
             {

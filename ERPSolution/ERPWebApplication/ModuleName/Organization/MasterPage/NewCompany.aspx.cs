@@ -9,6 +9,8 @@ using ERPWebApplication.AppClass.DataAccess;
 using ERPWebApplication.AppClass.Model;
 using System.Data;
 
+
+
 namespace ERPWebApplication.ModuleName.Organization.MasterPage
 {
     public partial class NewCompany : System.Web.UI.Page
@@ -25,6 +27,8 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                     LoadCountryDropDown(ddlCountry);
                     LoadCompanyDetails();
                 }
+
+                Page.Form.Attributes.Add("enctype", "multipart/form-data");
 
             }
             catch (Exception msgException)
@@ -271,6 +275,9 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
 
                 }
             }
+
+            SiteMaster MyMasterPage = (SiteMaster)Page.Master;
+            MyMasterPage.GetMenuData();
         }
     }
 }

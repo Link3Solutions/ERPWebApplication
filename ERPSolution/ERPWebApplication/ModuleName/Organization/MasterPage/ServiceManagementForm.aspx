@@ -81,7 +81,7 @@
                                     </asp:Panel>
                                 </ContentTemplate>
                             </ajaxToolkit:TabPanel>
-                            <ajaxToolkit:TabPanel ID="TabPanelUserPermission" runat="server" HeaderText="Create Service" Width="1160px">
+                            <ajaxToolkit:TabPanel ID="TabPanelUserPermission" runat="server" HeaderText="Create Service" Width="1165px">
                                 <ContentTemplate>
                                     <table style="width: 100%">
                                         <tr>
@@ -158,7 +158,7 @@
                                                     <table style="width: 100%; text-align: left; margin-top: -25px">
                                                         <tr>
                                                             <td style="text-align: left; float: left; ">
-                                                                <div style="height: 175px; width: 250px">
+                                                                <div style="height: 205px; width: 250px">
                                                                     <table style="width: 99%;">
                                                                         <tr>
                                                                             <td>
@@ -188,7 +188,7 @@
                                                                 </div>
                                                             </td>
                                                             <td style="text-align: left; float: left; ">
-                                                                <div style="height: 175px; width: 250px; padding-left: 15px">
+                                                                <div style="height: 205px; width: 250px; padding-left: 15px">
                                                                     <table style="width: 100%;">
                                                                         <tr>
                                                                             <td>
@@ -199,18 +199,18 @@
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:DropDownList ID="ddlPaymentType" Width="235px" runat="server"></asp:DropDownList></td>
+                                                                                <asp:DropDownList ID="ddlPaymentType" Width="233px" runat="server"></asp:DropDownList></td>
                                                                             <td>&nbsp;</td>
                                                                             <td rowspan="5"></td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:Label ID="Label15" runat="server" Width="110px" Text="VAT Calculation"></asp:Label>&nbsp;&nbsp;<asp:Label ID="Label7" Width="110px" runat="server" Text="VAT Rate (%)"></asp:Label></td>
+                                                                                <asp:Label ID="Label15" runat="server" Width="140px" Text="VAT Calculation"></asp:Label>&nbsp;&nbsp;<asp:Label ID="Label7" Width="80px" runat="server" Text="VAT Rate (%)"></asp:Label></td>
                                                                             <td>&nbsp;</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:DropDownList ID="ddlVATCalculation" Width="110px" runat="server"></asp:DropDownList>&nbsp;&nbsp;<asp:TextBox ID="txtVATRate" Width="105px" Height="22px" TextMode="Number" runat="server"></asp:TextBox></td>
+                                                                                <asp:DropDownList ID="ddlVATCalculation" Width="140px" runat="server"></asp:DropDownList>&nbsp;&nbsp;<asp:TextBox ID="txtVATRate" Width="75px" Height="22px" TextMode="Number" runat="server"></asp:TextBox></td>
                                                                             <td>&nbsp;</td>
                                                                         </tr>
                                                                         <tr>
@@ -220,15 +220,15 @@
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <asp:DropDownList ID="ddlBillingFrequency" Width="235px" runat="server"></asp:DropDownList></td>
+                                                                                <asp:DropDownList ID="ddlBillingFrequency" Width="233px" runat="server"></asp:DropDownList></td>
                                                                             <td>&nbsp;</td>
                                                                         </tr>
                                                                     </table>
                                                                 </div>
                                                             </td>
                                                             <td style="text-align: left; float: left; ">
-                                                                <div style="height: 175px; width: 240px; padding-left: 15px">
-                                                                    <table style="width: 100%; margin-top: -1px">
+                                                                <div style="height: 205px; width: 255px;">
+                                                                    <table style="width: 100%">
                                                                         <tr>
                                                                             <td colspan="3">
                                                                                 <asp:Label ID="Label9" runat="server" Text="Package"></asp:Label><asp:Label ID="lblServiceValueIDValue" runat="server" Visible="False"></asp:Label>
@@ -259,16 +259,23 @@
                                                                 </div>
                                                             </td>
                                                             <td style="text-align: left; float: left; ">
-                                                                <div style="height: 175px; width: 200px">
+                                                                <div style="height: 205px; width: 240px">
                                                                     <table style="width: 100%;">
                                                                         <tr>
                                                                             <td colspan="3">
+                                                                                <div style="height:15px"></div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        <tr>
+                                                                            <td colspan="3">
+                                                                                <div style="margin-left:-25px">
                                                                                 <asp:Button ID="btnAddPackage" Width="100px" CssClass="CssBtnAddNew" runat="server" Text="Add Package" OnClick="btnAddPackage_Click" />
+                                                                            </div>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td colspan="3">
-                                                                                <asp:Panel ID="Panel11" runat="server" Height="100%" Width="190px">
+                                                                                <asp:Panel ID="Panel11" runat="server" Height="100%" Width="235px">
                             <table style="width: 100%; text-align: left">
                                                             <tr>
                                                                 <td>
@@ -279,21 +286,13 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    <%--<asp:Label ID="Label98" runat="server" Text="[150X150,  Files are supported]"></asp:Label>--%>
-                                                                    <div id="dvMsg" style="background-color: Red; color: White; width: 190px; padding: 3px; display: none;">
-                                                                        Maximum size allowed is 500 kb
-                                                                    </div>
+                                                                    <asp:FileUpload ID="ProfileImageUpload" runat="server" Width="185px" Height="21px" CssClass="CssFile_Upload"  />
                                                                 </td>
                                                             </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <asp:FileUpload ID="ProfileImageUpload" runat="server" Width="190px" CssClass="CssFile_Upload" Height="24px" />
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td style="text-align: left; margin-top: -30px">
-                                                                    <asp:ImageButton ID="btnEmpPhoto" runat="server" Width="27px" ImageUrl="~/Images/imageup.jpg" Height="12px" OnClick="btnEmpPhoto_Click"  />
-                                                                </td>
+                                <tr>
+                                    <td style="text-align: left; ">
+                                        <asp:ImageButton ID="btnEmpPhoto" runat="server" Width="25px" Height="12px" ImageUrl="~/Images/imageup.jpg"  OnClick="btnEmpPhoto_Click"  />
+                                    </td>
                                                             </tr>
                                                             <tr>
                                                                 <td style="margin-top: -30px">
@@ -308,7 +307,7 @@
                                                                     </div>
                                                                 </td>
                                                             <td style="float: left">
-                                                                <div style="height: 175px; width: 110px; position: fixed; padding-left: 50px; margin-top: -5px">
+                                                                <div style="height: 205px; width: 110px; position: fixed; padding-left: 50px; margin-top: -5px">
                                                                     <table>
                                                                         <tr>
                                                                             <td>
@@ -338,6 +337,8 @@
                                                                             <ItemTemplate>
                                                                                 <asp:Label ID="lblServiceCategoryType" runat="server" Text='<%# Bind("ServiceCategoryType") %>'></asp:Label>
                                                                             </ItemTemplate>
+                                                                            <HeaderStyle HorizontalAlign="Left" />
+                                                                            <ItemStyle HorizontalAlign="Left" />
                                                                         </asp:TemplateField>
                                                                         <asp:TemplateField HeaderText="ServiceID">
                                                                             <ItemTemplate>
@@ -353,11 +354,15 @@
                                                                             <ItemTemplate>
                                                                                 <asp:Label ID="lblServiceName" runat="server" Text='<%# Bind("ServiceName") %>'></asp:Label>
                                                                             </ItemTemplate>
+                                                                            <HeaderStyle HorizontalAlign="Left" />
+                                                                            <ItemStyle HorizontalAlign="Left" />
                                                                         </asp:TemplateField>
                                                                         <asp:TemplateField HeaderText="Description">
                                                                             <ItemTemplate>
                                                                                 <asp:Label ID="lblServiceDescription" runat="server" Text='<%# Bind("ServiceDescription") %>'></asp:Label>
                                                                             </ItemTemplate>
+                                                                            <HeaderStyle HorizontalAlign="Left" />
+                                                                            <ItemStyle HorizontalAlign="Left" />
                                                                         </asp:TemplateField>
                                                                         <asp:TemplateField HeaderText="BillingFrequencyTypeID">
                                                                             <ItemTemplate>
@@ -373,6 +378,8 @@
                                                                             <ItemTemplate>
                                                                                 <asp:Label ID="lblServiceValue" runat="server" Text='<%# Eval("ServiceValue","{0:N2}") %>' Width="75px" Style="text-align: right;"></asp:Label>
                                                                             </ItemTemplate>
+                                                                            <HeaderStyle HorizontalAlign="Right" />
+                                                                            <ItemStyle HorizontalAlign="Right" />
                                                                         </asp:TemplateField>
                                                                         <asp:TemplateField HeaderText="VATCalculationProcessID">
                                                                             <ItemTemplate>
@@ -383,21 +390,29 @@
                                                                             <ItemTemplate>
                                                                                 <asp:Label ID="lblVATCalculationProcessText" runat="server" Text='<%# Bind("VATCalculationProcessText") %>'></asp:Label>
                                                                             </ItemTemplate>
+                                                                            <HeaderStyle HorizontalAlign="Left" />
+                                                                            <ItemStyle HorizontalAlign="Left" />
                                                                         </asp:TemplateField>
                                                                         <asp:TemplateField HeaderText="VAT Rate (%)">
                                                                             <ItemTemplate>
                                                                                 <asp:Label ID="lblVATRate" runat="server" Text='<%# Bind("VATRate") %>'></asp:Label>
                                                                             </ItemTemplate>
+                                                                            <HeaderStyle HorizontalAlign="Right" />
+                                                                            <ItemStyle HorizontalAlign="Right" />
                                                                         </asp:TemplateField>
                                                                         <asp:TemplateField HeaderText="Payment Type">
                                                                             <ItemTemplate>
                                                                                 <asp:Label ID="lblPaymentTypeText" runat="server" Text='<%# Bind("PaymentTypeText") %>'></asp:Label>
                                                                             </ItemTemplate>
+                                                                            <HeaderStyle HorizontalAlign="Left" />
+                                                                            <ItemStyle HorizontalAlign="Left" />
                                                                         </asp:TemplateField>
                                                                         <asp:TemplateField HeaderText="Billing Frequency">
                                                                             <ItemTemplate>
                                                                                 <asp:Label ID="lblBillingFrequencyTypeText" runat="server" Text='<%# Bind("BillingFrequencyTypeText") %>'></asp:Label>
                                                                             </ItemTemplate>
+                                                                            <HeaderStyle HorizontalAlign="Left" />
+                                                                            <ItemStyle HorizontalAlign="Left" />
                                                                         </asp:TemplateField>
                                                                         <asp:TemplateField HeaderText="ServiceCategoryTypeID">
                                                                             <ItemTemplate>
@@ -413,11 +428,15 @@
                                                                             <ItemTemplate>
                                                                                 <asp:Label ID="lblPackageName" runat="server" Text='<%# Bind("PackageName") %>'></asp:Label>
                                                                             </ItemTemplate>
+                                                                            <HeaderStyle HorizontalAlign="Left" />
+                                                                            <ItemStyle HorizontalAlign="Left" />
                                                                         </asp:TemplateField>
                                                                         <asp:TemplateField HeaderText="Users">
                                                                             <ItemTemplate>
                                                                                 <asp:Label ID="lblusers" runat="server" Text='<%# Bind("UserAllowed") %>'></asp:Label>
                                                                             </ItemTemplate>
+                                                                            <HeaderStyle HorizontalAlign="Right" />
+                                                                            <ItemStyle HorizontalAlign="Right" />
                                                                         </asp:TemplateField>
                                                                         <asp:CommandField ShowSelectButton="True" />
                                                                         <asp:CommandField ShowDeleteButton="True" />
@@ -425,7 +444,7 @@
                                                                 </asp:GridView>
                                                             </td>
                                                             <td>
-                                                                <div style="height: 175px; width: 110px;  padding-left: 50px; margin-top: -5px">
+                                                                <div style="height: 205px; width: 110px;  padding-left: 50px; margin-top: -5px">
                                                                     </div>
                                                             </td>
                                                         </tr>
@@ -548,6 +567,7 @@
         </ContentTemplate>
         <Triggers>
             <asp:PostBackTrigger ControlID="TabContainerUserPermission$TabPanelUserPermission$btnEmpPhoto" />
+            <asp:PostBackTrigger ControlID="TabContainerUserPermission$TabPanelUserPermission$grdServices" />
             <%--<asp:PostBackTrigger ControlID="TabContainerUserPermission$TabPanelRoleSetup$btnUpdate" />--%>
         </Triggers>
     </asp:UpdatePanel>

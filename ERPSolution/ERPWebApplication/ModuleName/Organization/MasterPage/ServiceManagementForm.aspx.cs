@@ -43,6 +43,8 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
                     PanelPackageSetup.Visible = false;
 
                 }
+
+                Page.Form.Attributes.Add("enctype", "multipart/form-data");
             }
             catch (Exception msgException)
             {
@@ -339,6 +341,9 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
 
                 }
             }
+
+            SiteMaster MyMasterPage = (SiteMaster)Page.Master;
+            MyMasterPage.GetMenuData();
         }
 
         private void ClearControlServiceData()
@@ -441,6 +446,9 @@ namespace ERPWebApplication.ModuleName.Organization.MasterPage
 
 
             }
+
+            SiteMaster MyMasterPage = (SiteMaster)Page.Master;
+            MyMasterPage.GetMenuData();
         }
 
         private void ShowServiceLogo()

@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="New Company.." Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="NewCompany.aspx.cs" Inherits="ERPWebApplication.ModuleName.Organization.MasterPage.NewCompany" %>
 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
         .auto-style1 {
